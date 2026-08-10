@@ -1,0 +1,37 @@
+# CQ-C6 — For ANY node, what is its provenance and current review status?
+# ---------------------------------------------------------------------------
+# I2 FIX (2026-07-08): the previous query answered PRIMARY UNITS only (nodes that carry
+# their own reviewStatus + hasProvenance = the 21 Obligations). Per the Phase-4 targeting,
+# Condition/Exception do NOT carry their own provenance/review — they INHERIT it from their
+# parent Obligation/Right (reached via gdprkg:appliesIf / gdprkg:hasException). This version
+# adds a UNION branch that resolves a Condition/Exception's provenance/status THROUGH its
+# parent and labels each row ?mode = "direct" | "inherited", so the query answers "for ANY
+# node", not just primary units.
+# Expected over art13.ttl: 21 "direct" rows (one per Obligation) PLUS "inherited" rows for
+# every Condition/Exception resolved through each parent it attaches to (e.g. the single
+# 13(4) Exception resolves via all 21 obligations → 21 inherited rows; each Condition via
+# the obligations whose appliesIf reaches it). Every grounded node's provenance is now
+# resolvable; no grounded node is left without a provenance/status answer.
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX prov:   <http://www.w3.org/ns/prov#>
+SELECT ?node ?mode ?status ?record ?activity ?agent
+WHERE {
+  {
+    # direct: primary normative units (Obligation/Right/LegalBasis/Consent) carry their own
+    ?node gdprkg:reviewStatus ?status ;
+          gdprkg:hasProvenance ?record .
+    BIND("direct" AS ?mode)
+  }
+  UNION
+  {
+    # inherited: a Condition/Exception resolves provenance/status via its parent norm
+    ?node a ?t .
+    FILTER(?t IN (gdprkg:Condition, gdprkg:Exception))
+    ?parent (gdprkg:appliesIf|gdprkg:hasException) ?node ;
+            gdprkg:reviewStatus ?status ;
+            gdprkg:hasProvenance ?record .
+    BIND("inherited" AS ?mode)
+  }
+  OPTIONAL { ?record prov:wasGeneratedBy ?activity ; prov:wasAttributedTo ?agent }
+}
+ORDER BY ?mode ?node

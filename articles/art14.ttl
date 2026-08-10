@@ -1,0 +1,757 @@
+@prefix gdprkg:  <https://w3id.org/gdprkg#> .
+@prefix ex:      <https://w3id.org/gdprkg/data#> .
+@prefix eli:     <http://data.europa.eu/eli/ontology#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+#  Article 14 — RDF instantiation (ABox)  [PHASE 5]
+#  ---------------------------------------------------------------
+#  Status: 0.1.0-phase5-art14-draft (2026-08-05) — PROVISIONAL,
+#  awaiting orchestrator verification + Zied's certification.
+#  reviewStatus="draft" on every primary normative unit (24
+#  Obligations). NOT a validated benchmark.
+#
+#  Built against ontology/gdpr_kg.ttl (TBox — UNCHANGED by this pass)
+#  + validated against ontology/shapes.ttl (UNCHANGED by this pass).
+#  Executed EXACTLY per the signed-off Art-14 instantiation brief v3.1
+#  (../../gdpr-kg-monitoring/art14_instantiation_brief.md): §2.6 FIXED
+#  24-obligation inventory, §6.1 locked Tier-1 predictions, §7 answered
+#  T3 decisions B/C/D/E/F/G. Source text:
+#  kg/source/gdpr_articles_structured.json, article "14" (gdpr-info.eu;
+#  25 rows = 5 paragraph rows + 20 point rows, post the Work-Order-A/B
+#  scraper repair; §0 structure gate PASSED 5/5 2026-08-04).
+#
+#  >>> THE CORE FRAMING: Article 14 is the DISCLOSURE SIBLING of Article
+#  13 — the same duty set where the data were NOT obtained from the data
+#  subject. The Art-13 machinery generalises directly: point-level
+#  Obligations, R5 enumeration splits, "where applicable" Conditions,
+#  one shared ProvenanceRecord, disclosedToDataSubject on every
+#  disclosure duty. What Art 14 ADDS and Art 13 has no counterpart for:
+#    * 14(1)(d) categories of personal data  -> canonical node MINT
+#      ex:concept-data-category (T3-F). DataCategory was ALREADY in
+#      disclosesConcept's range: a canonical-node mint, NOT a TBox change.
+#    * 14(2)(f) source of the data (split x2, T3-E(i)) -> represented via
+#      referencesActor -> ex:actor-personal-data-source, typed with the
+#      declared-but-idle TBox class gdprkg:Actor_PersonalDataSource
+#      (T3-E(ii)). NOT disclosesConcept: its range admits no Actor and has
+#      no DataSource member — that route would be a TBox change.
+#    * 14(3) TIMING with no disclosure content of its own (T3-B):
+#      (a) -> gdprkg:hasTimeLimit (fixed deadline, anchored to the
+#      obtaining event) on all 22 paragraph-1/2 duties; (b) and (c) ->
+#      event-trigger Conditions on the same 22 duties.
+#    * 14(5)(a)-(d) -> FOUR Exception nodes (T3-D), one per ground, each
+#      NODE-SHARED across all 23 paragraph-1-to-4 obligations (Art-13
+#      shared-Exception pattern; not per-obligation copies, not one
+#      merged node).
+#    * 14(5)(b)'s affirmative sentence -> an Obligation (T3-C), the 24th,
+#      grounded in the SAME Point (ex:art14-p5-b) as the exemption ground
+#      that gives rise to it, so CQ-A6 can reach it. It is the ONE
+#      obligation with NO hasException (it arises BECAUSE the exemption
+#      applies) and NO hasTimeLimit.
+#
+#  NO TBox change. NO SHACL change. Only ONE edit outside this file: the
+#  authorized ex:ref-art14 -> ex:art14 rewire in articles/art12.ttl (§3.2).
+#
+#  Executor interpretation calls are collected in
+#  articles/art14_surfaced_items.md (SURFACE-14-EXEC-1…) — none decided.
+#################################################################
+
+<https://w3id.org/gdprkg/data/art14>
+    a owl:Ontology ;
+    rdfs:label "GDPR Article 14 instance graph (ABox)"@en ;
+    owl:versionInfo "0.1.0-phase5-art14-draft (2026-08-05) — provisional, awaiting orchestrator verification + Zied's certification. 24 Obligations (P1:9, P2:13, P3:0, P4:1, P5:1); 12 Conditions; 4 node-shared Exceptions (one per 14(5) ground); 22 hasTimeLimit; 2 canonical mints (ex:concept-data-category, ex:actor-personal-data-source); 1 new stub (ex:ref-art89); all other stubs/actors/concepts REUSED." ;
+    rdfs:comment "Instantiation of GDPR Article 14 against the gdprkg TBox, per the ratified Art-14 brief v3.1 (§2.6 fixed 24-obligation inventory; §7 answered T3s). 24 controller-borne point-level Obligations, each grounded in its Point (14(4) at the Paragraph, per R4), with one shared ProvenanceRecord and reviewStatus=draft throughout. Four 14(5) Exception nodes, each node-shared across the 23 paragraph-1-to-4 obligations. 14(3) timing: a fixed deadline (hasTimeLimit) from 14(3)(a) plus two event-trigger Conditions from 14(3)(b)/(c), all over the 22 paragraph-1/2 duties. Cross-article: the Art-6 lawful-basis references of 14(2)(b)/(d) are wired to the real Art-6 Points and bases; the canonical ex:concept-* domain nodes are SHARED with Art 13, not copied."@en ;
+    owl:imports <https://w3id.org/gdprkg> .
+
+#################################################################
+#  1 — LEGAL-SOURCE CHAIN  (Regulation -> Article -> Paragraph -> Point)
+#  ex:gdpr is re-declared (same canonical node as art13/art6/art12) so
+#  this file is self-contained when loaded standalone; combined, ex:gdpr
+#  accrues hasArticle art13 + art6 + art12 + art14.
+#
+#  TEXT-FIDELITY NOTE (Zied's standing ruling, brief §0): a skos:note
+#  carrying legal text is an INFORMATIVE GLOSS, not a fidelity claim —
+#  the authoritative text of record is the source row a node grounds
+#  into (kg/source/gdpr_articles_structured.json, article "14"). Point
+#  notes below are VERBATIM from that scrape. Paragraph notes carry the
+#  CHAPEAU only (the scrape's paragraph rows additionally repeat the full
+#  text of their own points; that repetition is true of every article in
+#  the scrape and is not a defect — brief §1). Art-13 pattern.
+#  Brief §3 finding 11: NO Art-14 row carries the leading sentence-number
+#  artifact — checked; nothing to strip here.
+#################################################################
+
+ex:gdpr a gdprkg:Regulation ;
+    rdfs:label "Regulation (EU) 2016/679 (GDPR)"@en ;
+    rdfs:seeAlso <http://data.europa.eu/eli/reg/2016/679/oj> ;
+    gdprkg:hasArticle ex:art14 .
+
+ex:art14 a gdprkg:Article ;
+    rdfs:label "Article 14"@en ;
+    rdfs:seeAlso <http://data.europa.eu/eli/reg/2016/679/art_14> ;
+    gdprkg:workingTextSource "https://gdpr-info.eu/art-14-gdpr/"^^xsd:anyURI ;
+    gdprkg:hasParagraph ex:art14-p1 , ex:art14-p2 , ex:art14-p3 , ex:art14-p4 , ex:art14-p5 .
+
+# --- Paragraph 1 (chapeau) + its six lettered points ---
+ex:art14-p1 a gdprkg:Paragraph ; rdfs:label "Article 14(1)"@en ;
+    skos:note "Where personal data have not been obtained from the data subject, the controller shall provide the data subject with the following information:"@en ;
+    gdprkg:hasPoint ex:art14-p1-a , ex:art14-p1-b , ex:art14-p1-c , ex:art14-p1-d , ex:art14-p1-e , ex:art14-p1-f .
+
+ex:art14-p1-a a gdprkg:Point ; rdfs:label "Article 14(1)(a)"@en ;
+    skos:note "the identity and the contact details of the controller and, where applicable, of the controller's representative;"@en .
+ex:art14-p1-b a gdprkg:Point ; rdfs:label "Article 14(1)(b)"@en ;
+    skos:note "the contact details of the data protection officer, where applicable;"@en .
+ex:art14-p1-c a gdprkg:Point ; rdfs:label "Article 14(1)(c)"@en ;
+    skos:note "the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;"@en .
+ex:art14-p1-d a gdprkg:Point ; rdfs:label "Article 14(1)(d)"@en ;
+    skos:note "the categories of personal data concerned;"@en .
+ex:art14-p1-e a gdprkg:Point ; rdfs:label "Article 14(1)(e)"@en ;
+    skos:note "the recipients or categories of recipients of the personal data, if any;"@en .
+ex:art14-p1-f a gdprkg:Point ; rdfs:label "Article 14(1)(f)"@en ;
+    skos:note "where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47 , or the second subparagraph of Article 49 (1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available."@en .
+
+# --- Paragraph 2 (chapeau) + its seven lettered points ---
+ex:art14-p2 a gdprkg:Paragraph ; rdfs:label "Article 14(2)"@en ;
+    skos:note "In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject:"@en ;
+    gdprkg:hasPoint ex:art14-p2-a , ex:art14-p2-b , ex:art14-p2-c , ex:art14-p2-d , ex:art14-p2-e , ex:art14-p2-f , ex:art14-p2-g .
+
+ex:art14-p2-a a gdprkg:Point ; rdfs:label "Article 14(2)(a)"@en ;
+    skos:note "the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;"@en .
+ex:art14-p2-b a gdprkg:Point ; rdfs:label "Article 14(2)(b)"@en ;
+    skos:note "where the processing is based on point (f) of Article 6 (1), the legitimate interests pursued by the controller or by a third party;"@en .
+ex:art14-p2-c a gdprkg:Point ; rdfs:label "Article 14(2)(c)"@en ;
+    skos:note "the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability;"@en .
+ex:art14-p2-d a gdprkg:Point ; rdfs:label "Article 14(2)(d)"@en ;
+    skos:note "where processing is based on point (a) of Article 6 (1) or point (a) of Article 9 (2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;"@en .
+ex:art14-p2-e a gdprkg:Point ; rdfs:label "Article 14(2)(e)"@en ;
+    skos:note "the right to lodge a complaint with a supervisory authority;"@en .
+ex:art14-p2-f a gdprkg:Point ; rdfs:label "Article 14(2)(f)"@en ;
+    skos:note "from which source the personal data originate, and if applicable, whether it came from publicly accessible sources;"@en .
+ex:art14-p2-g a gdprkg:Point ; rdfs:label "Article 14(2)(g)"@en ;
+    skos:note "the existence of automated decision-making, including profiling, referred to in Article 22 (1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."@en .
+
+# --- Paragraph 3 (chapeau) + its three lettered points ---
+# 14(3) carries NO DISCLOSURE CONTENT OF ITS OWN (brief §2.3, v2 finding 4, re-confirmed
+# against the verified rows): it fixes WHEN the paragraph-1 and paragraph-2 information must
+# be provided. Hence ZERO obligations ground here. T3-B (Zied, 2026-08-04):
+#   (a) -> gdprkg:hasTimeLimit  (fixed deadline; Art-12 hasTimeLimit precedent)
+#   (b) -> event-trigger Condition ex:cond-14-3-b-first-communication  (Art-13 precedent)
+#   (c) -> event-trigger Condition ex:cond-14-3-c-first-disclosure     (Art-13 precedent)
+# 14(3)(a) therefore has NO normative unit grounded in it — its content lives as the
+# hasTimeLimit legal string on the 22 duties it governs (Art-12 12F precedent: a Point may
+# legitimately carry no normative unit). SURFACE-14-EXEC-4.
+ex:art14-p3 a gdprkg:Paragraph ; rdfs:label "Article 14(3)"@en ;
+    skos:note "The controller shall provide the information referred to in paragraphs 1 and 2:"@en ;
+    gdprkg:hasPoint ex:art14-p3-a , ex:art14-p3-b , ex:art14-p3-c .
+
+ex:art14-p3-a a gdprkg:Point ; rdfs:label "Article 14(3)(a)"@en ;
+    skos:note "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed;"@en .
+ex:art14-p3-b a gdprkg:Point ; rdfs:label "Article 14(3)(b)"@en ;
+    skos:note "if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject; or"@en .
+ex:art14-p3-c a gdprkg:Point ; rdfs:label "Article 14(3)(c)"@en ;
+    skos:note "if a disclosure to another recipient is envisaged, at the latest when the personal data are first disclosed."@en .
+
+# --- Paragraph 4 (no point subdivision -> grounding target is the Paragraph, per R4) ---
+ex:art14-p4 a gdprkg:Paragraph ; rdfs:label "Article 14(4)"@en ;
+    skos:note "Where the controller intends to further process the personal data for a purpose other than that for which the personal data were obtained, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2."@en .
+
+# --- Paragraph 5 (chapeau) + its four lettered exemption grounds ---
+# 14(5)'s opener scopes over paragraphs 1 TO 4 AS A BLOCK (brief §3 finding 5).
+ex:art14-p5 a gdprkg:Paragraph ; rdfs:label "Article 14(5)"@en ;
+    skos:note "Paragraphs 1 to 4 shall not apply where and insofar as:"@en ;
+    gdprkg:hasPoint ex:art14-p5-a , ex:art14-p5-b , ex:art14-p5-c , ex:art14-p5-d .
+
+ex:art14-p5-a a gdprkg:Point ; rdfs:label "Article 14(5)(a)"@en ;
+    skos:note "the data subject already has the information;"@en .
+# 14(5)(b) is TWO things in one Point: an exemption GROUND (first half, citing Art 89(1))
+# and an affirmative controller DUTY that arises in that case (second half). Both are
+# grounded here — the Exception ex:exc-art14-5-b-impossible-disproportionate AND the
+# Obligation ex:obl-art14-5-b-protective-measures. That SHARED grounding Point is what
+# makes CQ-A6 answerable (T3-C). SURFACE-14-EXEC-6.
+ex:art14-p5-b a gdprkg:Point ; rdfs:label "Article 14(5)(b)"@en ;
+    skos:note "the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89 (1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available;"@en .
+ex:art14-p5-c a gdprkg:Point ; rdfs:label "Article 14(5)(c)"@en ;
+    skos:note "obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject's legitimate interests; or"@en .
+ex:art14-p5-d a gdprkg:Point ; rdfs:label "Article 14(5)(d)"@en ;
+    skos:note "where the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy."@en .
+
+#################################################################
+#  1b — REFERENCED PROVISIONS  (R6 stubs, never populated)
+#  REUSE-FIRST GATE (playbook §3) RUN BEFORE ANY MINT — grep of
+#  ex:ref-* across articles/*.ttl returned: ref-art9-2-a, -art11,
+#  -art14, -art15…-art22, -art34, -art46, -art47, -art49, -art92,
+#  -union-ms-law. Art-14's citation set (brief §3 finding 10) is:
+#    14(1)(f) -> Art 46, Art 47, Art 49(1) 2nd subpara  => ALL REUSED
+#    14(2)(b) -> Art 6(1)(f)                            => IN SCOPE, real Point
+#    14(2)(d) -> Art 6(1)(a) + Art 9(2)(a)              => real Point + REUSED stub
+#    14(2)(g) -> Art 22(1) and (4)                      => REUSED (ex:ref-art22)
+#    14(5)(b) -> Art 89(1)                              => NO stub exists -> MINTED below
+#    14(5)(c)/(d) -> "Union or Member State law"        => REUSED (ex:ref-union-ms-law)
+#  ONE new stub. Zero duplicates. Reused stubs are NOT re-declared here
+#  (art12.ttl's ex:ref-art22 practice); they appear only as edge targets.
+#################################################################
+
+# THE ONLY NEW STUB THIS PASS (follows from T3-C; brief §1 authorizes this instance mint).
+ex:ref-art89 a gdprkg:ReferencedProvision ;
+    rdfs:label "Article 89(1) (safeguards for archiving/research/statistical processing; referenced, out of scope)"@en .
+
+# ex:ref-art46 / ex:ref-art47 / ex:ref-art49 / ex:ref-art9-2-a / ex:ref-art22 — REUSED from
+#   art13.ttl; ex:ref-union-ms-law — REUSED from art6.ttl (SURFACE-E, the ReferencedProvision
+#   type-stretch for non-GDPR law, rides along with the reuse). NOT re-declared here.
+
+#################################################################
+#  2 — SHARED CANONICAL NODES
+#  Type-only re-assertions of nodes canonically declared in art13.ttl
+#  (identical triples merge under RDF semantics) so a STANDALONE
+#  art14.ttl pySHACL run can type-check the bearer / disclosesConcept /
+#  referencesActor edges. Same self-containment practice as art12.ttl
+#  §2 and art6.ttl's re-declared ex:gdpr / ex:agent-mapper. No new
+#  labels or properties are added to reused nodes. SURFACE-14-EXEC-2.
+#################################################################
+
+# ---- Actors (REUSED; canonically declared in art13.ttl) ----
+ex:actor-controller a gdprkg:Controller .
+ex:actor-controller-representative a gdprkg:Actor_ControllerRepresentative .
+ex:actor-dpo a gdprkg:Actor_DataProtectionOfficer .
+ex:actor-supervisory-authority a gdprkg:Actor_SupervisoryAuthority .
+ex:actor-data-subject a gdprkg:DataSubject .
+
+# ---- Actor MINT (T3-E(ii), Zied 2026-08-04) ----
+# 14(2)(f) "from which source the personal data originate". Represented via
+# gdprkg:referencesActor -> this node, typed with gdprkg:Actor_PersonalDataSource — a TBox
+# class that has existed since Phase 3 and was DECLARED BUT NEVER EXERCISED until now.
+# NOT gdprkg:disclosesConcept: that property's range (gdprkg:DisclosableConcept) admits no
+# Actor and has no DataSource member, so routing the source through it would require a TBox
+# change, which this unit is not authorized to make. referencesActor's range IS gdprkg:Actor.
+# CQ-C4 picks this up as the FIRST non-Art-13 referenced-actor TYPE in the graph.
+ex:actor-personal-data-source a gdprkg:Actor_PersonalDataSource ;
+    rdfs:label "Source from which the personal data originate (Art 14(2)(f))"@en .
+
+# ---- Domain layer: canonical shared concept nodes ----
+# REUSED (canonically declared in art13.ttl; the merged-cross-article-graph invariant —
+# Art 14 references the SAME nodes, it does NOT create art14-local copies). This is the
+# FIRST time the canonical ex:concept-* nodes are shared by a SECOND disclosure article —
+# the previously "not yet demonstrated" item in playbook §7.
+ex:concept-purpose   a gdprkg:Purpose .
+ex:concept-recipient a gdprkg:Recipient .
+ex:concept-retention a gdprkg:RetentionPeriod .
+ex:concept-safeguard a gdprkg:Safeguard .
+ex:concept-transfer  a gdprkg:Transfer .
+
+# ---- Canonical domain-node MINT (T3-F, Zied 2026-08-04) ----
+# 14(1)(d) "the categories of personal data concerned" — no Art-13 counterpart, and the
+# reuse grep confirmed no canonical data-category node exists. gdprkg:DataCategory is
+# ALREADY a member of gdprkg:disclosesConcept's range (DataCategory rdfs:subClassOf
+# gdprkg:DisclosableConcept, gdpr_kg.ttl), so this is a CANONICAL-NODE MINT, NOT a TBox
+# change. Article-neutral, minted ONCE, to be reused wherever categories recur (Arts 9/15/30…).
+# Like every other ex:concept-* it stays OUTSIDE gdprkg:GroundedConcept (Art-13 SURFACE-1:
+# the node denotes the disclosable concept-TYPE at regulation level, not a processing instance),
+# so it carries no grounding/provenance and CQ-C2 is unaffected.
+ex:concept-data-category a gdprkg:DataCategory ;
+    rdfs:label "Categories of personal data concerned (Art 14(1)(d))"@en .
+
+#################################################################
+#  3 — PROVENANCE (one shared record for the single Art-14 mapping pass;
+#  mirrors ex:prov-art13 / ex:prov-art6 / ex:prov-art12.
+#  ex:agent-mapper re-declared — same shared canonical agent.)
+#################################################################
+
+ex:prov-art14 a gdprkg:ProvenanceRecord ; rdfs:label "Provenance: Art-14 initial mapping (draft)"@en ;
+    prov:wasGeneratedBy ex:act-art14-mapping ;
+    prov:wasAttributedTo ex:agent-mapper .
+ex:act-art14-mapping a gdprkg:MappingReviewActivity ; rdfs:label "Art-14 extraction/mapping activity"@en ;
+    prov:wasAssociatedWith ex:agent-mapper .
+ex:agent-mapper a gdprkg:Reviewer ; rdfs:label "Mapping agent (pending human/legal sign-off)"@en .
+
+#################################################################
+#  4 — CONDITIONS (12; grounded; inherit provenance/review via parent)
+#
+#  ⚠ LABEL DISCIPLINE (brief §6.2, playbook §4.1). The frozen CQ-C7 query
+#  matches Condition labels CONTAINING the literal substrings "at the time"
+#  or "prior to". Every label below is written for LEGAL ACCURACY ONLY,
+#  from the verbatim source row it grounds into. Two consequences, both
+#  PREDICTED before the run and reported as-is, never tuned:
+#    * 14(3)(b)'s text says "at the latest AT THE TIME of the first
+#      communication" -> its label MATCHES the frozen query.
+#    * 14(3)(c)'s text says "at the latest WHEN the personal data are
+#      first disclosed" -> its label does NOT match. That is a RECORDED
+#      NON-COVERAGE of the frozen query (a source-text wording asymmetry,
+#      not a modelling defect), NOT a reason to reword the label.
+#    * 14(4)'s "PRIOR TO that further processing" -> matches (Art-13
+#      ex:cond-13-3-prior precedent, same wording).
+#################################################################
+
+# ---- 14(1) "where applicable" / "if any" qualifiers (Art-13 treatment is the precedent) ----
+ex:cond-14-1-a-representative-applicable a gdprkg:Condition ;
+    rdfs:label "where applicable (a controller's representative exists) (Art 14(1)(a))"@en ;
+    gdprkg:groundedIn ex:art14-p1-a .
+
+ex:cond-14-1-b-dpo-applicable a gdprkg:Condition ;
+    rdfs:label "where applicable (a data protection officer exists) (Art 14(1)(b))"@en ;
+    gdprkg:groundedIn ex:art14-p1-b .
+
+ex:cond-14-1-e-recipients-exist a gdprkg:Condition ;
+    rdfs:label "recipients or categories of recipients exist (if any) (Art 14(1)(e))"@en ;
+    gdprkg:groundedIn ex:art14-p1-e .
+
+ex:cond-14-1-f-transfer-intended a gdprkg:Condition ;
+    rdfs:label "where applicable, the controller intends to transfer personal data to a recipient in a third country or international organisation (Art 14(1)(f))"@en ;
+    gdprkg:groundedIn ex:art14-p1-f .
+
+ex:cond-14-1-f-transfer-safeguarded a gdprkg:Condition ;
+    rdfs:label "the transfer is one referred to in Article 46 or 47, or the second subparagraph of Article 49(1) (Art 14(1)(f))"@en ;
+    gdprkg:groundedIn ex:art14-p1-f ;
+    gdprkg:referencesProvision ex:art46 , ex:ref-art47 , ex:ref-art49 .   # REWIRED 2026-08-07 (WO-E §4.3, site 3 of 3): ref-art46 -> the real ex:art46 (articles/art46.ttl). ref-art47/ref-art49 UNTOUCHED — still REUSED art13 stubs (zero duplicates).
+
+# ---- 14(2) basis-introduced conditions — CROSS-ARTICLE into Art 6 ----
+# Art-13's certified treatment of the SAME citations transfers directly (brief §5): the
+# range-clean referencesProvision edge lands on the real Art-6 POINT (a LegalBasis is not an
+# eli:LegalResourceSubdivision), AND the direct gdprkg:reliesOnLegalBasis edge lands on the
+# basis itself (SURFACE-C resolution, 2026-07-12). BOTH are kept, exactly as art13.ttl does.
+ex:cond-14-2-b-based-on-li a gdprkg:Condition ;
+    rdfs:label "the processing is based on point (f) of Article 6(1) (Art 14(2)(b))"@en ;
+    gdprkg:groundedIn ex:art14-p2-b ;
+    gdprkg:referencesProvision ex:art6-p1-f ;
+    gdprkg:reliesOnLegalBasis ex:basis-legitimate-interests .
+
+ex:cond-14-2-d-consent-basis a gdprkg:Condition ;
+    rdfs:label "processing is based on point (a) of Article 6(1) or point (a) of Article 9(2) (Art 14(2)(d))"@en ;
+    gdprkg:groundedIn ex:art14-p2-d ;
+    gdprkg:referencesProvision ex:art6-p1-a , ex:ref-art9-2-a ;   # in-scope Art-6 Point + REUSED out-of-scope 9(2)(a) stub
+    gdprkg:reliesOnLegalBasis ex:basis-consent .
+
+# ---- 14(2)(f) second clause (the T3-E(i) x2 split) ----
+ex:cond-14-2-f-publicly-accessible-applicable a gdprkg:Condition ;
+    rdfs:label "if applicable (the personal data came from publicly accessible sources) (Art 14(2)(f))"@en ;
+    gdprkg:groundedIn ex:art14-p2-f .
+
+# ---- 14(3)(b) and (c): the two EVENT-TRIGGER timing conditions (T3-B) ----
+# NODE-SHARED across all 22 paragraph-1 and paragraph-2 obligations (14(3)'s chapeau governs
+# "the information referred to in paragraphs 1 and 2"), one node per trigger — the Art-6/Art-12
+# shared-Condition discipline. Art 13 needed TWO "at the time obtained" nodes because its two
+# chapeaux grounded differently; here each trigger has its own Point, so one node each suffices.
+# ⚠ CQ-C7: this label contains "at the time" (verbatim from 14(3)(b)) -> it WILL match.
+ex:cond-14-3-b-first-communication a gdprkg:Condition ;
+    rdfs:label "if the personal data are to be used for communication with the data subject: at the latest at the time of the first communication to that data subject (Art 14(3)(b))"@en ;
+    gdprkg:groundedIn ex:art14-p3-b .
+
+# ⚠ CQ-C7: 14(3)(c)'s text says "at the latest WHEN the personal data are first disclosed" — it
+# contains NEITHER "at the time" NOR "prior to", so this label will NOT match the frozen query.
+# RECORDED NON-COVERAGE (expected_results.md §Article-14). The label is NOT reworded to make the
+# count land — that is precisely the failure playbook §4.1 exists to prevent.
+ex:cond-14-3-c-first-disclosure a gdprkg:Condition ;
+    rdfs:label "if a disclosure to another recipient is envisaged: at the latest when the personal data are first disclosed (Art 14(3)(c))"@en ;
+    gdprkg:groundedIn ex:art14-p3-c .
+
+# ---- 14(4) further-processing conditions (direct parallel to Art 13(3)) ----
+ex:cond-14-4-further-processing a gdprkg:Condition ;
+    rdfs:label "the controller intends to further process the personal data for a purpose other than that for which the personal data were obtained (Art 14(4))"@en ;
+    gdprkg:groundedIn ex:art14-p4 .
+
+# ⚠ CQ-C7: contains "prior to" (verbatim from 14(4)) -> WILL match. Mirrors ex:cond-13-3-prior.
+ex:cond-14-4-prior a gdprkg:Condition ;
+    rdfs:label "prior to that further processing (temporal) (Art 14(4))"@en ;
+    gdprkg:groundedIn ex:art14-p4 .
+
+#################################################################
+#  5 — THE FOUR 14(5) EXCEPTIONS (T3-D, Zied 2026-08-04)
+#  ONE node per ground (a)-(d) — four textually distinct grounds, so NOT
+#  one merged node — each NODE-SHARED across ALL 23 paragraph-1-to-4
+#  obligations (14(5): "Paragraphs 1 to 4 shall not apply where and
+#  insofar as…"), so NOT per-obligation copies. This is the Art-13
+#  shared-Exception pattern (ex:exc-art13-4-already-has-info x21),
+#  replicated four times.
+#
+#  #!SURFACE blanket vs per-obligation attachment remains an OPEN
+#  legal-review item (carry I8 / CLAUDE.md deferred register). The model
+#  implements the literal "Paragraphs 1 to 4" scope; it does NOT decide
+#  whether each ground defeats each specific duty identically.
+#
+#  ⚠ The 24th Obligation (ex:obl-art14-5-b-protective-measures) is
+#  DELIBERATELY NOT among the 23: it arises BECAUSE ground (b) applies,
+#  so it carries no hasException at all.
+#################################################################
+
+ex:exc-art14-5-a-already-has-info a gdprkg:Exception ;
+    rdfs:label "Paragraphs 1 to 4 do not apply where/insofar as the data subject already has the information (Art 14(5)(a))"@en ;
+    gdprkg:groundedIn ex:art14-p5-a .
+
+# Cites Article 89(1) -> the one NEW stub of this pass. The citation is carried HERE, on the
+# exemption GROUND, because that is where the source text places it ("subject to the conditions
+# and safeguards referred to in Article 89(1)" qualifies the impossible/disproportionate-effort
+# ground, not the affirmative duty in the second half). SURFACE-14-EXEC-5.
+ex:exc-art14-5-b-impossible-disproportionate a gdprkg:Exception ;
+    rdfs:label "Paragraphs 1 to 4 do not apply where/insofar as the provision of the information proves impossible or would involve a disproportionate effort, in particular for archiving in the public interest, scientific or historical research or statistical purposes subject to the conditions and safeguards of Article 89(1), or in so far as the paragraph-1 obligation is likely to render impossible or seriously impair the achievement of the objectives of that processing (Art 14(5)(b))"@en ;
+    gdprkg:groundedIn ex:art14-p5-b ;
+    gdprkg:referencesProvision ex:ref-art89 .
+
+# 14(5)(c) and (d) both invoke "Union or Member State law" -> ex:ref-union-ms-law is REUSED
+# from art6.ttl rather than re-minted (reuse-first gate; the Art-12 ex:ref-art22 precedent).
+# SURFACE-E (the gdprkg:ReferencedProvision type-stretch for law that is not a GDPR provision)
+# rides along with the reuse and is NOT re-decided here.
+ex:exc-art14-5-c-laid-down-by-law a gdprkg:Exception ;
+    rdfs:label "Paragraphs 1 to 4 do not apply where/insofar as obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject's legitimate interests (Art 14(5)(c))"@en ;
+    gdprkg:groundedIn ex:art14-p5-c ;
+    gdprkg:referencesProvision ex:ref-union-ms-law .
+
+ex:exc-art14-5-d-professional-secrecy a gdprkg:Exception ;
+    rdfs:label "Paragraphs 1 to 4 do not apply where/insofar as the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy (Art 14(5)(d))"@en ;
+    gdprkg:groundedIn ex:art14-p5-d ;
+    gdprkg:referencesProvision ex:ref-union-ms-law .
+
+#################################################################
+#  6 — OBLIGATIONS (24; controller-borne primary units)
+#  Brief §2.6: FIXED at 24 — P1:9, P2:13, P3:0, P4:1, P5:1. Not the
+#  executor's to revise. (Still a SPLITTING PRODUCT in the same sense
+#  Art-13's 21 is — carry I8 owns the legal confirmation.)
+#
+#  Every Obligation carries, per the Art-13 pattern:
+#     a gdprkg:Obligation ; groundedIn <Point|Paragraph> ;
+#     imposesObligationOn ex:actor-controller     (SHACL shapes.ttl:171 requires it) ;
+#     disclosedToDataSubject ex:actor-data-subject (Art-13 I5 pattern — see NB below) ;
+#     hasProvenance ex:prov-art14 ; reviewStatus "draft" .
+#
+#  Paragraph-1 and paragraph-2 obligations additionally carry the 14(3) timing:
+#     hasTimeLimit "<14(3)(a) legal text>" ; appliesIf cond-14-3-b , cond-14-3-c .
+#  Paragraph-1/2/4 obligations additionally carry ALL FOUR 14(5) Exceptions.
+#
+#  NB disclosedToDataSubject: Art 14 IS a disclosure article (unlike Art 12 — 12G), so the
+#  I5 beneficiary edge applies exactly as in art13.ttl — on the 23 duties owed TO the data
+#  subject. It is DELIBERATELY ABSENT from ex:obl-art14-5-b-protective-measures, whose duty
+#  is to take protective measures "including making the information PUBLICLY AVAILABLE" —
+#  not a disclosure to the data subject. SURFACE-14-EXEC-7.
+#  G (Zied 2026-08-04): the disclosedToDataSubject SHACL SHAPE SCOPE is NOT touched here and
+#  NO disclosure-obligation subclass is minted; i5-shape-scope-art12 stays routed to I4/I7.
+#################################################################
+
+# ---------- Paragraph 1 (9 obligations) ----------
+
+ex:obl-art14-1-a-controller-identity a gdprkg:Obligation ;
+    rdfs:label "Provide the identity and contact details of the controller (Art 14(1)(a))"@en ;
+    gdprkg:groundedIn ex:art14-p1-a ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-1-a-representative-identity a gdprkg:Obligation ;
+    rdfs:label "Provide the identity and contact details of the controller's representative (Art 14(1)(a))"@en ;
+    gdprkg:groundedIn ex:art14-p1-a ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:referencesActor ex:actor-controller-representative ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-1-a-representative-applicable ,
+                     ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-1-b-dpo-contact a gdprkg:Obligation ;
+    rdfs:label "Provide the contact details of the data protection officer (Art 14(1)(b))"@en ;
+    gdprkg:groundedIn ex:art14-p1-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:referencesActor ex:actor-dpo ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-1-b-dpo-applicable ,
+                     ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-1-c-purposes a gdprkg:Obligation ;
+    rdfs:label "Provide the purposes of the processing for which the personal data are intended (Art 14(1)(c))"@en ;
+    gdprkg:groundedIn ex:art14-p1-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:disclosesConcept ex:concept-purpose ;   # SHARED canonical node with art13.ttl (not a copy)
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+# Mirrors ex:obl-art13-1-c-legal-basis exactly (SURFACE-A resolution, 2026-07-10): 14(1)(c)
+# requires disclosing WHICHEVER basis applies, not a specific one, so it references the Art-6
+# PROVISION that DEFINES the bases (ex:art6) — NOT any one basis, and NOT via disclosesConcept
+# (which would overstate). No gdprkg:reliesOnLegalBasis edge, for the same reason.
+ex:obl-art14-1-c-legal-basis a gdprkg:Obligation ;
+    rdfs:label "Provide the legal basis for the processing (Art 14(1)(c))"@en ;
+    gdprkg:groundedIn ex:art14-p1-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:referencesProvision ex:art6 ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+# 14(1)(d) — NO Art-13 counterpart. FIRST use of the newly minted canonical ex:concept-data-category
+# and the FIRST time gdprkg:DataCategory (a long-standing member of disclosesConcept's range) is
+# exercised in the ABox. T3-F.
+ex:obl-art14-1-d-data-categories a gdprkg:Obligation ;
+    rdfs:label "Provide the categories of personal data concerned (Art 14(1)(d))"@en ;
+    gdprkg:groundedIn ex:art14-p1-d ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:disclosesConcept ex:concept-data-category ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-1-e-recipients a gdprkg:Obligation ;
+    rdfs:label "Provide the recipients or categories of recipients of the personal data (Art 14(1)(e))"@en ;
+    gdprkg:groundedIn ex:art14-p1-e ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:disclosesConcept ex:concept-recipient ;   # SHARED canonical node with art13.ttl
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-1-e-recipients-exist ,
+                     ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-1-f-transfer-fact a gdprkg:Obligation ;
+    rdfs:label "Provide the fact of intended transfer to a recipient in a third country or international organisation and the existence/absence of a Commission adequacy decision (Art 14(1)(f))"@en ;
+    gdprkg:groundedIn ex:art14-p1-f ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:disclosesConcept ex:concept-transfer ;   # SHARED canonical node with art13.ttl
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-1-f-transfer-intended ,
+                     ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-1-f-transfer-safeguards a gdprkg:Obligation ;
+    rdfs:label "Provide reference to the appropriate/suitable safeguards and the means to obtain a copy of them or where they have been made available (Art 14(1)(f))"@en ;
+    gdprkg:groundedIn ex:art14-p1-f ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:disclosesConcept ex:concept-safeguard ;   # SHARED canonical node with art13.ttl
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-1-f-transfer-safeguarded ,
+                     ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 2 (13 obligations; 14(2)(c) split x6 per R5, 14(2)(f) split x2 per T3-E(i)) ----------
+
+ex:obl-art14-2-a-storage-period a gdprkg:Obligation ;
+    rdfs:label "Provide the storage period, or the criteria used to determine it (Art 14(2)(a))"@en ;
+    gdprkg:groundedIn ex:art14-p2-a ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:disclosesConcept ex:concept-retention ;   # SHARED canonical node with art13.ttl
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+# 14(2)(b) carries Art-13's 13(1)(d) CONTENT but is CONDITION-INTRODUCED here (brief §2.2).
+ex:obl-art14-2-b-legitimate-interests a gdprkg:Obligation ;
+    rdfs:label "Provide the legitimate interests pursued by the controller or by a third party (Art 14(2)(b))"@en ;
+    gdprkg:groundedIn ex:art14-p2-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-2-b-based-on-li ,
+                     ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-2-c-right-access a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right of access (14(2)(c), item 1/6)"@en ;
+    gdprkg:groundedIn ex:art14-p2-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-2-c-right-rectification a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to rectification (14(2)(c), item 2/6)"@en ;
+    gdprkg:groundedIn ex:art14-p2-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-2-c-right-erasure a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to erasure (14(2)(c), item 3/6)"@en ;
+    gdprkg:groundedIn ex:art14-p2-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-2-c-right-restriction a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to restriction of processing (14(2)(c), item 4/6)"@en ;
+    gdprkg:groundedIn ex:art14-p2-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-2-c-right-object a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to object to processing (14(2)(c), item 5/6)"@en ;
+    gdprkg:groundedIn ex:art14-p2-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-2-c-right-portability a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to data portability (14(2)(c), item 6/6)"@en ;
+    gdprkg:groundedIn ex:art14-p2-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-2-d-withdraw-consent a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal (Art 14(2)(d))"@en ;
+    gdprkg:groundedIn ex:art14-p2-d ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-2-d-consent-basis ,
+                     ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-2-e-lodge-complaint a gdprkg:Obligation ;
+    rdfs:label "Inform of the right to lodge a complaint with a supervisory authority (Art 14(2)(e))"@en ;
+    gdprkg:groundedIn ex:art14-p2-e ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:referencesActor ex:actor-supervisory-authority ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+# 14(2)(f) FIRST half (T3-E(i) split 1/2). NO Art-13 counterpart. The data SOURCE is represented
+# via gdprkg:referencesActor -> ex:actor-personal-data-source (T3-E(ii)), NOT via disclosesConcept.
+ex:obl-art14-2-f-source a gdprkg:Obligation ;
+    rdfs:label "Provide from which source the personal data originate (Art 14(2)(f), item 1/2)"@en ;
+    gdprkg:groundedIn ex:art14-p2-f ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:referencesActor ex:actor-personal-data-source ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+# 14(2)(f) SECOND half (T3-E(i) split 2/2) — the "if applicable" publicly-accessible clause.
+ex:obl-art14-2-f-publicly-accessible a gdprkg:Obligation ;
+    rdfs:label "Provide, if applicable, whether the personal data came from publicly accessible sources (Art 14(2)(f), item 2/2)"@en ;
+    gdprkg:groundedIn ex:art14-p2-f ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:referencesActor ex:actor-personal-data-source ;
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-2-f-publicly-accessible-applicable ,
+                     ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art14-2-g-automated-decision a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of automated decision-making incl. profiling, with meaningful information about the logic involved, the significance and the envisaged consequences (Art 14(2)(g))"@en ;
+    gdprkg:groundedIn ex:art14-p2-g ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:referencesProvision ex:ref-art22 ;   # REUSED from art13.ttl (Art 22(1) and (4))
+    gdprkg:hasTimeLimit "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed" ;
+    gdprkg:appliesIf ex:cond-14-3-b-first-communication , ex:cond-14-3-c-first-disclosure ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 4 (1 obligation; grounded at Paragraph level per R4) ----------
+# Direct parallel to ex:obl-art13-3-further-processing-info. NOTE: 14(3)'s timing governs
+# "the information referred to in paragraphs 1 and 2" only, so this duty carries NEITHER the
+# 14(3)(a) hasTimeLimit NOR the 14(3)(b)/(c) trigger Conditions — it has its own "prior to
+# that further processing" timing. SURFACE-14-EXEC-3.
+ex:obl-art14-4-further-processing-info a gdprkg:Obligation ;
+    rdfs:label "Provide information on the new purpose and any relevant further information referred to in paragraph 2, prior to further processing (Art 14(4))"@en ;
+    gdprkg:groundedIn ex:art14-p4 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;
+    gdprkg:appliesIf ex:cond-14-4-further-processing , ex:cond-14-4-prior ;
+    gdprkg:hasException ex:exc-art14-5-a-already-has-info , ex:exc-art14-5-b-impossible-disproportionate ,
+                        ex:exc-art14-5-c-laid-down-by-law , ex:exc-art14-5-d-professional-secrecy ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 5 (1 obligation — the 24th; T3-C, Zied 2026-08-04) ----------
+# 14(5)(b)'s affirmative second sentence, modelled as an Obligation and grounded in the SAME
+# Point (ex:art14-p5-b) as ex:exc-art14-5-b-impossible-disproportionate. That shared grounding
+# Point IS the wiring that makes it reachable FROM the exemption ground, so the frozen question
+# CQ-A6 ("when the impossible/disproportionate-effort exemption applies, what obligation remains
+# in force?") returns it. It is the SAME join idiom as CQ-C5x (shared-grounding-Point join,
+# SURFACE-C, 2026-07-10) — deliberately, because no exception->obligation property exists and
+# minting one would be a TBox change this unit is not authorized to make. SURFACE-14-EXEC-6.
+#
+# It carries NO hasException (it arises BECAUSE ground (b) applies — defeating it with the very
+# exemption that triggers it would be incoherent), NO hasTimeLimit, and NO disclosedToDataSubject
+# (its duty is "appropriate measures … including making the information PUBLICLY AVAILABLE",
+# which is not a disclosure to the data subject). SURFACE-14-EXEC-7.
+#
+# ⚠ LEGALLY UNCORROBORATED (brief §2.5): asserting a duty that arises BECAUSE an exemption
+# applies is a legal characterisation. The MODELLING decision is Zied's and taken; the DOCTRINAL
+# confirmation is not. Carried to the finished-work legal review alongside I8.
+ex:obl-art14-5-b-protective-measures a gdprkg:Obligation ;
+    rdfs:label "Take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available, where the 14(5)(b) exemption applies (Art 14(5)(b), second sentence)"@en ;
+    gdprkg:groundedIn ex:art14-p5-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:hasProvenance ex:prov-art14 ; gdprkg:reviewStatus "draft" .
+
+#################################################################
+#  END — 24 Obligations (P1:9, P2:13, P3:0, P4:1, P5:1);
+#  12 Conditions (2 node-shared over 22 duties each: cond-14-3-b, cond-14-3-c);
+#  4 Exceptions, each node-shared over 23 obligations;
+#  22 hasTimeLimit; 23 disclosedToDataSubject; 6 disclosesConcept;
+#  4 referencesActor; 11 referencesProvision; 1 shared ProvenanceRecord.
+#  MINTS: ex:concept-data-category, ex:actor-personal-data-source, ex:ref-art89.
+#  NO TBox change. NO SHACL change. NO notApplicableIf. NO hasLegalEffect.
+#  NO Permission / grantsPermissionTo (Art 14 grants no discretionary power).
+#################################################################

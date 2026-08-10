@@ -1,0 +1,179 @@
+@prefix gdprkg:  <https://w3id.org/gdprkg#> .
+@prefix ex:      <https://w3id.org/gdprkg/data#> .
+@prefix exs:     <https://w3id.org/gdprkg/scenario#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+#  art46_scenarios.ttl — NON-NORMATIVE SCENARIO FIXTURE (demonstrator)
+#  ===============================================================
+#  ###  THIS FILE IS NOT LAW AND IS NOT PART OF THE GRAPH.  ###
+#
+#  PERIMETER (decided by Zied 2026-08-06, NOT open):
+#    * NOT imported by articles/certify_art13_art6.ttl.
+#    * NOT listed in articles/catalog-v001.xml.
+#    * NOT loaded by cq_sparql/run_owlrl_art46.py.
+#    * HermiT, pySHACL and the CQ runner certify the SIX-file union
+#      WITHOUT this file. Its results are a DEMONSTRATION, never a gate.
+#  It is exercised only by cq_sparql/demo_art46_scenarios.py, which is
+#  explicitly labelled non-certifying and prints so on every run.
+#
+#  WHY IT EXISTS. Brief §2 states the honest limit: the graph has NO
+#  scenario layer. Every ABox is article-level — provisions, norms,
+#  canonical domain concepts. There are no transfers, no destination
+#  countries with or without adequacy decisions. "An article-level
+#  Art-46 ABox EXPRESSES the gate structure; it does not EXERCISE it."
+#  Art 46 alone therefore PREPARES the applicability contribution
+#  rather than delivering it. This file is the minimal thing that
+#  exercises the gate — four transfers, spanning
+#  adequacy-present/absent x mechanism-present/absent — so that the
+#  same query returns DIFFERENT answers for different facts about the
+#  world. That difference is the entire point of the file.
+#
+#  ###############################################################
+#  ##  THE CLOSED-WORLD LIMIT — READ BEFORE WRITING ANY QUERY   ##
+#  ###############################################################
+#  46(3) is expressly NON-EXHAUSTIVE: "the appropriate safeguards ...
+#  may ALSO be provided for, IN PARTICULAR, by: ...". 46(2) carries no
+#  such qualifier (verified on disk, both ways).
+#
+#  CONSEQUENCE, and it is not negotiable:
+#    * "no listed instrument matched => no appropriate safeguard"
+#      is DEFENSIBLE over 46(2), which is a closed list.
+#    * the SAME inference is UNSOUND over 46(3), because the article
+#      itself says the list is illustrative. An instrument absent from
+#      46(3)(a)-(b) may still be an appropriate safeguard.
+#  Therefore NO query in the demonstrator concludes "no appropriate
+#  safeguard". The nearest sound claim is the SCOPED one — "no listed
+#  46(2) instrument is relied on" — and the demonstrator's Q3 is named
+#  and worded so it cannot be read as the unsound one. A query that
+#  quietly made the stronger claim would be a defect in the evidence,
+#  not a stronger result.
+#
+#  SCAFFOLDING VOCABULARY — exs:, and why it is not a TBox change.
+#  The graph has no way to say "this destination has an adequacy
+#  decision" or "this transfer relies on that instrument": there is no
+#  such class or property in gdprkg:, and minting one would be a THIRD
+#  TBox addition, which work order E §3 makes a STOP. So the two
+#  relations below live in a SEPARATE exs: namespace, declared in this
+#  non-normative file only. They are DEMONSTRATOR SCAFFOLDING, not
+#  ontology terms. They must NOT be promoted into ontology/gdpr_kg.ttl
+#  without a T3 mint decision, and nothing in articles/*.ttl references
+#  them. Surfaced as EXEC-12.
+#
+#  WHAT IS REUSED FROM THE REAL GRAPH (this is the interesting part):
+#  the scenarios point at the ACTUAL ex:mech-46-* individuals from
+#  articles/art46.ttl. The demonstrator therefore joins scenario facts
+#  to the certified article ABox rather than re-describing it — which
+#  is what makes the gate reasoning traceable back to a legal Point.
+#################################################################
+
+<https://w3id.org/gdprkg/scenario/art46>
+    a owl:Ontology ;
+    rdfs:label "Article 46 scenario fixture (NON-NORMATIVE demonstrator)"@en ;
+    owl:versionInfo "0.1.0-art46-demonstrator (2026-08-07) — NON-NORMATIVE. Outside the certification union by decision of Zied 2026-08-06. Four transfer scenarios spanning adequacy-present/absent x mechanism-present/absent." ;
+    rdfs:comment "NOT LAW. A minimal scenario layer used to demonstrate that the Art-46 applicability gate can be EXERCISED, not merely expressed. Its individuals are hypothetical and must never appear in an article ABox. Deliberately NOT imported by articles/certify_art13_art6.ttl and NOT in articles/catalog-v001.xml."@en .
+
+#################################################################
+#  PROVENANCE — marks every individual in this file NON-NORMATIVE.
+#  A DISTINCT record from ex:prov-art46; a distinct activity; a
+#  distinct agent. Nothing here shares a provenance node with the
+#  legal-source graph, so a query can always separate the two.
+#################################################################
+
+exs:prov-art46-scenarios a gdprkg:ProvenanceRecord ;
+    rdfs:label "Provenance: Art-46 NON-NORMATIVE scenario fixture"@en ;
+    skos:note "NON-NORMATIVE DEMONSTRATOR DATA. These individuals are hypothetical illustrations constructed to exercise the Art-46 applicability gate. They are NOT extracted from any legal source, they carry NO legal authority, and they MUST NOT be merged into any article ABox or into the certification union."@en ;
+    prov:wasGeneratedBy exs:act-art46-scenario-construction ;
+    prov:wasAttributedTo exs:agent-scenario-author .
+
+exs:act-art46-scenario-construction a gdprkg:MappingReviewActivity ;
+    rdfs:label "Art-46 scenario-fixture construction (non-normative)"@en ;
+    prov:wasAssociatedWith exs:agent-scenario-author .
+
+exs:agent-scenario-author a gdprkg:Reviewer ;
+    rdfs:label "Scenario-fixture author (non-normative demonstrator)"@en .
+
+#################################################################
+#  SCAFFOLDING PROPERTIES — exs: namespace, this file only.
+#  NOT gdprkg: terms. NOT a TBox change. See the header.
+#################################################################
+
+exs:destinationHasAdequacyDecision a owl:DatatypeProperty ;
+    rdfs:label "destinationHasAdequacyDecision (SCENARIO SCAFFOLDING)"@en ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "SCENARIO SCAFFOLDING ONLY. Whether an Art 45(3) adequacy decision is in force for the transfer's destination. The graph has no class for an adequacy decision and none is minted (T3-E declined a Directive/adequacy node; work order E §3 caps the TBox delta at two additions). Do NOT promote to gdprkg: without a T3 mint decision."@en .
+
+exs:reliesOnMechanism a owl:ObjectProperty ;
+    rdfs:label "reliesOnMechanism (SCENARIO SCAFFOLDING)"@en ;
+    rdfs:range gdprkg:TransferMechanism ;
+    rdfs:comment "SCENARIO SCAFFOLDING ONLY. Links a hypothetical transfer to the gdprkg:TransferMechanism individual it relies on — a REAL node from articles/art46.ttl, so the join runs back to an actual legal Point. Do NOT promote to gdprkg: without a T3 mint decision."@en .
+
+#################################################################
+#  THE FOUR SCENARIOS — adequacy-present/absent x mechanism-present/absent
+#
+#   #  | adequacy | mechanism        | what the gate should say
+#  ----+----------+------------------+---------------------------------
+#  T1  | PRESENT  | none             | Art 46 does NOT ENGAGE (45(3))
+#  T2  | absent   | 46(2)(c) SCC     | engages; closed-list limb met
+#  T3  | absent   | none             | engages; no listed 46(2) instrument
+#  T4  | absent   | 46(3)(a) clauses | engages; AUTHORISATION REQUIRED
+#
+#  T1 is the headline row: the destination's adequacy decision makes
+#  Art 46 inapplicable REGARDLESS of what any policy text says. That is
+#  the difference between an inference over facts and a label over text.
+#################################################################
+
+exs:transfer-T1-adequate-destination a gdprkg:Transfer ;
+    rdfs:label "SCENARIO T1: transfer to a destination covered by an Art 45(3) adequacy decision, with no Art-46 mechanism in place"@en ;
+    gdprkg:transferredTo exs:dest-adequate-country ;
+    exs:destinationHasAdequacyDecision true ;
+    gdprkg:hasProvenance exs:prov-art46-scenarios ;
+    skos:note "EXPECTED: Article 46 does NOT engage. 46(1) opens 'In the absence of a decision pursuant to Article 45 (3)', which the model carries as gdprkg:notApplicableIf on ex:perm-46-1-transfer. The absence of any mechanism is IRRELEVANT here — the gate fires first. This is the row that shows NOT_APPLICABLE being DERIVED from a fact about the transfer rather than judged from policy text."@en .
+
+exs:transfer-T2-scc a gdprkg:Transfer ;
+    rdfs:label "SCENARIO T2: transfer to a non-adequate third country under Commission standard data protection clauses (46(2)(c))"@en ;
+    gdprkg:transferredTo exs:dest-nonadequate-country ;
+    exs:destinationHasAdequacyDecision false ;
+    exs:reliesOnMechanism ex:mech-46-2-c ;
+    gdprkg:hasProvenance exs:prov-art46-scenarios ;
+    skos:note "EXPECTED: Article 46 ENGAGES, and the 46(1) condition-(i) limb is met through a mechanism drawn from the CLOSED 46(2) list. No supervisory-authority authorisation is required for a 46(2) instrument. NB the condition-(ii) limb (enforceable rights and effective remedies) is a separate state of the world and is NOT asserted by this fixture — see the demonstrator's honesty note."@en .
+
+exs:transfer-T3-no-mechanism a gdprkg:Transfer ;
+    rdfs:label "SCENARIO T3: transfer to a non-adequate third country with no Art-46 mechanism relied on"@en ;
+    gdprkg:transferredTo exs:dest-nonadequate-country ;
+    exs:destinationHasAdequacyDecision false ;
+    gdprkg:hasProvenance exs:prov-art46-scenarios ;
+    skos:note "EXPECTED: Article 46 ENGAGES, and NO listed 46(2) instrument is relied on. THE SOUND CLAIM STOPS THERE. It does NOT follow that no appropriate safeguard exists: 46(3) is non-exhaustive ('in particular'), so an instrument outside the enumerated list could still qualify, and 46(1)'s condition (ii) is a further independent requirement this fixture does not model. The demonstrator's Q3 is scoped to 46(2) for exactly this reason."@en .
+
+exs:transfer-T4-contractual-clauses a gdprkg:Transfer ;
+    rdfs:label "SCENARIO T4: transfer to a non-adequate third country under ad hoc contractual clauses (46(3)(a))"@en ;
+    gdprkg:transferredTo exs:dest-nonadequate-country ;
+    exs:destinationHasAdequacyDecision false ;
+    exs:reliesOnMechanism ex:mech-46-3-a ;
+    gdprkg:hasProvenance exs:prov-art46-scenarios ;
+    skos:note "EXPECTED: Article 46 ENGAGES via a 46(3) instrument, which REQUIRES authorisation from the competent supervisory authority — and which is therefore also the case in which 46(4)'s consistency-mechanism duty bites on the supervisory authority. T4 is the row that connects the mechanism layer to the project's first non-controller obligation."@en .
+
+#################################################################
+#  DESTINATIONS (hypothetical; deliberately unnamed as real countries)
+#  Kept generic on purpose: naming an actual jurisdiction would assert
+#  a legal fact about that jurisdiction's adequacy status, which is
+#  exactly the kind of claim a non-normative fixture must not make.
+#################################################################
+
+exs:dest-adequate-country a gdprkg:TransferDestination ;
+    rdfs:label "SCENARIO destination A: a third country covered by an Art 45(3) adequacy decision (hypothetical)"@en ;
+    gdprkg:hasProvenance exs:prov-art46-scenarios .
+
+exs:dest-nonadequate-country a gdprkg:TransferDestination ;
+    rdfs:label "SCENARIO destination B: a third country NOT covered by an Art 45(3) adequacy decision (hypothetical)"@en ;
+    gdprkg:hasProvenance exs:prov-art46-scenarios .
+
+#################################################################
+#  END — 4 transfers, 2 destinations, 1 provenance triangle,
+#  2 scaffolding properties. NON-NORMATIVE. Outside the union.
+#################################################################

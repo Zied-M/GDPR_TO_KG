@@ -1,0 +1,318 @@
+{
+  "$schema_note": "Frozen competency-question set for the GDPR KG foundation. Serialization of the signed-off 27-CQ set in methodology/competency_questions_refined_proposal.md. This file is the machine-readable source of truth that drives the Phase-4 SHACL derivation and the Phase-5 SPARQL suite.",
+  "header": {
+    "title": "GDPR KG Foundation — Frozen Competency Questions (27)",
+    "status": "FROZEN (serialization only). The five previously-open CQ decisions were resolved by Zied; this file records the resolutions and does not re-open them.",
+    "frozen_on": "2026-07-02",
+    "frozen_by": "Zied (owner of the freeze; CLAUDE.md deferred-decisions register)",
+    "supersedes": "methodology/competency_questions_draft.md (first-pass 30-CQ set)",
+    "derived_from": "methodology/competency_questions_refined_proposal.md (signed off 2026-07-01)",
+    "count": {
+      "total": 27,
+      "theme_A": 9,
+      "theme_B": 10,
+      "theme_C": 8,
+      "evaluation_level": 2
+    },
+    "methodology_grounding": [
+      "gruninger1995methodology (competency questions as the requirements/evaluation instrument)",
+      "suarezfigueroa2012neon",
+      "suarezfigueroa2015neonframework"
+    ],
+    "field_legend": {
+      "id": "Stable handle used by the SPARQL/SHACL suite. Do not renumber.",
+      "theme": "A = information/transparency duties (Art 13 & 14); B = lawful basis & consent (Art 6 & 7); C = cross-cutting / integrative.",
+      "question": "The competency question in natural language.",
+      "probe": "The modeling decision the CQ is designed to test.",
+      "articles": "GDPR article(s) the CQ exercises.",
+      "eval_level": "true = answered by a procedure/metric over the graph(s), NOT by a single SPARQL query (kept in the set because it exercises the integrative claim). false = one-CQ-one-SPARQL.",
+      "draft_origin": "Traceability to the first-pass draft CQ id(s).",
+      "subparts": "Present where a merged CQ keeps distinct probes as sub-parts."
+    },
+    "resolutions": {
+      "note": "The six resolutions below were decided by Zied and are recorded here, not re-decided. They govern how the CQs are interpreted and how Article instantiation grounds normative nodes.",
+      "R1_merge_7_3_and_7_4": {
+        "decision": "Merge draft CQ-7.3 + CQ-7.4 into CQ-B8 (one right + two correlative controller duties). Both original probes are retained as sub-parts of CQ-B8.",
+        "status": "resolved"
+      },
+      "R2_drop_old_6_6": {
+        "decision": "Drop old draft CQ-6.6 (article-6-local basis-grounding). It is subsumed by CQ-C2 (uniform grounding incl. LegalBasis & Consent), which generalises it across every normatively-defined node.",
+        "status": "resolved"
+      },
+      "R3_evaluation_level": {
+        "decision": "Keep CQ-A9 (Art 13 vs 14 diff) and CQ-C8 (source coverage) as EVALUATION-LEVEL — each is answered by a metric/procedure over the graph(s), not by a single SPARQL query.",
+        "status": "resolved",
+        "flagged_cqs": ["CQ-A9", "CQ-C8"]
+      },
+      "R4_granularity_point_level": {
+        "decision": "Granularity = POINT-LEVEL. Obligations (and other normative nodes) ground to the specific Point along Article -> Paragraph -> Point. Where a provision has no Point subdivision, grounding is to the Paragraph.",
+        "grounding_basis": "GDPRtEXT's ELI-based Point/SubPoint decomposition of the GDPR [pandit2018gdprtext, ESWC 2018].",
+        "citation_key": "pandit2018gdprtext",
+        "status": "resolved"
+      },
+      "R5_split_bundled_enumerations": {
+        "decision": "Bundled enumerations are SPLIT: an enumerated informational duty (e.g. the rights listed in Art 13(2)(b)) becomes one Obligation PER item, each grounded to the SAME Point. Item-level counting is therefore how CQ-A1/CQ-A2 coverage is measured.",
+        "rationale": "Preserve per-right (per-item) traceability so each enumerated element is independently queryable and independently reviewable.",
+        "provenance_of_decision": "Deliberate original design decision by Zied. NO prior-art source prescribes this split; it is NOT inherited practice. No citation is asserted for it (do not invent one).",
+        "status": "resolved"
+      },
+      "R6_out_of_scope_referenced_provisions": {
+        "decision": "Article 9 and Articles 22, 44-49, 89 stay OUT OF SCOPE to model. They are referenced only as gdprkg:ReferencedProvision stub nodes and are never populated with normative structure.",
+        "out_of_scope_provisions": ["Art 9", "Art 22", "Art 44", "Art 45", "Art 46", "Art 47", "Art 48", "Art 49", "Art 89"],
+        "status": "resolved"
+      }
+    }
+  },
+  "competency_questions": [
+    {
+      "id": "CQ-A1",
+      "theme": "A",
+      "articles": ["13"],
+      "question": "Which information items must a controller provide when personal data are collected from the data subject, and to which Article 13(1)/(2) point is each grounded?",
+      "probe": "Every 13(1)/(2) item is an information-disclosure Obligation grounded to its Point; per R5, bundled enumerations are split one Obligation per item so coverage is countable at item level.",
+      "eval_level": false,
+      "draft_origin": ["13.1"]
+    },
+    {
+      "id": "CQ-A2",
+      "theme": "A",
+      "articles": ["14"],
+      "question": "Which information items must a controller provide when personal data are not obtained from the data subject, and to which Article 14(1)/(2) point is each grounded — including the two items unique to Art 14 (categories of data 14(1)(d); source of the data 14(2)(f))?",
+      "probe": "Coverage + the Art-14-only items, each grounded at point level.",
+      "eval_level": false,
+      "draft_origin": ["14.1"]
+    },
+    {
+      "id": "CQ-A3",
+      "theme": "A",
+      "articles": ["13", "14"],
+      "question": "Which Article 13/14 information duties are conditional, and on what condition?",
+      "probe": "Condition modeling + APPLIES_IF edges (legitimate-interests, transfer, consent basis, recipients-exist, etc.).",
+      "eval_level": false,
+      "draft_origin": ["13.2", "13.4"]
+    },
+    {
+      "id": "CQ-A4",
+      "theme": "A",
+      "articles": ["13"],
+      "question": "Under what circumstances do the Article 13 duties not apply, and to which obligations does the exemption attach?",
+      "probe": "13(4) 'already has the information' exemption + its attachment scope (blanket vs per-obligation is an OPEN legal-review item).",
+      "eval_level": false,
+      "draft_origin": ["13.3"]
+    },
+    {
+      "id": "CQ-A5",
+      "theme": "A",
+      "articles": ["14"],
+      "question": "Under what conditions is a controller exempt from the Article 14 duties, and which obligations does each of the four 14(5) exceptions defeat?",
+      "probe": "14(5)(a-d) distinct triggers + per-obligation attachment.",
+      "eval_level": false,
+      "draft_origin": ["14.4", "14.6"]
+    },
+    {
+      "id": "CQ-A6",
+      "theme": "A",
+      "articles": ["14"],
+      "question": "When the 'impossible or disproportionate effort' exemption applies, what obligation remains in force?",
+      "probe": "14(5)(b) protective-measures duty arises inside the exception and is not defeated by it.",
+      "eval_level": false,
+      "draft_origin": ["14.5"]
+    },
+    {
+      "id": "CQ-A7",
+      "theme": "A",
+      "articles": ["13", "14"],
+      "question": "Does Article 13 (and Art 14) create substantive data-subject rights, or only duties to inform the subject about rights defined elsewhere?",
+      "probe": "The decision to model 13(2)(b)/(c), 14(2)(c)/(d) mentions as information Obligations, not Right nodes.",
+      "eval_level": false,
+      "draft_origin": ["13.5"]
+    },
+    {
+      "id": "CQ-A8",
+      "theme": "A",
+      "articles": ["14"],
+      "question": "Within what time limits, and on which triggering events, must Article 14 information be provided?",
+      "probe": "14(3)(a-c) as queryable timing structure (fixed limit via hasTimeLimit; event triggers via Condition + appliesIf).",
+      "eval_level": false,
+      "draft_origin": ["14.3"]
+    },
+    {
+      "id": "CQ-A9",
+      "theme": "A",
+      "articles": ["13", "14"],
+      "question": "How do the Article 14 duties differ from Article 13 (what 14 adds and omits)?",
+      "probe": "Structured diff over the two article graphs; exercises the integrative claim (e.g. 14 lacks a 13(2)(e) statutory/contractual-requirement analogue; 14 adds 14(1)(d) categories and 14(2)(f) source).",
+      "eval_level": true,
+      "draft_origin": ["14.2"]
+    },
+    {
+      "id": "CQ-B1",
+      "theme": "B",
+      "articles": ["6"],
+      "question": "Which lawful bases permit processing of personal data?",
+      "probe": "6(1)(a-f) as a LegalBasis structure, not six controller obligations.",
+      "eval_level": false,
+      "draft_origin": ["6.1"]
+    },
+    {
+      "id": "CQ-B2",
+      "theme": "B",
+      "articles": ["6"],
+      "question": "Under what conditions is each lawful basis available?",
+      "probe": "Per-basis necessity/balancing Conditions, linked to the LegalBasis (not merely co-grounded to the same Point).",
+      "eval_level": false,
+      "draft_origin": ["6.2"]
+    },
+    {
+      "id": "CQ-B3",
+      "theme": "B",
+      "articles": ["6"],
+      "question": "Which lawful bases require a basis in Union or Member State law?",
+      "probe": "6(3) attaching specifically to (c) legal obligation and (e) public-interest as a traversable link from those bases, not free text.",
+      "eval_level": false,
+      "draft_origin": ["6.3"]
+    },
+    {
+      "id": "CQ-B4",
+      "theme": "B",
+      "articles": ["6"],
+      "question": "Is the legitimate-interests basis excluded for public authorities acting in their tasks, and what does that exclusion attach to?",
+      "probe": "6(1)(f) 2nd sentence as a LegalEffect/Exception on the basis (LegalBasisLegitimateInterests).",
+      "eval_level": false,
+      "draft_origin": []
+    },
+    {
+      "id": "CQ-B5",
+      "theme": "B",
+      "articles": ["6"],
+      "question": "What must a controller assess when processing for a new purpose, and which factors govern the compatibility assessment?",
+      "probe": "6(4) Obligation + the 6(4)(a-e) factors linked to it (factor-link is the probe).",
+      "eval_level": false,
+      "draft_origin": ["6.4", "6.5"]
+    },
+    {
+      "id": "CQ-B6",
+      "theme": "B",
+      "articles": ["7"],
+      "question": "What must a controller demonstrate when relying on consent?",
+      "probe": "7(1) demonstrate-consent Obligation.",
+      "eval_level": false,
+      "draft_origin": ["7.1"]
+    },
+    {
+      "id": "CQ-B7",
+      "theme": "B",
+      "articles": ["7"],
+      "question": "What are the requirements for how a consent request is presented?",
+      "probe": "7(2) distinguishable / intelligible / plain language requirements.",
+      "eval_level": false,
+      "draft_origin": ["7.2"]
+    },
+    {
+      "id": "CQ-B8",
+      "theme": "B",
+      "articles": ["7"],
+      "question": "What right does the data subject have over consent, and what duties does the controller bear in relation to withdrawal?",
+      "probe": "7(3) substantive Right (withdraw) + the two controller duties (inform before; make withdrawal as easy as giving), modelled as separate correlative nodes grounded in the same Point.",
+      "eval_level": false,
+      "draft_origin": ["7.3", "7.4"],
+      "subparts": [
+        {"id": "CQ-B8.1", "focus": "Substantive right to withdraw consent at any time (7(3) sentence 1)."},
+        {"id": "CQ-B8.2", "focus": "Controller duty to inform of the withdrawal right before consent is given (7(3) sentence 3)."},
+        {"id": "CQ-B8.3", "focus": "Controller duty to make withdrawal as easy as giving consent (7(3) sentence 4)."}
+      ],
+      "merge_note": "Merged from draft 7.3 + 7.4 per resolution R1; both probes kept as sub-parts."
+    },
+    {
+      "id": "CQ-B9",
+      "theme": "B",
+      "articles": ["7"],
+      "question": "Under what conditions is consent considered (not) freely given?",
+      "probe": "7(4) conditionality, linked to the Consent node / a validity assessment.",
+      "eval_level": false,
+      "draft_origin": ["7.5"]
+    },
+    {
+      "id": "CQ-B10",
+      "theme": "B",
+      "articles": ["7"],
+      "question": "How is the legal effect of a consent declaration that breaches Article 7(2) represented?",
+      "probe": "The LegalEffect pattern for 'not binding' vs. overloading Exception.",
+      "eval_level": false,
+      "draft_origin": ["7.6"]
+    },
+    {
+      "id": "CQ-C1",
+      "theme": "C",
+      "articles": ["13", "14", "6", "7"],
+      "question": "For a given article, what obligations, rights, conditions, and exceptions does it generate, and what provision is each grounded in?",
+      "probe": "The core Article -> Paragraph/Point -> Obligation/Right path with grounding on every normative node.",
+      "eval_level": false,
+      "draft_origin": ["CC1"]
+    },
+    {
+      "id": "CQ-C2",
+      "theme": "C",
+      "articles": ["13", "14", "6", "7"],
+      "question": "For any normatively-defined node — including LegalBasis and Consent — can it be traced by a grounding relation (not merely a metadata attribute) to the specific provision that establishes it?",
+      "probe": "The uniform-grounding fix (groundedIn on every GroundedConcept incl. LegalBasis and Consent). The single most important diagnostic CQ for the rebuild.",
+      "eval_level": false,
+      "draft_origin": ["CC-new", "6.6"],
+      "subsumes_note": "Subsumes and generalises old draft CQ-6.6 per resolution R2."
+    },
+    {
+      "id": "CQ-C3",
+      "theme": "C",
+      "articles": ["13", "14", "6", "7"],
+      "question": "For any obligation, which actor bears it, and for any right, which actor holds it?",
+      "probe": "IMPOSES_OBLIGATION_ON / GRANTS_RIGHT_TO integrity.",
+      "eval_level": false,
+      "draft_origin": ["CC2"]
+    },
+    {
+      "id": "CQ-C4",
+      "theme": "C",
+      "articles": ["13", "14"],
+      "question": "For an obligation that references a specific third party (DPO, controller representative, supervisory authority, data source), can that party be identified and typed?",
+      "probe": "Whether generic Actor nodes suffice or these need distinct Actor subclasses + obligation->actor edges.",
+      "eval_level": false,
+      "draft_origin": []
+    },
+    {
+      "id": "CQ-C5",
+      "theme": "C",
+      "articles": ["13", "14", "6", "7"],
+      "question": "Which obligations across different articles relate to the same privacy-domain concept (e.g. everything touching Consent, or international Transfer)?",
+      "probe": "The domain layer as a cross-article connector via shared canonical domain nodes.",
+      "eval_level": false,
+      "draft_origin": ["CC3"]
+    },
+    {
+      "id": "CQ-C6",
+      "theme": "C",
+      "articles": ["13", "14", "6", "7"],
+      "question": "For any node, what is its provenance and current review status?",
+      "probe": "Provenance/review layer present from the start (provenance + reviewStatus required on primary normative units; Condition/Exception inherit via parent).",
+      "eval_level": false,
+      "draft_origin": ["CC4"]
+    },
+    {
+      "id": "CQ-C7",
+      "theme": "C",
+      "articles": ["13", "14", "6", "7"],
+      "question": "For any obligation, is the point in time it must be performed represented in a queryable way?",
+      "probe": "Temporal representation across articles (13 'at the time obtained'; 14(3) deadlines; 13(3)/14(4) 'prior to further processing').",
+      "eval_level": false,
+      "draft_origin": ["13.6", "CC-new"]
+    },
+    {
+      "id": "CQ-C8",
+      "theme": "C",
+      "articles": ["13", "14", "6", "7"],
+      "question": "Which parts of an article's source text are not yet represented as normative nodes?",
+      "probe": "A coverage procedure over source_units, not one SPARQL query.",
+      "eval_level": true,
+      "draft_origin": ["CC5"]
+    }
+  ]
+}

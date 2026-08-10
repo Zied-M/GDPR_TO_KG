@@ -1,0 +1,21 @@
+# CQ-B1 — Which lawful bases permit processing of personal data?
+# Probe (frozen CQ-B1): 6(1)(a-f) as a LegalBasis structure, NOT six controller obligations.
+#
+# Regime: (needs materialisation). The ABox types each basis with its specific subclass
+# (e.g. `a gdprkg:LegalBasisConsent`); `?b a gdprkg:LegalBasis` matches only after the
+# OWL 2 RL closure makes the inferred super-type explicit (see cq_sparql/README.md).
+#
+# Expected over art6.ttl: 6 rows — one per basis, each grounded in its 6(1) Point:
+#   ex:basis-consent               -> ex:art6-p1-a
+#   ex:basis-contract              -> ex:art6-p1-b
+#   ex:basis-legal-obligation      -> ex:art6-p1-c
+#   ex:basis-vital-interests       -> ex:art6-p1-d
+#   ex:basis-public-task           -> ex:art6-p1-e
+#   ex:basis-legitimate-interests  -> ex:art6-p1-f
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?basis ?point
+WHERE {
+  ?basis a gdprkg:LegalBasis ;
+         gdprkg:groundedIn ?point .
+}
+ORDER BY ?point

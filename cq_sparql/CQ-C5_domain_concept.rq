@@ -1,0 +1,31 @@
+# CQ-C5 — Which obligations relate to the same privacy-domain concept (Purpose, Transfer,
+# Retention, Safeguard, Recipient, ...)?  Now traversable from the obligation side via
+# gdprkg:disclosesConcept (added 2026-07-03, surfaced item S7).
+#
+# SCOPE NOTE: CQ-C5's full probe is CROSS-ARTICLE ("across different articles ... the same
+# concept"). Over the single Art-13 graph this query demonstrates the edge WORKS and returns
+# the Art-13 disclosures grouped by concept type; the cross-article aggregation (e.g. every
+# obligation across Art 13/14/6/7 touching Transfer or Consent) is exercised once Art 14/6/7
+# are instantiated and share the same canonical domain nodes. The cross-article facet remains
+# legitimately out this session.
+#
+# Expected over art13.ttl: 5 rows —
+#   obl-art13-1-c-purposes           -> purpose-art13   (Purpose)
+#   obl-art13-1-e-recipients         -> recipient-art13 (Recipient)
+#   obl-art13-1-f-transfer-fact      -> transfer-art13  (Transfer)
+#   obl-art13-1-f-transfer-safeguards-> safeguard-art13 (Safeguard)
+#   obl-art13-2-a-storage-period     -> retention-art13 (RetentionPeriod)
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?concept ?conceptType ?obligation
+WHERE {
+  ?obligation a gdprkg:Obligation ;
+              gdprkg:disclosesConcept ?concept .
+  ?concept a ?conceptType .
+}
+ORDER BY ?conceptType ?obligation
+# Cross-article form (for when >1 article is instantiated): drop the single-article assumption
+# and GROUP BY the shared canonical concept to list every article's obligations touching it:
+#   SELECT ?concept (GROUP_CONCAT(?obligation) AS ?obligations)
+#   WHERE { ?obligation a gdprkg:Obligation ; gdprkg:disclosesConcept ?concept . }
+#   GROUP BY ?concept

@@ -1,0 +1,852 @@
+{
+  "metadata": {
+    "source": "gdpr-info.eu",
+    "articles": [
+      "5",
+      "6",
+      "7",
+      "12",
+      "13",
+      "14",
+      "15",
+      "17",
+      "32",
+      "46"
+    ],
+    "status": "scraped_source_text"
+  },
+  "articles": {
+    "5": {
+      "article_number": "5",
+      "title": "Art. 5 GDPR Principles relating to processing of personal data",
+      "url": "https://gdpr-info.eu/art-5-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "Personal data shall be: processed lawfully, fairly and in a transparent manner in relation to the data subject (‘lawfulness, fairness and transparency’); collected for specified, explicit and legitimate purposes and not further processed in a manner that is incompatible with those purposes; further processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes shall, in accordance with Article 89 (1), not be considered to be incompatible with the initial purposes (‘purpose limitation’); adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed (‘data minimisation’); accurate and, where necessary, kept up to date; every reasonable step must be taken to ensure that personal data that are inaccurate, having regard to the purposes for which they are processed, are erased or rectified without delay (‘accuracy’); kept in a form which permits identification of data subjects for no longer than is necessary for the purposes for which the personal data are processed; personal data may be stored for longer periods insofar as the personal data will be processed solely for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes in accordance with Article 89( 1) subject to implementation of the appropriate technical and organisational measures required by this Regulation in order to safeguard the rights and freedoms of the data subject (‘storage limitation’); processed in a manner that ensures appropriate security of the personal data, including protection against unauthorised or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organisational measures (‘integrity and confidentiality’)."
+        },
+        {
+          "subpart_id": "1.a",
+          "paragraph": "1",
+          "point": "a",
+          "text": "processed lawfully, fairly and in a transparent manner in relation to the data subject (‘lawfulness, fairness and transparency’);"
+        },
+        {
+          "subpart_id": "1.b",
+          "paragraph": "1",
+          "point": "b",
+          "text": "collected for specified, explicit and legitimate purposes and not further processed in a manner that is incompatible with those purposes; further processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes shall, in accordance with Article 89 (1), not be considered to be incompatible with the initial purposes (‘purpose limitation’);"
+        },
+        {
+          "subpart_id": "1.c",
+          "paragraph": "1",
+          "point": "c",
+          "text": "adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed (‘data minimisation’);"
+        },
+        {
+          "subpart_id": "1.d",
+          "paragraph": "1",
+          "point": "d",
+          "text": "accurate and, where necessary, kept up to date; every reasonable step must be taken to ensure that personal data that are inaccurate, having regard to the purposes for which they are processed, are erased or rectified without delay (‘accuracy’);"
+        },
+        {
+          "subpart_id": "1.e",
+          "paragraph": "1",
+          "point": "e",
+          "text": "kept in a form which permits identification of data subjects for no longer than is necessary for the purposes for which the personal data are processed; personal data may be stored for longer periods insofar as the personal data will be processed solely for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes in accordance with Article 89( 1) subject to implementation of the appropriate technical and organisational measures required by this Regulation in order to safeguard the rights and freedoms of the data subject (‘storage limitation’);"
+        },
+        {
+          "subpart_id": "1.f",
+          "paragraph": "1",
+          "point": "f",
+          "text": "processed in a manner that ensures appropriate security of the personal data, including protection against unauthorised or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organisational measures (‘integrity and confidentiality’)."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "The controller shall be responsible for, and be able to demonstrate compliance with, paragraph 1 (‘accountability’)."
+        }
+      ]
+    },
+    "6": {
+      "article_number": "6",
+      "title": "Art. 6 GDPR Lawfulness of processing",
+      "url": "https://gdpr-info.eu/art-6-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "Processing shall be lawful only if and to the extent that at least one of the following applies: the data subject has given consent to the processing of his or her personal data for one or more specific purposes; processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract; processing is necessary for compliance with a legal obligation to which the controller is subject; processing is necessary in order to protect the vital interests of the data subject or of another natural person; processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller; processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child. Point (f) of the first subparagraph shall not apply to processing carried out by public authorities in the performance of their tasks."
+        },
+        {
+          "subpart_id": "1.a",
+          "paragraph": "1",
+          "point": "a",
+          "text": "the data subject has given consent to the processing of his or her personal data for one or more specific purposes;"
+        },
+        {
+          "subpart_id": "1.b",
+          "paragraph": "1",
+          "point": "b",
+          "text": "processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract;"
+        },
+        {
+          "subpart_id": "1.c",
+          "paragraph": "1",
+          "point": "c",
+          "text": "processing is necessary for compliance with a legal obligation to which the controller is subject;"
+        },
+        {
+          "subpart_id": "1.d",
+          "paragraph": "1",
+          "point": "d",
+          "text": "processing is necessary in order to protect the vital interests of the data subject or of another natural person;"
+        },
+        {
+          "subpart_id": "1.e",
+          "paragraph": "1",
+          "point": "e",
+          "text": "processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller;"
+        },
+        {
+          "subpart_id": "1.f",
+          "paragraph": "1",
+          "point": "f",
+          "text": "processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "Member States may maintain or introduce more specific provisions to adapt the application of the rules of this Regulation with regard to processing for compliance with points (c) and (e) of paragraph 1 by determining more precisely specific requirements for the processing and other measures to ensure lawful and fair processing including for other specific processing situations as provided for in Chapter IX ."
+        },
+        {
+          "subpart_id": "3",
+          "paragraph": "3",
+          "point": null,
+          "text": "1 The basis for the processing referred to in point (c) and (e) of paragraph 1 shall be laid down by: Union law; or Member State law to which the controller is subject. 2 The purpose of the processing shall be determined in that legal basis or, as regards the processing referred to in point (e) of paragraph 1, shall be necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller. 3 That legal basis may contain specific provisions to adapt the application of rules of this Regulation, inter alia: the general conditions governing the lawfulness of processing by the controller; the types of data which are subject to the processing; the data subjects concerned; the entities to, and the purposes for which, the personal data may be disclosed; the purpose limitation; storage periods; and processing operations and processing procedures, including measures to ensure lawful and fair processing such as those for other specific processing situations as provided for in Chapter IX . 4 The Union or the Member State law shall meet an objective of public interest and be proportionate to the legitimate aim pursued."
+        },
+        {
+          "subpart_id": "3.a",
+          "paragraph": "3",
+          "point": "a",
+          "text": "Union law; or"
+        },
+        {
+          "subpart_id": "3.b",
+          "paragraph": "3",
+          "point": "b",
+          "text": "Member State law to which the controller is subject."
+        },
+        {
+          "subpart_id": "4",
+          "paragraph": "4",
+          "point": null,
+          "text": "Where the processing for a purpose other than that for which the personal data have been collected is not based on the data subject’s consent or on a Union or Member State law which constitutes a necessary and proportionate measure in a democratic society to safeguard the objectives referred to in Article 23 (1), the controller shall, in order to ascertain whether processing for another purpose is compatible with the purpose for which the personal data are initially collected, take into account, inter alia: any link between the purposes for which the personal data have been collected and the purposes of the intended further processing; the context in which the personal data have been collected, in particular regarding the relationship between data subjects and the controller; the nature of the personal data, in particular whether special categories of personal data are processed, pursuant to Article 9 , or whether personal data related to criminal convictions and offences are processed, pursuant to Article 10 ; the possible consequences of the intended further processing for data subjects; the existence of appropriate safeguards, which may include encryption or pseudonymisation."
+        },
+        {
+          "subpart_id": "4.a",
+          "paragraph": "4",
+          "point": "a",
+          "text": "any link between the purposes for which the personal data have been collected and the purposes of the intended further processing;"
+        },
+        {
+          "subpart_id": "4.b",
+          "paragraph": "4",
+          "point": "b",
+          "text": "the context in which the personal data have been collected, in particular regarding the relationship between data subjects and the controller;"
+        },
+        {
+          "subpart_id": "4.c",
+          "paragraph": "4",
+          "point": "c",
+          "text": "the nature of the personal data, in particular whether special categories of personal data are processed, pursuant to Article 9 , or whether personal data related to criminal convictions and offences are processed, pursuant to Article 10 ;"
+        },
+        {
+          "subpart_id": "4.d",
+          "paragraph": "4",
+          "point": "d",
+          "text": "the possible consequences of the intended further processing for data subjects;"
+        },
+        {
+          "subpart_id": "4.e",
+          "paragraph": "4",
+          "point": "e",
+          "text": "the existence of appropriate safeguards, which may include encryption or pseudonymisation."
+        }
+      ]
+    },
+    "7": {
+      "article_number": "7",
+      "title": "Art. 7 GDPR Conditions for consent",
+      "url": "https://gdpr-info.eu/art-7-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "Where processing is based on consent, the controller shall be able to demonstrate that the data subject has consented to processing of his or her personal data."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "1 If the data subject’s consent is given in the context of a written declaration which also concerns other matters, the request for consent shall be presented in a manner which is clearly distinguishable from the other matters, in an intelligible and easily accessible form, using clear and plain language. 2 Any part of such a declaration which constitutes an infringement of this Regulation shall not be binding."
+        },
+        {
+          "subpart_id": "3",
+          "paragraph": "3",
+          "point": null,
+          "text": "1 The data subject shall have the right to withdraw his or her consent at any time. 2 The withdrawal of consent shall not affect the lawfulness of processing based on consent before its withdrawal. 3 Prior to giving consent, the data subject shall be informed thereof. 4 It shall be as easy to withdraw as to give consent."
+        },
+        {
+          "subpart_id": "4",
+          "paragraph": "4",
+          "point": null,
+          "text": "When assessing whether consent is freely given, utmost account shall be taken of whether, inter alia , the performance of a contract, including the provision of a service, is conditional on consent to the processing of personal data that is not necessary for the performance of that contract."
+        }
+      ]
+    },
+    "12": {
+      "article_number": "12",
+      "title": "Art. 12 GDPR Transparent information, communication and modalities for the exercise of the rights of the data subject",
+      "url": "https://gdpr-info.eu/art-12-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "1 The controller shall take appropriate measures to provide any information referred to in Articles 13 and 14 and any communication under Articles 15 to 22 and 34 relating to processing to the data subject in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically to a child. 2 The information shall be provided in writing, or by other means, including, where appropriate, by electronic means. 3 When requested by the data subject, the information may be provided orally, provided that the identity of the data subject is proven by other means."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "1 The controller shall facilitate the exercise of data subject rights under Articles 15 to 22 . 2 In the cases referred to in Article 11 (2), the controller shall not refuse to act on the request of the data subject for exercising his or her rights under Articles 15 to 22 , unless the controller demonstrates that it is not in a position to identify the data subject."
+        },
+        {
+          "subpart_id": "3",
+          "paragraph": "3",
+          "point": null,
+          "text": "1 The controller shall provide information on action taken on a request under Articles 15 to 22 to the data subject without undue delay and in any event within one month of receipt of the request. 2 That period may be extended by two further months where necessary, taking into account the complexity and number of the requests. 3 The controller shall inform the data subject of any such extension within one month of receipt of the request, together with the reasons for the delay. 4 Where the data subject makes the request by electronic form means, the information shall be provided by electronic means where possible, unless otherwise requested by the data subject."
+        },
+        {
+          "subpart_id": "4",
+          "paragraph": "4",
+          "point": null,
+          "text": "If the controller does not take action on the request of the data subject, the controller shall inform the data subject without delay and at the latest within one month of receipt of the request of the reasons for not taking action and on the possibility of lodging a complaint with a supervisory authority and seeking a judicial remedy."
+        },
+        {
+          "subpart_id": "5",
+          "paragraph": "5",
+          "point": null,
+          "text": "1 Information provided under Articles 13 and 14 and any communication and any actions taken under Articles 15 to 22 and 34 shall be provided free of charge. 2 Where requests from a data subject are manifestly unfounded or excessive, in particular because of their repetitive character, the controller may either: charge a reasonable fee taking into account the administrative costs of providing the information or communication or taking the action requested; or refuse to act on the request. 3 The controller shall bear the burden of demonstrating the manifestly unfounded or excessive character of the request."
+        },
+        {
+          "subpart_id": "5.a",
+          "paragraph": "5",
+          "point": "a",
+          "text": "charge a reasonable fee taking into account the administrative costs of providing the information or communication or taking the action requested; or"
+        },
+        {
+          "subpart_id": "5.b",
+          "paragraph": "5",
+          "point": "b",
+          "text": "refuse to act on the request."
+        },
+        {
+          "subpart_id": "6",
+          "paragraph": "6",
+          "point": null,
+          "text": "Without prejudice to Article 11 , where the controller has reasonable doubts concerning the identity of the natural person making the request referred to in Articles 15 to 21 , the controller may request the provision of additional information necessary to confirm the identity of the data subject."
+        },
+        {
+          "subpart_id": "7",
+          "paragraph": "7",
+          "point": null,
+          "text": "1 The information to be provided to data subjects pursuant to Articles 13 and 14 may be provided in combination with standardised icons in order to give in an easily visible, intelligible and clearly legible manner a meaningful overview of the intended processing. 2 Where the icons are presented electronically they shall be machine-readable."
+        },
+        {
+          "subpart_id": "8",
+          "paragraph": "8",
+          "point": null,
+          "text": "The Commission shall be empowered to adopt delegated acts in accordance with Article 92 for the purpose of determining the information to be presented by the icons and the procedures for providing standardised icons."
+        }
+      ]
+    },
+    "13": {
+      "article_number": "13",
+      "title": "Art. 13 GDPR Information to be provided where personal data are collected from the data subject",
+      "url": "https://gdpr-info.eu/art-13-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "Where personal data relating to a data subject are collected from the data subject, the controller shall, at the time when personal data are obtained, provide the data subject with all of the following information: the identity and the contact details of the controller and, where applicable, of the controller’s representative; the contact details of the data protection officer, where applicable; the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; where the processing is based on point (f) of Article 6 (1), the legitimate interests pursued by the controller or by a third party; the recipients or categories of recipients of the personal data, if any; where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47 , or the second subparagraph of Article 49( 1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available."
+        },
+        {
+          "subpart_id": "1.a",
+          "paragraph": "1",
+          "point": "a",
+          "text": "the identity and the contact details of the controller and, where applicable, of the controller’s representative;"
+        },
+        {
+          "subpart_id": "1.b",
+          "paragraph": "1",
+          "point": "b",
+          "text": "the contact details of the data protection officer, where applicable;"
+        },
+        {
+          "subpart_id": "1.c",
+          "paragraph": "1",
+          "point": "c",
+          "text": "the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;"
+        },
+        {
+          "subpart_id": "1.d",
+          "paragraph": "1",
+          "point": "d",
+          "text": "where the processing is based on point (f) of Article 6 (1), the legitimate interests pursued by the controller or by a third party;"
+        },
+        {
+          "subpart_id": "1.e",
+          "paragraph": "1",
+          "point": "e",
+          "text": "the recipients or categories of recipients of the personal data, if any;"
+        },
+        {
+          "subpart_id": "1.f",
+          "paragraph": "1",
+          "point": "f",
+          "text": "where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47 , or the second subparagraph of Article 49( 1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "In addition to the information referred to in paragraph 1, the controller shall, at the time when personal data are obtained, provide the data subject with the following further information necessary to ensure fair and transparent processing: the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period; the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability; where the processing is based on point (a) of Article 6 (1) or point (a) of Article 9( 2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal; the right to lodge a complaint with a supervisory authority; whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data and of the possible consequences of failure to provide such data; the existence of automated decision-making, including profiling, referred to in Article 22 (1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+        },
+        {
+          "subpart_id": "2.a",
+          "paragraph": "2",
+          "point": "a",
+          "text": "the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;"
+        },
+        {
+          "subpart_id": "2.b",
+          "paragraph": "2",
+          "point": "b",
+          "text": "the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability;"
+        },
+        {
+          "subpart_id": "2.c",
+          "paragraph": "2",
+          "point": "c",
+          "text": "where the processing is based on point (a) of Article 6 (1) or point (a) of Article 9( 2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;"
+        },
+        {
+          "subpart_id": "2.d",
+          "paragraph": "2",
+          "point": "d",
+          "text": "the right to lodge a complaint with a supervisory authority;"
+        },
+        {
+          "subpart_id": "2.e",
+          "paragraph": "2",
+          "point": "e",
+          "text": "whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data and of the possible consequences of failure to provide such data;"
+        },
+        {
+          "subpart_id": "2.f",
+          "paragraph": "2",
+          "point": "f",
+          "text": "the existence of automated decision-making, including profiling, referred to in Article 22 (1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+        },
+        {
+          "subpart_id": "3",
+          "paragraph": "3",
+          "point": null,
+          "text": "Where the controller intends to further process the personal data for a purpose other than that for which the personal data were collected, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2."
+        },
+        {
+          "subpart_id": "4",
+          "paragraph": "4",
+          "point": null,
+          "text": "Paragraphs 1, 2 and 3 shall not apply where and insofar as the data subject already has the information."
+        }
+      ]
+    },
+    "14": {
+      "article_number": "14",
+      "title": "Art. 14 GDPR Information to be provided where personal data have not been obtained from the data subject",
+      "url": "https://gdpr-info.eu/art-14-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "Where personal data have not been obtained from the data subject, the controller shall provide the data subject with the following information: the identity and the contact details of the controller and, where applicable, of the controller’s representative; the contact details of the data protection officer, where applicable; the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; the categories of personal data concerned; the recipients or categories of recipients of the personal data, if any; where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47 , or the second subparagraph of Article 49 (1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available."
+        },
+        {
+          "subpart_id": "1.a",
+          "paragraph": "1",
+          "point": "a",
+          "text": "the identity and the contact details of the controller and, where applicable, of the controller’s representative;"
+        },
+        {
+          "subpart_id": "1.b",
+          "paragraph": "1",
+          "point": "b",
+          "text": "the contact details of the data protection officer, where applicable;"
+        },
+        {
+          "subpart_id": "1.c",
+          "paragraph": "1",
+          "point": "c",
+          "text": "the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;"
+        },
+        {
+          "subpart_id": "1.d",
+          "paragraph": "1",
+          "point": "d",
+          "text": "the categories of personal data concerned;"
+        },
+        {
+          "subpart_id": "1.e",
+          "paragraph": "1",
+          "point": "e",
+          "text": "the recipients or categories of recipients of the personal data, if any;"
+        },
+        {
+          "subpart_id": "1.f",
+          "paragraph": "1",
+          "point": "f",
+          "text": "where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47 , or the second subparagraph of Article 49 (1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject: the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period; where the processing is based on point (f) of Article 6 (1), the legitimate interests pursued by the controller or by a third party; the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability; where processing is based on point (a) of Article 6 (1) or point (a) of Article 9 (2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal; the right to lodge a complaint with a supervisory authority; from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; the existence of automated decision-making, including profiling, referred to in Article 22 (1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+        },
+        {
+          "subpart_id": "2.a",
+          "paragraph": "2",
+          "point": "a",
+          "text": "the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;"
+        },
+        {
+          "subpart_id": "2.b",
+          "paragraph": "2",
+          "point": "b",
+          "text": "where the processing is based on point (f) of Article 6 (1), the legitimate interests pursued by the controller or by a third party;"
+        },
+        {
+          "subpart_id": "2.c",
+          "paragraph": "2",
+          "point": "c",
+          "text": "the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability;"
+        },
+        {
+          "subpart_id": "2.d",
+          "paragraph": "2",
+          "point": "d",
+          "text": "where processing is based on point (a) of Article 6 (1) or point (a) of Article 9 (2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;"
+        },
+        {
+          "subpart_id": "2.e",
+          "paragraph": "2",
+          "point": "e",
+          "text": "the right to lodge a complaint with a supervisory authority;"
+        },
+        {
+          "subpart_id": "2.f",
+          "paragraph": "2",
+          "point": "f",
+          "text": "from which source the personal data originate, and if applicable, whether it came from publicly accessible sources;"
+        },
+        {
+          "subpart_id": "2.g",
+          "paragraph": "2",
+          "point": "g",
+          "text": "the existence of automated decision-making, including profiling, referred to in Article 22 (1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+        },
+        {
+          "subpart_id": "3",
+          "paragraph": "3",
+          "point": null,
+          "text": "The controller shall provide the information referred to in paragraphs 1 and 2: within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed; if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject; or if a disclosure to another recipient is envisaged, at the latest when the personal data are first disclosed."
+        },
+        {
+          "subpart_id": "3.a",
+          "paragraph": "3",
+          "point": "a",
+          "text": "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed;"
+        },
+        {
+          "subpart_id": "3.b",
+          "paragraph": "3",
+          "point": "b",
+          "text": "if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject; or"
+        },
+        {
+          "subpart_id": "3.c",
+          "paragraph": "3",
+          "point": "c",
+          "text": "if a disclosure to another recipient is envisaged, at the latest when the personal data are first disclosed."
+        },
+        {
+          "subpart_id": "4",
+          "paragraph": "4",
+          "point": null,
+          "text": "Where the controller intends to further process the personal data for a purpose other than that for which the personal data were obtained, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2."
+        },
+        {
+          "subpart_id": "5",
+          "paragraph": "5",
+          "point": null,
+          "text": "Paragraphs 1 to 4 shall not apply where and insofar as: the data subject already has the information; the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89 (1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject’s rights and freedoms and legitimate interests, including making the information publicly available; obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject’s legitimate interests; or where the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy."
+        },
+        {
+          "subpart_id": "5.a",
+          "paragraph": "5",
+          "point": "a",
+          "text": "the data subject already has the information;"
+        },
+        {
+          "subpart_id": "5.b",
+          "paragraph": "5",
+          "point": "b",
+          "text": "the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89 (1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject’s rights and freedoms and legitimate interests, including making the information publicly available;"
+        },
+        {
+          "subpart_id": "5.c",
+          "paragraph": "5",
+          "point": "c",
+          "text": "obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject’s legitimate interests; or"
+        },
+        {
+          "subpart_id": "5.d",
+          "paragraph": "5",
+          "point": "d",
+          "text": "where the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy."
+        }
+      ]
+    },
+    "15": {
+      "article_number": "15",
+      "title": "Art. 15 GDPR Right of access by the data subject",
+      "url": "https://gdpr-info.eu/art-15-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the following information: the purposes of the processing; the categories of personal data concerned; the recipients or categories of recipient to whom the personal data have been or will be disclosed, in particular recipients in third countries or international organisations; where possible, the envisaged period for which the personal data will be stored, or, if not possible, the criteria used to determine that period; the existence of the right to request from the controller rectification or erasure of personal data or restriction of processing of personal data concerning the data subject or to object to such processing; the right to lodge a complaint with a supervisory authority; where the personal data are not collected from the data subject, any available information as to their source; the existence of automated decision-making, including profiling, referred to in Article 22 (1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+        },
+        {
+          "subpart_id": "1.a",
+          "paragraph": "1",
+          "point": "a",
+          "text": "the purposes of the processing;"
+        },
+        {
+          "subpart_id": "1.b",
+          "paragraph": "1",
+          "point": "b",
+          "text": "the categories of personal data concerned;"
+        },
+        {
+          "subpart_id": "1.c",
+          "paragraph": "1",
+          "point": "c",
+          "text": "the recipients or categories of recipient to whom the personal data have been or will be disclosed, in particular recipients in third countries or international organisations;"
+        },
+        {
+          "subpart_id": "1.d",
+          "paragraph": "1",
+          "point": "d",
+          "text": "where possible, the envisaged period for which the personal data will be stored, or, if not possible, the criteria used to determine that period;"
+        },
+        {
+          "subpart_id": "1.e",
+          "paragraph": "1",
+          "point": "e",
+          "text": "the existence of the right to request from the controller rectification or erasure of personal data or restriction of processing of personal data concerning the data subject or to object to such processing;"
+        },
+        {
+          "subpart_id": "1.f",
+          "paragraph": "1",
+          "point": "f",
+          "text": "the right to lodge a complaint with a supervisory authority;"
+        },
+        {
+          "subpart_id": "1.g",
+          "paragraph": "1",
+          "point": "g",
+          "text": "where the personal data are not collected from the data subject, any available information as to their source;"
+        },
+        {
+          "subpart_id": "1.h",
+          "paragraph": "1",
+          "point": "h",
+          "text": "the existence of automated decision-making, including profiling, referred to in Article 22 (1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer."
+        },
+        {
+          "subpart_id": "3",
+          "paragraph": "3",
+          "point": null,
+          "text": "1 The controller shall provide a copy of the personal data undergoing processing. 2 For any further copies requested by the data subject, the controller may charge a reasonable fee based on administrative costs. 3 Where the data subject makes the request by electronic means, and unless otherwise requested by the data subject, the information shall be provided in a commonly used electronic form."
+        },
+        {
+          "subpart_id": "4",
+          "paragraph": "4",
+          "point": null,
+          "text": "The right to obtain a copy referred to in paragraph 3 shall not adversely affect the rights and freedoms of others."
+        }
+      ]
+    },
+    "17": {
+      "article_number": "17",
+      "title": "Art. 17 GDPR Right to erasure (‘right to be forgotten’)",
+      "url": "https://gdpr-info.eu/art-17-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay and the controller shall have the obligation to erase personal data without undue delay where one of the following grounds applies: the personal data are no longer necessary in relation to the purposes for which they were collected or otherwise processed; the data subject withdraws consent on which the processing is based according to point (a) of Article 6 (1), or point (a) of Article 9 (2), and where there is no other legal ground for the processing; the data subject objects to the processing pursuant to Article 21 (1) and there are no overriding legitimate grounds for the processing, or the data subject objects to the processing pursuant to Article 21 (2); the personal data have been unlawfully processed; the personal data have to be erased for compliance with a legal obligation in Union or Member State law to which the controller is subject; the personal data have been collected in relation to the offer of information society services referred to in Article 8 (1)."
+        },
+        {
+          "subpart_id": "1.a",
+          "paragraph": "1",
+          "point": "a",
+          "text": "the personal data are no longer necessary in relation to the purposes for which they were collected or otherwise processed;"
+        },
+        {
+          "subpart_id": "1.b",
+          "paragraph": "1",
+          "point": "b",
+          "text": "the data subject withdraws consent on which the processing is based according to point (a) of Article 6 (1), or point (a) of Article 9 (2), and where there is no other legal ground for the processing;"
+        },
+        {
+          "subpart_id": "1.c",
+          "paragraph": "1",
+          "point": "c",
+          "text": "the data subject objects to the processing pursuant to Article 21 (1) and there are no overriding legitimate grounds for the processing, or the data subject objects to the processing pursuant to Article 21 (2);"
+        },
+        {
+          "subpart_id": "1.d",
+          "paragraph": "1",
+          "point": "d",
+          "text": "the personal data have been unlawfully processed;"
+        },
+        {
+          "subpart_id": "1.e",
+          "paragraph": "1",
+          "point": "e",
+          "text": "the personal data have to be erased for compliance with a legal obligation in Union or Member State law to which the controller is subject;"
+        },
+        {
+          "subpart_id": "1.f",
+          "paragraph": "1",
+          "point": "f",
+          "text": "the personal data have been collected in relation to the offer of information society services referred to in Article 8 (1)."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "Where the controller has made the personal data public and is obliged pursuant to paragraph 1 to erase the personal data, the controller, taking account of available technology and the cost of implementation, shall take reasonable steps, including technical measures, to inform controllers which are processing the personal data that the data subject has requested the erasure by such controllers of any links to, or copy or replication of, those personal data."
+        },
+        {
+          "subpart_id": "3",
+          "paragraph": "3",
+          "point": null,
+          "text": "Paragraphs 1 and 2 shall not apply to the extent that processing is necessary: for exercising the right of freedom of expression and information; for compliance with a legal obligation which requires processing by Union or Member State law to which the controller is subject or for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller; for reasons of public interest in the area of public health in accordance with points (h) and (i) of Article 9 (2) as well as Article 9 (3); for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes in accordance with Article 89 (1) in so far as the right referred to in paragraph 1 is likely to render impossible or seriously impair the achievement of the objectives of that processing; or for the establishment, exercise or defence of legal claims."
+        },
+        {
+          "subpart_id": "3.a",
+          "paragraph": "3",
+          "point": "a",
+          "text": "for exercising the right of freedom of expression and information;"
+        },
+        {
+          "subpart_id": "3.b",
+          "paragraph": "3",
+          "point": "b",
+          "text": "for compliance with a legal obligation which requires processing by Union or Member State law to which the controller is subject or for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller;"
+        },
+        {
+          "subpart_id": "3.c",
+          "paragraph": "3",
+          "point": "c",
+          "text": "for reasons of public interest in the area of public health in accordance with points (h) and (i) of Article 9 (2) as well as Article 9 (3);"
+        },
+        {
+          "subpart_id": "3.d",
+          "paragraph": "3",
+          "point": "d",
+          "text": "for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes in accordance with Article 89 (1) in so far as the right referred to in paragraph 1 is likely to render impossible or seriously impair the achievement of the objectives of that processing; or"
+        },
+        {
+          "subpart_id": "3.e",
+          "paragraph": "3",
+          "point": "e",
+          "text": "for the establishment, exercise or defence of legal claims."
+        }
+      ]
+    },
+    "32": {
+      "article_number": "32",
+      "title": "Art. 32 GDPR Security of processing",
+      "url": "https://gdpr-info.eu/art-32-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "Taking into account the state of the art, the costs of implementation and the nature, scope, context and purposes of processing as well as the risk of varying likelihood and severity for the rights and freedoms of natural persons, the controller and the processor shall implement appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including inter alia as appropriate: the pseudonymisation and encryption of personal data; the ability to ensure the ongoing confidentiality, integrity, availability and resilience of processing systems and services; the ability to restore the availability and access to personal data in a timely manner in the event of a physical or technical incident; a process for regularly testing, assessing and evaluating the effectiveness of technical and organisational measures for ensuring the security of the processing."
+        },
+        {
+          "subpart_id": "1.a",
+          "paragraph": "1",
+          "point": "a",
+          "text": "the pseudonymisation and encryption of personal data;"
+        },
+        {
+          "subpart_id": "1.b",
+          "paragraph": "1",
+          "point": "b",
+          "text": "the ability to ensure the ongoing confidentiality, integrity, availability and resilience of processing systems and services;"
+        },
+        {
+          "subpart_id": "1.c",
+          "paragraph": "1",
+          "point": "c",
+          "text": "the ability to restore the availability and access to personal data in a timely manner in the event of a physical or technical incident;"
+        },
+        {
+          "subpart_id": "1.d",
+          "paragraph": "1",
+          "point": "d",
+          "text": "a process for regularly testing, assessing and evaluating the effectiveness of technical and organisational measures for ensuring the security of the processing."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "In assessing the appropriate level of security account shall be taken in particular of the risks that are presented by processing, in particular from accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to personal data transmitted, stored or otherwise processed."
+        },
+        {
+          "subpart_id": "3",
+          "paragraph": "3",
+          "point": null,
+          "text": "Adherence to an approved code of conduct as referred to in Article 40 or an approved certification mechanism as referred to in Article 42 may be used as an element by which to demonstrate compliance with the requirements set out in paragraph 1 of this Article."
+        },
+        {
+          "subpart_id": "4",
+          "paragraph": "4",
+          "point": null,
+          "text": "The controller and processor shall take steps to ensure that any natural person acting under the authority of the controller or the processor who has access to personal data does not process them except on instructions from the controller, unless he or she is required to do so by Union or Member State law."
+        }
+      ]
+    },
+    "46": {
+      "article_number": "46",
+      "title": "Art. 46 GDPR Transfers subject to appropriate safeguards",
+      "url": "https://gdpr-info.eu/art-46-gdpr/",
+      "subparts": [
+        {
+          "subpart_id": "1",
+          "paragraph": "1",
+          "point": null,
+          "text": "In the absence of a decision pursuant to Article 45 (3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+        },
+        {
+          "subpart_id": "2",
+          "paragraph": "2",
+          "point": null,
+          "text": "The appropriate safeguards referred to in paragraph 1 may be provided for, without requiring any specific authorisation from a supervisory authority, by: a legally binding and enforceable instrument between public authorities or bodies; binding corporate rules in accordance with Article 47 ; standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93 (2); standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in Article 93 (2); an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects’ rights; or an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects’ rights."
+        },
+        {
+          "subpart_id": "2.a",
+          "paragraph": "2",
+          "point": "a",
+          "text": "a legally binding and enforceable instrument between public authorities or bodies;"
+        },
+        {
+          "subpart_id": "2.b",
+          "paragraph": "2",
+          "point": "b",
+          "text": "binding corporate rules in accordance with Article 47 ;"
+        },
+        {
+          "subpart_id": "2.c",
+          "paragraph": "2",
+          "point": "c",
+          "text": "standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93 (2);"
+        },
+        {
+          "subpart_id": "2.d",
+          "paragraph": "2",
+          "point": "d",
+          "text": "standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in Article 93 (2);"
+        },
+        {
+          "subpart_id": "2.e",
+          "paragraph": "2",
+          "point": "e",
+          "text": "an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects’ rights; or"
+        },
+        {
+          "subpart_id": "2.f",
+          "paragraph": "2",
+          "point": "f",
+          "text": "an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects’ rights."
+        },
+        {
+          "subpart_id": "3",
+          "paragraph": "3",
+          "point": null,
+          "text": "Subject to the authorisation from the competent supervisory authority, the appropriate safeguards referred to in paragraph 1 may also be provided for, in particular, by: contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights."
+        },
+        {
+          "subpart_id": "3.a",
+          "paragraph": "3",
+          "point": "a",
+          "text": "contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or"
+        },
+        {
+          "subpart_id": "3.b",
+          "paragraph": "3",
+          "point": "b",
+          "text": "provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights."
+        },
+        {
+          "subpart_id": "4",
+          "paragraph": "4",
+          "point": null,
+          "text": "The supervisory authority shall apply the consistency mechanism referred to in Article 63 in the cases referred to in paragraph 3 of this Article."
+        },
+        {
+          "subpart_id": "5",
+          "paragraph": "5",
+          "point": null,
+          "text": "1 Authorisations by a Member State or supervisory authority on the basis of Article 26(2) of Directive 95/46/EC shall remain valid until amended, replaced or repealed, if necessary, by that supervisory authority. 2 Decisions adopted by the Commission on the basis of Article 26(4) of Directive 95/46/EC shall remain in force until amended, replaced or repealed, if necessary, by a Commission Decision adopted in accordance with paragraph 2 of this Article."
+        }
+      ]
+    }
+  }
+}

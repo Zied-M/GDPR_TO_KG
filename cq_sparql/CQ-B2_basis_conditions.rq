@@ -1,0 +1,23 @@
+# CQ-B2 — Under what conditions is each lawful basis available?
+# Probe (frozen CQ-B2): per-basis necessity/balancing Conditions, LINKED to the LegalBasis
+# (not merely co-grounded to the same Point) — i.e. a traversable basis -> Condition edge.
+#
+# Regime: (needs materialisation) for `?b a gdprkg:LegalBasis` (inferred super-type).
+#
+# SCOPE NOTE: this pass models the Conditions the Art-6 text attaches to specific bases:
+# the 6(1)(f) balancing test and the 6(3) Union/MS-law qualification on (c)/(e). The per-basis
+# "processing is necessary for ..." wording of (b)/(c)/(d)/(e) is part of each basis's DEFINITION
+# (its skos:note), not modelled as a separate Condition this pass (see report; art6_surfaced_items).
+#
+# Expected over art6.ttl: 3 rows —
+#   ex:basis-legitimate-interests -> ex:cond-6-1-f-balancing              (@ art6-p1-f)
+#   ex:basis-legal-obligation     -> ex:cond-6-3-basis-in-union-or-ms-law (@ art6-p3)
+#   ex:basis-public-task          -> ex:cond-6-3-basis-in-union-or-ms-law (@ art6-p3)
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?basis ?condition ?condProvision
+WHERE {
+  ?basis a gdprkg:LegalBasis ;
+         gdprkg:appliesIf ?condition .
+  ?condition gdprkg:groundedIn ?condProvision .
+}
+ORDER BY ?basis

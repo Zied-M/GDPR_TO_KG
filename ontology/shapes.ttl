@@ -1,0 +1,341 @@
+@prefix gdprkg:  <https://w3id.org/gdprkg#> .
+@prefix gdprsh:  <https://w3id.org/gdprkg/shapes#> .
+@prefix dpv:     <https://w3id.org/dpv#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+#  SHACL shapes for the GDPR KG foundation TBox (Phase 4)
+#  ---------------------------------------------------------------
+#  Standard: SHACL W3C Recommendation, 20 July 2017 [w3c2017shacl].
+#  Scope: constrains the foundation TBox (ontology/gdpr_kg.ttl). These
+#  shapes enforce the presence/cardinality invariants that the Phase-3
+#  decision log EXPLICITLY DEFERRED from the OWL TBox to SHACL
+#  ("OWL TBox = vocabulary; SHACL = constraints").
+#  ---------------------------------------------------------------
+#  Reading the shapes:
+#   * Every sh:NodeShape carries an rdfs:comment naming the invariant it
+#     enforces and, where relevant, the competency question(s) it supports
+#     (CQ IDs are from methodology/competency_questions_refined_proposal.md,
+#     the signed-off 27-CQ set).
+#   * targetClass selection is SHACL-instance based: it follows
+#     rdfs:subClassOf, so a shape on gdprkg:GroundedConcept also targets
+#     every Obligation/Right/Condition/Exception/LegalEffect/LegalBasis/
+#     Consent instance (§ SHACL 2.1.3.1). This is what makes the
+#     "uniform grounding" invariant enforceable with ONE shape.
+#   * TWO-TIER TARGETING (confirmed Phase-4 cleanup, 2026-07-02): grounding
+#     stays universal on gdprkg:GroundedConcept (GroundedConceptShape,
+#     unchanged), but provenance + review-status are narrower — they
+#     target only gdprkg:PrimaryNormativeUnit (Obligation, Right,
+#     LegalBasis, Consent). Condition/Exception are grounded but inherit
+#     provenance/review through their parent Obligation/Right; they do
+#     NOT carry it directly. See ProvenanceRequiredShape/ReviewStatusShape
+#     below and gdpr_kg.ttl's gdprkg:PrimaryNormativeUnit marker class.
+#  ---------------------------------------------------------------
+#  NB on precedent: using SHACL to validate GDPR/privacy knowledge
+#  graphs is an established practice, but the specific precedent entry
+#  in references.bib ("Pandit et al. — SHACL over GDPR provenance
+#  graphs") is still [VERIFY] and therefore NOT citable yet. Any such
+#  precedent claim is marked [CITE: SHACL-over-GDPR-graphs precedent]
+#  until the human verifies the reference. The normative anchor used
+#  here is the SHACL Recommendation itself [w3c2017shacl].
+#################################################################
+
+<https://w3id.org/gdprkg/shapes>
+    a owl:Ontology ;
+    rdfs:label "GDPR Knowledge Graph: Foundation SHACL shapes"@en ;
+    owl:versionInfo "0.1.1-art6-stepzero-remediation (2026-07-08) — provisional, awaiting review; NOT for publication. Adds DisclosableConceptRangeShape (I3.2), validating the gdprkg:disclosesConcept range." ;
+    rdfs:comment """SHACL shape graph for the GDPR-KG foundation. Enforces the presence/cardinality
+invariants deferred from the Phase-3 OWL TBox: uniform grounding, provenance, review status,
+bearer/holder integrity, the PROV triangle, and the out-of-scope-stub boundary. Grounded in the
+SHACL W3C Recommendation [w3c2017shacl]. No article data is instantiated here (that is Phase 5)."""@en ;
+    rdfs:seeAlso <https://w3id.org/gdprkg> ,
+                 <https://www.w3.org/TR/shacl/> .
+
+#################################################################
+#  SHAPE 1 — UNIFORM GROUNDING   (invariant: uniform source-grounding)
+#  Supports CQ-C2 (uniform grounding incl. LegalBasis & Consent) and CQ-C1.
+#################################################################
+
+gdprsh:GroundedConceptShape
+    a sh:NodeShape ;
+    sh:targetClass gdprkg:GroundedConcept ;
+    rdfs:comment """INVARIANT: UNIFORM GROUNDING. Every gdprkg:GroundedConcept — i.e. every normative
+unit (Obligation/Right/Condition/Exception/LegalEffect) AND every LegalBasis AND Consent — must carry
+at least one gdprkg:groundedIn edge to a gdprkg:LegalProvision. Fixes the Sprint 1-R gap where the
+schema forbade grounding on LegalBasis/Consent. One shape covers all of them because sh:targetClass
+follows rdfs:subClassOf. Supports CQ-C2 (the single most important diagnostic CQ for the rebuild) and
+CQ-C1. [w3c2017shacl]"""@en ;
+    sh:property [
+        sh:path gdprkg:groundedIn ;
+        sh:minCount 1 ;
+        sh:class gdprkg:LegalProvision ;
+        sh:message "GroundedConcept must have >=1 gdprkg:groundedIn to a gdprkg:LegalProvision (uniform-grounding invariant; CQ-C2)." ;
+    ] .
+
+#################################################################
+#  SHAPE 2 — PROVENANCE REQUIRED   (invariant: provenance/review metadata)
+#  Supports CQ-C6 (provenance & review status).
+#################################################################
+#  Cardinality decision: sh:minCount 1, NO sh:maxCount.
+#  Justification: a node legitimately accumulates MORE THAN ONE
+#  ProvenanceRecord over its lifecycle (initial mapping, then a later
+#  re-review), and PROV-O places no upper bound on derivations
+#  [lebo2013provo]. An exact-1 (maxCount 1) rule would forbid recording
+#  a re-review as a new record, so we require "at least one", not
+#  "exactly one". CONFIRMED default (Phase-4 cleanup, 2026-07-02).
+#  Scope decision (CONFIRMED 2026-07-02, Phase-4 cleanup): target =
+#  gdprkg:PrimaryNormativeUnit (Obligation, Right, LegalBasis, Consent
+#  ONLY), NOT the full gdprkg:GroundedConcept closure. Condition and
+#  Exception ARE grounded (GroundedConceptShape still applies to them)
+#  but are NOT required to carry their own provenance/review metadata —
+#  they INHERIT provenance/review through their parent Obligation/Right
+#  (the node reached via gdprkg:appliesIf / gdprkg:hasException). This
+#  narrows the earlier draft (which targeted GroundedConcept verbatim
+#  per CLAUDE.md's original wording) to the confirmed reading. See
+#  gdpr_kg.ttl PrimaryNormativeUnit and the CLAUDE.md decision log
+#  (2026-07-02, Phase 4 cleanup).
+#################################################################
+
+gdprsh:ProvenanceRequiredShape
+    a sh:NodeShape ;
+    sh:targetClass gdprkg:PrimaryNormativeUnit ;
+    rdfs:comment """INVARIANT: PROVENANCE REQUIRED ON PRIMARY NORMATIVE UNITS. Every
+gdprkg:PrimaryNormativeUnit (i.e. every Obligation, Right, LegalBasis, and Consent node) must link via
+gdprkg:hasProvenance to at least one gdprkg:ProvenanceRecord. minCount 1, no maxCount (a node may carry
+multiple provenance records across re-reviews; see the header note). Condition and Exception are
+GroundedConcept (grounding still applies to them via GroundedConceptShape) but are NOT
+PrimaryNormativeUnit, so they carry NO separate provenance requirement of their own — they inherit
+provenance from their parent Obligation/Right. Supports CQ-C6. [w3c2017shacl]"""@en ;
+    sh:property [
+        sh:path gdprkg:hasProvenance ;
+        sh:minCount 1 ;
+        sh:class gdprkg:ProvenanceRecord ;
+        sh:message "Primary normative unit (Obligation/Right/LegalBasis/Consent) must have >=1 gdprkg:hasProvenance to a gdprkg:ProvenanceRecord (CQ-C6)." ;
+    ] .
+
+#################################################################
+#  SHAPE 3 — REVIEW STATUS REQUIRED   (invariant: review metadata)
+#  Supports CQ-C6.
+#################################################################
+#  Controlled value set — CONFIRMED (Phase-4 cleanup, 2026-07-02):
+#    "draft"       — mapped, not yet reviewed (default for generated nodes)
+#    "in_review"   — under human/legal review
+#    "approved"    — signed off (a validated benchmark node)
+#    "rejected"    — reviewed and rejected; kept for audit trail
+#    "superseded"  — replaced by a corrected node; kept for provenance
+#  These mirror the lifecycle in CLAUDE.md ("draft representations under
+#  review" -> "human sign-off" -> "validated benchmark"). CONFIRMED as
+#  final for this phase; see CLAUDE.md decision log (2026-07-02).
+#  Scope decision (CONFIRMED 2026-07-02, Phase-4 cleanup): target =
+#  gdprkg:PrimaryNormativeUnit (Obligation, Right, LegalBasis, Consent
+#  ONLY) — same narrowing rationale as ProvenanceRequiredShape above.
+#  Condition and Exception inherit review status via their parent
+#  Obligation/Right rather than carrying their own.
+#################################################################
+
+gdprsh:ReviewStatusShape
+    a sh:NodeShape ;
+    sh:targetClass gdprkg:PrimaryNormativeUnit ;
+    rdfs:comment """INVARIANT: REVIEW STATUS REQUIRED ON PRIMARY NORMATIVE UNITS. Every
+gdprkg:PrimaryNormativeUnit (i.e. every Obligation, Right, LegalBasis, and Consent node) must carry
+exactly one gdprkg:reviewStatus (xsd:string) drawn from the controlled value set draft/in_review/
+approved/rejected/superseded (CONFIRMED, not provisional). Condition and Exception are grounded but are
+NOT PrimaryNormativeUnit, so they carry NO separate review-status requirement of their own — they
+inherit review status from their parent Obligation/Right. Supports CQ-C6. [w3c2017shacl]"""@en ;
+    sh:property [
+        sh:path gdprkg:reviewStatus ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:in ( "draft" "in_review" "approved" "rejected" "superseded" ) ;
+        sh:message "reviewStatus must be present exactly once on a primary normative unit (Obligation/Right/LegalBasis/Consent) and be one of draft/in_review/approved/rejected/superseded (CQ-C6)." ;
+    ] .
+
+#################################################################
+#  SHAPE 4 — BEARER / HOLDER INTEGRITY   (invariant: norm -> actor)
+#  Supports CQ-C3 (bearer / beneficiary).
+#################################################################
+
+gdprsh:ObligationBearerShape
+    a sh:NodeShape ;
+    sh:targetClass gdprkg:Obligation ;
+    rdfs:comment """INVARIANT: BEARER INTEGRITY. Every gdprkg:Obligation must impose itself on at least
+one Actor via gdprkg:imposesObligationOn. Prevents orphaned obligations (a Sprint 1-R defect).
+Supports CQ-C3. [w3c2017shacl]"""@en ;
+    sh:property [
+        sh:path gdprkg:imposesObligationOn ;
+        sh:minCount 1 ;
+        sh:class gdprkg:Actor ;
+        sh:message "Obligation must have >=1 gdprkg:imposesObligationOn to an Actor (bearer integrity; CQ-C3)." ;
+    ] .
+
+gdprsh:RightHolderShape
+    a sh:NodeShape ;
+    sh:targetClass gdprkg:Right ;
+    rdfs:comment """INVARIANT: HOLDER INTEGRITY. Every gdprkg:Right (including
+gdprkg:ReferencedDataSubjectRight, which is rdfs:subClassOf Right) must grant itself to at least one
+Actor via gdprkg:grantsRightTo. Supports CQ-C3. [w3c2017shacl]"""@en ;
+    sh:property [
+        sh:path gdprkg:grantsRightTo ;
+        sh:minCount 1 ;
+        sh:class gdprkg:Actor ;
+        sh:message "Right must have >=1 gdprkg:grantsRightTo to an Actor (holder integrity; CQ-C3)." ;
+    ] .
+
+#################################################################
+#  SHAPE 5 — TWO-NODE RIGHT/OBLIGATION MODEL   (Art 7(3) pattern)
+#  Supports CQ-B8 (withdrawal right & duties).
+#################################################################
+#  DESIGN NOTE (why there is only a light, warning-level shape here):
+#  The invariant is a NEGATIVE requirement — "encode NOTHING that forbids
+#  a single Point being the groundedIn target of BOTH a Right and an
+#  Obligation" (the Art 7(3) pattern: one paragraph grounds the substantive
+#  withdrawal Right AND the controller's information/ease duties, modelled
+#  as SEPARATE nodes). We verified that no other shape forbids this:
+#  gdprkg:groundedIn has no maxCount, and nothing bounds how many concepts
+#  a provision is the source of. So NO enforcing shape is needed to permit
+#  the pattern — the conformant fixture demonstrates it validates cleanly.
+#
+#  The ONE genuinely useful, non-over-constraining check is a guard against
+#  the OPPOSITE anti-pattern: conflating a right and its correlative
+#  obligation into a SINGLE node (attaching both grantsRightTo and
+#  imposesObligationOn to one node). In an OWL-reasoned graph this is caught
+#  by the Obligation/Right owl:AllDisjointClasses axiom + the property
+#  domains; but a pure-SHACL pipeline does NOT materialise that disjointness,
+#  so this shape provides defence-in-depth. It is sh:Warning severity (advisory,
+#  not a hard failure) precisely so it cannot over-constrain the legitimate
+#  two-node/shared-Point pattern. Relates to the OPEN legal-review note on
+#  Hohfeldian correlativity in CLAUDE.md — do not harden without sign-off.
+#################################################################
+
+gdprsh:NoRightObligationConflationShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf gdprkg:imposesObligationOn ;
+    rdfs:comment """INVARIANT (advisory): TWO-NODE RIGHT/OBLIGATION MODEL. A single node must not act as
+both a right-bearer and an obligation-bearer (right and correlative obligation are SEPARATE nodes,
+Hohfeldian correlativity). Warning-level so it never blocks the legitimate Art 7(3) pattern where one
+Point grounds both a Right node and an Obligation node. Supports CQ-B8. [w3c2017shacl]"""@en ;
+    sh:property [
+        sh:path gdprkg:grantsRightTo ;
+        sh:maxCount 0 ;
+        sh:severity sh:Warning ;
+        sh:message "Node bears BOTH imposesObligationOn and grantsRightTo — likely right/obligation conflation; use two separate nodes grounded in the same Point (Art 7(3) two-node model; CQ-B8)." ;
+    ] .
+
+#################################################################
+#  SHAPE 6 — PROVENANCE STRUCTURE (the PROV triangle, from GATE-C)
+#  Supports CQ-C6.
+#################################################################
+
+gdprsh:ProvenanceRecordShape
+    a sh:NodeShape ;
+    sh:targetClass gdprkg:ProvenanceRecord ;
+    rdfs:comment """INVARIANT: PROVENANCE STRUCTURE (PROV triangle, GATE-C). A gdprkg:ProvenanceRecord
+must be prov:wasGeneratedBy at least one gdprkg:MappingReviewActivity AND prov:wasAttributedTo at
+least one prov:Agent. Together with the Activity shape below this validates the record/activity/agent
+triangle. Supports CQ-C6. [w3c2017shacl; lebo2013provo]"""@en ;
+    sh:property [
+        sh:path prov:wasGeneratedBy ;
+        sh:minCount 1 ;
+        sh:class gdprkg:MappingReviewActivity ;
+        sh:message "ProvenanceRecord must be prov:wasGeneratedBy >=1 gdprkg:MappingReviewActivity (PROV triangle; CQ-C6)." ;
+    ] ;
+    sh:property [
+        sh:path prov:wasAttributedTo ;
+        sh:minCount 1 ;
+        sh:class prov:Agent ;
+        sh:message "ProvenanceRecord must be prov:wasAttributedTo >=1 prov:Agent (PROV triangle; CQ-C6)." ;
+    ] .
+
+gdprsh:MappingReviewActivityShape
+    a sh:NodeShape ;
+    sh:targetClass gdprkg:MappingReviewActivity ;
+    rdfs:comment """INVARIANT: PROVENANCE STRUCTURE (third side of the triangle). A
+gdprkg:MappingReviewActivity must be prov:wasAssociatedWith at least one prov:Agent (a
+gdprkg:Reviewer is one, being rdfs:subClassOf prov:Agent). Completes the record->activity->agent
+triangle from GATE-C. Supports CQ-C6. [w3c2017shacl; lebo2013provo]"""@en ;
+    sh:property [
+        sh:path prov:wasAssociatedWith ;
+        sh:minCount 1 ;
+        sh:class prov:Agent ;
+        sh:message "MappingReviewActivity must be prov:wasAssociatedWith >=1 prov:Agent (PROV triangle; CQ-C6)." ;
+    ] .
+
+#################################################################
+#  SHAPE 7 — SCOPE STUB   (invariant: out-of-scope reference is never populated)
+#  Supports the honest-scope-boundary decision (Art 9/22/44-49/89 out of scope).
+#################################################################
+#  gdprkg:ReferencedProvision is a boundary marker for provisions the
+#  pilot text references but deliberately does NOT model. It must never
+#  be drawn into the normative graph. We catch accidental population two ways:
+#   (a) nothing may be grounded in it — checked via the INVERSE of
+#       gdprkg:groundedIn (robust whether or not sourceOf is materialised);
+#   (b) it must not carry legal-source substructure (hasArticle/Paragraph/Point).
+#  It is intentionally NOT a gdprkg:LegalProvision, so gdprkg:groundedIn
+#  (range LegalProvision) already SHOULD never point at it; this shape makes
+#  the boundary a hard, checkable rule rather than an implicit one.
+#################################################################
+
+gdprsh:ReferencedProvisionStubShape
+    a sh:NodeShape ;
+    sh:targetClass gdprkg:ReferencedProvision ;
+    rdfs:comment """INVARIANT: SCOPE STUB. A gdprkg:ReferencedProvision (out-of-scope boundary marker,
+e.g. Art 9/22/44-49/89) must NOT be populated into the normative graph: nothing may be grounded in it
+(inverse of gdprkg:groundedIn = 0) and it must carry no legal-source substructure (hasArticle/
+hasParagraph/hasPoint = 0). Keeps the modelling-scope boundary honest and machine-checkable.
+[w3c2017shacl]"""@en ;
+    sh:property [
+        sh:path [ sh:inversePath gdprkg:groundedIn ] ;
+        sh:maxCount 0 ;
+        sh:message "ReferencedProvision is a boundary stub and must not be the grounding target of any node (accidental out-of-scope population)." ;
+    ] ;
+    sh:property [
+        sh:path gdprkg:hasArticle ;
+        sh:maxCount 0 ;
+        sh:message "ReferencedProvision must not carry hasArticle substructure (out-of-scope stub)." ;
+    ] ;
+    sh:property [
+        sh:path gdprkg:hasParagraph ;
+        sh:maxCount 0 ;
+        sh:message "ReferencedProvision must not carry hasParagraph substructure (out-of-scope stub)." ;
+    ] ;
+    sh:property [
+        sh:path gdprkg:hasPoint ;
+        sh:maxCount 0 ;
+        sh:message "ReferencedProvision must not carry hasPoint substructure (out-of-scope stub)." ;
+    ] .
+
+#################################################################
+#  SHAPE 10 — DISCLOSES-CONCEPT RANGE   (I3 remediation, 2026-07-08)
+#  Supports CQ-C5 (obligation → disclosed domain concept).
+#################################################################
+#  Closes the "unvalidated range" half of I3 (the I7 slice folded in):
+#  an owl:unionOf / gdprkg:DisclosableConcept in rdfs:range is INFERENTIAL
+#  (it lets a reasoner INFER the object's type), NOT a VALIDATING constraint.
+#  So the range of gdprkg:disclosesConcept was previously unchecked. This
+#  shape makes it a hard, checkable rule: every disclosesConcept value must
+#  be a gdprkg:DisclosableConcept (the grouping superclass introduced by I3
+#  over Purpose/RetentionPeriod/Safeguard/Recipient/Transfer/DataCategory
+#  + LegalBasis + Consent). targetSubjectsOf selects every node that asserts
+#  a disclosesConcept edge; sh:class follows rdfs:subClassOf, so a value typed
+#  e.g. gdprkg:Purpose satisfies it via Purpose ⊑ DisclosableConcept.
+#################################################################
+
+gdprsh:DisclosableConceptRangeShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf gdprkg:disclosesConcept ;
+    rdfs:comment """INVARIANT: DISCLOSABLE-CONCEPT RANGE. Every value of gdprkg:disclosesConcept must be a
+gdprkg:DisclosableConcept (the abstract grouping of Purpose/RetentionPeriod/Safeguard/Recipient/Transfer/
+DataCategory + LegalBasis + Consent). Validates the range that gdpr_kg.ttl otherwise declares only
+inferentially (rdfs:range gdprkg:DisclosableConcept). Added by the I3 remediation to close the
+'unvalidated range' gap. Supports CQ-C5. [w3c2017shacl]"""@en ;
+    sh:property [
+        sh:path gdprkg:disclosesConcept ;
+        sh:class gdprkg:DisclosableConcept ;
+        sh:message "disclosesConcept must point to a gdprkg:DisclosableConcept (Purpose/RetentionPeriod/Safeguard/Recipient/Transfer/DataCategory/LegalBasis/Consent) — I3 range shape; CQ-C5." ;
+    ] .

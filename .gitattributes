@@ -1,0 +1,12 @@
+# Byte-exactness matters in this repository: the verification gate reports exact
+# row counts and the artifact files are tracked by hash. Git must not rewrite
+# line endings on checkout, on any platform.
+#
+# `-text` disables all end-of-line conversion: what is committed is what is
+# checked out, byte for byte. Every file here is LF and stays LF.
+* -text
+
+# Keep GitHub's language stats honest — data and query files are not "code".
+*.ttl  linguist-language=Turtle
+*.rq   linguist-language=SPARQL
+kg/source/**  linguist-generated=true

@@ -1,0 +1,19 @@
+# CQ-C4 — For an obligation that references a specific third party (DPO, controller
+# representative, supervisory authority, data source), can that party be identified and typed?
+# Now traversable via gdprkg:referencesActor (added 2026-07-03, surfaced item S5).
+# Expected over art13.ttl: 3 rows —
+#   obl-art13-1-a-representative-identity -> actor-controller-representative (Actor_ControllerRepresentative)
+#   obl-art13-1-b-dpo-contact            -> actor-dpo                        (Actor_DataProtectionOfficer)
+#   obl-art13-2-d-lodge-complaint        -> actor-supervisory-authority      (Actor_SupervisoryAuthority)
+# The bearer (imposesObligationOn = controller) is shown alongside to contrast bearer vs referenced actor.
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?obligation ?referencedActor ?actorType ?bearer
+WHERE {
+  ?obligation a gdprkg:Obligation ;
+              gdprkg:referencesActor ?referencedActor ;
+              gdprkg:imposesObligationOn ?bearer .
+  ?referencedActor a ?actorType .
+  FILTER(?actorType != gdprkg:Actor)          # keep the specific subclass, not the generic Actor supertype
+}
+ORDER BY ?obligation

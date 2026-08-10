@@ -1,0 +1,20 @@
+# CQ-C1 — For a given article, what norms does it generate and what is each grounded in?
+# ---------------------------------------------------------------------------
+# I2 FIX (2026-07-08): the previous body Cartesian-inflated (an extra hasPoint/BIND
+# UNION multiplied rows). Replaced with the faithful form that was already noted in
+# this file's own trailing comment. Over a single-article graph every grounded norm
+# belongs to Article 13, so the article filter is implicit.
+# Expected over art13.ttl: 33 rows = 21 Obligation + 11 Condition + 1 Exception,
+# every one carrying exactly one groundedIn edge.
+# Entailment: runs on a PLAIN graph (no materialisation needed) — ?normType binds the
+# node's ASSERTED type; the FILTER keeps only the normative-unit types.
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?norm ?provision ?normType
+WHERE {
+  ?norm gdprkg:groundedIn ?provision ;
+        a ?normType .
+  FILTER(?normType IN (gdprkg:Obligation, gdprkg:Condition, gdprkg:Exception))
+}
+ORDER BY ?provision ?norm
+# NB simplest faithful form (drops the type column, still 33 rows):
+#   SELECT ?norm ?provision WHERE { ?norm gdprkg:groundedIn ?provision }

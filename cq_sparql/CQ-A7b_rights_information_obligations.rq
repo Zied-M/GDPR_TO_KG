@@ -1,0 +1,12 @@
+# CQ-A7b — The 13(2)(b) rights-INFORMATION obligations (the R5 split of the six data-subject rights).
+# Expected over art13.ttl: 6 obligations grounded in art13-p2-b.
+# Split from the former combined CQ-A7 file (2026-07-09, T2) so each query is a single runnable
+# SELECT. Runs on the plain graph (no materialisation).
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?obligation
+WHERE {
+  ?obligation a gdprkg:Obligation ;
+              gdprkg:groundedIn <https://w3id.org/gdprkg/data#art13-p2-b> .
+}
+ORDER BY ?obligation

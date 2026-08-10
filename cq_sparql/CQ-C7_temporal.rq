@@ -1,0 +1,15 @@
+# CQ-C7 — For any obligation, is the time it must be performed represented in a queryable way?
+# Art 13 timing is event-triggered (no fixed durations), modelled as temporal Condition nodes
+# reached via appliesIf (per the Phase-3 temporal design spike). This FIXES the Phase-1 finding
+# that Art 13 "at the time obtained" was not modelled at all.
+# Expected over art13.ttl: 9 para-1 obligations -> cond-13-1-at-time-obtained;
+# 11 para-2 obligations -> cond-13-2-at-time-obtained; the 13(3) duty -> cond-13-3-prior.
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?obligation ?temporalCondition (STR(?clabel) AS ?trigger)
+WHERE {
+  ?obligation a gdprkg:Obligation ;
+              gdprkg:appliesIf ?temporalCondition .
+  ?temporalCondition rdfs:label ?clabel .
+  FILTER( CONTAINS(STR(?clabel),"at the time") || CONTAINS(STR(?clabel),"prior to") )
+}
+ORDER BY ?temporalCondition ?obligation

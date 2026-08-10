@@ -1,0 +1,20 @@
+# CQ-B4 — Is the legitimate-interests basis excluded for public authorities acting in their
+# tasks, and what does that exclusion attach to?
+# Probe (frozen CQ-B4): 6(1)(f) 2nd sentence (final subparagraph) as a LegalEffect/Exception on
+# the basis (LegalBasisLegitimateInterests).
+#
+# Regime: plain (matches the asserted gdprkg:hasException edge directly).
+#
+# MODELLING NOTE (SURFACE-F): implemented as an Exception attached via gdprkg:hasException to
+# ex:basis-legitimate-interests, grounded in the 6(1) final subparagraph (ex:art6-p1-final).
+# Whether Exception vs a scoping-Condition is the right construct is surfaced, not decided.
+#
+# Expected over art6.ttl: 1 row —
+#   ex:basis-legitimate-interests -> ex:exc-6-1-f-public-authority (@ ex:art6-p1-final)
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?basis ?exception ?groundedIn
+WHERE {
+  ?basis a gdprkg:LegalBasisLegitimateInterests ;
+         gdprkg:hasException ?exception .
+  ?exception gdprkg:groundedIn ?groundedIn .
+}

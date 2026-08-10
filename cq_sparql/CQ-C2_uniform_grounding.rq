@@ -1,0 +1,29 @@
+# CQ-C2 — Can EVERY normatively-defined node be traced by a grounding RELATION (not metadata)
+# to the provision that establishes it?  This is the central rebuild diagnostic.
+# ---------------------------------------------------------------------------
+# ENTAILMENT (I2, 2026-07-08): this query MATCHES ?n a gdprkg:GroundedConcept, but the
+# Art-13 ABox only asserts each node's DIRECT type (e.g. a gdprkg:Obligation). So the
+# primary form below returns the right answer ONLY under the materialised regime — run
+# OWL 2 RL closure over gdpr_kg.ttl + art13.ttl first (see cq_sparql/README.md) so the
+# inferred `?n a gdprkg:GroundedConcept` triples are explicit. A CLOSURE-FREE fallback
+# that needs no materialiser (only the TBox subclass axioms in the query graph) is given
+# below. [w3c2013sparqlentailment]
+# Expected over art13.ttl: ZERO rows (no GroundedConcept lacks groundedIn). Meaningful now.
+# NB: Art 13 instantiates no LegalBasis/Consent nodes, so the LegalBasis/Consent facet of
+# CQ-C2 is exercised by the Art 6 / Art 7 graphs, not here.
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?ungrounded_node
+WHERE {
+  ?ungrounded_node a gdprkg:GroundedConcept .
+  FILTER NOT EXISTS { ?ungrounded_node gdprkg:groundedIn ?provision }
+}
+# ---------------------------------------------------------------------------
+# CLOSURE-FREE FALLBACK (no materialiser; requires the TBox subclass axioms loaded
+# alongside the data so rdfs:subClassOf* can walk to GroundedConcept). Same expected
+# result: 0 rows.
+#   SELECT ?ungrounded_node WHERE {
+#     ?ungrounded_node a ?c .
+#     ?c rdfs:subClassOf* gdprkg:GroundedConcept .
+#     FILTER NOT EXISTS { ?ungrounded_node gdprkg:groundedIn ?p }
+#   }

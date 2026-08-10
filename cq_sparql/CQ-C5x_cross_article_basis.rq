@@ -1,0 +1,31 @@
+# CQ-C5 (CROSS-ARTICLE facet) — Which obligations/norms across different articles touch the
+# same lawful basis (e.g. everything touching the Art 6(1)(a) CONSENT basis)?
+#
+# This is an ADDITIONAL operationalisation of the FROZEN CQ-C5 (it does NOT add or edit a CQ);
+# it exercises CQ-C5's cross-article facet, which became answerable for the first time once
+# Article 6 was instantiated and Article 13's Art-6 references were rewired (2026-07-10).
+#
+# HOW THE CROSS-ARTICLE LINK IS MADE (SURFACE-A / SURFACE-C — read before judging):
+# There is no existing property that points a norm directly at a LegalBasis (referencesProvision's
+# range is eli:LegalResourceSubdivision — a basis is NOT a subdivision; requiresLegalBasis' domain
+# is ProcessingActivity). And 13(2)(c)/13(1)(d) textually reference the PROVISION points, not the
+# abstract basis. So the shared node is the Art-6 PROVISION POINT: each basis is groundedIn its
+# 6(1) Point, and each Art-13 condition referencesProvision that SAME Point. The basis is therefore
+# one groundedIn-hop from the referencing norm. This join returns the cross-article rows.
+#
+# Regime: (needs materialisation) for `?basis a gdprkg:LegalBasis` (inferred super-type).
+#
+# Expected over art6.ttl + art13.ttl: 2 rows —
+#   ex:basis-consent               @ ex:art6-p1-a  <-  ex:cond-13-2-c-consent-basis   (Art 13(2)(c))
+#   ex:basis-legitimate-interests  @ ex:art6-p1-f  <-  ex:cond-13-1-d-based-on-li      (Art 13(1)(d))
+# => the CONSENT BASIS is now shared between Art 6's basis-consent and Art 13's consent condition:
+#    the headline cross-article traceability result (vs PrivComp-KG, which models neither lawful
+#    bases nor obligation-level cross-article links).
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?basis ?sharedProvision ?crossArticleNorm
+WHERE {
+  ?basis a gdprkg:LegalBasis ;
+         gdprkg:groundedIn ?sharedProvision .
+  ?crossArticleNorm gdprkg:referencesProvision ?sharedProvision .
+}
+ORDER BY ?basis ?crossArticleNorm

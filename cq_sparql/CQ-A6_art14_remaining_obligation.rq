@@ -1,0 +1,47 @@
+# CQ-A6 — When the "impossible or disproportionate effort" exemption applies, what obligation
+# remains in force?
+# ---------------------------------------------------------------------------
+# NOT A NEW CQ. CQ-A6 is one of the 27 FROZEN competency questions
+# (methodology/competency_questions.json, theme A, articles ["14"], eval_level false), with no
+# .rq until now only because no Article-14 graph existed. Additional operationalisation of a
+# frozen question — the CQ-B1…B4 / CQ-C5x precedent (2026-07-10). No CQ is added or edited.
+#
+# Frozen probe: "14(5)(b) protective-measures duty arises inside the exception and is not
+# defeated by it."
+#
+# HOW THE LINK IS MADE (T3-C, Zied 2026-08-04 — read before judging):
+# 14(5)(b) is TWO things in one Point: an exemption GROUND (first half) and an affirmative
+# controller DUTY that arises in that case (second half). There is NO exception->obligation
+# property in the TBox, and minting one would be a TBox change the Art-14 unit is not authorized
+# to make. So the shared node is the GROUNDING POINT: both the Exception and the Obligation are
+# groundedIn ex:art14-p5-b, and the join across that shared Point is what makes the remaining
+# duty reachable FROM the exemption ground. This is the SAME idiom as CQ-C5x (SURFACE-C,
+# 2026-07-10), which joins an Art-13 condition to an Art-6 basis through their shared Point.
+#
+# The scope guard `ex:art14-p5 hasPoint ?sharedProvision` is REQUIRED, not decorative: without
+# it the pattern also matches Art-12, where exc-12-2/exc-12-3 share their grounding Paragraph
+# with obligations that they DO defeat — which is the opposite relationship and would be a wrong
+# answer, not a bonus row.
+#
+# Regime: (needs materialisation) for the inferred super-types; correct on a plain graph too.
+#
+# Expected over the 5-file union: 1 row —
+#   ex:exc-art14-5-b-impossible-disproportionate @ ex:art14-p5-b -> ex:obl-art14-5-b-protective-measures
+#
+# ⚠ If this returns 0 rows, that is a FINDING to report, NOT a reason to rewire the graph
+# (Art-14 brief v3.1 §6.2).
+#
+# ⚠ LEGALLY UNCORROBORATED (brief §2.5): asserting a duty that arises BECAUSE an exemption
+# applies is a legal characterisation. The modelling decision is taken; the doctrinal
+# confirmation is carried to the finished-work legal review alongside I8.
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX ex:     <https://w3id.org/gdprkg/data#>
+SELECT ?exemptionGround ?sharedProvision ?remainingObligation
+WHERE {
+  ?exemptionGround a gdprkg:Exception ;
+                   gdprkg:groundedIn ?sharedProvision .
+  ?remainingObligation a gdprkg:Obligation ;
+                       gdprkg:groundedIn ?sharedProvision .
+  ex:art14-p5 gdprkg:hasPoint ?sharedProvision .
+}
+ORDER BY ?sharedProvision ?remainingObligation

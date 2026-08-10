@@ -1,0 +1,13 @@
+# CQ-A7a — Does Article 13 create SUBSTANTIVE Right nodes, or only duties to inform about rights?
+# Expected over art13.ttl: 0 (all 13(2)(b)/(c) rights-mentions are modelled as information
+# Obligations, not substantive Right nodes).
+# Split from the former combined CQ-A7 file (2026-07-09, T2) so each query is a single runnable
+# SELECT. Runs on the plain graph (no materialisation).
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+SELECT (COUNT(?r) AS ?substantive_rights)
+WHERE {
+  ?r a gdprkg:Right ; gdprkg:groundedIn ?p .
+  ?p rdfs:label ?l .
+  FILTER(CONTAINS(STR(?l), "13"))
+}

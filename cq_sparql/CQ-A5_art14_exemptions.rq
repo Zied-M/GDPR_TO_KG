@@ -1,0 +1,42 @@
+# CQ-A5 — Under what conditions is a controller exempt from the Article 14 duties, and which
+# obligations does each of the four 14(5) exceptions defeat?
+# ---------------------------------------------------------------------------
+# NOT A NEW CQ. CQ-A5 is one of the 27 FROZEN competency questions
+# (methodology/competency_questions.json, theme A, articles ["14"], eval_level false). It has
+# had no .rq until now for one reason only: no Article-14 graph existed. This file is an
+# ADDITIONAL OPERATIONALISATION of a frozen question — the same basis on which the Art-6 pass
+# added CQ-B1…B4 and CQ-C5x (2026-07-10). No CQ question is added, edited, or widened.
+#
+# Frozen probe: "14(5)(a-d) distinct triggers + per-obligation attachment."
+#
+# Regime: (needs materialisation) for `?exception a gdprkg:Exception` — art14.ttl asserts the
+# direct type, so this one is actually fine on a plain graph too, but the runner evaluates it
+# on the materialised graph with the rest of the suite.
+#
+# The scope guard `ex:art14 hasParagraph ?para . ?para hasPoint ?ground` restricts the answer to
+# exceptions grounded in a POINT of Article 14 — i.e. the four 14(5) grounds — so the query does
+# not silently absorb Art-13's 13(4) exception or Art-12's two.
+#
+# MODELLING NOTE (T3-D, Zied 2026-08-04): FOUR Exception nodes, one per ground, each NODE-SHARED
+# across all 23 paragraph-1-to-4 obligations (14(5): "Paragraphs 1 to 4 shall not apply where and
+# insofar as…"). Not per-obligation copies; not one merged node. Whether each ground defeats each
+# specific duty identically is an OPEN legal-review item (carry I8) that the model does NOT decide.
+#
+# Expected over the 5-file union: 92 rows = 4 exceptions x 23 obligations each.
+#   ex:exc-art14-5-a-already-has-info            @ ex:art14-p5-a  -> 23
+#   ex:exc-art14-5-b-impossible-disproportionate @ ex:art14-p5-b  -> 23
+#   ex:exc-art14-5-c-laid-down-by-law            @ ex:art14-p5-c  -> 23
+#   ex:exc-art14-5-d-professional-secrecy        @ ex:art14-p5-d  -> 23
+# The 24th obligation (ex:obl-art14-5-b-protective-measures) is deliberately NOT defeated by any
+# of them — it arises BECAUSE ground (b) applies. See CQ-A6.
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX ex:     <https://w3id.org/gdprkg/data#>
+SELECT ?exception ?ground ?defeatedObligation
+WHERE {
+  ?exception a gdprkg:Exception ;
+             gdprkg:groundedIn ?ground .
+  ?para gdprkg:hasPoint ?ground .
+  ex:art14 gdprkg:hasParagraph ?para .
+  ?defeatedObligation gdprkg:hasException ?exception .
+}
+ORDER BY ?ground ?defeatedObligation

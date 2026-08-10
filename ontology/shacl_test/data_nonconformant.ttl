@@ -1,0 +1,62 @@
+@prefix gdprkg: <https://w3id.org/gdprkg#> .
+@prefix ex:     <https://w3id.org/gdprkg/test#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+##  THROWAWAY test fixture — NON-CONFORMANT instance.  NOT article data.
+##  Each node below carries a DELIBERATE, labelled defect so we can prove
+##  the shapes REJECT bad graphs. Expected violations are noted inline.
+##  Delete freely; nothing here is Phase-5 data.
+##  Phase-4 CLEANUP (2026-07-02): ProvenanceRequiredShape/ReviewStatusShape
+##  now target gdprkg:PrimaryNormativeUnit (Obligation/Right/LegalBasis/
+##  Consent), not the full GroundedConcept closure. DEFECT-1 below
+##  (ex:obl-orphan, an Obligation => a PrimaryNormativeUnit) proves a
+##  primary unit missing provenance/reviewStatus STILL FAILS under the
+##  narrowed targeting. See data_conformant.ttl for the mirror-image proof
+##  that a Condition/Exception with NO provenance now PASSES.
+
+# ---- Shared legal-source + provenance context (valid) ----
+ex:art7    a gdprkg:Article ; gdprkg:hasParagraph ex:art7-p3 .
+ex:art7-p3 a gdprkg:Paragraph .
+ex:agent1  a gdprkg:Reviewer .
+ex:act1    a gdprkg:MappingReviewActivity ; prov:wasAssociatedWith ex:agent1 .
+ex:prov1   a gdprkg:ProvenanceRecord ;
+           prov:wasGeneratedBy ex:act1 ; prov:wasAttributedTo ex:agent1 .
+ex:ds1     a gdprkg:DataSubject .
+
+# DEFECT-1: Obligation with NO grounding (S1), NO provenance (S2),
+#           an illegal reviewStatus value (S3), and NO bearer (S4).
+ex:obl-orphan a gdprkg:Obligation ;
+    gdprkg:reviewStatus "banana" .
+
+# DEFECT-2: Right that is properly grounded + provenanced but has NO holder (S4-Right).
+ex:right-noholder a gdprkg:Right ;
+    gdprkg:groundedIn ex:art7-p3 ;
+    gdprkg:hasProvenance ex:prov1 ;
+    gdprkg:reviewStatus "draft" .
+
+# DEFECT-3: ProvenanceRecord missing prov:wasAttributedTo an Agent (S6, PROV triangle).
+ex:prov-broken a gdprkg:ProvenanceRecord ;
+    prov:wasGeneratedBy ex:act1 .
+
+# DEFECT-4: an out-of-scope ReferencedProvision that has been ACCIDENTALLY
+#           POPULATED — a normative node is grounded in it (S7).
+ex:art22-ref a gdprkg:ReferencedProvision .
+ex:obl-outofscope a gdprkg:Obligation ;
+    gdprkg:groundedIn ex:art22-ref ;          # <- also trips S1 sh:class (target not a LegalProvision)
+    gdprkg:imposesObligationOn ex:ctrlX ;
+    gdprkg:hasProvenance ex:prov1 ;
+    gdprkg:reviewStatus "draft" .
+ex:ctrlX a gdprkg:Controller .
+
+# DEFECT-5 (advisory): a single node CONFLATING a right and an obligation
+#           (bears both grantsRightTo and imposesObligationOn) -> S5 WARNING.
+#           Typed as Obligation so it is a valid focus for the other shapes too.
+ex:node-conflated a gdprkg:Obligation ;
+    gdprkg:groundedIn ex:art7-p3 ;
+    gdprkg:imposesObligationOn ex:ctrlX ;
+    gdprkg:grantsRightTo ex:ds1 ;
+    gdprkg:hasProvenance ex:prov1 ;
+    gdprkg:reviewStatus "approved" .

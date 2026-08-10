@@ -1,0 +1,9 @@
+# CQ-C3 — For any obligation, which actor bears it? (holder side needs a Right; none in Art 13)
+# Expected over art13.ttl: all 21 obligations impose on ex:actor-controller; 0 orphans.
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?obligation ?bearer
+WHERE {
+  ?obligation a gdprkg:Obligation ;
+              gdprkg:imposesObligationOn ?bearer .
+}
+ORDER BY ?obligation

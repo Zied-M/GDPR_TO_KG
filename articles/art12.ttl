@@ -1,0 +1,408 @@
+@prefix gdprkg:  <https://w3id.org/gdprkg#> .
+@prefix ex:      <https://w3id.org/gdprkg/data#> .
+@prefix eli:     <http://data.europa.eu/eli/ontology#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+#  Article 12 — RDF instantiation (ABox)  [PHASE 5]
+#  ---------------------------------------------------------------
+#  Status: 0.1.0-phase5-art12-draft (2026-07-20) — PROVISIONAL,
+#  awaiting orchestrator verification + Zied's certification.
+#  reviewStatus="draft" on every primary normative unit (13
+#  Obligations + 6 Permissions). NOT a validated benchmark.
+#
+#  Built against ontology/gdpr_kg.ttl (TBox, post the two 2026-07-20
+#  mints: gdprkg:Permission + gdprkg:grantsPermissionTo) + validated
+#  against ontology/shapes.ttl. Executed EXACTLY per the signed-off
+#  Art-12 instantiation brief v2.1
+#  (../../gdpr-kg-monitoring/art12_instantiation_brief.md), §2 LOCKED
+#  inventory. Source text: kg/source/gdpr_articles_structured.json,
+#  article "12" (fresh gdpr-info.eu scrape, 12H decision; 10 subparts).
+#
+#  >>> THE CORE FRAMING: Article 12 is a MODALITIES article. It fixes
+#  HOW the Art-13/14 information and Art-15–22/34 communications must
+#  be delivered (form, medium, deadlines, cost, identity handling).
+#  It yields 13 controller-borne Obligations AND — first use — 6
+#  gdprkg:Permission nodes ('may' powers: oral provision, deadline
+#  extension, fee, refusal, identity verification, icons). The
+#  12(5)(a)/(b) powers sit BESIDE obl-12-5-free as Permission nodes,
+#  NOT as Exceptions (12A decision). NO disclosedToDataSubject (12G),
+#  NO disclosesConcept (not a disclosure article), NO notApplicableIf/
+#  hasLegalEffect anywhere. Art 12 is NOT one of LexiGen's 21
+#  context-dependent articles; no NOT_APPLICABLE gating manufactured.
+#
+#  Executor interpretation calls are collected in
+#  articles/art12_surfaced_items.md (SURFACE-12-EXEC-1…) — none decided.
+#################################################################
+
+<https://w3id.org/gdprkg/data/art12>
+    a owl:Ontology ;
+    rdfs:label "GDPR Article 12 instance graph (ABox)"@en ;
+    owl:versionInfo "0.1.0-phase5-art12-draft (2026-07-20) — provisional, awaiting orchestrator verification + Zied's certification. 13 Obligations + 6 Permissions (first gdprkg:Permission use, first grantsPermissionTo use, first ABox hasTimeLimit use); 9 Conditions; 2 Exceptions; shared-node patterns per brief §2; 11 new ReferencedProvision stubs (ex:ref-art22 REUSED from art13.ttl)." ;
+    rdfs:comment "Instantiation of GDPR Article 12 against the gdprkg TBox, per the ratified Art-12 brief v2.1 (§2 locked inventory). 13 controller-borne Obligations and 6 controller-held Permissions, each grounded in its Paragraph/Point, with one shared ProvenanceRecord and reviewStatus=draft throughout. Shared Condition nodes: the three obl-12-4-* duties share ONE no-action Condition; perm-12-5-a/b share ONE manifestly-unfounded-or-excessive Condition. Cross-references wired via referencesProvision to ex:art13 (in scope) and per-article ReferencedProvision stubs (Arts 11, 14, 15-22, 34, 92)."@en ;
+    owl:imports <https://w3id.org/gdprkg> .
+
+#################################################################
+#  1 — LEGAL-SOURCE CHAIN  (Regulation -> Article -> Paragraph -> Point)
+#  ex:gdpr is re-declared (same canonical node as art13.ttl/art6.ttl) so
+#  this file is self-contained when loaded standalone; combined, ex:gdpr
+#  accrues hasArticle art13 + art6 + art12.
+#  skos:note working text is VERBATIM from the refreshed scrape
+#  (kg/source/gdpr_articles_structured.json, gdpr-info.eu) incl. its
+#  sentence-number markers — see SURFACE-12-EXEC on text fidelity.
+#################################################################
+
+ex:gdpr a gdprkg:Regulation ;
+    rdfs:label "Regulation (EU) 2016/679 (GDPR)"@en ;
+    rdfs:seeAlso <http://data.europa.eu/eli/reg/2016/679/oj> ;
+    gdprkg:hasArticle ex:art12 .
+
+ex:art12 a gdprkg:Article ;
+    rdfs:label "Article 12"@en ;
+    rdfs:seeAlso <http://data.europa.eu/eli/reg/2016/679/art_12> ;
+    gdprkg:workingTextSource "https://gdpr-info.eu/art-12-gdpr/"^^xsd:anyURI ;
+    gdprkg:hasParagraph ex:art12-p1 , ex:art12-p2 , ex:art12-p3 , ex:art12-p4 ,
+                        ex:art12-p5 , ex:art12-p6 , ex:art12-p7 , ex:art12-p8 .
+
+ex:art12-p1 a gdprkg:Paragraph ; rdfs:label "Article 12(1)"@en ;
+    skos:note "1 The controller shall take appropriate measures to provide any information referred to in Articles 13 and 14 and any communication under Articles 15 to 22 and 34 relating to processing to the data subject in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically to a child. 2 The information shall be provided in writing, or by other means, including, where appropriate, by electronic means. 3 When requested by the data subject, the information may be provided orally, provided that the identity of the data subject is proven by other means."@en .
+
+ex:art12-p2 a gdprkg:Paragraph ; rdfs:label "Article 12(2)"@en ;
+    skos:note "1 The controller shall facilitate the exercise of data subject rights under Articles 15 to 22 . 2 In the cases referred to in Article 11 (2), the controller shall not refuse to act on the request of the data subject for exercising his or her rights under Articles 15 to 22 , unless the controller demonstrates that it is not in a position to identify the data subject."@en .
+
+ex:art12-p3 a gdprkg:Paragraph ; rdfs:label "Article 12(3)"@en ;
+    skos:note "1 The controller shall provide information on action taken on a request under Articles 15 to 22 to the data subject without undue delay and in any event within one month of receipt of the request. 2 That period may be extended by two further months where necessary, taking into account the complexity and number of the requests. 3 The controller shall inform the data subject of any such extension within one month of receipt of the request, together with the reasons for the delay. 4 Where the data subject makes the request by electronic form means, the information shall be provided by electronic means where possible, unless otherwise requested by the data subject."@en .
+
+ex:art12-p4 a gdprkg:Paragraph ; rdfs:label "Article 12(4)"@en ;
+    skos:note "If the controller does not take action on the request of the data subject, the controller shall inform the data subject without delay and at the latest within one month of receipt of the request of the reasons for not taking action and on the possibility of lodging a complaint with a supervisory authority and seeking a judicial remedy."@en .
+
+# --- Paragraph 5 (chapeau) + its two lettered points (the ONLY points of Art 12) ---
+ex:art12-p5 a gdprkg:Paragraph ; rdfs:label "Article 12(5)"@en ;
+    skos:note "1 Information provided under Articles 13 and 14 and any communication and any actions taken under Articles 15 to 22 and 34 shall be provided free of charge. 2 Where requests from a data subject are manifestly unfounded or excessive, in particular because of their repetitive character, the controller may either: charge a reasonable fee taking into account the administrative costs of providing the information or communication or taking the action requested; or refuse to act on the request. 3 The controller shall bear the burden of demonstrating the manifestly unfounded or excessive character of the request."@en ;
+    gdprkg:hasPoint ex:art12-p5-a , ex:art12-p5-b .
+
+ex:art12-p5-a a gdprkg:Point ; rdfs:label "Article 12(5)(a)"@en ;
+    skos:note "charge a reasonable fee taking into account the administrative costs of providing the information or communication or taking the action requested; or"@en .
+ex:art12-p5-b a gdprkg:Point ; rdfs:label "Article 12(5)(b)"@en ;
+    skos:note "refuse to act on the request."@en .
+
+ex:art12-p6 a gdprkg:Paragraph ; rdfs:label "Article 12(6)"@en ;
+    skos:note "Without prejudice to Article 11 , where the controller has reasonable doubts concerning the identity of the natural person making the request referred to in Articles 15 to 21 , the controller may request the provision of additional information necessary to confirm the identity of the data subject."@en .
+
+ex:art12-p7 a gdprkg:Paragraph ; rdfs:label "Article 12(7)"@en ;
+    skos:note "1 The information to be provided to data subjects pursuant to Articles 13 and 14 may be provided in combination with standardised icons in order to give in an easily visible, intelligible and clearly legible manner a meaningful overview of the intended processing. 2 Where the icons are presented electronically they shall be machine-readable."@en .
+
+# 12(8) — RATIFIED minimal (12F): Point-level source node + Art-92 stub; NO normative unit,
+# NO Commission actor. gdprkg:referencesProvision cannot originate here (its domain is
+# NormativeElement; a Paragraph subject would be entailed GroundedConcept and break CQ-C2),
+# so the Art-92 relation is recorded as an ANNOTATION (rdfs:seeAlso) only — SURFACE-12-EXEC-5.
+ex:art12-p8 a gdprkg:Paragraph ; rdfs:label "Article 12(8)"@en ;
+    skos:note "The Commission shall be empowered to adopt delegated acts in accordance with Article 92 for the purpose of determining the information to be presented by the icons and the procedures for providing standardised icons."@en ;
+    rdfs:seeAlso ex:ref-art92 .
+
+#################################################################
+#  1b — REFERENCED PROVISIONS (stubs, never populated; rewire-later per
+#  the art13->art6 precedent). Eight PER-ARTICLE stubs for Arts 15-22
+#  (12D: not one collective) — ex:ref-art22 ALREADY EXISTS in art13.ttl
+#  and is REUSED, NOT re-minted (zero duplicate stubs; it appears below
+#  only as an edge target). 12(6)'s Arts 15-21 reuse the same
+#  per-article stubs (no separate 15-21 bundle).
+#  Art 34, Art 11, Art 92 = out of pilot scope.
+#
+#  REWIRED 2026-08-05 (Art-14 pass, work order C §3.2 — the SINGLE
+#  authorized edit to this file). ex:ref-art14 was a placeholder for a
+#  provision that is now IN SCOPE: articles/art14.ttl exists. Following
+#  the art13->art6 precedent (2026-07-10 decision log: Art-13's in-scope
+#  Art-6 references were repointed IN PLACE at the referencing sites to
+#  the REAL nodes, and no ref-art6 stub was left behind), the three
+#  referencing sites below now point at ex:art14 — exactly parallel to
+#  the ex:art13 edge each of them already carried — and the
+#  ex:ref-art14 STUB DECLARATION IS REMOVED. Leaving it would keep a
+#  gdprkg:ReferencedProvision ("deliberately out of modelling scope")
+#  asserting the opposite of what the graph now contains. Nothing else
+#  in this file is touched. Orphan check after the rewire: 0 dangling
+#  ex: IRIs across the 5-file union (run_owlrl_art14.py fixture).
+#################################################################
+
+ex:ref-art11 a gdprkg:ReferencedProvision ; rdfs:label "Article 11 (referenced, out of scope)"@en .
+# ex:ref-art14 — REMOVED 2026-08-05 (Art-14 rewire, work order C §3.2). Article 14 is now
+#   in scope (articles/art14.ttl); the three edges below reference ex:art14 directly, the
+#   same way they already reference ex:art13. art13->art6 precedent.
+ex:ref-art15 a gdprkg:ReferencedProvision ; rdfs:label "Article 15 (referenced, out of scope)"@en .
+ex:ref-art16 a gdprkg:ReferencedProvision ; rdfs:label "Article 16 (referenced, out of scope)"@en .
+ex:ref-art17 a gdprkg:ReferencedProvision ; rdfs:label "Article 17 (referenced, out of scope)"@en .
+ex:ref-art18 a gdprkg:ReferencedProvision ; rdfs:label "Article 18 (referenced, out of scope)"@en .
+ex:ref-art19 a gdprkg:ReferencedProvision ; rdfs:label "Article 19 (referenced, out of scope)"@en .
+ex:ref-art20 a gdprkg:ReferencedProvision ; rdfs:label "Article 20 (referenced, out of scope)"@en .
+ex:ref-art21 a gdprkg:ReferencedProvision ; rdfs:label "Article 21 (referenced, out of scope)"@en .
+# ex:ref-art22 — REUSED from art13.ttl ("Article 22 (referenced, out of scope)"); NOT re-declared here.
+ex:ref-art34 a gdprkg:ReferencedProvision ; rdfs:label "Article 34 (referenced, out of scope)"@en .
+ex:ref-art92 a gdprkg:ReferencedProvision ; rdfs:label "Article 92 (delegated acts; referenced, out of scope)"@en .
+
+#################################################################
+#  2 — SHARED CANONICAL NODES (referenced; canonically declared in art13.ttl)
+#  Type-only re-assertions (identical triples merge under RDF semantics)
+#  so a STANDALONE art12.ttl SHACL run can type-check the bearer edges
+#  (ObligationBearerShape sh:class gdprkg:Actor) — same self-containment
+#  practice as art6.ttl's re-declared ex:gdpr / ex:agent-mapper. No new
+#  labels/properties added — SURFACE-12-EXEC-2. ex:actor-data-subject is
+#  NOT used by Art 12 (no disclosedToDataSubject per 12G; no other edge
+#  to it in the brief §2 inventory) and is therefore not referenced.
+#################################################################
+
+ex:actor-controller a gdprkg:Controller .
+ex:actor-supervisory-authority a gdprkg:Actor_SupervisoryAuthority .
+
+#################################################################
+#  3 — PROVENANCE (one shared record for the single Art-12 mapping pass;
+#  mirrors ex:prov-art6. ex:agent-mapper re-declared, same shared agent.)
+#################################################################
+
+ex:prov-art12 a gdprkg:ProvenanceRecord ; rdfs:label "Provenance: Art-12 initial mapping (draft)"@en ;
+    prov:wasGeneratedBy ex:act-art12-mapping ;
+    prov:wasAttributedTo ex:agent-mapper .
+ex:act-art12-mapping a gdprkg:MappingReviewActivity ; rdfs:label "Art-12 extraction/mapping activity"@en ;
+    prov:wasAssociatedWith ex:agent-mapper .
+ex:agent-mapper a gdprkg:Reviewer ; rdfs:label "Mapping agent (pending human/legal sign-off)"@en .
+
+#################################################################
+#  4 — CONDITIONS + EXCEPTIONS (grounded; inherit provenance/review via parent)
+#  9 Conditions + 2 Exceptions. Shared nodes per brief §2: ONE Condition
+#  over the three obl-12-4-* duties; ONE Condition over perm-12-5-a/b
+#  (13(4)-style shared-node pattern: one node, several in-edges).
+#################################################################
+
+ex:cond-12-1-oral-request-identity-proven a gdprkg:Condition ;
+    rdfs:label "the data subject requests that the information be provided orally AND the identity of the data subject is proven by other means (Art 12(1) s3)"@en ;
+    gdprkg:groundedIn ex:art12-p1 .
+
+ex:cond-12-2-art11-2-case a gdprkg:Condition ;
+    rdfs:label "the case is one referred to in Article 11(2) (Art 12(2) s2)"@en ;
+    gdprkg:groundedIn ex:art12-p2 ;
+    gdprkg:referencesProvision ex:ref-art11 .   # Art-11 stub carried on the Condition (precedent: cond-13-1-f-transfer-safeguarded) — SURFACE-12-EXEC-3
+
+ex:exc-12-2-cannot-identify a gdprkg:Exception ;
+    rdfs:label "the controller demonstrates that it is not in a position to identify the data subject (Art 12(2) s2)"@en ;
+    gdprkg:groundedIn ex:art12-p2 .
+
+ex:cond-12-3-extension-taken a gdprkg:Condition ;
+    rdfs:label "the one-month response period has been extended (an Art 12(3) s2 extension has been taken)"@en ;
+    gdprkg:groundedIn ex:art12-p3 .
+
+ex:cond-12-3-extension-necessary a gdprkg:Condition ;
+    rdfs:label "an extension is necessary, taking into account the complexity and number of the requests (Art 12(3) s2)"@en ;
+    gdprkg:groundedIn ex:art12-p3 .
+
+ex:cond-12-3-electronic-request a gdprkg:Condition ;
+    rdfs:label "the data subject makes the request by electronic form means (Art 12(3) s4)"@en ;
+    gdprkg:groundedIn ex:art12-p3 .
+
+ex:exc-12-3-otherwise-requested a gdprkg:Exception ;
+    rdfs:label "the data subject requests otherwise (Art 12(3) s4 'unless otherwise requested by the data subject')"@en ;
+    gdprkg:groundedIn ex:art12-p3 .
+
+# SHARED over the three obl-12-4-* duties (one node, three appliesIf in-edges)
+ex:cond-12-4-no-action a gdprkg:Condition ;
+    rdfs:label "the controller does not take action on the request of the data subject (Art 12(4))"@en ;
+    gdprkg:groundedIn ex:art12-p4 .
+
+# SHARED over perm-12-5-a-fee and perm-12-5-b-refuse (one node, two appliesIf in-edges)
+ex:cond-12-5-unfounded-excessive a gdprkg:Condition ;
+    rdfs:label "requests from a data subject are manifestly unfounded or excessive, in particular because of their repetitive character (Art 12(5) s2)"@en ;
+    gdprkg:groundedIn ex:art12-p5 .
+
+ex:cond-12-6-identity-doubts a gdprkg:Condition ;
+    rdfs:label "the controller has reasonable doubts concerning the identity of the natural person making the Arts 15-21 request (Art 12(6))"@en ;
+    gdprkg:groundedIn ex:art12-p6 .
+
+ex:cond-12-7-icons-electronic a gdprkg:Condition ;
+    rdfs:label "the icons are presented electronically (Art 12(7) s2)"@en ;
+    gdprkg:groundedIn ex:art12-p7 .
+
+#################################################################
+#  5 — OBLIGATIONS (13; controller-borne primary units)
+#  Every Obligation:  a gdprkg:Obligation ; groundedIn <Paragraph> ;
+#     imposesObligationOn ex:actor-controller ; hasProvenance ex:prov-art12 ;
+#     reviewStatus "draft" ; [ appliesIf / hasException / hasTimeLimit /
+#     referencesProvision / referencesActor per the brief §2 table ].
+#  NO disclosedToDataSubject (12G ratified); NO disclosesConcept.
+#################################################################
+
+# ---------- Paragraph 1 (2 obligations) ----------
+ex:obl-12-1-form a gdprkg:Obligation ;
+    rdfs:label "Provide the Arts-13/14 information and Arts-15-22/34 communications in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically to a child"@en ;
+    gdprkg:groundedIn ex:art12-p1 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:referencesProvision ex:art13 , ex:art14 ,   # in-scope article-level edges (12D; ex:art14 REWIRED 2026-08-05 from ex:ref-art14)
+        ex:ref-art15 , ex:ref-art16 , ex:ref-art17 , ex:ref-art18 ,
+        ex:ref-art19 , ex:ref-art20 , ex:ref-art21 , ex:ref-art22 , ex:ref-art34 ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-12-1-medium a gdprkg:Obligation ;
+    rdfs:label "Provide the information in writing, or by other means, including, where appropriate, by electronic means (12E(i): sentence-level unit)"@en ;
+    gdprkg:groundedIn ex:art12-p1 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 2 (2 obligations) ----------
+ex:obl-12-2-facilitate a gdprkg:Obligation ;
+    rdfs:label "Facilitate the exercise of data subject rights under Articles 15 to 22"@en ;
+    gdprkg:groundedIn ex:art12-p2 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:referencesProvision ex:ref-art15 , ex:ref-art16 , ex:ref-art17 , ex:ref-art18 ,
+        ex:ref-art19 , ex:ref-art20 , ex:ref-art21 , ex:ref-art22 ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-12-2-no-refusal a gdprkg:Obligation ;
+    rdfs:label "Not refuse to act on the data subject's request to exercise his or her Arts-15-22 rights, in the cases referred to in Article 11(2)"@en ;
+    gdprkg:groundedIn ex:art12-p2 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-2-art11-2-case ;
+    gdprkg:hasException ex:exc-12-2-cannot-identify ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 3 (3 obligations; FIRST ABox use of gdprkg:hasTimeLimit) ----------
+ex:obl-12-3-respond a gdprkg:Obligation ;
+    rdfs:label "Provide information on action taken on an Arts-15-22 request without undue delay"@en ;
+    gdprkg:groundedIn ex:art12-p3 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:hasTimeLimit "within one month of receipt of the request" ;
+    gdprkg:referencesProvision ex:ref-art15 , ex:ref-art16 , ex:ref-art17 , ex:ref-art18 ,
+        ex:ref-art19 , ex:ref-art20 , ex:ref-art21 , ex:ref-art22 ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-12-3-notify-extension a gdprkg:Obligation ;
+    rdfs:label "Inform the data subject of any extension of the response period, together with the reasons for the delay"@en ;
+    gdprkg:groundedIn ex:art12-p3 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-3-extension-taken ;
+    gdprkg:hasTimeLimit "within one month of receipt of the request" ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-12-3-electronic a gdprkg:Obligation ;
+    rdfs:label "Provide the information by electronic means where possible (electronic-form requests)"@en ;
+    gdprkg:groundedIn ex:art12-p3 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-3-electronic-request ;
+    gdprkg:hasException ex:exc-12-3-otherwise-requested ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 4 (3 obligations; 12E(ii) three-way split, all groundedIn ex:art12-p4;
+#            precedent: art13-p2-b carries 6 obligations on one Point. ONE shared Condition;
+#            SAME hasTimeLimit string on each.) ----------
+ex:obl-12-4-reasons a gdprkg:Obligation ;
+    rdfs:label "Inform the data subject of the reasons for not taking action on the request"@en ;
+    gdprkg:groundedIn ex:art12-p4 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-4-no-action ;
+    gdprkg:hasTimeLimit "without delay and at the latest within one month of receipt of the request" ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-12-4-complaint a gdprkg:Obligation ;
+    rdfs:label "Inform the data subject of the possibility of lodging a complaint with a supervisory authority"@en ;
+    gdprkg:groundedIn ex:art12-p4 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:referencesActor ex:actor-supervisory-authority ;   # non-bearer actor the duty is ABOUT (CQ-C4)
+    gdprkg:appliesIf ex:cond-12-4-no-action ;
+    gdprkg:hasTimeLimit "without delay and at the latest within one month of receipt of the request" ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-12-4-remedy a gdprkg:Obligation ;
+    rdfs:label "Inform the data subject of the possibility of seeking a judicial remedy"@en ;
+    gdprkg:groundedIn ex:art12-p4 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-4-no-action ;
+    gdprkg:hasTimeLimit "without delay and at the latest within one month of receipt of the request" ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 5 (2 obligations; the 12(5)(a)/(b) powers sit BESIDE obl-12-5-free
+#            as Permission nodes, NOT as Exceptions — 12A decision) ----------
+ex:obl-12-5-free a gdprkg:Obligation ;
+    rdfs:label "Provide the Arts-13/14 information and any Arts-15-22/34 communication and actions free of charge"@en ;
+    gdprkg:groundedIn ex:art12-p5 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:referencesProvision ex:art13 , ex:art14 ,   # in-scope article-level edges (12D; ex:art14 REWIRED 2026-08-05 from ex:ref-art14)
+        ex:ref-art15 , ex:ref-art16 , ex:ref-art17 , ex:ref-art18 ,
+        ex:ref-art19 , ex:ref-art20 , ex:ref-art21 , ex:ref-art22 , ex:ref-art34 ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-12-5-burden a gdprkg:Obligation ;
+    rdfs:label "Bear the burden of demonstrating the manifestly unfounded or excessive character of the request (12C: plain Obligation, content as legal text; NO EvidentialObligation, NO Evidence/ComplianceAssessment wiring)"@en ;
+    gdprkg:groundedIn ex:art12-p5 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 7 (1 obligation) ----------
+ex:obl-12-7-machine-readable a gdprkg:Obligation ;
+    rdfs:label "Ensure that icons presented electronically are machine-readable"@en ;
+    gdprkg:groundedIn ex:art12-p7 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-7-icons-electronic ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+#################################################################
+#  6 — PERMISSIONS (6; FIRST use of gdprkg:Permission, minted per 12A,
+#  and of gdprkg:grantsPermissionTo, minted per 12I). Every Permission:
+#  a gdprkg:Permission ; groundedIn <Paragraph/Point> ;
+#  grantsPermissionTo ex:actor-controller ; hasProvenance ex:prov-art12 ;
+#  reviewStatus "draft" ; [ appliesIf / referencesProvision per brief §2 ].
+#################################################################
+
+ex:perm-12-1-oral a gdprkg:Permission ;
+    rdfs:label "May provide the information orally, when requested by the data subject, provided the identity of the data subject is proven by other means"@en ;
+    gdprkg:groundedIn ex:art12-p1 ;
+    gdprkg:grantsPermissionTo ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-1-oral-request-identity-proven ;
+    # Duty-vs-permission doctrinal question -> LARIA finished-work review (recorded per brief §2.2, not modelled)
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:perm-12-3-extend a gdprkg:Permission ;
+    rdfs:label "May extend the one-month response period by two further months where necessary (12B: extension = this Permission + obl-12-3-notify-extension; NO structured-duration machinery)"@en ;
+    gdprkg:groundedIn ex:art12-p3 ;
+    gdprkg:grantsPermissionTo ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-3-extension-necessary ;
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:perm-12-5-a-fee a gdprkg:Permission ;
+    rdfs:label "May charge a reasonable fee taking into account the administrative costs of providing the information or communication or taking the action requested"@en ;
+    gdprkg:groundedIn ex:art12-p5-a ;
+    gdprkg:grantsPermissionTo ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-5-unfounded-excessive ;   # SHARED Condition with perm-12-5-b-refuse
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:perm-12-5-b-refuse a gdprkg:Permission ;
+    rdfs:label "May refuse to act on the request"@en ;
+    gdprkg:groundedIn ex:art12-p5-b ;
+    gdprkg:grantsPermissionTo ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-5-unfounded-excessive ;   # SHARED Condition with perm-12-5-a-fee
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:perm-12-6-verify a gdprkg:Permission ;
+    rdfs:label "May request the provision of additional information necessary to confirm the identity of the data subject (without prejudice to Article 11)"@en ;
+    gdprkg:groundedIn ex:art12-p6 ;
+    gdprkg:grantsPermissionTo ex:actor-controller ;
+    gdprkg:appliesIf ex:cond-12-6-identity-doubts ;
+    gdprkg:referencesProvision ex:ref-art15 , ex:ref-art16 , ex:ref-art17 , ex:ref-art18 ,
+        ex:ref-art19 , ex:ref-art20 , ex:ref-art21 ,   # 12(6) cites Arts 15-21: SAME per-article stubs reused (12D)
+        ex:ref-art11 ;                                 # "without prejudice to Article 11"
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+ex:perm-12-7-icons a gdprkg:Permission ;
+    rdfs:label "May provide the Arts-13/14 information in combination with standardised icons giving a meaningful overview of the intended processing"@en ;
+    gdprkg:groundedIn ex:art12-p7 ;
+    gdprkg:grantsPermissionTo ex:actor-controller ;
+    gdprkg:referencesProvision ex:art13 , ex:art14 ;   # in-scope article-level edges (12D; ex:art14 REWIRED 2026-08-05 from ex:ref-art14)
+    gdprkg:hasProvenance ex:prov-art12 ; gdprkg:reviewStatus "draft" .
+
+#################################################################
+#  END — 13 Obligations (P1:2, P2:2, P3:3, P4:3, P5:2, P7:1);
+#  6 Permissions (P1:1, P3:1, P5a:1, P5b:1, P6:1, P7:1);
+#  9 Conditions (2 shared: cond-12-4-no-action x3, cond-12-5-unfounded-excessive x2);
+#  2 Exceptions; 1 shared ProvenanceRecord; 11 new stubs (+ ex:ref-art22 reused).
+#  NO disclosedToDataSubject; NO disclosesConcept; NO notApplicableIf; NO hasLegalEffect.
+#################################################################

@@ -1,0 +1,33 @@
+# secrets
+.env
+.env.*
+!.env.example
+*.key
+*credentials*
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# reasoner / tooling scratch
+*.owl.tmp
+/tmp/
+.protege/
+catalog-v001.xml.bak
+
+# os
+.DS_Store
+Thumbs.db
+
+# agent / session scaffolding - never publish
+.claude/
+CLAUDE.md
+STATE.md
+ledger.json
+workorder_*.md
+*_kickoff.md
+*_instantiation_brief.md
+agents/

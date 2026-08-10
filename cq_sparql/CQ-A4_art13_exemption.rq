@@ -1,0 +1,12 @@
+# CQ-A4 — Under what circumstances do the Art 13 duties not apply, and to which obligations
+# does the exemption attach?  Expected over art13.ttl: one Exception (13(4) "already has the
+# information") grounded in Art 13(4), attached via hasException to all 21 paragraph-1/2/3
+# obligations.  NB blanket-vs-per-obligation attachment is an OPEN legal-review item (S2).
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?exception ?provision (COUNT(?obligation) AS ?attached_obligations)
+WHERE {
+  ?exception a gdprkg:Exception ;
+             gdprkg:groundedIn ?provision .
+  ?obligation gdprkg:hasException ?exception .
+}
+GROUP BY ?exception ?provision

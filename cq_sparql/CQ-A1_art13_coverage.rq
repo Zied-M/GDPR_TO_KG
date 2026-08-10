@@ -1,0 +1,12 @@
+# CQ-A1 — Art 13 coverage + per-item grounding.
+# Which information items must a controller provide, and to which Point is each grounded?
+# Expected over art13.ttl: 21 Obligations, each with a grounding provision.
+# (per-point: 13(1)(a)=2, 13(1)(c)=2, 13(1)(f)=2, 13(2)(b)=6 [R5 split], others=1; 13(3) grounds to the Paragraph.)
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?obligation ?provision (STR(?label) AS ?text)
+WHERE {
+  ?obligation a gdprkg:Obligation ;
+              gdprkg:groundedIn ?provision .
+  OPTIONAL { ?obligation rdfs:label ?label }
+}
+ORDER BY ?provision ?obligation

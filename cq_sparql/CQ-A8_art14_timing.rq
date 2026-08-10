@@ -1,0 +1,63 @@
+# CQ-A8 — Within what time limits, and on which triggering events, must Article 14 information
+# be provided?
+# ---------------------------------------------------------------------------
+# NOT A NEW CQ. CQ-A8 is one of the 27 FROZEN competency questions
+# (methodology/competency_questions.json, theme A, articles ["14"], eval_level false), with no
+# .rq until now only because no Article-14 graph existed. Additional operationalisation of a
+# frozen question — the CQ-B1…B4 / CQ-C5x precedent (2026-07-10). No CQ is added or edited.
+#
+# Frozen probe, verbatim: "14(3)(a-c) as queryable timing structure (fixed limit via
+# hasTimeLimit; event triggers via Condition + appliesIf)." The probe itself names BOTH halves
+# of the Phase-3 temporal design spike, so this query has two UNION branches by design:
+#   * "fixed"  -> gdprkg:hasTimeLimit, the datatype-property half   (14(3)(a), T3-B)
+#   * "event"  -> gdprkg:appliesIf -> Condition, the node half      (14(3)(b) and (c), T3-B)
+# This is the first single query in the project to exercise both halves on one article.
+#
+# WHY THIS MATTERS ALONGSIDE CQ-C7: the frozen CQ-C7 matches Condition LABELS containing the
+# literal substrings "at the time" / "prior to", so it sees 14(3)(b) but NOT 14(3)(c) (whose
+# source text says "at the latest WHEN the personal data are first disclosed") and NOT the
+# 14(3)(a) fixed deadline at all. That is RECORDED NON-COVERAGE #3/#4 in expected_results.md
+# §Article-14 — the frozen query was NOT widened to fix it. This query is where the full timing
+# structure IS verified, exactly as playbook §4.1 requires ("show where the fact IS verified
+# instead, so nothing is silently lost").
+#
+# SCOPE: paragraph-1 and paragraph-2 obligations of Article 14 — the ones 14(3)'s chapeau
+# governs ("The controller shall provide the information referred to in paragraphs 1 and 2:").
+# The `?para hasPoint ?point` guard admits only Point-grounded Art-14 obligations, which
+# excludes ex:obl-art14-4-further-processing-info (grounded at the Paragraph, and carrying its
+# own "prior to that further processing" timing, not 14(3)'s). ex:obl-art14-5-b-protective-
+# measures IS admitted by the guard but contributes 0 rows: it has neither a hasTimeLimit nor a
+# 14(3)-grounded condition, which is itself the correct answer for it.
+#
+# Regime: (needs materialisation) for the inferred super-types; the asserted-type form is
+# correct on a plain graph too.
+#
+# Expected over the 5-file union: 66 rows —
+#   22 "fixed-deadline (14(3)(a))" rows: every paragraph-1/2 duty, all carrying 14(3)(a)
+#      verbatim ("within a reasonable period after obtaining the personal data, but at the
+#      latest within one month, having regard to the specific circumstances ...")
+#   44 "event-trigger (14(3)(b)/(c))" rows: 22 duties x the two node-shared trigger Conditions
+#      ex:cond-14-3-b-first-communication and ex:cond-14-3-c-first-disclosure.
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX ex:     <https://w3id.org/gdprkg/data#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?obligation ?kind (STR(?timing) AS ?when)
+WHERE {
+  ?obligation a gdprkg:Obligation ;
+              gdprkg:groundedIn ?point .
+  ?para gdprkg:hasPoint ?point .
+  ex:art14 gdprkg:hasParagraph ?para .
+  {
+    ?obligation gdprkg:hasTimeLimit ?timing .
+    BIND("fixed-deadline (14(3)(a))" AS ?kind)
+  }
+  UNION
+  {
+    ?obligation gdprkg:appliesIf ?trigger .
+    ?trigger gdprkg:groundedIn ?triggerPoint ;
+             rdfs:label ?timing .
+    ex:art14-p3 gdprkg:hasPoint ?triggerPoint .
+    BIND("event-trigger (14(3)(b)/(c))" AS ?kind)
+  }
+}
+ORDER BY ?kind ?obligation

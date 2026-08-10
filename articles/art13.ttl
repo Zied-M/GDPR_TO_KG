@@ -1,0 +1,467 @@
+@prefix gdprkg:  <https://w3id.org/gdprkg#> .
+@prefix ex:      <https://w3id.org/gdprkg/data#> .
+@prefix eli:     <http://data.europa.eu/eli/ontology#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+#  Article 13 — RDF instantiation (ABox)  [PHASE 5, PILOT CASE]
+#  ---------------------------------------------------------------
+#  Status: 0.1.0-phase5-art13-draft (2026-07-02) — PROVISIONAL,
+#  awaiting Zied's review. reviewStatus="draft" on every primary
+#  normative unit. NOT a validated benchmark.
+#
+#  Built against ontology/gdpr_kg.ttl (TBox) + validated against
+#  ontology/shapes.ttl. Re-derived from the GDPR Art-13 source text
+#  (kg/v2/source/gdpr_article_13_source.json, gdpr-info.eu) and the
+#  Phase-1 article_representation_review.md findings. The provisional
+#  Sprint 1-R draft was NOT copied.
+#
+#  DESIGN DECISIONS APPLIED (frozen CQ resolutions R1-R6):
+#   * R4 point-level grounding: every normative node groundedIn its
+#     specific Point (Paragraph where the provision has no Point, i.e.
+#     13(3) and 13(4)).
+#   * R5 split bundled enumerations: enumerated informational duties
+#     become one Obligation PER item (13(1)(a) controller/representative;
+#     13(1)(c) purposes/legal-basis; 13(1)(f) transfer-fact/safeguards;
+#     13(2)(b) six data-subject-rights information items). Original
+#     design decision (no prior-art citation asserted).
+#   * R6 out-of-scope refs (Art 9(2)(a), Art 22, Art 46/47/49) ->
+#     gdprkg:ReferencedProvision stubs, never populated.
+#
+#  >>> ITEMS SURFACED FOR REVIEW (do NOT treat as settled) are collected
+#      in articles/art13_surfaced_items.md and the report. Key ones are
+#      also flagged inline below with  #!SURFACE .
+#################################################################
+
+<https://w3id.org/gdprkg/data/art13>
+    a owl:Ontology ;
+    rdfs:label "GDPR Article 13 instance graph (ABox)"@en ;
+    owl:versionInfo "0.1.2-art6-stepzero-remediation (2026-07-08) — provisional, awaiting review. I1 canonical concept-* nodes; I6 concept-third-country split; I5 disclosedToDataSubject on all 21 obligations." ;
+    rdfs:comment "Pilot instantiation of GDPR Article 13 against the gdprkg TBox. 21 point-level Obligations (see report for the count derivation), 11 Conditions (3 temporal / 8 substantive), 1 shared Exception, shared provenance record. Domain concepts canonicalised to ex:concept-* (I1); 13(1)(f) destination split from the 13(1)(e) recipient (I6); each obligation wired disclosedToDataSubject (I5). reviewStatus=draft throughout."@en ;
+    owl:imports <https://w3id.org/gdprkg> .
+
+#################################################################
+#  1 — LEGAL-SOURCE CHAIN  (Regulation -> Article -> Paragraph -> Point)
+#  Each is a typed individual with an ELI/GDPRtEXT-style reference.
+#  workingTextSource = gdpr-info.eu working anchor (dev provenance);
+#  the authoritative anchor is the ELI/EUR-Lex IRI (rdfs:seeAlso).
+#  #!SURFACE exact GDPRtEXT fragment IRIs + ELI sub-Article subdivisions
+#  are not yet pinned; owl:sameAs alignment to GDPRtEXT/ELI individuals
+#  is a Phase-5 follow-up [CITE: GDPRtEXT article/point IRIs; ELI ontology].
+#################################################################
+
+ex:gdpr a gdprkg:Regulation ;
+    rdfs:label "Regulation (EU) 2016/679 (GDPR)"@en ;
+    rdfs:seeAlso <http://data.europa.eu/eli/reg/2016/679/oj> ;
+    gdprkg:hasArticle ex:art13 .
+
+ex:art13 a gdprkg:Article ;
+    rdfs:label "Article 13"@en ;
+    rdfs:seeAlso <http://data.europa.eu/eli/reg/2016/679/art_13> ;
+    gdprkg:workingTextSource "https://gdpr-info.eu/art-13-gdpr/"^^xsd:anyURI ;
+    gdprkg:hasParagraph ex:art13-p1 , ex:art13-p2 , ex:art13-p3 , ex:art13-p4 .
+
+# --- Paragraph 1 + its points ---
+ex:art13-p1 a gdprkg:Paragraph ; rdfs:label "Article 13(1)"@en ;
+    skos:note "Where personal data ... are collected from the data subject, the controller shall, at the time when personal data are obtained, provide ... all of the following information:"@en ;
+    gdprkg:hasPoint ex:art13-p1-a , ex:art13-p1-b , ex:art13-p1-c , ex:art13-p1-d , ex:art13-p1-e , ex:art13-p1-f .
+
+ex:art13-p1-a a gdprkg:Point ; rdfs:label "Article 13(1)(a)"@en ;
+    skos:note "the identity and the contact details of the controller and, where applicable, of the controller's representative;"@en .
+ex:art13-p1-b a gdprkg:Point ; rdfs:label "Article 13(1)(b)"@en ;
+    skos:note "the contact details of the data protection officer, where applicable;"@en .
+ex:art13-p1-c a gdprkg:Point ; rdfs:label "Article 13(1)(c)"@en ;
+    skos:note "the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;"@en .
+ex:art13-p1-d a gdprkg:Point ; rdfs:label "Article 13(1)(d)"@en ;
+    skos:note "where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party;"@en .
+ex:art13-p1-e a gdprkg:Point ; rdfs:label "Article 13(1)(e)"@en ;
+    skos:note "the recipients or categories of recipients of the personal data, if any;"@en .
+ex:art13-p1-f a gdprkg:Point ; rdfs:label "Article 13(1)(f)"@en ;
+    skos:note "where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation and the existence or absence of an adequacy decision ... reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them ..."@en .
+
+# --- Paragraph 2 + its points ---
+ex:art13-p2 a gdprkg:Paragraph ; rdfs:label "Article 13(2)"@en ;
+    skos:note "In addition to the information referred to in paragraph 1, the controller shall, at the time when personal data are obtained, provide ... the following further information necessary to ensure fair and transparent processing:"@en ;
+    gdprkg:hasPoint ex:art13-p2-a , ex:art13-p2-b , ex:art13-p2-c , ex:art13-p2-d , ex:art13-p2-e , ex:art13-p2-f .
+
+ex:art13-p2-a a gdprkg:Point ; rdfs:label "Article 13(2)(a)"@en ;
+    skos:note "the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;"@en .
+ex:art13-p2-b a gdprkg:Point ; rdfs:label "Article 13(2)(b)"@en ;
+    skos:note "the existence of the right to request from the controller access to and rectification or erasure ... or restriction of processing ... or to object to processing as well as the right to data portability;"@en .
+ex:art13-p2-c a gdprkg:Point ; rdfs:label "Article 13(2)(c)"@en ;
+    skos:note "where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time ...;"@en .
+ex:art13-p2-d a gdprkg:Point ; rdfs:label "Article 13(2)(d)"@en ;
+    skos:note "the right to lodge a complaint with a supervisory authority;"@en .
+ex:art13-p2-e a gdprkg:Point ; rdfs:label "Article 13(2)(e)"@en ;
+    skos:note "whether the provision of personal data is a statutory or contractual requirement ... and of the possible consequences of failure to provide such data;"@en .
+ex:art13-p2-f a gdprkg:Point ; rdfs:label "Article 13(2)(f)"@en ;
+    skos:note "the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and ... meaningful information about the logic involved ...;"@en .
+
+# --- Paragraphs 3 and 4 (no point subdivision -> grounding target is the Paragraph, per R4) ---
+ex:art13-p3 a gdprkg:Paragraph ; rdfs:label "Article 13(3)"@en ;
+    skos:note "Where the controller intends to further process the personal data for a purpose other than that for which the personal data were collected, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2."@en .
+ex:art13-p4 a gdprkg:Paragraph ; rdfs:label "Article 13(4)"@en ;
+    skos:note "Paragraphs 1, 2 and 3 shall not apply where and insofar as the data subject already has the information."@en .
+
+#################################################################
+#  1b — OUT-OF-SCOPE REFERENCED PROVISIONS (R6)  — stubs, never populated
+#  Referenced by the Art-13 text but deliberately not modelled.
+#  UPDATE (2026-07-03, S6 RESOLVED for out-of-scope refs): gdprkg:referencesProvision
+#  was added to the TBox, so the referencing Condition/Obligation now LINKS to these
+#  stubs (see the referencesProvision edges below). The in-scope Art 6(1)(a)/(f)
+#  cross-refs are still NOT wired (Art 6 not yet instantiated — see the #!SURFACE
+#  notes on cond-13-2-c-consent-basis / cond-13-1-d-based-on-li).
+#################################################################
+
+ex:ref-art9-2-a a gdprkg:ReferencedProvision ; rdfs:label "Article 9(2)(a) (referenced, out of scope)"@en .
+ex:ref-art22    a gdprkg:ReferencedProvision ; rdfs:label "Article 22 (referenced, out of scope)"@en .
+# ex:ref-art46 — REMOVED 2026-08-07 (Art-46 rewire, work order E §4.3, site 1 of 3).
+#   Article 46 is now IN SCOPE (articles/art46.ttl); the referencing site below points at
+#   ex:art46 directly, the same way art13->art6 repointed in 2026-07-10 and the Art-14 pass
+#   repointed ex:ref-art14 in art12.ttl (art12.ttl:125,133). Leaving the declaration would
+#   keep a gdprkg:ReferencedProvision — typed "deliberately out of modelling scope" —
+#   asserting the opposite of what the graph now contains.
+ex:ref-art47    a gdprkg:ReferencedProvision ; rdfs:label "Article 47 (referenced, out of scope)"@en .
+ex:ref-art49    a gdprkg:ReferencedProvision ; rdfs:label "Article 49(1) 2nd subpara (referenced, out of scope)"@en .
+
+#################################################################
+#  2 — SHARED CANONICAL NODES
+#################################################################
+
+# ---- Actors (canonical; one stable IRI each) ----
+ex:actor-controller a gdprkg:Controller ; rdfs:label "Controller (Art 13)"@en .
+ex:actor-controller-representative a gdprkg:Actor_ControllerRepresentative ; rdfs:label "Controller's representative"@en .
+ex:actor-dpo a gdprkg:Actor_DataProtectionOfficer ; rdfs:label "Data protection officer"@en .
+ex:actor-supervisory-authority a gdprkg:Actor_SupervisoryAuthority ; rdfs:label "Supervisory authority"@en .
+ex:actor-data-subject a gdprkg:DataSubject ; rdfs:label "Data subject"@en .   # I5: now the target of gdprkg:disclosedToDataSubject on every Art-13 obligation (was orphaned)
+
+# ---- Domain layer (canonical shared nodes; NOT GroundedConcept, so no grounding/provenance) ----
+# I1 (2026-07-08): domain nodes renamed from article-local ex:*-art13 to article-neutral
+# canonical ex:concept-* IRIs (naming convention per CLAUDE.md; realises the already-locked
+# merged-cross-article-graph invariant so Art 6/14/7 reference the SAME nodes, not per-file copies).
+# SURFACE-1 (ratify, do NOT change): these canonical domain concepts stay OUTSIDE
+# gdprkg:GroundedConcept — no grounding/provenance — because the node denotes the disclosable
+# concept-TYPE at regulation level, not a real processing instance. Correct as-is; ratify consciously.
+# (Contrast: LegalBasis/Consent ARE grounded primary units → they are NOT minted as ungrounded
+# concept-* placeholders; the 13(1)(c) legal-basis edge is wired at Art-6 instantiation — SURFACE-7.)
+# SURFACE-2 (Zied's call): ex:proc-art13 (a weakly-connected ProcessingActivity backbone) is KEPT
+# here and repointed to the concept-* nodes; the alternative is to DROP it (disclosesConcept now
+# links obligations to concepts directly, making the backbone redundant). Not deleted unilaterally.
+# UPDATE (2026-07-03, S7): gdprkg:disclosesConcept links each disclosure Obligation DIRECTLY to the
+# concept it discloses (edges on obl-art13-1-c-purposes / -1-e-recipients / -1-f-transfer-fact /
+# -1-f-transfer-safeguards / -2-a-storage-period), so CQ-C5 obligation-side traversal works.
+ex:proc-art13 a gdprkg:ProcessingActivity ; rdfs:label "Processing activity governed by Art 13"@en ;
+    gdprkg:hasPurpose ex:concept-purpose ;
+    gdprkg:hasRetentionPeriod ex:concept-retention .
+ex:concept-purpose   a gdprkg:Purpose ; rdfs:label "Purpose of the processing (Art 13(1)(c))"@en .
+ex:concept-retention a gdprkg:RetentionPeriod ; rdfs:label "Storage period (Art 13(2)(a))"@en .
+# I6 (2026-07-08): the transfer's transferredTo target is now the DESTINATION (ex:concept-third-country,
+# a gdprkg:TransferDestination), NOT the 13(1)(e) recipient — a jurisdiction is no longer typed as an Actor.
+ex:concept-transfer  a gdprkg:Transfer ; rdfs:label "Transfer to third country/international org (Art 13(1)(f))"@en ;
+    gdprkg:requiresSafeguard ex:concept-safeguard ;
+    gdprkg:transferredTo ex:concept-third-country .
+ex:concept-safeguard a gdprkg:Safeguard ; rdfs:label "Appropriate/suitable safeguards (Art 13(1)(f))"@en .
+# I6: concept-recipient is now ONLY the 13(1)(e) recipient concept (disclosesConcept target of
+# obl-art13-1-e-recipients); it no longer doubles as the transfer destination.
+ex:concept-recipient a gdprkg:Recipient ; rdfs:label "Recipient / category of recipients (Art 13(1)(e))"@en .
+# I6 / SURFACE-3 (OPEN — Zied to decide the class): the 13(1)(f) transfer destination. Typed
+# gdprkg:TransferDestination (an original placeholder class) because no DPV location/jurisdiction
+# term IRI could be verified here (no network). Zied to choose (a) a verified DPV term vs (b) this class.
+ex:concept-third-country a gdprkg:TransferDestination ; rdfs:label "Third country / international organisation (transfer destination, Art 13(1)(f))"@en .
+
+# ---- Provenance (shared record for the single Art-13 mapping pass) ----
+# #!SURFACE one shared ProvenanceRecord for all Art-13 primary units
+# (they were produced by one mapping activity). Per-node records are the
+# alternative (see report, surfaced item S8). SHACL permits either.
+ex:prov-art13 a gdprkg:ProvenanceRecord ; rdfs:label "Provenance: Art-13 initial mapping (draft)"@en ;
+    prov:wasGeneratedBy ex:act-art13-mapping ;
+    prov:wasAttributedTo ex:agent-mapper .
+ex:act-art13-mapping a gdprkg:MappingReviewActivity ; rdfs:label "Art-13 extraction/mapping activity"@en ;
+    prov:wasAssociatedWith ex:agent-mapper .
+ex:agent-mapper a gdprkg:Reviewer ; rdfs:label "Mapping agent (pending human/legal sign-off)"@en .
+
+#################################################################
+#  3 — CONDITIONS (grounded; inherit provenance/review via parent norm)
+#################################################################
+
+# temporal event-trigger conditions (CQ-C7): "at the time obtained"
+ex:cond-13-1-at-time-obtained a gdprkg:Condition ; rdfs:label "at the time when personal data are obtained (para 1)"@en ;
+    gdprkg:groundedIn ex:art13-p1 .
+ex:cond-13-2-at-time-obtained a gdprkg:Condition ; rdfs:label "at the time when personal data are obtained (para 2)"@en ;
+    gdprkg:groundedIn ex:art13-p2 .
+#!SURFACE the two "at the time obtained" conditions have DIFFERENT grounding
+# (13(1) vs 13(2) chapeau) so are kept as two nodes; merging into one shared
+# temporal condition is a legal/modelling call (report, surfaced item S3).
+
+ex:cond-13-1-a-representative-applicable a gdprkg:Condition ; rdfs:label "where applicable (a representative exists)"@en ;
+    gdprkg:groundedIn ex:art13-p1-a .
+ex:cond-13-1-b-dpo-applicable a gdprkg:Condition ; rdfs:label "where applicable (a DPO exists)"@en ;
+    gdprkg:groundedIn ex:art13-p1-b .
+ex:cond-13-1-d-based-on-li a gdprkg:Condition ; rdfs:label "processing is based on point (f) of Article 6(1)"@en ;
+    gdprkg:groundedIn ex:art13-p1-d ;
+    gdprkg:referencesProvision ex:art6-p1-f ;   # CROSS-ARTICLE WIRING (Art-6 instantiation, 2026-07-10): the in-scope
+    # Art 6(1)(f) ref is now wired to the REAL ex:art6-p1-f Point (art6.ttl). That Point grounds
+    # ex:basis-legitimate-interests, so this condition reaches the LI basis one groundedIn-hop away.
+    gdprkg:reliesOnLegalBasis ex:basis-legitimate-interests .   # SURFACE-C RESOLUTION (2026-07-12, Zied):
+    # direct condition->basis edge via the new gdprkg:reliesOnLegalBasis, ALONGSIDE the range-clean
+    # referencesProvision->Point edge above (both kept). Target individual lives in art6.ttl —
+    # meaningfully checkable only under the COMBINED gdpr_kg.ttl+art13.ttl+art6.ttl load.
+ex:cond-13-1-e-recipients-exist a gdprkg:Condition ; rdfs:label "recipients exist (if any)"@en ;
+    gdprkg:groundedIn ex:art13-p1-e .
+ex:cond-13-1-f-transfer-intended a gdprkg:Condition ; rdfs:label "controller intends to transfer to a third country/international organisation"@en ;
+    gdprkg:groundedIn ex:art13-p1-f .
+ex:cond-13-1-f-transfer-safeguarded a gdprkg:Condition ; rdfs:label "transfer under Article 46/47 or 49(1) 2nd subparagraph"@en ;
+    gdprkg:groundedIn ex:art13-p1-f ;
+    gdprkg:referencesProvision ex:art46 , ex:ref-art47 , ex:ref-art49 .   # REWIRED 2026-08-07 (WO-E §4.3, site 2 of 3): ref-art46 -> the real ex:art46. ref-art47/ref-art49 UNTOUCHED — still out-of-scope stubs (S6).
+ex:cond-13-2-c-consent-basis a gdprkg:Condition ; rdfs:label "processing based on Article 6(1)(a) or Article 9(2)(a)"@en ;
+    gdprkg:groundedIn ex:art13-p2-c ;
+    gdprkg:referencesProvision ex:art6-p1-a , ex:ref-art9-2-a ;   # CROSS-ARTICLE WIRING (Art-6 instantiation, 2026-07-10):
+    # the in-scope Art 6(1)(a) ref is now wired to the REAL ex:art6-p1-a Point (art6.ttl), which grounds
+    # ex:basis-consent — so this condition reaches the CONSENT BASIS one groundedIn-hop away (the CQ-C5
+    # cross-article headline result). Art 9(2)(a) stays an out-of-scope stub (S6).
+    gdprkg:reliesOnLegalBasis ex:basis-consent .   # SURFACE-C RESOLUTION (2026-07-12, Zied): direct
+    # condition->basis edge via the new gdprkg:reliesOnLegalBasis, ALONGSIDE the referencesProvision
+    # edges above (both kept). NOTE this targets the Art 6(1)(a) basis only; the 9(2)(a) leg stays a
+    # stub. Target individual lives in art6.ttl — combined-load-only check.
+    # obl-art13-1-c-legal-basis deliberately does NOT get reliesOnLegalBasis (SURFACE-A resolution:
+    # it references the provision that DEFINES the bases, via referencesProvision ex:art6).
+ex:cond-13-3-further-processing a gdprkg:Condition ; rdfs:label "controller intends further processing for a new purpose"@en ;
+    gdprkg:groundedIn ex:art13-p3 .
+ex:cond-13-3-prior a gdprkg:Condition ; rdfs:label "prior to that further processing (temporal)"@en ;
+    gdprkg:groundedIn ex:art13-p3 .
+
+#################################################################
+#  4 — SHARED EXCEPTION (13(4)) — one node, grounded 13(4), referenced by all para-1/2/3 obligations
+#  #!SURFACE blanket vs per-obligation attachment of 13(4) is an OPEN
+#  legal-review item (CLAUDE.md deferred register). Here 13(4) is attached
+#  to ALL paragraph-1/2/3 obligations (literal "Paragraphs 1, 2 and 3");
+#  the legal question of whether it defeats each specific duty identically
+#  is NOT decided by the model (report, surfaced item S2).
+#################################################################
+
+ex:exc-art13-4-already-has-info a gdprkg:Exception ;
+    rdfs:label "Paragraphs 1-3 do not apply where/insofar as the data subject already has the information (Art 13(4))"@en ;
+    gdprkg:groundedIn ex:art13-p4 .
+
+#################################################################
+#  5 — OBLIGATIONS (point-level; primary normative units)
+#  Every Obligation:  a gdprkg:Obligation ; groundedIn <Point/Paragraph> ;
+#     imposesObligationOn ex:actor-controller ; hasProvenance ex:prov-art13 ;
+#     reviewStatus "draft" ; [ appliesIf <Condition> ] ; hasException ex:exc-art13-4-already-has-info .
+#################################################################
+
+# ---------- Paragraph 1 (9 obligations) ----------
+ex:obl-art13-1-a-controller-identity a gdprkg:Obligation ;
+    rdfs:label "Provide the identity and contact details of the controller"@en ;
+    gdprkg:groundedIn ex:art13-p1-a ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-1-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-1-a-representative-identity a gdprkg:Obligation ;
+    rdfs:label "Provide the identity and contact details of the controller's representative"@en ;
+    gdprkg:groundedIn ex:art13-p1-a ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:referencesActor ex:actor-controller-representative ;   # non-bearer actor the duty is ABOUT (S5 / CQ-C4)
+    gdprkg:appliesIf ex:cond-13-1-at-time-obtained , ex:cond-13-1-a-representative-applicable ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-1-b-dpo-contact a gdprkg:Obligation ;
+    rdfs:label "Provide the contact details of the data protection officer"@en ;
+    gdprkg:groundedIn ex:art13-p1-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:referencesActor ex:actor-dpo ;   # non-bearer actor the duty is ABOUT (S5 / CQ-C4)
+    gdprkg:appliesIf ex:cond-13-1-at-time-obtained , ex:cond-13-1-b-dpo-applicable ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-1-c-purposes a gdprkg:Obligation ;
+    rdfs:label "Provide the purposes of the processing"@en ;
+    gdprkg:groundedIn ex:art13-p1-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:disclosesConcept ex:concept-purpose ;   # domain concept this duty discloses (S7 / CQ-C5)
+    gdprkg:appliesIf ex:cond-13-1-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-1-c-legal-basis a gdprkg:Obligation ;
+    rdfs:label "Provide the legal basis for the processing"@en ;
+    gdprkg:groundedIn ex:art13-p1-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:referencesProvision ex:art6 ;   # CROSS-ARTICLE WIRING (Art-6 instantiation, 2026-07-10; SURFACE-A option (a)):
+    # 13(1)(c) requires disclosing WHICHEVER basis applies, not a specific one, so this references the
+    # Art-6 PROVISION that DEFINES the legal bases (ex:art6), NOT any one basis and NOT via disclosesConcept
+    # (a disclosesConcept->specific-basis edge would overstate; the range now reaches LegalBasis but 13(1)(c)
+    # discloses only the applicable basis, a scenario-instantiation concern for Phase 7). Supersedes the
+    # tentative Art-13 SURFACE-7 plan (disclosesConcept->basis). SEE art6_surfaced_items.md SURFACE-A.
+    gdprkg:appliesIf ex:cond-13-1-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-1-d-legitimate-interests a gdprkg:Obligation ;
+    rdfs:label "Provide the legitimate interests pursued by the controller or a third party"@en ;
+    gdprkg:groundedIn ex:art13-p1-d ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-1-at-time-obtained , ex:cond-13-1-d-based-on-li ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-1-e-recipients a gdprkg:Obligation ;
+    rdfs:label "Provide the recipients or categories of recipients of the personal data"@en ;
+    gdprkg:groundedIn ex:art13-p1-e ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:disclosesConcept ex:concept-recipient ;   # domain concept this duty discloses (S7 / CQ-C5)
+    gdprkg:appliesIf ex:cond-13-1-at-time-obtained , ex:cond-13-1-e-recipients-exist ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-1-f-transfer-fact a gdprkg:Obligation ;
+    rdfs:label "Provide the fact of intended transfer to a third country/international org and the existence/absence of an adequacy decision"@en ;
+    gdprkg:groundedIn ex:art13-p1-f ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:disclosesConcept ex:concept-transfer ;   # domain concept this duty discloses (S7 / CQ-C5)
+    gdprkg:appliesIf ex:cond-13-1-at-time-obtained , ex:cond-13-1-f-transfer-intended ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-1-f-transfer-safeguards a gdprkg:Obligation ;
+    rdfs:label "Provide reference to the appropriate/suitable safeguards and the means to obtain a copy"@en ;
+    gdprkg:groundedIn ex:art13-p1-f ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:disclosesConcept ex:concept-safeguard ;   # domain concept this duty discloses (S7 / CQ-C5)
+    gdprkg:appliesIf ex:cond-13-1-at-time-obtained , ex:cond-13-1-f-transfer-safeguarded ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 2 (11 obligations; 13(2)(b) split into 6 per R5) ----------
+ex:obl-art13-2-a-storage-period a gdprkg:Obligation ;
+    rdfs:label "Provide the storage period, or the criteria used to determine it"@en ;
+    gdprkg:groundedIn ex:art13-p2-a ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:disclosesConcept ex:concept-retention ;   # domain concept this duty discloses (S7 / CQ-C5)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-b-right-access a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right of access (13(2)(b), item 1/6)"@en ;
+    gdprkg:groundedIn ex:art13-p2-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-b-right-rectification a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to rectification (13(2)(b), item 2/6)"@en ;
+    gdprkg:groundedIn ex:art13-p2-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-b-right-erasure a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to erasure (13(2)(b), item 3/6)"@en ;
+    gdprkg:groundedIn ex:art13-p2-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-b-right-restriction a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to restriction of processing (13(2)(b), item 4/6)"@en ;
+    gdprkg:groundedIn ex:art13-p2-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-b-right-object a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to object to processing (13(2)(b), item 5/6)"@en ;
+    gdprkg:groundedIn ex:art13-p2-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-b-right-portability a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to data portability (13(2)(b), item 6/6)"@en ;
+    gdprkg:groundedIn ex:art13-p2-b ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-c-withdraw-consent a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of the right to withdraw consent at any time"@en ;
+    gdprkg:groundedIn ex:art13-p2-c ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained , ex:cond-13-2-c-consent-basis ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-d-lodge-complaint a gdprkg:Obligation ;
+    rdfs:label "Inform of the right to lodge a complaint with a supervisory authority"@en ;
+    gdprkg:groundedIn ex:art13-p2-d ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:referencesActor ex:actor-supervisory-authority ;   # non-bearer actor the duty is ABOUT (S5 / CQ-C4)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-e-statutory-contractual a gdprkg:Obligation ;
+    rdfs:label "Inform whether provision of data is a statutory/contractual requirement, whether the subject is obliged to provide it, and the consequences of failure"@en ;
+    gdprkg:groundedIn ex:art13-p2-e ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+ex:obl-art13-2-f-automated-decision a gdprkg:Obligation ;
+    rdfs:label "Inform of the existence of automated decision-making incl. profiling, with meaningful information about the logic, significance and envisaged consequences"@en ;
+    gdprkg:groundedIn ex:art13-p2-f ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:referencesProvision ex:ref-art22 ;   # Art 22 (automated decision-making) out-of-scope stub (S6)
+    gdprkg:appliesIf ex:cond-13-2-at-time-obtained ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+# ---------- Paragraph 3 (1 obligation; grounded at Paragraph level per R4) ----------
+ex:obl-art13-3-further-processing-info a gdprkg:Obligation ;
+    rdfs:label "Provide information on the new purpose and relevant further information prior to further processing"@en ;
+    gdprkg:groundedIn ex:art13-p3 ;
+    gdprkg:imposesObligationOn ex:actor-controller ;
+    gdprkg:disclosedToDataSubject ex:actor-data-subject ;   # I5 beneficiary edge: duty owed TO the data subject (SURFACE-4 name / SURFACE-5 per-obligation granularity)
+    gdprkg:appliesIf ex:cond-13-3-further-processing , ex:cond-13-3-prior ;
+    gdprkg:hasException ex:exc-art13-4-already-has-info ;
+    gdprkg:hasProvenance ex:prov-art13 ; gdprkg:reviewStatus "draft" .
+
+#################################################################
+#  END — 21 Obligations (P1:9, P2:11, P3:1); 11 Conditions; 1 Exception.
+#################################################################

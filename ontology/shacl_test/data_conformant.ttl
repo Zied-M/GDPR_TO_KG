@@ -1,0 +1,70 @@
+@prefix gdprkg: <https://w3id.org/gdprkg#> .
+@prefix ex:     <https://w3id.org/gdprkg/test#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+##  THROWAWAY test fixture — CONFORMANT instance.  NOT article data.
+##  Purpose: show the Phase-4 shapes ACCEPT a well-formed graph, and that
+##  the Art 7(3) two-node pattern (one Point grounding BOTH a Right and an
+##  Obligation) validates cleanly. Delete freely; nothing here is Phase-5 data.
+##  Phase-4 CLEANUP (2026-07-02): added a Condition with NO provenance/
+##  reviewStatus to prove the narrowed targeting — Condition/Exception are
+##  grounded (GroundedConceptShape still applies) but are NOT
+##  gdprkg:PrimaryNormativeUnit, so they must PASS without provenance/
+##  reviewStatus of their own (they inherit it from their parent Obligation).
+
+# ---- Legal-source structure ----
+ex:gdpr    a gdprkg:Regulation ; gdprkg:hasArticle ex:art7 .
+ex:art7    a gdprkg:Article ; gdprkg:hasParagraph ex:art7-p1 , ex:art7-p3 .
+ex:art7-p1 a gdprkg:Paragraph .
+ex:art7-p3 a gdprkg:Paragraph .
+
+# ---- Provenance triangle (record <- activity <- agent) ----
+ex:agent1 a gdprkg:Reviewer .                       # Reviewer rdfs:subClassOf prov:Agent
+ex:act1   a gdprkg:MappingReviewActivity ;
+          prov:wasAssociatedWith ex:agent1 .
+ex:prov1  a gdprkg:ProvenanceRecord ;
+          prov:wasGeneratedBy ex:act1 ;
+          prov:wasAttributedTo ex:agent1 .
+
+# ---- Actors ----
+ex:ctrl1 a gdprkg:Controller .                      # Controller rdfs:subClassOf gdprkg:Actor
+ex:ds1   a gdprkg:DataSubject .                     # DataSubject rdfs:subClassOf gdprkg:Actor
+
+# ---- Art 7(3): TWO nodes grounded in the SAME Point (art7-p3) ----
+#      (a) the substantive withdrawal Right, held by the data subject
+ex:right-withdraw a gdprkg:Right ;
+    gdprkg:groundedIn ex:art7-p3 ;
+    gdprkg:grantsRightTo ex:ds1 ;
+    gdprkg:hasProvenance ex:prov1 ;
+    gdprkg:reviewStatus "approved" .
+
+#      (b) the controller's duty to make withdrawal as easy as giving consent
+ex:obl-easy-withdrawal a gdprkg:Obligation ;
+    gdprkg:groundedIn ex:art7-p3 ;
+    gdprkg:imposesObligationOn ex:ctrl1 ;
+    gdprkg:hasProvenance ex:prov1 ;
+    gdprkg:reviewStatus "draft" .
+
+# ---- A grounded LegalBasis and Consent (uniform-grounding: not just norms) ----
+ex:consent1 a gdprkg:Consent ;
+    gdprkg:groundedIn ex:art7-p1 ;
+    gdprkg:hasProvenance ex:prov1 ;
+    gdprkg:reviewStatus "in_review" .
+
+# ---- An out-of-scope reference stub: typed, labelled, NOT populated ----
+ex:art9-ref a gdprkg:ReferencedProvision ;
+    rdfs:label "Art 9 (special categories) - referenced, not modelled"@en .
+
+# ---- A Condition attached to the obligation above, grounded but WITH NO ----
+# ---- provenance/reviewStatus of its own (narrowed-targeting proof) ----
+#      Condition is gdprkg:GroundedConcept (must carry groundedIn - has it)
+#      but NOT gdprkg:PrimaryNormativeUnit, so ProvenanceRequiredShape and
+#      ReviewStatusShape do NOT apply to it. It inherits provenance/review
+#      via its parent ex:obl-easy-withdrawal (gdprkg:appliesIf).
+ex:cond-easy-withdrawal a gdprkg:Condition ;
+    gdprkg:groundedIn ex:art7-p3 .
+
+ex:obl-easy-withdrawal gdprkg:appliesIf ex:cond-easy-withdrawal .

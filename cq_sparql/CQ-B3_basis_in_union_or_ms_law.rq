@@ -1,0 +1,21 @@
+# CQ-B3 — Which lawful bases require a basis in Union or Member State law?
+# Probe (frozen CQ-B3): 6(3) attaching specifically to (c) legal obligation and (e) public-interest
+# as a TRAVERSABLE link from those bases, not free text.
+#
+# Regime: (needs materialisation) for `?b a gdprkg:LegalBasis`.
+#
+# Expected over art6.ttl: 2 rows —
+#   ex:basis-legal-obligation   (Art 6(1)(c))
+#   ex:basis-public-task        (Art 6(1)(e))
+# (each via appliesIf -> ex:cond-6-3-basis-in-union-or-ms-law, grounded in ex:art6-p3, which
+#  referencesProvision the external Union/MS-law stub ex:ref-union-ms-law — SURFACE-E.)
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+PREFIX ex:     <https://w3id.org/gdprkg/data#>
+SELECT ?basis ?extLaw
+WHERE {
+  ?basis a gdprkg:LegalBasis ;
+         gdprkg:appliesIf ?condition .
+  ?condition gdprkg:groundedIn ex:art6-p3 ;
+             gdprkg:referencesProvision ?extLaw .
+}
+ORDER BY ?basis

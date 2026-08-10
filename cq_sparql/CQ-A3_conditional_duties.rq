@@ -1,0 +1,12 @@
+# CQ-A3 — Which Art 13 information duties are conditional, and on what condition?
+# Expected over art13.ttl: every obligation has >=1 Condition (all carry the temporal
+# "at the time obtained" trigger; several also carry a substantive "where applicable" /
+# basis / transfer / recipients condition).
+PREFIX gdprkg: <https://w3id.org/gdprkg#>
+SELECT ?obligation ?condition (STR(?clabel) AS ?condition_text)
+WHERE {
+  ?obligation a gdprkg:Obligation ;
+              gdprkg:appliesIf ?condition .
+  OPTIONAL { ?condition rdfs:label ?clabel }
+}
+ORDER BY ?obligation ?condition

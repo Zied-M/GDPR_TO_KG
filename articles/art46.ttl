@@ -1,0 +1,509 @@
+@prefix gdprkg:  <https://w3id.org/gdprkg#> .
+@prefix ex:      <https://w3id.org/gdprkg/data#> .
+@prefix eli:     <http://data.europa.eu/eli/ontology#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+#  Article 46 — RDF instantiation (ABox)  [PHASE 5]
+#  ---------------------------------------------------------------
+#  Status: 0.1.0-phase5-art46-draft (2026-08-07) — PROVISIONAL,
+#  awaiting orchestrator verification + Zied's certification.
+#  reviewStatus="draft" on every primary normative unit AND on all
+#  eight TransferMechanism nodes (see the provenance note in §6).
+#  NOT a validated benchmark.
+#
+#  Built against ontology/gdpr_kg.ttl (TBox, post the two 2026-08-07
+#  Art-46 mints: gdprkg:TransferMechanism + gdprkg:providesSafeguard)
+#  + validated against ontology/shapes.ttl (NOT edited). Executed per
+#  the signed-off brief v2 (../../gdpr-kg-monitoring/
+#  art46_instantiation_brief.md) §3.6 FIXED inventory + work order E.
+#  Source text: kg/source/gdpr_articles_structured.json article "46",
+#  13 rows (5 paragraph + 8 point); §0 structure gate PASSED 5/5
+#  (2026-08-05). Encoding verified: 4 x U+2019, 0 x U+FFFD.
+#
+#  >>> THE CORE FRAMING (read before editing): Article 46 is a
+#  TRANSFER-GATE article, not a disclosure article and not a
+#  lawful-basis article. 46(1) is a PERMISSION bounded by two
+#  necessary Conditions and switched off entirely by an Art 45(3)
+#  adequacy decision. 46(2)/(3) enumerate INSTRUMENTS, not duties:
+#  the stems read "the appropriate safeguards ... may be provided
+#  for ... BY:", and that "by" is INSTRUMENTAL. Those eight nodes
+#  are gdprkg:TransferMechanism — NOT Obligations, NOT a Safeguard
+#  subclass, and NOT gdprkg:LegalBasis (that typing is forbidden:
+#  it would fire carry f2-domain-family, and DPV-GDPR's own
+#  eu-gdpr:A46-2-a...f take exactly that typing, which is why this
+#  pass declines to align to them — see gdpr_kg.ttl on
+#  gdprkg:TransferMechanism).
+#
+#  >>> FIRST-IN-PROJECT events in this file, all deliberate:
+#    * FIRST ABox use of gdprkg:notApplicableIf ANYWHERE (1 edge,
+#      on the 46(1) Permission -> the 45(3) adequacy Condition).
+#      Domain-clean: notApplicableIf's domain is NormativeElement
+#      and Permission is a NormativeElement, so F2 is NOT tripped.
+#    * FIRST non-controller Obligation bearer (46(4) ->
+#      ex:actor-supervisory-authority). All 58 pre-existing
+#      imposesObligationOn triples target ex:actor-controller.
+#    * FIRST use of gdprkg:TransferMechanism / providesSafeguard.
+#    * FIRST instance mint of ex:actor-processor (gdprkg:Processor
+#      was declared in Phase 3 and idle since).
+#
+#  >>> DELIBERATELY ABSENT (assert these as expected ZERO):
+#    * NO gdprkg:Exception  — Art 46 states no exemption grounds.
+#    * NO gdprkg:LegalEffect and NO hasLegalEffect — T3-D declined
+#      LegalEffect's first use for 46(5); it deserves a clean
+#      paradigm case (Art 7(2) "not binding").
+#    * NO disclosesConcept / disclosedToDataSubject — not a
+#      disclosure article (the Art-12 12G posture).
+#    * NO gdprkg:LegalBasis of any kind.
+#    * NO normative unit for 46(5) — transitional law, out of scope.
+#
+#  >>> ITEMS SURFACED FOR REVIEW (do NOT treat as settled) are in
+#      articles/art46_surfaced_items.md (EXEC-1...EXEC-12). Key ones
+#      are flagged inline with  #!SURFACE .
+#################################################################
+
+<https://w3id.org/gdprkg/data/art46>
+    a owl:Ontology ;
+    rdfs:label "GDPR Article 46 instance graph (ABox)"@en ;
+    owl:versionInfo "0.1.0-phase5-art46-draft (2026-08-07) — provisional, awaiting orchestrator verification + Zied's certification. 1 Permission + 1 Obligation + 8 TransferMechanism + 4 Conditions + 0 Exceptions (inventory FIXED by brief v2 §3.6). First ABox use of gdprkg:notApplicableIf anywhere; first non-controller obligation bearer; first use of gdprkg:TransferMechanism / gdprkg:providesSafeguard; ex:actor-processor minted. 5 new ReferencedProvision stubs (ref-art45-3, -art93-2, -art40, -art42, -art63); ex:ref-art47 REUSED from art13.ttl." ;
+    rdfs:comment "Pilot instantiation of GDPR Article 46 against the gdprkg TBox. The project's first applicability-GATING unit: 46(1) is a Permission whose availability is switched off by an Art 45(3) adequacy decision (gdprkg:notApplicableIf, first ABox use anywhere) and conditioned on two necessary Conditions. 46(2)(a)-(f) and 46(3)(a)-(b) are eight gdprkg:TransferMechanism nodes, one per lettered Point, each providesSafeguard the canonical ex:concept-safeguard. 46(4) is one Obligation borne by the supervisory authority — the first non-controller bearer in the project. 46(5) is transitional law and yields no normative unit. reviewStatus=draft throughout."@en ;
+    owl:imports <https://w3id.org/gdprkg> .
+
+#################################################################
+#  1 — LEGAL-SOURCE CHAIN  (Regulation -> Article -> Paragraph -> Point)
+#  ex:gdpr is re-declared (same canonical node as art13/art6/art12/art14)
+#  so this file is self-contained standalone; under the combined load
+#  ex:gdpr accrues hasArticle art13, art6, art12, art14 AND art46.
+#
+#  ELI seeAlso: the ARTICLE-LEVEL form is used, exactly as art6.ttl:85 /
+#  art12.ttl:67 / art14.ttl do. #!SURFACE-EXEC-9: this pass VERIFIED
+#  (2026-08-07) that EUR-Lex returns HTTP 200 for arbitrary, non-existent
+#  ELI subdivision paths (art_500, par_77, pnt_z all 200, serving the whole
+#  document), so an ELI IRI's resolvability is NOT evidence that the
+#  subdivision it names exists. No sub-article ELI IRI is asserted anywhere
+#  in this file. The existing article-level pattern is followed for
+#  consistency with four certified files, NOT because it was verifiable.
+#################################################################
+
+ex:gdpr a gdprkg:Regulation ;
+    rdfs:label "Regulation (EU) 2016/679 (GDPR)"@en ;
+    rdfs:seeAlso <http://data.europa.eu/eli/reg/2016/679/oj> ;
+    gdprkg:hasArticle ex:art46 .
+
+ex:art46 a gdprkg:Article ;
+    rdfs:label "Article 46"@en ;
+    rdfs:seeAlso <http://data.europa.eu/eli/reg/2016/679/art_46> ;
+    gdprkg:workingTextSource "https://gdpr-info.eu/art-46-gdpr/"^^xsd:anyURI ;
+    gdprkg:hasParagraph ex:art46-p1 , ex:art46-p2 , ex:art46-p3 , ex:art46-p4 , ex:art46-p5 .
+
+# --- Paragraph 1 (unlettered) — the gate + the permission ---
+ex:art46-p1 a gdprkg:Paragraph ; rdfs:label "Article 46(1)"@en ;
+    skos:note "In the absence of a decision pursuant to Article 45 (3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."@en .
+
+# --- Paragraph 2 (chapeau) + six lettered points: NO supervisory-authority authorisation ---
+# NB the 46(2) list is NOT qualified by "in particular" (verified on disk) — see 46(3).
+ex:art46-p2 a gdprkg:Paragraph ; rdfs:label "Article 46(2)"@en ;
+    skos:note "The appropriate safeguards referred to in paragraph 1 may be provided for, without requiring any specific authorisation from a supervisory authority, by: ..."@en ;
+    gdprkg:hasPoint ex:art46-p2-a , ex:art46-p2-b , ex:art46-p2-c ,
+                    ex:art46-p2-d , ex:art46-p2-e , ex:art46-p2-f .
+
+ex:art46-p2-a a gdprkg:Point ; rdfs:label "Article 46(2)(a)"@en ;
+    skos:note "a legally binding and enforceable instrument between public authorities or bodies;"@en .
+ex:art46-p2-b a gdprkg:Point ; rdfs:label "Article 46(2)(b)"@en ;
+    skos:note "binding corporate rules in accordance with Article 47 ;"@en .
+ex:art46-p2-c a gdprkg:Point ; rdfs:label "Article 46(2)(c)"@en ;
+    skos:note "standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93 (2);"@en .
+ex:art46-p2-d a gdprkg:Point ; rdfs:label "Article 46(2)(d)"@en ;
+    skos:note "standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in Article 93 (2);"@en .
+ex:art46-p2-e a gdprkg:Point ; rdfs:label "Article 46(2)(e)"@en ;
+    skos:note "an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects’ rights; or"@en .
+ex:art46-p2-f a gdprkg:Point ; rdfs:label "Article 46(2)(f)"@en ;
+    skos:note "an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects’ rights."@en .
+
+# --- Paragraph 3 (chapeau) + two lettered points: authorisation REQUIRED ---
+# !! The 46(3) list IS qualified by "in particular" — it is NON-EXHAUSTIVE, and 46(2) is
+# not. This asymmetry is the single most consequential structural fact in the article for
+# the applicability claim: a closed-world inference ("no listed instrument matched =>
+# no appropriate safeguard") is defensible over 46(2) and UNSOUND over 46(3). It binds
+# fixtures/art46_scenarios.ttl and every query written against this file.
+ex:art46-p3 a gdprkg:Paragraph ; rdfs:label "Article 46(3)"@en ;
+    skos:note "Subject to the authorisation from the competent supervisory authority, the appropriate safeguards referred to in paragraph 1 may also be provided for, in particular, by: ..."@en ;
+    gdprkg:hasPoint ex:art46-p3-a , ex:art46-p3-b .
+
+ex:art46-p3-a a gdprkg:Point ; rdfs:label "Article 46(3)(a)"@en ;
+    skos:note "contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or"@en .
+ex:art46-p3-b a gdprkg:Point ; rdfs:label "Article 46(3)(b)"@en ;
+    skos:note "provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights."@en .
+
+# --- Paragraph 4 (unlettered) — the supervisory-authority duty ---
+ex:art46-p4 a gdprkg:Paragraph ; rdfs:label "Article 46(4)"@en ;
+    skos:note "The supervisory authority shall apply the consistency mechanism referred to in Article 63 in the cases referred to in paragraph 3 of this Article."@en .
+
+# --- Paragraph 5 (unlettered) — TRANSITIONAL LAW, no normative unit (T3-D) ---
+# 46(5) saves two classes of pre-GDPR instrument: Member-State/supervisory-authority
+# authorisations under Directive 95/46/EC Art 26(2), and Commission decisions under
+# Art 26(4). "shall remain valid" / "shall remain in force" is neither a duty nor a power —
+# it is a statement about an instrument's continued validity, which is what
+# gdprkg:LegalEffect was reserved for. T3-D DECLINED that first use: LegalEffect deserves a
+# clean paradigm case (Art 7(2) "not binding"), and 46(5) contributes nothing to the gating
+# claim. Recorded per the Art-12 12(8) precedent — but see the next note.
+#
+# #!SURFACE-EXEC-2 — THE 12(8) PRECEDENT COULD NOT BE FOLLOWED IN FULL, and this is a
+# reported gap, not an oversight. Art-12's 12(8) records its out-of-scope reference as
+# `ex:art12-p8 rdfs:seeAlso ex:ref-art92` — a seeAlso pointing at a MINTED STUB. Here T3-E
+# authorises exactly FIVE stubs and NO Directive 95/46/EC stub, so there is no node to point
+# at; and gdprkg:referencesProvision cannot originate on a Paragraph (its domain is
+# NormativeElement, so a Paragraph subject would be entailed a GroundedConcept and BREAK
+# CQ-C2 — the exact reason 12(8) used seeAlso in the first place). An external ELI IRI for
+# Directive 95/46/EC Art 26 was investigated as the seeAlso target and REJECTED on evidence:
+# EUR-Lex returns HTTP 200 for fabricated subdivisions (dir/1995/46/art_999/oj and
+# art_26/par_77/oj both 200), so no such IRI is verifiable. RULED by Zied 2026-08-07:
+# skos:note text only, recorded as a non-coverage under playbook §4.1. Tier-1 "new stubs = 5"
+# is unchanged. Ledger carry: art46-46-5-seealso-target.
+ex:art46-p5 a gdprkg:Paragraph ; rdfs:label "Article 46(5)"@en ;
+    skos:note "1 Authorisations by a Member State or supervisory authority on the basis of Article 26(2) of Directive 95/46/EC shall remain valid until amended, replaced or repealed, if necessary, by that supervisory authority. 2 Decisions adopted by the Commission on the basis of Article 26(4) of Directive 95/46/EC shall remain in force until amended, replaced or repealed, if necessary, by a Commission Decision adopted in accordance with paragraph 2 of this Article."@en ;
+    skos:scopeNote "OUT-OF-SCOPE TRANSITIONAL LAW (T3-D). Cites Directive 95/46/EC Art 26(2) (first sentence) and Art 26(4) (second sentence) — the project's first citations to an instrument outside the GDPR entirely. NO ReferencedProvision stub is minted for either (T3-E), NO rdfs:seeAlso target is asserted (no verifiable external IRI exists — see the block comment above), and NO normative unit is generated. Recorded as text only. This is a deliberate, ruled non-coverage, not an omission."@en .
+
+#################################################################
+#  1b — REFERENCED PROVISIONS — FIVE NEW STUBS (T3-E), never populated
+#
+#  REUSE-FIRST, grep-verified 2026-08-07 across every articles/*.ttl before
+#  minting: ex:ref-art47 ALREADY EXISTS (art13.ttl:124) and is REUSED, NOT
+#  re-declared here — it appears below only as an edge target. Seventeen live
+#  gdprkg:ReferencedProvision individuals existed before this pass; this file
+#  adds five, taking the total to twenty-two.
+#
+#  #!SURFACE-EXEC-3 — THE STUBS STAY BARE (type + label), with NO external
+#  anchor, and that is a RULED outcome rather than an unexamined default.
+#  Reuse gate R-3 (2026-08-07) established that GDPRtEXT — the methodological
+#  anchor for R4 point-level grounding [pandit2018gdprtext] — is ENTIRELY
+#  UNREACHABLE: https://w3id.org/GDPRtEXT returns 503, as does the ADAPT
+#  Centre host root; http://purl.org/adaptcentre/... returns 404. A 2020
+#  GitHub mirror DOES contain exactly the five anchors needed
+#  (gdpr:article45-3, article93-2, article40, article42, article63), each
+#  typed eli:LegalResourceSubdivision — the very class
+#  gdprkg:ReferencedProvision is rdfs:subClassOf — so the alignment would
+#  have been type-clean. Zied RULED (2026-08-07) that a link known to 404
+#  inside a file about to be certified is worse than no link. Recorded as a
+#  non-coverage in cq_sparql/expected_results.md. Ledger carry:
+#  gdprtext-vocabulary-unreachable.
+#################################################################
+
+ex:ref-art45-3 a gdprkg:ReferencedProvision ;
+    rdfs:label "Article 45(3) (adequacy decision; referenced, out of scope)"@en .
+    # POINT-LEVEL stub, following the ex:ref-art9-2-a precedent (art13.ttl:121): the gate in
+    # 46(1) is specifically 45(3), not Article 45 as a whole.
+ex:ref-art93-2 a gdprkg:ReferencedProvision ;
+    rdfs:label "Article 93(2) (examination procedure; referenced, out of scope)"@en .
+    # ONE stub, cited TWICE (46(2)(c) and 46(2)(d)) — per-provision, not per-citation.
+ex:ref-art40 a gdprkg:ReferencedProvision ;
+    rdfs:label "Article 40 (codes of conduct; referenced, out of scope)"@en .
+ex:ref-art42 a gdprkg:ReferencedProvision ;
+    rdfs:label "Article 42 (certification; referenced, out of scope)"@en .
+ex:ref-art63 a gdprkg:ReferencedProvision ;
+    rdfs:label "Article 63 (consistency mechanism; referenced, out of scope)"@en .
+
+# ex:ref-art47 — REUSED from art13.ttl (Article 47, binding corporate rules), cited by
+#   46(2)(b). NOT re-declared here. Note art13.ttl and art14.ttl both reference it on the
+#   same three-way referencesProvision line the ex:ref-art46 rewire touches; that line keeps
+#   ref-art47 and ref-art49 intact.
+# NO Directive 95/46/EC stub — T3-E, follows from T3-D. See the 46(5) block above.
+
+#################################################################
+#  2 — PROVENANCE (one shared record for the single Art-46 mapping pass)
+#  Parallel to art13/art6/art12/art14. ex:agent-mapper re-declared (same
+#  shared canonical agent).
+#################################################################
+
+ex:prov-art46 a gdprkg:ProvenanceRecord ; rdfs:label "Provenance: Art-46 initial mapping (draft)"@en ;
+    prov:wasGeneratedBy ex:act-art46-mapping ;
+    prov:wasAttributedTo ex:agent-mapper .
+ex:act-art46-mapping a gdprkg:MappingReviewActivity ; rdfs:label "Art-46 extraction/mapping activity"@en ;
+    prov:wasAssociatedWith ex:agent-mapper .
+ex:agent-mapper a gdprkg:Reviewer ; rdfs:label "Mapping agent (pending human/legal sign-off)"@en .
+
+#################################################################
+#  3 — ACTORS
+#  REUSED (type re-declared only, no duplicate identity — the art14 pattern):
+#    ex:actor-controller, ex:actor-supervisory-authority.
+#  MINTED: ex:actor-processor (T3-I) — an INSTANCE mint, NOT a TBox change:
+#    gdprkg:Processor has been in the TBox since Phase 3 (gdpr_kg.ttl:228,
+#    owl:equivalentClass dpv:DataProcessor) and has been idle until now.
+#
+#  #!SURFACE-EXEC-4 — SAME WORDS, TWO PARTIES. "A controller or processor" in
+#  46(1) and 46(3)(a) is the TRANSFEROR (the party making the transfer, who
+#  holds the permission). In 46(2)(e)/(f) the identical phrase reads "the
+#  controller or processor IN THE THIRD COUNTRY" — the IMPORTER, who gives the
+#  binding commitments. These are DIFFERENT PARTIES in the same article and
+#  MUST NOT be resolved by string match. T3-I directs that NO separate
+#  third-country importer actor is minted this pass; the two mechanism nodes
+#  that mention the importer (mech-46-2-e, mech-46-2-f) therefore carry NO
+#  actor edge at all rather than a wrong one. The distinction is recorded, not
+#  modelled. Do not "fix" this by pointing them at ex:actor-processor.
+#################################################################
+
+ex:actor-controller a gdprkg:Controller ;
+    rdfs:label "Controller"@en .
+ex:actor-supervisory-authority a gdprkg:Actor_SupervisoryAuthority ;
+    rdfs:label "Supervisory authority"@en .
+ex:actor-processor a gdprkg:Processor ;
+    rdfs:label "Processor"@en ;
+    skos:note "Minted by the Art-46 pass (T3-I). 46(1) permits 'a controller OR processor' to transfer — disjunctive in addressee, both permitted — so the 46(1) Permission carries TWO grantsPermissionTo edges. gdprkg:Processor was declared in Phase 3 and idle until now; this is an instance mint, not a TBox change."@en .
+
+#################################################################
+#  4 — CANONICAL DOMAIN NODES (REUSED, type re-declared only)
+#
+#  ex:concept-safeguard is the target of all eight providesSafeguard edges.
+#
+#  #!SURFACE-EXEC-5 — THE CANONICAL-SHARED-NODE TEST, and its honest result.
+#  Work order E §4.2 names Art 46 as "the cleanest available test of the
+#  canonical-shared-node claim", because ex:concept-transfer / -safeguard /
+#  -third-country already exist and Art 46 is the article those nodes are
+#  ABOUT, where Arts 13/14 merely DISCLOSED them. Result, stated either way as
+#  required: Art 46 attaches to ONE of the three (ex:concept-safeguard, via
+#  the new gdprkg:providesSafeguard, 8 edges). It attaches to NEITHER
+#  ex:concept-transfer NOR ex:concept-third-country, because no existing
+#  property runs from a Permission or a TransferMechanism to a Transfer or a
+#  TransferDestination, and inventing one would be a third TBox addition
+#  (work order E §3 = STOP). So the claim is CONFIRMED for the safeguard node
+#  and UNTESTED for the other two — not refuted, but not demonstrated either.
+#
+#  #!SURFACE-EXEC-6 — the reused labels are now questionable. ex:concept-safeguard
+#  is labelled "Appropriate/suitable safeguards (Art 13(1)(f))" and
+#  ex:concept-transfer "Transfer to third country/international org (Art 13(1)(f))"
+#  (art13.ttl:163, :160). Art 46 is the article these nodes are really about, so
+#  an Art-13-specific label on a node now shared by three articles is misleading.
+#  REPORTED, NOT ACTED ON: art13.ttl is certified and relabelling it is outside
+#  this work order's authorized edit surface (WO-D §10 item 8).
+#################################################################
+
+ex:concept-safeguard a gdprkg:Safeguard .
+    # REUSED from art13.ttl:163 (also re-declared in art14.ttl:243). NOT relabelled here.
+
+#################################################################
+#  5 — CONDITIONS (4; grounded; inherit provenance via their parent norm)
+#
+#  Conditions are Tier-2 — the brief fixes the Permission/Obligation/Mechanism
+#  counts but leaves the Condition count to the executor (brief §3.6). Four are
+#  built, which is the brief's stated minimum: 46(1)'s two, the 45(3) gate, and
+#  46(4)'s "cases referred to in paragraph 3".
+#
+#  #!SURFACE-EXEC-7 — CONDITION (ii) STAYS ONE NODE. T3-A: "enforceable data
+#  subject rights and effective legal remedies for data subjects are available"
+#  is a SINGLE CONJUNCTIVE STATE OF THE WORLD, not two independently-existing
+#  things — unlike 13(2)(b)'s six rights, which the R5 split separates. It is
+#  NOT split. This is a legal reading, carried to the finished-work review.
+#################################################################
+
+# 46(1) condition (i) — the safeguards limb.
+ex:cond-46-1-safeguards-provided a gdprkg:Condition ;
+    rdfs:label "the controller or processor has provided appropriate safeguards"@en ;
+    gdprkg:groundedIn ex:art46-p1 .
+
+# 46(1) condition (ii) — the remedies limb. ONE node (T3-A), not two.
+ex:cond-46-1-enforceable-rights-remedies a gdprkg:Condition ;
+    rdfs:label "enforceable data subject rights and effective legal remedies for data subjects are available"@en ;
+    gdprkg:groundedIn ex:art46-p1 .
+
+# THE 45(3) GATE — attached to the Permission via gdprkg:notApplicableIf (T3-A-polarity, G2).
+#
+# #!SURFACE-EXEC-8 — THE POLARITY CHOICE, AND WHY THE NODE READS POSITIVELY.
+# The condition asserts that an adequacy decision EXISTS; the NEGATION lives in the
+# gdprkg:notApplicableIf EDGE, not in the node. Zied's recorded reason: the condition node
+# stays REUSABLE (Art 45 itself, or Art 49, can attach to this same fact later) and the
+# negation is not baked into it. The positive-polarity variant G1 — appliesIf -> "no
+# adequacy decision exists" — was CONSIDERED AND DECLINED. Verified domain-clean:
+# notApplicableIf has rdfs:domain gdprkg:NormativeElement and gdprkg:Permission is
+# rdfs:subClassOf gdprkg:NormativeElement, so carry f2-domain-family is NOT tripped
+# (brief v1 was wrong to imply it was). This is the property's FIRST ABox use anywhere in
+# the project, on precisely the claim the NOT_APPLICABLE story rests on.
+ex:cond-46-1-adequacy-decision-exists a gdprkg:Condition ;
+    rdfs:label "an adequacy decision under Article 45(3) exists for the third country, territory or international organisation"@en ;
+    gdprkg:groundedIn ex:art46-p1 ;
+    gdprkg:referencesProvision ex:ref-art45-3 .
+
+# 46(4)'s scope condition — the duty bites only on the 46(3) authorisation route.
+ex:cond-46-4-authorisation-cases a gdprkg:Condition ;
+    rdfs:label "the case is one referred to in paragraph 3 (a transfer requiring authorisation from the competent supervisory authority)"@en ;
+    gdprkg:groundedIn ex:art46-p4 .
+
+#################################################################
+#  6 — THE EIGHT TRANSFER MECHANISMS (46(2)(a)-(f), 46(3)(a)-(b))
+#
+#  T3-B / U5: one node per lettered point, each groundedIn ITS OWN Point (R4).
+#  The (c)/(d) merge was DECLINED (they differ by adoption route, which is
+#  legally meaningful). The (e)/(f) split at "together with binding and
+#  enforceable commitments" was DECLINED (that phrase defines ONE instrument,
+#  not two).
+#
+#  WHY U5 AND NOT A CONDITION PER INSTRUMENT — the decisive argument was
+#  EXPRESSIVENESS, not preference. Both lists are DISJUNCTIVE (one instrument
+#  suffices), but gdprkg:appliesIf is CONJUNCTIVE BY CONSTRUCTION: attaching
+#  eight Conditions to the 46(1) Permission would assert that ALL EIGHT must
+#  hold. THE MODEL HAS NO OR. U5 dissolves the need — the disjunction lives in
+#  the typing of a concrete mechanism, not in an operator. (Recorded convention,
+#  previously tacit: multiple appliesIf = AND; multiple hasException = OR. An
+#  AND/OR construct is DEFERRED by Zied to after Art 46, and the reuse gate
+#  applies first — ODRL LogicalConstraint is the candidate to verify.)
+#
+#  PROVENANCE ON THESE EIGHT — ASSERTED BUT NOT ENFORCED. Ruled by Zied
+#  2026-08-07. Each carries hasProvenance + reviewStatus "draft" so it is
+#  traceable and visible to CQ-C6's direct branch (which keys on the TRIPLES,
+#  not on class). But gdprsh:ProvenanceRequiredShape and gdprsh:ReviewStatusShape
+#  both target gdprkg:PrimaryNormativeUnit, and gdprkg:TransferMechanism is
+#  deliberately NOT one (that would re-import the reading T3-B rejected). So
+#  NO SHAPE FIRES: a later article could mint a TransferMechanism with no
+#  provenance and nothing would fail. The enforcing shape is scheduled to the
+#  deferred I4/I7 SHACL batch and is NOT built here. Ledger carry:
+#  art46-transfermechanism-provenance.
+#
+#  #!SURFACE-EXEC-1 — CITATIONS RIDE ON rdfs:seeAlso, NOT referencesProvision.
+#  THE MOST CONSEQUENTIAL EXECUTOR CALL IN THIS FILE; reversible in one line.
+#  gdprkg:referencesProvision has rdfs:domain gdprkg:NormativeElement. A
+#  gdprkg:TransferMechanism is NOT a NormativeElement (it is a GroundedConcept
+#  only), so attaching referencesProvision to one would ENTAIL it is a
+#  NormativeElement — an accidental re-typing of exactly the SURFACE-F species,
+#  re-importing the "these are norms" reading that T3-B/U5 rejected. It would
+#  NOT break anything mechanically (NormativeElement is in neither disjoint set;
+#  CQ-C1's FILTER lists only Obligation/Condition/Exception; CQ-C2 is unaffected
+#  since these nodes are grounded), which is precisely why it is a smell rather
+#  than an error. Following the Art-12 12(8) precedent for the same domain
+#  mismatch, the five point-level citations are recorded as ANNOTATIONS
+#  (rdfs:seeAlso) instead. COST, stated plainly: the Art-46 instrument citations
+#  are NOT traversable via referencesProvision, so ref-art93-2 / ref-art40 /
+#  ref-art42 carry ZERO referencesProvision in-edges. IF ZIED PREFERS THE OTHER
+#  SIDE OF THIS TRADE, the change is a literal find-and-replace of "rdfs:seeAlso"
+#  with "gdprkg:referencesProvision" on the five lines below, plus a +5 revision
+#  to the referencesProvision fixture in expected_results.md. NOT DECIDED HERE.
+#################################################################
+
+ex:mech-46-2-a a gdprkg:TransferMechanism ;
+    rdfs:label "A legally binding and enforceable instrument between public authorities or bodies (Art 46(2)(a))"@en ;
+    gdprkg:groundedIn ex:art46-p2-a ;
+    gdprkg:providesSafeguard ex:concept-safeguard ;
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+
+ex:mech-46-2-b a gdprkg:TransferMechanism ;
+    rdfs:label "Binding corporate rules in accordance with Article 47 (Art 46(2)(b))"@en ;
+    gdprkg:groundedIn ex:art46-p2-b ;
+    gdprkg:providesSafeguard ex:concept-safeguard ;
+    rdfs:seeAlso ex:ref-art47 ;          # REUSED stub (art13.ttl:124) — see EXEC-1
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+
+ex:mech-46-2-c a gdprkg:TransferMechanism ;
+    rdfs:label "Standard data protection clauses adopted by the Commission (Art 46(2)(c))"@en ;
+    gdprkg:groundedIn ex:art46-p2-c ;
+    gdprkg:providesSafeguard ex:concept-safeguard ;
+    rdfs:seeAlso ex:ref-art93-2 ;        # see EXEC-1
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+
+ex:mech-46-2-d a gdprkg:TransferMechanism ;
+    rdfs:label "Standard data protection clauses adopted by a supervisory authority and approved by the Commission (Art 46(2)(d))"@en ;
+    gdprkg:groundedIn ex:art46-p2-d ;
+    gdprkg:providesSafeguard ex:concept-safeguard ;
+    rdfs:seeAlso ex:ref-art93-2 ;        # SAME stub as (c) — one stub, two citations
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+    # (c) and (d) are NOT merged (T3-B declined U2): both are "standard data protection
+    # clauses", but they differ by ADOPTION ROUTE — Commission vs supervisory authority —
+    # which is legally meaningful and is what the two Points separately establish.
+
+ex:mech-46-2-e a gdprkg:TransferMechanism ;
+    rdfs:label "An approved code of conduct pursuant to Article 40, together with binding and enforceable commitments of the controller or processor in the third country (Art 46(2)(e))"@en ;
+    gdprkg:groundedIn ex:art46-p2-e ;
+    gdprkg:providesSafeguard ex:concept-safeguard ;
+    rdfs:seeAlso ex:ref-art40 ;          # see EXEC-1
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+    # NOT split at "together with ..." (T3-B declined U3): the commitments do not stand as a
+    # separate instrument, they QUALIFY this one. The "controller or processor in the third
+    # country" here is the IMPORTER, not the transferor — EXEC-4; no actor edge is drawn.
+
+ex:mech-46-2-f a gdprkg:TransferMechanism ;
+    rdfs:label "An approved certification mechanism pursuant to Article 42, together with binding and enforceable commitments of the controller or processor in the third country (Art 46(2)(f))"@en ;
+    gdprkg:groundedIn ex:art46-p2-f ;
+    gdprkg:providesSafeguard ex:concept-safeguard ;
+    rdfs:seeAlso ex:ref-art42 ;          # see EXEC-1
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+    # IMPORTER again (EXEC-4). Not split (EXEC-7 sibling reasoning).
+
+ex:mech-46-3-a a gdprkg:TransferMechanism ;
+    rdfs:label "Contractual clauses between the controller or processor and the controller, processor or recipient in the third country or international organisation (Art 46(3)(a)) — AUTHORISATION REQUIRED"@en ;
+    gdprkg:groundedIn ex:art46-p3-a ;
+    gdprkg:providesSafeguard ex:concept-safeguard ;
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+
+ex:mech-46-3-b a gdprkg:TransferMechanism ;
+    rdfs:label "Provisions inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights (Art 46(3)(b)) — AUTHORISATION REQUIRED"@en ;
+    gdprkg:groundedIn ex:art46-p3-b ;
+    gdprkg:providesSafeguard ex:concept-safeguard ;
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+
+# #!SURFACE-EXEC-10 — THE AUTHORISATION REGIME IS IN THE LABEL, NOT IN AN EDGE.
+# 46(2) instruments need NO supervisory-authority authorisation; 46(3) instruments DO. That
+# is the structural difference between the two paragraphs and it is real. It is recorded in
+# the two 46(3) labels and in the paragraph skos:notes, NOT as a Condition, because
+# gdprkg:appliesIf has rdfs:domain gdprkg:PrimaryNormativeUnit — attaching a Condition to a
+# TransferMechanism would entail the mechanism IS a PrimaryNormativeUnit, which is exactly
+# the typing this unit deliberately refuses. There is no domain-clean way to attach the
+# regime to the mechanism with the current vocabulary. Surfaced, not solved.
+
+#################################################################
+#  7 — THE 46(1) PERMISSION (1) — the applicability gate itself
+#################################################################
+
+ex:perm-46-1-transfer a gdprkg:Permission ;
+    rdfs:label "May transfer personal data to a third country or an international organisation, only if appropriate safeguards have been provided and enforceable data subject rights and effective legal remedies are available (Art 46(1))"@en ;
+    gdprkg:groundedIn ex:art46-p1 ;
+    # TWO bearer edges (T3-I): "a controller OR processor" is disjunctive in addressee and
+    # BOTH are permitted. This is the first multi-bearer norm in the project.
+    gdprkg:grantsPermissionTo ex:actor-controller , ex:actor-processor ;
+    # The two necessary conditions. Multiple appliesIf = AND (recorded convention) — which
+    # is CORRECT here: 46(1) requires safeguards AND remedies, conjunctively.
+    gdprkg:appliesIf ex:cond-46-1-safeguards-provided ,
+                     ex:cond-46-1-enforceable-rights-remedies ;
+    # THE GATE. First ABox use of gdprkg:notApplicableIf anywhere in the project.
+    gdprkg:notApplicableIf ex:cond-46-1-adequacy-decision-exists ;
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+
+#################################################################
+#  8 — THE 46(4) OBLIGATION (1) — first non-controller bearer in the project
+#
+#  Structurally free: ex:actor-supervisory-authority already existed
+#  (art13.ttl:135, so far used only as a referencesActor TARGET), and
+#  gdprsh:ObligationBearerShape (shapes.ttl:164-175) requires only
+#  `sh:class gdprkg:Actor` without hardcoding the controller — so this conforms
+#  with NO shape edit, and no shape edit is permitted.
+#
+#  NOTE FOR CQ-C3: this is the +1 that takes the locked count 58 -> 59, and it
+#  is NOT a controller. The CQ-C3 result set stops being homogeneous for the
+#  first time in the project's history.
+#
+#  NO gdprkg:referencesActor edge is drawn. The supervisory authority is the
+#  BEARER here, and referencesActor is for the NON-BEARER actor a duty is about
+#  (its whole point, per the 2026-07-03 mint). 46(4) references no third party.
+#  CQ-C4 therefore takes a ZERO delta from this article — asserted explicitly in
+#  expected_results.md so a later nonzero is a defect signal, not a discovery.
+#################################################################
+
+ex:obl-46-4-consistency-mechanism a gdprkg:Obligation ;
+    rdfs:label "Apply the consistency mechanism referred to in Article 63 in the cases referred to in paragraph 3"@en ;
+    gdprkg:groundedIn ex:art46-p4 ;
+    gdprkg:imposesObligationOn ex:actor-supervisory-authority ;
+    gdprkg:appliesIf ex:cond-46-4-authorisation-cases ;
+    gdprkg:referencesProvision ex:ref-art63 ;   # domain-clean: an Obligation IS a NormativeElement
+    gdprkg:hasProvenance ex:prov-art46 ; gdprkg:reviewStatus "draft" .
+
+#################################################################
+#  END — Article 46 ABox.
+#  1 Permission (2 bearer edges) + 1 Obligation (supervisory authority)
+#  + 8 TransferMechanism (8 providesSafeguard -> ex:concept-safeguard)
+#  + 4 Conditions + 0 Exceptions.
+#  1 notApplicableIf | 0 hasLegalEffect | 0 LegalEffect | 0 LegalBasis
+#  0 disclosesConcept | 0 disclosedToDataSubject | 0 hasTimeLimit
+#  5 new ReferencedProvision stubs; ex:ref-art47 reused; 1 actor minted.
+#  46(5) => ZERO normative units (transitional law, T3-D).
+#################################################################

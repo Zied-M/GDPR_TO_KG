@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="https://w3id.org/gdprkg/data/art46" uri="art46.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/gdprkg/data/art14" uri="art14.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/gdprkg/data/art12" uri="art12.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/gdprkg/data/art6" uri="art6.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/gdprkg/data/art13" uri="art13.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://w3id.org/gdprkg" uri="../ontology/gdpr_kg.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public"/>
+</catalog>

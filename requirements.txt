@@ -1,0 +1,10 @@
+# Pinned: the verification gate reports exact row counts, and both the OWL 2 RL
+# materialiser and the Turtle parser affect those counts. Do not float these.
+rdflib==7.6.0
+owlrl==7.6.2
+pyshacl==0.40.1
+owlready2==0.51      # headless HermiT (verify.py --reasoner); needs a JRE on PATH
+
+# Only needed to re-run the scraper (scripts/gdpr/scrape_gdpr_articles.py):
+requests>=2.31
+beautifulsoup4>=4.12

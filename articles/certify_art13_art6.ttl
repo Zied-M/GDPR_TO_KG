@@ -1,0 +1,69 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+#  certify_art13_art6.ttl — IMPORTS-ONLY reasoner loader (NOT a merge file)
+#  ---------------------------------------------------------------
+#  Purpose: load the TBox + Art-13 ABox + Art-6 ABox into ONE HermiT
+#  reasoning closure in Protege, WITHOUT the buggy manual "Import ontology
+#  from file" wizard (which throws a MasterOntologyIDExtractor NPE).
+#
+#  It contains ZERO data triples of its own — only owl:imports — so it
+#  CANNOT drift stale the way the retired ontology/art13_with_tbox.ttl did.
+#  This honours the 2026-07-09 "no hand-synced merge file" convention (a
+#  loader is not a merge: it duplicates nothing, it just references the
+#  three SOURCE files by IRI). Delete it any time; the source files are
+#  authoritative.
+#
+#  How the files resolve: the ABox IRIs below are mapped to the
+#  local files in articles/catalog-v001.xml; each ABox in turn owl:imports
+#  <https://w3id.org/gdprkg> (the TBox), already mapped in the same catalog.
+#
+#  EXTENDED 2026-07-20 (Art-12 pass, brief §9.6): + Art-12 ABox import
+#  (catalog entry added alongside). Still ZERO data triples; file name
+#  kept (certify_art13_art6.ttl) to avoid breaking existing references.
+#
+#  EXTENDED 2026-08-05 (Art-14 pass, work order C §3.3): + Art-14 ABox
+#  import, mirroring the Art-12 edit exactly (catalog entry added
+#  alongside in articles/catalog-v001.xml). STILL ZERO DATA TRIPLES;
+#  file name kept — it now certifies the FIVE-file union
+#  TBox + Art-13 + Art-6 + Art-12 + Art-14.
+#
+#  EXTENDED 2026-08-07 (Art-46 pass, work order E §4.4): + Art-46 ABox
+#  import, mirroring the Art-12 and Art-14 edits exactly (catalog entry
+#  added alongside). STILL ZERO DATA TRIPLES; file name kept — it now
+#  certifies the SIX-file union
+#  TBox + Art-13 + Art-6 + Art-12 + Art-14 + Art-46.
+#
+#  >>> THE ART-46 RUN IS A GENUINE SATISFIABILITY QUESTION, NOT A
+#  REGRESSION — the first since Art 12. This unit adds TWO TBox terms
+#  (gdprkg:TransferMechanism, gdprkg:providesSafeguard), so HermiT is
+#  being asked something new. Confirm explicitly: (i) nothing sits under
+#  owl:Nothing; (ii) the 6-member normative owl:AllDisjointClasses set
+#  still reads {Obligation, Right, Permission, Condition, Exception,
+#  LegalEffect} and gdprkg:TransferMechanism is deliberately NOT in it;
+#  (iii) the eight ex:mech-46-* individuals infer GroundedConcept and
+#  do NOT infer PrimaryNormativeUnit or NormativeElement.
+#  NO SANDBOX PROXY COVERS THIS LEG.
+#
+#  PERIMETER: fixtures/art46_scenarios.ttl is deliberately NOT imported
+#  here and NOT in the catalog (Zied, 2026-08-06). It is a non-normative
+#  demonstrator, outside the certification union, exercised only by
+#  cq_sparql/demo_art46_scenarios.py.
+#
+#  USE:  Protege -> File -> Open -> articles/certify_art13_art6.ttl
+#        -> Reasoner -> HermiT -> Start reasoner
+#        -> confirm: no inconsistency, nothing under owl:Nothing.
+#           (The six ex:basis-* nodes will appear as inferred NormativeElement
+#            — the expected SURFACE-F entailment; confirm none is unsatisfiable.)
+#        On exit, no need to save.
+#################################################################
+
+<https://w3id.org/gdprkg/certify-art13-art6>
+    a owl:Ontology ;
+    rdfs:label "Reasoner loader: GDPR-KG TBox + Art-13 + Art-6 + Art-12 + Art-14 + Art-46 (imports only; not a source of truth)"@en ;
+    owl:imports <https://w3id.org/gdprkg/data/art13> ,
+                <https://w3id.org/gdprkg/data/art6> ,
+                <https://w3id.org/gdprkg/data/art12> ,
+                <https://w3id.org/gdprkg/data/art14> ,
+                <https://w3id.org/gdprkg/data/art46> .

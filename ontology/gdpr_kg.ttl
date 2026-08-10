@@ -1,0 +1,619 @@
+@prefix gdprkg:  <https://w3id.org/gdprkg#> .
+@prefix dpv:     <https://w3id.org/dpv#> .
+@prefix eugdpr:  <https://w3id.org/dpv/legal/eu/gdpr#> .
+@prefix gconsent: <https://w3id.org/GConsent#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix eli:     <http://data.europa.eu/eli/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+#  Ontology header
+#################################################################
+
+<https://w3id.org/gdprkg>
+    a owl:Ontology ;
+    rdfs:label "GDPR Knowledge Graph: Foundation TBox"@en ;
+    owl:versionInfo "0.1.2-art6-stepzero-remediation (2026-07-08) — provisional, awaiting review; NOT for publication. Adds DisclosableConcept (I3), TransferDestination (I6), disclosedToDataSubject (I5); disclosesConcept range → DisclosableConcept; transferredTo range → TransferDestination." ;
+    dcterms:creator "GDPR-KG Foundation (research master's thesis)" ;
+    rdfs:comment """OWL 2 DL TBox for the GDPR Knowledge Graph foundation (pilot: Articles 13, 14, 6, 7).
+Built under NeOn [suarezfigueroa2012neon; suarezfigueroa2015neonframework] with a per-article inner
+loop after Noy & McGuinness 101 [noy2001ontology101]; competency questions as requirements/evaluation
+device [gruninger1995methodology]. Scope-neutral schema: NO article-specific classes are baked in.
+Reused vocabularies are referenced by alignment axioms only (NOT owl:imports), so the file loads in
+Protégé without fetching external ontologies. Term IRIs verified against live DPV/GConsent/ELI specs
+(2026-07-01); see ontology/ABC_decision_table.md. Persistent base IRI (w3id redirect) is a deferred
+decision — https://w3id.org/gdprkg# is provisional."""@en ;
+    rdfs:seeAlso <https://w3id.org/dpv> ,
+                 <https://w3id.org/dpv/legal/eu/gdpr> ,
+                 <https://w3id.org/GConsent> ,
+                 <http://www.w3.org/ns/prov-o> ,
+                 <http://data.europa.eu/eli/ontology> .
+
+#################################################################
+#  Minimal declarations of REUSED external terms
+#  (declared so alignment axioms are well-formed and Protégé shows
+#   them; we do NOT redefine them — see ABC_decision_table.md for the
+#   verified IRI + URL checked for each.)
+#################################################################
+
+# DPV core [pandit2024dpv2] — https://w3id.org/dpv#
+dpv:Purpose                       a owl:Class .
+dpv:PersonalData                  a owl:Class .
+dpv:Processing                    a owl:Class .
+dpv:Transfer                      a owl:Class .   # processing op: "to move data from one place to another"
+dpv:CrossBorderTransfer           a owl:Class .
+dpv:DataController                a owl:Class .
+dpv:DataProcessor                 a owl:Class .
+dpv:DataSubject                   a owl:Class .
+dpv:Recipient                     a owl:Class .
+dpv:ThirdParty                    a owl:Class .
+dpv:DataProtectionOfficer         a owl:Class .
+dpv:DataProtectionAuthority       a owl:Class .   # DPV term for the GDPR "supervisory authority"
+dpv:Representative                a owl:Class .
+dpv:TechnicalOrganisationalMeasure a owl:Class .
+dpv:DataSubjectRight              a owl:Class .
+dpv:StorageDuration               a owl:Class .
+dpv:Consent                       a owl:Class .
+dpv:Permission                    a owl:Class .   # DPV rule concept — WEAK POINTER target only (rdfs:seeAlso from gdprkg:Permission; see its 4-part comment). NOT subclassed.
+dpv:hasDataSource                 a owl:ObjectProperty .
+dpv:hasOrganisationalMeasure      a owl:ObjectProperty .   # WEAK POINTER target only (seeAlso from gdprkg:providesSafeguard). Verified live 2026-08-07: no domain/range declared in DPV 2.3; NOT a subPropertyOf target.
+
+# ODRL 2.2 — http://www.w3.org/ns/odrl/2/ — weak pointer target only.
+# [VERIFY live ODRL 2.2 before thesis use] (seeAlso from gdprkg:grantsPermissionTo, 12I)
+odrl:assignee                     a owl:ObjectProperty .
+
+# DPV-GDPR legal module [pandit2024dpv2] — https://w3id.org/dpv/legal/eu/gdpr#
+# (each verified as rdfs:Class, skos:Concept, rdfs:subClassOf dpv:LegalBasis)
+dpv:LegalBasis                    a owl:Class .
+eugdpr:A6-1-a                     a owl:Class ; rdfs:subClassOf dpv:LegalBasis .
+eugdpr:A6-1-b                     a owl:Class ; rdfs:subClassOf dpv:LegalBasis .
+eugdpr:A6-1-c                     a owl:Class ; rdfs:subClassOf dpv:LegalBasis .
+eugdpr:A6-1-d                     a owl:Class ; rdfs:subClassOf dpv:LegalBasis .
+eugdpr:A6-1-e                     a owl:Class ; rdfs:subClassOf dpv:LegalBasis .
+eugdpr:A6-1-f                     a owl:Class ; rdfs:subClassOf dpv:LegalBasis .
+# DPV-GDPR data-transfer module — WEAK POINTER target only (rdfs:seeAlso from
+# gdprkg:TransferMechanism; see its 4-part comment). NOT subclassed: it is a
+# dpv:OrganisationalMeasure and would drag gdprkg:TransferMechanism under
+# dpv:TechnicalOrganisationalMeasure, which gdprkg:Safeguard already sits under.
+# Verified live 2026-08-07 (eu-gdpr.ttl sha1 5470583a4b3feb0e), Art-46 reuse gate R-2.
+eugdpr:DataTransferTool           a owl:Class .
+
+# GConsent [pandit2019gconsent] — https://w3id.org/GConsent#
+gconsent:Consent                  a owl:Class .
+gconsent:ConsentStatus            a owl:Class .
+
+# ELI [ (VERIFY) ELI ontology ] — http://data.europa.eu/eli/ontology#
+eli:LegalResource                 a owl:Class .
+eli:LegalResourceSubdivision      a owl:Class .
+
+# PROV-O [lebo2013provo] — http://www.w3.org/ns/prov#
+prov:Entity                       a owl:Class .
+prov:Activity                     a owl:Class .
+prov:Agent                        a owl:Class .
+prov:wasGeneratedBy               a owl:ObjectProperty .
+prov:wasAttributedTo              a owl:ObjectProperty .
+prov:wasAssociatedWith            a owl:ObjectProperty .
+prov:wasDerivedFrom               a owl:ObjectProperty .
+
+# Dublin Core terms reused as super-properties (grounding + cross-reference)
+dcterms:source                    a owl:ObjectProperty .
+dcterms:references                a owl:ObjectProperty .   # "a resource referenced/cited by the described resource" — super-property for gdprkg:referencesProvision
+
+#################################################################
+#  LAYER 1 — Legal-source structure  (Regulation → Article → Paragraph → Point)
+#################################################################
+
+gdprkg:LegalProvision a owl:Class ;
+    rdfs:label "Legal provision"@en ;
+    rdfs:subClassOf eli:LegalResourceSubdivision ;
+    rdfs:comment "A subdivision of a legal act (Article/Paragraph/Point). Grounding target."@en .
+
+gdprkg:Regulation a owl:Class ;
+    rdfs:label "Regulation"@en ;
+    rdfs:subClassOf eli:LegalResource ;
+    rdfs:comment "A regulation (e.g. GDPR). Aligned to ELI LegalResource [ (VERIFY) ELI ]."@en .
+
+gdprkg:Article   a owl:Class ; rdfs:label "Article"@en ;   rdfs:subClassOf gdprkg:LegalProvision .
+gdprkg:Paragraph a owl:Class ; rdfs:label "Paragraph"@en ; rdfs:subClassOf gdprkg:LegalProvision .
+gdprkg:Point     a owl:Class ; rdfs:label "Point"@en ;     rdfs:subClassOf gdprkg:LegalProvision .
+
+# Referenced-but-NOT-modelled provisions (Art 9, 22, 44–49, 89, …). Scope-neutral stub:
+# a general class, never populated in the pilot; keeps the scope boundary honest.
+gdprkg:ReferencedProvision a owl:Class ;
+    rdfs:label "Referenced (not-modelled) provision"@en ;
+    rdfs:subClassOf eli:LegalResourceSubdivision ;
+    rdfs:comment "Stub type for provisions referenced by the pilot text but deliberately out of modelling scope (e.g. Art 9, 22, 44–49, 89). Marks the boundary; never populated in the pilot data."@en .
+
+[] a owl:AllDisjointClasses ;
+   owl:members ( gdprkg:Regulation gdprkg:Article gdprkg:Paragraph gdprkg:Point ) .
+
+#################################################################
+#  LAYER 2 — Normative units + uniform grounding
+#################################################################
+
+# Abstract root that carries the UNIFORM SOURCE-GROUNDING invariant.
+# Everything that must be traceable to a provision is a GroundedConcept.
+gdprkg:GroundedConcept a owl:Class ;
+    rdfs:label "Grounded concept"@en ;
+    rdfs:comment "Any element that MUST carry a grounding relation to its source provision — includes all normative units AND LegalBasis and Consent (fixes the Sprint 1-R gap where grounding was forbidden on LegalBasis/Consent)."@en .
+
+# Marker superclass (Phase 4 cleanup, 2026-07-02): narrows provenance + review-status
+# requirements to the primary normative units, while grounding (GroundedConcept) stays
+# universal. Condition and Exception are GroundedConcept (grounded) but are NOT
+# PrimaryNormativeUnit — they inherit provenance/review via their parent Obligation/Right
+# (gdprkg:appliesIf / gdprkg:hasException), so they carry no separate provenance/review
+# requirement of their own. See ontology/shapes.ttl ProvenanceRequiredShape/ReviewStatusShape
+# and CLAUDE.md decision log (2026-07-02, Phase 4 cleanup).
+gdprkg:PrimaryNormativeUnit a owl:Class ;
+    rdfs:label "Primary normative unit"@en ;
+    rdfs:subClassOf gdprkg:GroundedConcept ;
+    rdfs:comment "Marker superclass for the normative units that carry their OWN provenance and review-status metadata: Obligation, Right, LegalBasis, Consent. Condition and Exception are grounded (GroundedConcept) but inherit provenance/review from their parent Obligation/Right rather than carrying it directly, so they are deliberately NOT members of this class. Presence/cardinality of provenance and reviewStatus on this class is enforced in Phase-4 SHACL (ontology/shapes.ttl), not here (OWL TBox = vocabulary; SHACL = constraints)."@en .
+
+gdprkg:NormativeElement a owl:Class ;
+    rdfs:label "Normative element"@en ;
+    rdfs:subClassOf gdprkg:GroundedConcept ;
+    rdfs:comment "A normative unit extracted from the text. Deontic Obligation/Condition pattern anchor [CITE: deontic/normative obligation ontology design pattern]; DAPRECO/LegalRuleML informs the pattern only [robaldo2020dapreco]."@en .
+
+gdprkg:Obligation a owl:Class ; rdfs:label "Obligation"@en ;
+    rdfs:subClassOf gdprkg:NormativeElement , gdprkg:PrimaryNormativeUnit .
+gdprkg:Right      a owl:Class ; rdfs:label "Right"@en ;
+    rdfs:subClassOf gdprkg:NormativeElement , gdprkg:PrimaryNormativeUnit ;
+    rdfs:comment "A substantive right. Referenced data-subject rights align to dpv:DataSubjectRight (see gdprkg:ReferencedDataSubjectRight)."@en .
+# Permission — MINTED 2026-07-20 per SURFACE-12A (Art-12 instantiation brief §3, ratified by Zied).
+# One of exactly TWO TBox additions of the Art-12 pass (the other: gdprkg:grantsPermissionTo below).
+gdprkg:Permission a owl:Class ; rdfs:label "Permission"@en ;
+    rdfs:subClassOf gdprkg:NormativeElement , gdprkg:PrimaryNormativeUnit ;
+    rdfs:seeAlso dpv:Permission ;
+    rdfs:comment """A discretionary power ('may ...') extracted from a legal Point/Paragraph — a norm whose addressee is permitted, but not required, to act (e.g. Art 12(5)(a) 'may charge a reasonable fee'). Minted per SURFACE-12A (Art-12 brief §3). Reuse-first divergence justification, four parts: (1) SEMANTICS MISMATCH — dpv:Permission (verified live, GATE-A, 2026-07-18) annotates a processing Context (dpv:hasRule domain = dpv:Context; DPV attaches it to a dpv:Process to mean 'this processing is permitted'), whereas gdprkg:Permission types a norm extracted from a legal Point — grounded, provenanced, review-tracked; a different kind of entity. (2) DPV DECLINES THE NEEDED SEMANTICS — DPV 'does not define additional semantics for rules' (it defers to ODRL/SHACL/RuleML) and defines no rule triggering; triggering (gdprkg:appliesIf / gdprkg:hasException) is exactly our use. DPV also does not make Permission disjoint from Prohibition; our normative classes ARE mutually disjoint. (3) LOCAL-BY-DESIGN PRECEDENT — Obligation/Right/Condition/Exception/LegalEffect are all locally defined, none rdfs:subClassOf dpv; aligning Permission alone would be asymmetric. Layer-2 norms are local; DPV reuse lives in Layer 3. Hence rdfs:seeAlso dpv:Permission (weak pointer), NOT rdfs:subClassOf. (4) DEONTIC NOTE — standard deontic logic gives O(p) -> P(p); these classes are nonetheless disjoint because they type TEXT-EXTRACTED NORM NODES, not deontic propositions: one sentence of Art 12 is either a duty or a power, never both. Not a contradiction of deontic logic. PrimaryNormativeUnit membership is required because permissions carry appliesIf conditions and the 2026-07-12 domain-tighten (appliesIf/hasException domain = PrimaryNormativeUnit) would otherwise silently re-type them."""@en .
+
+gdprkg:Condition  a owl:Class ; rdfs:label "Condition"@en ;  rdfs:subClassOf gdprkg:NormativeElement .
+gdprkg:Exception  a owl:Class ; rdfs:label "Exception"@en ;  rdfs:subClassOf gdprkg:NormativeElement .
+
+# LegalEffect pattern — for effects such as Art 7(2) "not binding", kept SEPARATE from Exception.
+gdprkg:LegalEffect a owl:Class ;
+    rdfs:label "Legal effect"@en ;
+    rdfs:subClassOf gdprkg:NormativeElement ;
+    rdfs:comment "A legal-effect nuance (e.g. Art 7(2): a declaration is 'not binding'). Deliberately distinct from Exception so effects are not overloaded onto exceptions."@en .
+
+# Normative disjoint set — EXTENDED 5 -> 6 members 2026-07-20 (Art-12 pass, brief §3): Permission added.
+# DL-complete satisfiability of the 6-member set is Zied's HermiT verdict; sandbox checks are proxies.
+[] a owl:AllDisjointClasses ;
+   owl:members ( gdprkg:Obligation gdprkg:Right gdprkg:Permission gdprkg:Condition gdprkg:Exception gdprkg:LegalEffect ) .
+
+#################################################################
+#  LAYER 3 — Domain layer (actors, processing, data, purpose, basis, consent, transfer, safeguards)
+#################################################################
+
+# ---- Disclosable-concept grouping (abstract; I3 remediation, 2026-07-08) ----
+# Abstract grouping superclass over the domain concepts that an information/
+# disclosure Obligation can disclose (gdprkg:disclosesConcept). Introduced to
+# REPLACE the ever-growing owl:unionOf range previously on disclosesConcept with
+# a single named target that SHACL can validate (sh:class gdprkg:DisclosableConcept).
+# Members (see the rdfs:subClassOf gdprkg:DisclosableConcept assertions below):
+# Purpose, RetentionPeriod, Safeguard, Recipient, Transfer, DataCategory
+# + LegalBasis + Consent — so Art-6 legal bases / Art-7 consent become REACHABLE
+# via disclosesConcept (the whole point of the I3 extension; 13(1)(c) legal-basis
+# disclosure and Art-6 traversal were previously forbidden by the union range).
+# Cross-cutting grouping ONLY: it deliberately participates in NEITHER
+# owl:AllDisjointClasses set (legal-source classes; normative-element classes),
+# so it introduces no unsatisfiability — to be confirmed by Zied's HermiT run.
+# Grounding: standard abstract-grouping-superclass design; OWL 2 [w3c2012owl2].
+# SURFACE-6 (member set) is flagged in articles/art13_surfaced_items.md: the
+# RECOMMENDED membership is implemented; confirm before treating it as final.
+gdprkg:DisclosableConcept a owl:Class ;
+    rdfs:label "Disclosable concept"@en ;
+    rdfs:comment "Abstract grouping of the domain concepts an information/disclosure obligation may disclose (range of gdprkg:disclosesConcept). Members: Purpose, RetentionPeriod, Safeguard, Recipient, Transfer, DataCategory, LegalBasis, Consent. Replaces the owl:unionOf range on disclosesConcept with a single SHACL-validatable class. Cross-cutting: NOT part of any owl:AllDisjointClasses set. Abstract-grouping-superclass design [w3c2012owl2]. Member set surfaced for confirmation (SURFACE-6)."@en .
+
+# ---- Transfer destination (I6 remediation, 2026-07-08) ----
+# The country / territory / international organisation a transfer goes TO
+# (Art 13(1)(f); Chapter V). SPLIT OUT from gdprkg:Recipient (an Actor), which
+# previously doubled as the gdprkg:transferredTo target and thereby wrongly typed
+# a country/jurisdiction as an actor (the I6 conflation).
+# SURFACE-3 (OPEN — Zied to decide; do not treat as settled): whether to
+#   (a) reuse a DPV location/jurisdiction class (exact term IRI must be VERIFIED
+#       against live DPV docs — NOT possible here, no network), or
+#   (b) keep this original gdprkg class.
+# Implemented as (b), a placeholder pending Zied's verification/choice; if (a) is
+# chosen, retype ex:concept-third-country and re-point transferredTo's range.
+# [CITE: transfer-destination / third-country modelling]
+gdprkg:TransferDestination a owl:Class ;
+    rdfs:label "Transfer destination"@en ;
+    rdfs:comment "The destination of a personal-data transfer: a third country, territory, or international organisation (Art 13(1)(f) / Chapter V). Split from gdprkg:Recipient (an Actor) per I6 so a jurisdiction is not typed as an actor. SURFACE-3: reuse of a DPV location/jurisdiction class is an OPEN decision requiring live-doc verification (no network here); this original class is a placeholder pending Zied's choice. [CITE: transfer-destination / third-country modelling]"@en .
+
+# ---- Actors ----
+gdprkg:Actor a owl:Class ; rdfs:label "Actor"@en ;
+    rdfs:comment "Any party referenced by a norm. Specific roles are distinct subclasses."@en .
+
+gdprkg:Controller  a owl:Class ; rdfs:label "Controller"@en ;  rdfs:subClassOf gdprkg:Actor ;
+    owl:equivalentClass dpv:DataController .   # exact GDPR role [pandit2024dpv2]
+gdprkg:Processor   a owl:Class ; rdfs:label "Processor"@en ;   rdfs:subClassOf gdprkg:Actor ;
+    owl:equivalentClass dpv:DataProcessor .
+gdprkg:DataSubject a owl:Class ; rdfs:label "Data subject"@en ; rdfs:subClassOf gdprkg:Actor ;
+    owl:equivalentClass dpv:DataSubject .
+gdprkg:Recipient   a owl:Class ; rdfs:label "Recipient"@en ;
+    rdfs:subClassOf gdprkg:Actor , gdprkg:DisclosableConcept ;   # a recipient is an Actor AND disclosable (13(1)(e)); I3
+    owl:equivalentClass dpv:Recipient .
+gdprkg:ThirdParty  a owl:Class ; rdfs:label "Third party"@en ; rdfs:subClassOf gdprkg:Actor ;
+    owl:equivalentClass dpv:ThirdParty .
+
+# specific actors surfaced by the pilot text (CLAUDE.md invariant: distinct Actor subclasses)
+gdprkg:Actor_DataProtectionOfficer a owl:Class ; rdfs:label "Data protection officer"@en ;
+    rdfs:subClassOf gdprkg:Actor ; owl:equivalentClass dpv:DataProtectionOfficer .   # Art 37–39
+gdprkg:Actor_ControllerRepresentative a owl:Class ; rdfs:label "Controller's representative"@en ;
+    rdfs:subClassOf gdprkg:Actor ; owl:equivalentClass dpv:Representative .           # Art 27
+gdprkg:Actor_SupervisoryAuthority a owl:Class ; rdfs:label "Supervisory authority"@en ;
+    rdfs:subClassOf gdprkg:Actor , dpv:DataProtectionAuthority ;
+    rdfs:comment "GDPR 'supervisory authority' (Art 51) is a term of art; modelled as rdfs:subClassOf dpv:DataProtectionAuthority (NOT equivalentClass — per review decision, no exact extensional identity asserted)."@en .
+gdprkg:Actor_PersonalDataSource a owl:Class ; rdfs:label "Personal-data source"@en ;
+    rdfs:subClassOf gdprkg:Actor ; rdfs:seeAlso dpv:hasDataSource ;
+    rdfs:comment "Build-new: the source from which data were obtained (Art 14(2)(f)). DPV has no matching actor role class; related to dpv:hasDataSource."@en .
+
+# ---- Processing ----
+gdprkg:ProcessingActivity a owl:Class ; rdfs:label "Processing activity"@en ;
+    rdfs:subClassOf dpv:Processing ;
+    rdfs:comment "A processing activity/operation. Narrower than dpv:Processing → rdfs:subClassOf."@en .
+gdprkg:ProcessingAction a owl:Class ; rdfs:label "Processing action"@en ;
+    rdfs:subClassOf dpv:Processing .
+
+# ---- Personal data ----
+gdprkg:PersonalData a owl:Class ; rdfs:label "Personal data"@en ;
+    owl:equivalentClass dpv:PersonalData .    # exact [pandit2024dpv2]
+gdprkg:DataCategory a owl:Class ; rdfs:label "Data category"@en ;
+    rdfs:subClassOf dpv:PersonalData , gdprkg:DisclosableConcept ;   # I3
+    rdfs:comment "A category/grouping of personal data. NB: dpv:PersonalDataCategory does NOT exist; the DPV category taxonomy is the separate dpv/pd extension (https://w3id.org/dpv/pd)."@en .
+
+# ---- Purpose ----
+gdprkg:Purpose a owl:Class ; rdfs:label "Purpose"@en ;
+    rdfs:subClassOf gdprkg:DisclosableConcept ;   # I3
+    owl:equivalentClass dpv:Purpose .          # exact
+
+# ---- Legal basis (six Art-6(1) bases) — CLASSES, owl:equivalentClass to DPV-GDPR ----
+gdprkg:LegalBasis a owl:Class ; rdfs:label "Legal basis"@en ;
+    rdfs:subClassOf gdprkg:GroundedConcept ;
+    rdfs:subClassOf gdprkg:PrimaryNormativeUnit ;
+    rdfs:subClassOf gdprkg:DisclosableConcept ;   # I3: 13(1)(c) legal-basis disclosure + Art-6 traversal
+    rdfs:subClassOf dpv:LegalBasis ;
+    rdfs:comment "Lawful basis for processing. Groundable (uniform grounding invariant). Disclosable via gdprkg:disclosesConcept (I3) so 13(1)(c) and Article 6 are reachable."@en .
+
+gdprkg:LegalBasisConsent a owl:Class ; rdfs:label "Legal basis: consent (Art 6(1)(a))"@en ;
+    rdfs:subClassOf gdprkg:LegalBasis ; owl:equivalentClass eugdpr:A6-1-a .
+gdprkg:LegalBasisContract a owl:Class ; rdfs:label "Legal basis: contract (Art 6(1)(b))"@en ;
+    rdfs:subClassOf gdprkg:LegalBasis ; owl:equivalentClass eugdpr:A6-1-b .
+gdprkg:LegalBasisLegalObligation a owl:Class ; rdfs:label "Legal basis: legal obligation (Art 6(1)(c))"@en ;
+    rdfs:subClassOf gdprkg:LegalBasis ; owl:equivalentClass eugdpr:A6-1-c .
+gdprkg:LegalBasisVitalInterests a owl:Class ; rdfs:label "Legal basis: vital interests (Art 6(1)(d))"@en ;
+    rdfs:subClassOf gdprkg:LegalBasis ; owl:equivalentClass eugdpr:A6-1-d .
+gdprkg:LegalBasisPublicInterest a owl:Class ; rdfs:label "Legal basis: public interest/official authority (Art 6(1)(e))"@en ;
+    rdfs:subClassOf gdprkg:LegalBasis ; owl:equivalentClass eugdpr:A6-1-e .
+gdprkg:LegalBasisLegitimateInterests a owl:Class ; rdfs:label "Legal basis: legitimate interests (Art 6(1)(f))"@en ;
+    rdfs:subClassOf gdprkg:LegalBasis ; owl:equivalentClass eugdpr:A6-1-f .
+
+# ---- Consent (Art 7 entity) — distinct from the Art 6(1)(a) basis ----
+gdprkg:Consent a owl:Class ; rdfs:label "Consent"@en ;
+    rdfs:subClassOf gdprkg:GroundedConcept ;
+    rdfs:subClassOf gdprkg:PrimaryNormativeUnit ;
+    rdfs:subClassOf gdprkg:DisclosableConcept ;   # I3: Art-7 consent reachable via disclosesConcept
+    owl:equivalentClass gconsent:Consent ;     # re-engineering anchor [pandit2019gconsent]
+    rdfs:seeAlso dpv:Consent ;                 # non-logical; avoids conflating GConsent & DPV
+    rdfs:comment "The consent entity/state (Art 7). Kept DISTINCT from gdprkg:LegalBasisConsent (the Art 6(1)(a) lawful basis). Consent lifecycle/status will reuse gconsent:ConsentStatus in Phase 5."@en .
+
+# ---- Safeguards / TOMs ----
+gdprkg:Safeguard a owl:Class ; rdfs:label "Safeguard"@en ;
+    rdfs:subClassOf dpv:TechnicalOrganisationalMeasure , gdprkg:DisclosableConcept ;   # I3
+    rdfs:comment "Appropriate safeguard / technical-organisational measure (e.g. Art 46). Broader external → rdfs:subClassOf."@en .
+
+# ---- Transfer mechanisms (Art 46(2)/(3)) — MINTED 2026-08-07, Art-46 pass ----
+# ADDITION 1 of EXACTLY TWO authorized by art46_instantiation_brief.md §3.7 (T3-B, Zied
+# 2026-08-05) and work order E §4.1; the reuse gate (§1) was run against the LIVE specs
+# BEFORE this was written and its result is recorded in the four-part comment below.
+#
+# WHY NOT A SUBCLASS OF gdprkg:Safeguard — the hazard this shape was chosen to avoid.
+# Making gdprkg:Safeguard a GroundedConcept (the rejected alternative) would have broken
+# TWO CERTIFIED ARTICLES WITHOUT EDITING THEM: gdprsh:GroundedConceptShape requires >=1
+# groundedIn on every GroundedConcept, and SEVEN canonical domain individuals
+# (ex:concept-safeguard/-purpose/-recipient/-retention/-transfer/-data-category/
+# -third-country) carry NONE — so CQ-C2 would go nonzero and pySHACL would fail on
+# art13.ttl and art14.ttl. A NEW class has no existing instance population and therefore
+# carries no such retroactive effect. GENERAL RULE, carried forward: adding a superclass to
+# an existing class retroactively subjects every existing instance to that superclass's
+# shapes — CHECK THE INSTANCE POPULATION BEFORE WIDENING.
+#
+# MINT CONSEQUENCE ANALYSIS (playbook §3, required before writing triples):
+#  (a) owl:AllDisjointClasses — NOT extended, and deliberately so. TransferMechanism is not
+#      a gdprkg:NormativeElement and no individual is intended to be simultaneously a
+#      mechanism and an Obligation/Right/Permission/Condition/Exception/LegalEffect. Adding
+#      it to the 6-member normative set would be a THIRD TBox change (work order E §3 makes
+#      that a STOP unless required) and nothing requires it: omitting it introduces no
+#      unsatisfiability, because GroundedConcept participates in neither disjoint set.
+#  (b) Satisfiability — the class has ONE superclass (GroundedConcept), no equivalences, no
+#      disjointness and no cardinality restrictions, so nothing can become unsatisfiable.
+#      DL-complete confirmation is Zied's HermiT run; sandbox checks are proxies.
+#  (c) SHACL — gdprsh:GroundedConceptShape (sh:targetClass gdprkg:GroundedConcept, which
+#      follows rdfs:subClassOf) NOW FIRES on every TransferMechanism: each individual MUST
+#      carry >=1 groundedIn to a gdprkg:LegalProvision. No shape edit is needed or permitted.
+#      gdprsh:ProvenanceRequiredShape / gdprsh:ReviewStatusShape target PrimaryNormativeUnit
+#      and therefore do NOT fire here — see the provenance note below.
+#  (d) Frozen CQs — CQ-C2 REACHES this class (via GroundedConcept) and is load-bearing this
+#      unit. CQ-C1 does NOT: its frozen FILTER lists Obligation/Condition/Exception only.
+#      That is a RECORDED NON-COVERAGE (playbook §4.1), not a defect; the query is NOT
+#      widened. CQ-C6's "direct" branch keys on the reviewStatus/hasProvenance TRIPLES, not
+#      on class, so it does reach these individuals.
+#
+# NOT a gdprkg:PrimaryNormativeUnit — DELIBERATE (Zied, 2026-08-07). T3-B/U5 decided the
+# 46(2)/(3) instruments are NOT normative units; PrimaryNormativeUnit is the marker class
+# for norms, so membership would re-import through the TBox exactly the reading that was
+# rejected. CONSEQUENCE, stated plainly: provenance and reviewStatus ARE asserted on all
+# eight individuals in the ABox (so they are traceable and CQ-C6-visible) but are NOT
+# ENFORCED by any shape — a later article could mint a TransferMechanism without them and
+# nothing would fail. The enforcing shape is scheduled to the deferred I4/I7 SHACL batch.
+# Ledger carry: art46-transfermechanism-provenance.
+gdprkg:TransferMechanism a owl:Class ;
+    rdfs:label "Transfer mechanism"@en ;
+    rdfs:subClassOf gdprkg:GroundedConcept ;   # named at a Point ⇒ traceable to it
+    rdfs:seeAlso eugdpr:DataTransferTool ;
+    rdfs:comment """An instrument through which the appropriate safeguards required by Art 46(1) are PROVIDED — e.g. binding corporate rules (46(2)(b)), standard data protection clauses (46(2)(c)/(d)), an approved code of conduct (46(2)(e)), contractual clauses (46(3)(a)). The 46(2)/(3) stems read "the appropriate safeguards ... may be provided for ... BY:", and that "by" is INSTRUMENTAL, not dative: these are the MEANS through which safeguards are provided, not the safeguards themselves and not the recipients. Deliberately NOT rdfs:subClassOf gdprkg:Safeguard — gdprkg:Safeguard is itself a gdprkg:DisclosableConcept, so a Safeguard subclass would make the eight instruments eligible objects of gdprkg:disclosesConcept, and a query asking "what safeguards does this obligation disclose?" would start returning standard contractual clauses. ex:concept-safeguard is a DISCLOSURE TOPIC; an SCC is a LEGAL INSTRUMENT; one class must not mean both.
+
+REUSE-FIRST DIVERGENCE JUSTIFICATION, four parts (playbook §3.3). The gate was run 2026-08-07 against the LIVE published specifications, by retrieving the machine-readable serialisations and reading the term definitions directly, NOT by a summarising fetch and NOT from memory. (1) SEMANTICS MISMATCH - eu-gdpr:DataTransferTool EXISTS and is close: "A legal instrument or tool intended to assist or justify data transfers", sourced to GDPR Art 46 and EDPB Recommendations 01/2020, with subclasses BindingCorporateRules, StandardContractualClauses, SCCByCommission, SCCBySupervisoryAuthority, CodesOfConductForDataTransfers, CertificationMechanismsForDataTransfers, AdHocContractualClauses. But it types an ORGANISATIONAL MEASURE a controller deploys (a dpv:OrganisationalMeasure), whereas gdprkg:TransferMechanism types a node EXTRACTED FROM A LEGAL POINT - grounded via gdprkg:groundedIn to a real ex:art46-p*-* Point, provenanced, review-tracked. Different kind of entity; the Layer-2/Layer-3 split (playbook invariant §2.6). (2) ALIGNMENT WOULD IMPORT THE WRONG ANCESTOR - VERIFIED, and this is the decisive part: eu-gdpr:DataTransferTool skos:broader dpv:OrganisationalMeasure, and dpv:OrganisationalMeasure skos:broader dpv:TechnicalOrganisationalMeasure; gdprkg:Safeguard is rdfs:subClassOf dpv:TechnicalOrganisationalMeasure on disk (this file). Subclassing would therefore place gdprkg:TransferMechanism and gdprkg:Safeguard under a COMMON DPV ANCESTOR and collapse at the alignment layer precisely the mechanism-vs-safeguard distinction this class exists to preserve - gdprkg:providesSafeguard would relate two co-descendants of one measure class. (3) COVERAGE IS NOT 1:1 - 46(2)(a) "a legally binding and enforceable instrument between public authorities or bodies" and 46(3)(b) "administrative arrangements between public authorities or bodies" have NO DataTransferTool subclass, so the alignment would be partial even where it fits. (4) WEAK POINTER RECORDING THAT WE LOOKED AND DECLINED - rdfs:seeAlso eu-gdpr:DataTransferTool (above), NOT rdfs:subClassOf. The same posture as gdprkg:Permission -> dpv:Permission (12A).
+
+WHY MINT WHEN DPV-GDPR ALREADY HAS EIGHT ART-46 POINT CLASSES - answered here because it will be asked. eu-gdpr:A46-2-a ... A46-2-f and eu-gdpr:A46-3-a / A46-3-b all EXIST and map 1:1 onto our eight points. Every one of them is "a rdfs:Class, skos:Concept, dpv:LegalBasis" with skos:broader dpv:DataTransferLegalBasis, in scheme eu-gdpr:legal-basis-data-transfer-classes. Aligning to them therefore TYPES THE INSTRUMENTS AS LEGAL BASES - the single construct choice this model forbids for reasons independent of DPV: it fires carry f2-domain-family (brief §6.1) and it contradicts the "provided for by" reading on which T3-B turned. This is the FIRST time the project has declined an available DPV-GDPR alignment where the pattern already existed (the six Art-6(1) lawful bases ARE aligned, owl:equivalentClass eugdpr:A6-1-a...f), so the asymmetry is deliberate and is recorded here rather than left to be discovered.
+
+PROVENANCE OF THE DPV-SIDE CLAIMS IN THIS COMMENT: they rest on the executor's hashed retrieval of eu-gdpr.ttl (sha1 5470583a4b3feb0e) and dpv.ttl (sha1 a1f7772adcb4a481), both fetched 2026-08-07 from w3c-cg.github.io/dpv/2.3/. This retrieval was NOT reproducible in the orchestrator sandbox; re-fetch before thesis use. No citation key is asserted for the mint itself - it is an original design addition."""@en .
+
+# ---- Retention ----
+gdprkg:RetentionPeriod a owl:Class ; rdfs:label "Retention period"@en ;
+    rdfs:subClassOf dpv:StorageDuration , gdprkg:DisclosableConcept .   # I3
+
+# ---- Transfer (GDPR Chapter V notion) ----
+gdprkg:Transfer a owl:Class ; rdfs:label "Transfer"@en ;
+    rdfs:subClassOf dpv:Transfer , gdprkg:DisclosableConcept ;   # dpv:Transfer is a processing op → subClassOf, not equivalent; I3 adds DisclosableConcept
+    rdfs:seeAlso dpv:CrossBorderTransfer ;
+    rdfs:comment "Transfer of personal data (Art 13(1)(f)/14(1)(f); Chapter V). dpv:DataTransfer does NOT exist; aligned to dpv:Transfer with seeAlso dpv:CrossBorderTransfer for international transfers."@en .
+
+# ---- Referenced data-subject rights (e.g. 13(2)(b), 7(3)) ----
+gdprkg:ReferencedDataSubjectRight a owl:Class ; rdfs:label "Referenced data-subject right"@en ;
+    rdfs:subClassOf gdprkg:Right ;
+    rdfs:subClassOf dpv:DataSubjectRight ;
+    rdfs:comment "A data-subject right that the pilot articles refer to (e.g. the rights listed in 13(2)(b); the Art 7(3) withdrawal right). Aligned to dpv:DataSubjectRight."@en .
+
+#################################################################
+#  LAYER 4 — Provenance / review layer (record vs event, per GATE-C)
+#################################################################
+
+gdprkg:ProvenanceRecord a owl:Class ; rdfs:label "Provenance record"@en ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:comment "The derivation/review metadata record (an Entity). Distinct from the event that produced it."@en .
+
+gdprkg:MappingReviewActivity a owl:Class ; rdfs:label "Mapping/review activity"@en ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:comment "The extraction/mapping/review EVENT that produced a node (a prov:Activity). Distinct node from the ProvenanceRecord it generates."@en .
+
+gdprkg:Reviewer a owl:Class ; rdfs:label "Reviewer / mapping agent"@en ;
+    rdfs:subClassOf prov:Agent .
+
+#################################################################
+#  LAYER 5 — Optional, SEGREGATED output layer (never legal truth)
+#################################################################
+
+gdprkg:PolicySegment      a owl:Class ; rdfs:label "Policy segment"@en ;
+    rdfs:comment "Optional evidence layer; not legal source. Segregated from the legal-source graph."@en .
+gdprkg:Evidence           a owl:Class ; rdfs:label "Evidence"@en .
+gdprkg:ObservedEvidence   a owl:Class ; rdfs:label "Observed evidence"@en ; rdfs:subClassOf gdprkg:Evidence .
+gdprkg:ComplianceAssessment a owl:Class ; rdfs:label "Compliance assessment"@en ;
+    rdfs:comment "Optional advisory output. NEVER legal truth; kept separate from the legal-source graph."@en .
+gdprkg:Violation          a owl:Class ; rdfs:label "Violation"@en ;
+    rdfs:comment "Optional advisory output. NEVER legal truth."@en .
+
+#################################################################
+#  OBJECT PROPERTIES
+#  (local names in lowerCamelCase; rdfs:label carries the KG-v2 edge-type token
+#   so the JSON pipeline maps 1:1 to these properties.)
+#################################################################
+
+# ---- Legal-source structure ----
+gdprkg:hasArticle a owl:ObjectProperty ; rdfs:label "HAS_ARTICLE" ;
+    rdfs:domain gdprkg:Regulation ; rdfs:range gdprkg:Article .
+gdprkg:hasParagraph a owl:ObjectProperty ; rdfs:label "HAS_PARAGRAPH" ;
+    rdfs:domain gdprkg:Article ; rdfs:range gdprkg:Paragraph .
+gdprkg:hasPoint a owl:ObjectProperty ; rdfs:label "HAS_POINT" ;
+    rdfs:domain gdprkg:Paragraph ; rdfs:range gdprkg:Point .
+
+# ---- Grounding (CANONICAL = groundedIn; SOURCE_OF is its inverse) ----
+gdprkg:groundedIn a owl:ObjectProperty ; rdfs:label "GROUNDED_IN" ;
+    rdfs:domain gdprkg:GroundedConcept ;
+    rdfs:range gdprkg:LegalProvision ;
+    rdfs:subPropertyOf dcterms:source ;
+    rdfs:seeAlso prov:wasDerivedFrom ;
+    rdfs:comment "Canonical grounding: a grounded concept → the provision that establishes it. Applies UNIFORMLY to every normative element AND to LegalBasis and Consent. Original design decision (project-specific grounding invariant); subPropertyOf dcterms:source per review."@en .
+gdprkg:sourceOf a owl:ObjectProperty ; rdfs:label "SOURCE_OF" ;
+    owl:inverseOf gdprkg:groundedIn ;
+    rdfs:domain gdprkg:LegalProvision ; rdfs:range gdprkg:GroundedConcept ;
+    rdfs:comment "Reasoner-inferred inverse of groundedIn."@en .
+
+# ---- Norm → actor ----
+gdprkg:imposesObligationOn a owl:ObjectProperty ; rdfs:label "IMPOSES_OBLIGATION_ON" ;
+    rdfs:domain gdprkg:Obligation ; rdfs:range gdprkg:Actor .
+gdprkg:grantsRightTo a owl:ObjectProperty ; rdfs:label "GRANTS_RIGHT_TO" ;
+    rdfs:domain gdprkg:Right ; rdfs:range gdprkg:Actor .
+
+# grantsPermissionTo — MINTED 2026-07-20 per SURFACE-12I (Art-12 instantiation brief §3, resolved by
+# Zied 2026-07-20). The SECOND (and last) TBox addition of the Art-12 pass. Standalone property
+# declaration: the Actor class itself is untouched (Actor is the RANGE, i.e. the target of the edge).
+# Domain/range are inference axioms, not constraints — the validating presence/range SHACL shape is
+# FLAGGED for the I4/I7 batch (I3.2 rationale), NOT built this pass.
+gdprkg:grantsPermissionTo a owl:ObjectProperty ; rdfs:label "GRANTS_PERMISSION_TO" ;
+    rdfs:domain gdprkg:Permission ; rdfs:range gdprkg:Actor ;
+    rdfs:seeAlso odrl:assignee ;   # [VERIFY live ODRL 2.2 before thesis use]
+    rdfs:comment "The actor who holds the permission. Mirrors imposesObligationOn/grantsRightTo (one bearer property per deontic type). Local by design (same posture as the Permission class, 12A); odrl:assignee is a weak pointer only — ODRL models policy-expression roles, not legal-norm bearers. Original design addition; no citation asserted."@en .
+
+# ---- Norm → REFERENCED (non-bearer) actor  (added Phase-5 cleanup, 2026-07-03) ----
+# The actor an obligation is ABOUT, distinct from the bearer it is imposed on
+# (gdprkg:imposesObligationOn). E.g. the DPO (13(1)(b)), the controller's
+# representative (13(1)(a)), the supervisory authority (13(2)(d)) are REFERENCED
+# by the duty but the bearer is always the controller. Unblocks CQ-C4.
+# ORIGINAL design addition (surfaced item S5): no external DPV/PROV/DCAT property
+# expresses "the non-bearer actor a norm refers to"; none is aligned. No citation asserted.
+gdprkg:referencesActor a owl:ObjectProperty ; rdfs:label "REFERENCES_ACTOR" ;
+    rdfs:domain gdprkg:Obligation ; rdfs:range gdprkg:Actor ;
+    rdfs:comment "The actor an obligation is ABOUT (the referenced, non-bearer party — e.g. the DPO, the controller's representative, the supervisory authority). Distinct from gdprkg:imposesObligationOn, which names the bearer (always the controller for Art 13). Unblocks CQ-C4. Original design addition (S5); no external vocabulary supplies it, so no alignment/citation is asserted."@en .
+
+# ---- Disclosure obligation → the data subject it is owed TO (I5 remediation, 2026-07-08) ----
+# The beneficiary/addressee of an Article-13 information duty: the data subject
+# the information must be provided to. Art-13's disclosure duties all run TO the
+# data subject; ex:actor-data-subject was previously ORPHANED (nothing recorded
+# that the duties are owed to it). This edge records that disclosure relationship.
+# DISTINCT from gdprkg:referencesActor (the non-bearer actor a duty is ABOUT, e.g.
+# the DPO): reusing referencesActor here would repeat the I6-style conflation.
+# Original design property → NO citation asserted; the data-subject ROLE itself is
+# grounded in DPV (gdprkg:DataSubject owl:equivalentClass dpv:DataSubject).
+# SURFACE-4 (property NAME / legal characterisation: "disclosed to" vs "beneficiary"
+# vs "addressee") and SURFACE-5 (per-obligation vs one article-level edge) are OPEN —
+# implemented as the neutral per-obligation form; see articles/art13_surfaced_items.md.
+# NB: no SHACL for this edge in this pass (lands with I4/I7 before Phase 6).
+gdprkg:disclosedToDataSubject a owl:ObjectProperty ; rdfs:label "DISCLOSED_TO_DATA_SUBJECT" ;
+    rdfs:domain gdprkg:Obligation ; rdfs:range gdprkg:DataSubject ;
+    rdfs:comment "The data subject an Article-13 information/disclosure obligation is owed to (the beneficiary/addressee of the duty). Distinct from gdprkg:imposesObligationOn (the bearer = controller) and from gdprkg:referencesActor (the non-bearer actor the duty is about). Original design addition (I5); no external property expresses 'the addressee a disclosure duty is owed to', so no alignment/citation is asserted; the data-subject role is grounded in dpv:DataSubject. Neutral name pending SURFACE-4; per-obligation granularity pending SURFACE-5."@en .
+
+# ---- Disclosure obligation → the domain concept it discloses (added Phase-5 cleanup, 2026-07-03) ----
+# An information/disclosure Obligation (e.g. "provide the purposes", "provide the
+# storage period") is linked to the domain concept it discloses. Fixes the S7 gap
+# where hasPurpose/hasRetentionPeriod/requiresSafeguard originate on
+# ProcessingActivity/Transfer, NOT on the Obligation, so a disclosure duty and the
+# concept it discloses were only CO-LOCATED (via ProcessingActivity), not traversable
+# from the obligation. Unblocks CQ-C5 (obligation-side traversal to shared domain nodes).
+# ORIGINAL design addition (surfaced item S7); no external property expresses
+# "the concept an information duty discloses" — no alignment/citation asserted.
+# RANGE (I3 remediation, 2026-07-08): the earlier owl:unionOf range (Purpose,
+# RetentionPeriod, Safeguard, Recipient, Transfer, DataCategory) is REPLACED by the
+# single abstract grouping class gdprkg:DisclosableConcept (those six classes plus
+# LegalBasis + Consent are its subclasses). This (a) lets 13(1)(c) legal-basis
+# disclosure and Article-6 traversal reach LegalBasis, previously FORBIDDEN by the
+# union; (b) gives SHACL one validatable target (see gdprsh:DisclosableConceptRangeShape).
+# Note an owl:unionOf/DisclosableConcept in rdfs:range is INFERENTIAL, not validating —
+# the validating half is the new SHACL shape (I3.2).
+gdprkg:disclosesConcept a owl:ObjectProperty ; rdfs:label "DISCLOSES_CONCEPT" ;
+    rdfs:domain gdprkg:Obligation ;
+    rdfs:range gdprkg:DisclosableConcept ;
+    rdfs:comment "The domain concept that an information/disclosure obligation discloses (e.g. 13(1)(c) purposes -> Purpose; 13(2)(a) storage -> RetentionPeriod; 13(1)(f) -> Transfer/Safeguard; 13(1)(e) -> Recipient; 13(1)(c) legal basis -> LegalBasis once Art 6 is instantiated). Range = gdprkg:DisclosableConcept, the abstract grouping superclass of the disclosable domain concepts + LegalBasis + Consent (I3 remediation; replaces the earlier owl:unionOf range). Unblocks obligation-side traversal for CQ-C5. Original design addition (S7); no external vocabulary supplies it. Range is validated by gdprsh:DisclosableConceptRangeShape (SHACL)."@en .
+
+# ---- Norm/condition → referenced provision (in- or out-of-scope) (added Phase-5 cleanup, 2026-07-03) ----
+# Links a norm or condition to a provision it CROSS-REFERENCES — whether an in-scope
+# provision (a gdprkg:LegalProvision Article/Paragraph/Point) or an out-of-scope one
+# (a gdprkg:ReferencedProvision stub, R6). Fixes the S6 gap where cross-references
+# (Art 6(1)(a)/(f), 9(2)(a), 22, 46/47/49) lived only in Condition free-text.
+# Range = eli:LegalResourceSubdivision, the common superclass of BOTH gdprkg:LegalProvision
+# and gdprkg:ReferencedProvision (and NOT gdprkg:Regulation, which is a LegalResource, not a
+# subdivision — you reference a provision, not the whole act). Distinct from gdprkg:groundedIn:
+# groundedIn is the establishing source of a node; referencesProvision is a lateral cross-reference.
+# ALIGNED to dcterms:references (Dublin Core Terms: "a related resource referenced/cited by the
+# described resource") — the closest fitting standard property; asserted as rdfs:subPropertyOf.
+gdprkg:referencesProvision a owl:ObjectProperty ; rdfs:label "REFERENCES_PROVISION" ;
+    rdfs:domain gdprkg:NormativeElement ;
+    rdfs:range eli:LegalResourceSubdivision ;
+    rdfs:subPropertyOf dcterms:references ;
+    rdfs:comment "A norm or condition (any gdprkg:NormativeElement, incl. Condition) cross-references a provision. Range eli:LegalResourceSubdivision covers both in-scope gdprkg:LegalProvision and out-of-scope gdprkg:ReferencedProvision. Distinct from gdprkg:groundedIn (establishing source vs lateral cross-reference). Aligned rdfs:subPropertyOf dcterms:references (closest standard property). Affects all articles; added now to avoid rework (S6)."@en .
+
+# SURFACE-C resolution (2026-07-12): direct norm/condition -> lawful-basis traceability edge.
+# Complements (does NOT replace) the range-clean referencesProvision wiring to the Art-6 Points.
+gdprkg:reliesOnLegalBasis a owl:ObjectProperty ; rdfs:label "RELIES_ON_LEGAL_BASIS" ;
+    rdfs:domain gdprkg:NormativeElement ; rdfs:range gdprkg:LegalBasis ;
+    rdfs:comment "Norm/condition -> the specific lawful basis it relies on (direct cross-article traceability). DISTINCT from gdprkg:requiresLegalBasis (domain ProcessingActivity)."@en .
+
+# ---- Norm → condition / exception / effect ----
+gdprkg:appliesIf a owl:ObjectProperty ; rdfs:label "APPLIES_IF" ;
+    rdfs:domain gdprkg:PrimaryNormativeUnit ; rdfs:range gdprkg:Condition ;
+    rdfs:comment "Domain tightened NormativeElement->PrimaryNormativeUnit (SURFACE-F resolution, 2026-07-12) so a LegalBasis carrying a condition is inferred PrimaryNormativeUnit (intended), not NormativeElement (accidental)."@en .
+gdprkg:hasException a owl:ObjectProperty ; rdfs:label "HAS_EXCEPTION" ;
+    rdfs:domain gdprkg:PrimaryNormativeUnit ; rdfs:range gdprkg:Exception ;
+    rdfs:comment "Domain tightened NormativeElement->PrimaryNormativeUnit (SURFACE-F resolution, 2026-07-12) so a LegalBasis carrying an exception is inferred PrimaryNormativeUnit (intended), not NormativeElement (accidental)."@en .
+gdprkg:notApplicableIf a owl:ObjectProperty ; rdfs:label "NOT_APPLICABLE_IF" ;
+    rdfs:domain gdprkg:NormativeElement ;
+    rdfs:range [ a owl:Class ; owl:unionOf ( gdprkg:Condition gdprkg:Exception ) ] .
+gdprkg:hasLegalEffect a owl:ObjectProperty ; rdfs:label "HAS_LEGAL_EFFECT" ;
+    rdfs:domain gdprkg:NormativeElement ; rdfs:range gdprkg:LegalEffect ;
+    rdfs:comment "Attaches a LegalEffect (e.g. Art 7(2) 'not binding') to a normative element."@en .
+
+# ---- Domain relations ----
+gdprkg:requiresLegalBasis a owl:ObjectProperty ; rdfs:label "REQUIRES_LEGAL_BASIS" ;
+    rdfs:domain gdprkg:ProcessingActivity ; rdfs:range gdprkg:LegalBasis .
+gdprkg:requiresSafeguard a owl:ObjectProperty ; rdfs:label "REQUIRES_SAFEGUARD" ;
+    rdfs:domain gdprkg:Transfer ; rdfs:range gdprkg:Safeguard .
+
+# providesSafeguard — MINTED 2026-08-07 (Art-46 pass). ADDITION 2 of EXACTLY TWO authorized
+# by art46_instantiation_brief.md §3.7 / work order E §4.1. The counterpart of
+# gdprkg:requiresSafeguard: requiresSafeguard says a TRANSFER needs a safeguard;
+# providesSafeguard says WHICH INSTRUMENT delivers one. Together they close the 46(1) loop —
+# ex:concept-transfer requiresSafeguard ex:concept-safeguard, and each of the eight Art-46
+# mechanisms providesSafeguard that SAME canonical node.
+#
+# MINT CONSEQUENCE ANALYSIS (playbook §3): domain/range here are INFERENTIAL, not
+# validating (the I3.2 rationale — an rdfs:range does not constrain, it entails). No
+# validating SHACL shape is built this pass; it is FLAGGED for the deferred I4/I7 batch,
+# exactly as gdprkg:grantsPermissionTo and gdprkg:reliesOnLegalBasis were. NB the domain
+# entailment is BENIGN here and is the reason this property is safe: its subjects are
+# already asserted gdprkg:TransferMechanism, so the rdfs:domain adds nothing new. Contrast
+# gdprkg:referencesProvision, whose domain is gdprkg:NormativeElement and which therefore
+# CANNOT be attached to a TransferMechanism without accidentally re-typing it as a norm
+# (see articles/art46_surfaced_items.md EXEC-1).
+#
+# REUSE GATE (R-1, live DPV 2.3, 2026-08-07, dpv.ttl sha1 a1f7772adcb4a481): there is NO
+# dpv:hasSafeguard. All 142 dpv:has*/is*/provides* properties were enumerated; the nearest
+# candidates are dpv:hasOrganisationalMeasure and dpv:hasTechnicalOrganisationalMeasure,
+# both defined only as "Indicates use or applicability of ..." and both carrying NO
+# schema:domainIncludes and NO schema:rangeIncludes. They express "X uses measure Y", not
+# "this instrument PROVIDES that safeguard", and carry none of the inferential structure
+# this property is declared for. Recorded as a weak pointer, not an alignment.
+# Original design addition; no citation asserted.
+gdprkg:providesSafeguard a owl:ObjectProperty ; rdfs:label "PROVIDES_SAFEGUARD" ;
+    rdfs:domain gdprkg:TransferMechanism ; rdfs:range gdprkg:Safeguard ;
+    rdfs:seeAlso dpv:hasOrganisationalMeasure ;
+    rdfs:comment "The safeguard an Art-46(2)/(3) transfer mechanism PROVIDES. Instrumental reading of the 46(2)/(3) stems: 'the appropriate safeguards ... may be provided for ... BY: <instrument>'. Counterpart of gdprkg:requiresSafeguard (which runs Transfer -> Safeguard). Domain/range are inference axioms, not constraints; the validating shape is FLAGGED for the I4/I7 SHACL batch, NOT built this pass. Reuse gate R-1 (live DPV 2.3, 2026-08-07): no dpv:hasSafeguard exists; dpv:hasOrganisationalMeasure is a weak pointer only — it is an undomained, unranged 'indicates use or applicability of' property, not a provision relation. Original design addition; no citation asserted."@en .
+gdprkg:involvesProcessing a owl:ObjectProperty ; rdfs:label "INVOLVES_PROCESSING" ;
+    rdfs:domain gdprkg:ProcessingActivity ; rdfs:range gdprkg:ProcessingAction .
+gdprkg:involvesDataType a owl:ObjectProperty ; rdfs:label "INVOLVES_DATA_TYPE" ;
+    rdfs:domain gdprkg:ProcessingActivity ; rdfs:range gdprkg:DataCategory .
+gdprkg:hasPurpose a owl:ObjectProperty ; rdfs:label "HAS_PURPOSE" ;
+    rdfs:domain gdprkg:ProcessingActivity ; rdfs:range gdprkg:Purpose .
+gdprkg:hasRetentionPeriod a owl:ObjectProperty ; rdfs:label "HAS_RETENTION_PERIOD" ;
+    rdfs:domain gdprkg:ProcessingActivity ; rdfs:range gdprkg:RetentionPeriod .
+gdprkg:transferredTo a owl:ObjectProperty ; rdfs:label "TRANSFERRED_TO" ;
+    rdfs:domain gdprkg:Transfer ; rdfs:range gdprkg:TransferDestination ;   # I6: range widened from gdprkg:Recipient (an Actor) to the destination class, so a jurisdiction is not typed as an actor
+    rdfs:comment "A transfer goes TO a gdprkg:TransferDestination (third country/territory/international organisation). Range changed from gdprkg:Recipient per I6: the 13(1)(e) recipient (an Actor) and the 13(1)(f) transfer destination are now distinct. SURFACE-3: the destination class is a placeholder pending DPV-term verification (see gdprkg:TransferDestination)."@en .
+
+# ---- Provenance ----
+gdprkg:hasProvenance a owl:ObjectProperty ; rdfs:label "HAS_PROVENANCE" ;
+    rdfs:range gdprkg:ProvenanceRecord ;
+    rdfs:seeAlso prov:wasGeneratedBy ;
+    rdfs:comment "Links any generated node to its ProvenanceRecord. No exact core-PROV property fits node→record, so seeAlso (not subPropertyOf) prov:wasGeneratedBy. The PROV derivation is carried by ProvenanceRecord prov:wasGeneratedBy MappingReviewActivity + prov:wasAttributedTo Agent. Presence/cardinality enforced by SHACL in Phase 4."@en .
+
+# ---- Optional segregated-layer relations ----
+gdprkg:observedIn a owl:ObjectProperty ; rdfs:label "OBSERVED_IN" ;
+    rdfs:domain gdprkg:ObservedEvidence ; rdfs:range gdprkg:PolicySegment .
+gdprkg:supportedBy a owl:ObjectProperty ; rdfs:label "SUPPORTED_BY" ; rdfs:range gdprkg:Evidence .
+gdprkg:assessedAs a owl:ObjectProperty ; rdfs:label "ASSESSED_AS" ;
+    rdfs:domain gdprkg:NormativeElement ; rdfs:range gdprkg:ComplianceAssessment .
+gdprkg:violates a owl:ObjectProperty ; rdfs:label "VIOLATES" ;
+    rdfs:domain gdprkg:ComplianceAssessment ; rdfs:range gdprkg:NormativeElement .
+
+#################################################################
+#  DATATYPE PROPERTIES
+#################################################################
+
+# Temporal construct (design-spike outcome, per Plan §4 / deferred register):
+# fixed deadlines as a datatype property; event-trigger deadlines use Condition nodes (Layer 2).
+gdprkg:hasTimeLimit a owl:DatatypeProperty ; rdfs:label "hasTimeLimit" ;
+    rdfs:domain gdprkg:Obligation ; rdfs:range xsd:string ;
+    rdfs:comment "Fixed time limit for performing an obligation (e.g. Art 14(3)(a) 'within one month'), kept as the legal text. Event-triggered timing is modelled via Condition nodes + appliesIf. Resolves the Phase-3 temporal design spike (Plan_Overview §4)."@en .
+
+gdprkg:reviewStatus a owl:DatatypeProperty ; rdfs:label "reviewStatus" ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Human/legal review status of a generated node. Required-presence on non-source generated nodes is a Phase-4 SHACL constraint, not an OWL axiom."@en .
+
+gdprkg:workingTextSource a owl:DatatypeProperty ; rdfs:label "workingTextSource" ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "Working-text URL (e.g. gdpr-info.eu) carried as dev provenance. The authoritative legal-source anchor is the ELI/EUR-Lex IRI (owl:sameAs at instance level, Phase 5)."@en .
