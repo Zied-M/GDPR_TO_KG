@@ -11,7 +11,6 @@
       "char_start": 0,
       "kind": "subparagraph",
       "label": "Article 46(1), subparagraph 1",
-      "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available.",
       "unit_id": "art46-p1-sub1"
     },
     {
@@ -19,7 +18,6 @@
       "char_start": 0,
       "kind": "paragraph",
       "label": "Article 46(1)",
-      "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available.",
       "unit_id": "art46-p1"
     },
     {
@@ -27,7 +25,6 @@
       "char_start": 353,
       "kind": "paragraph",
       "label": "Article 46(2)",
-      "text": "2. The appropriate safeguards referred to in paragraph 1 may be provided for, without requiring any specific authorisation from a supervisory authority, by: (a) a legally binding and enforceable instrument between public authorities or bodies; (b) binding corporate rules in accordance with Article 47; (c) standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93(2); (d) standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in Article 93(2); (e) an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights; or (f) an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights.",
       "unit_id": "art46-p2"
     },
     {
@@ -35,7 +32,6 @@
       "char_start": 353,
       "kind": "subparagraph",
       "label": "Article 46(2), subparagraph 1",
-      "text": "2. The appropriate safeguards referred to in paragraph 1 may be provided for, without requiring any specific authorisation from a supervisory authority, by:",
       "unit_id": "art46-p2-sub1"
     },
     {
@@ -43,7 +39,6 @@
       "char_start": 510,
       "kind": "point",
       "label": "Article 46(2)(a)",
-      "text": "(a) a legally binding and enforceable instrument between public authorities or bodies;",
       "unit_id": "art46-p2-a"
     },
     {
@@ -51,7 +46,6 @@
       "char_start": 597,
       "kind": "point",
       "label": "Article 46(2)(b)",
-      "text": "(b) binding corporate rules in accordance with Article 47;",
       "unit_id": "art46-p2-b"
     },
     {
@@ -59,7 +53,6 @@
       "char_start": 656,
       "kind": "point",
       "label": "Article 46(2)(c)",
-      "text": "(c) standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93(2);",
       "unit_id": "art46-p2-c"
     },
     {
@@ -67,7 +60,6 @@
       "char_start": 794,
       "kind": "point",
       "label": "Article 46(2)(d)",
-      "text": "(d) standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in Article 93(2);",
       "unit_id": "art46-p2-d"
     },
     {
@@ -75,7 +67,6 @@
       "char_start": 965,
       "kind": "point",
       "label": "Article 46(2)(e)",
-      "text": "(e) an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights; or",
       "unit_id": "art46-p2-e"
     },
     {
@@ -83,7 +74,6 @@
       "char_start": 1206,
       "kind": "point",
       "label": "Article 46(2)(f)",
-      "text": "(f) an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights.",
       "unit_id": "art46-p2-f"
     },
     {
@@ -91,7 +81,6 @@
       "char_start": 1452,
       "kind": "paragraph",
       "label": "Article 46(3)",
-      "text": "3. Subject to the authorisation from the competent supervisory authority, the appropriate safeguards referred to in paragraph 1 may also be provided for, in particular, by: (a) contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or (b) provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights.",
       "unit_id": "art46-p3"
     },
     {
@@ -99,7 +88,6 @@
       "char_start": 1452,
       "kind": "subparagraph",
       "label": "Article 46(3), subparagraph 1",
-      "text": "3. Subject to the authorisation from the competent supervisory authority, the appropriate safeguards referred to in paragraph 1 may also be provided for, in particular, by:",
       "unit_id": "art46-p3-sub1"
     },
     {
@@ -107,7 +95,6 @@
       "char_start": 1625,
       "kind": "point",
       "label": "Article 46(3)(a)",
-      "text": "(a) contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or",
       "unit_id": "art46-p3-a"
     },
     {
@@ -115,7 +102,6 @@
       "char_start": 1808,
       "kind": "point",
       "label": "Article 46(3)(b)",
-      "text": "(b) provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights.",
       "unit_id": "art46-p3-b"
     },
     {
@@ -123,7 +109,6 @@
       "char_start": 1969,
       "kind": "subparagraph",
       "label": "Article 46(4), subparagraph 1",
-      "text": "4. The supervisory authority shall apply the consistency mechanism referred to in Article 63 in the cases referred to in paragraph 3 of this Article.",
       "unit_id": "art46-p4-sub1"
     },
     {
@@ -131,7 +116,6 @@
       "char_start": 1969,
       "kind": "paragraph",
       "label": "Article 46(4)",
-      "text": "4. The supervisory authority shall apply the consistency mechanism referred to in Article 63 in the cases referred to in paragraph 3 of this Article.",
       "unit_id": "art46-p4"
     },
     {
@@ -139,7 +123,6 @@
       "char_start": 2119,
       "kind": "subparagraph",
       "label": "Article 46(5), subparagraph 1",
-      "text": "5. Authorisations by a Member State or supervisory authority on the basis of Article 26(2) of Directive 95/46/EC shall remain valid until amended, replaced or repealed, if necessary, by that supervisory authority. Decisions adopted by the Commission on the basis of Article 26(4) of Directive 95/46/EC shall remain in force until amended, replaced or repealed, if necessary, by a Commission Decision adopted in accordance with paragraph 2 of this Article.",
       "unit_id": "art46-p5-sub1"
     },
     {
@@ -147,7 +130,6 @@
       "char_start": 2119,
       "kind": "paragraph",
       "label": "Article 46(5)",
-      "text": "5. Authorisations by a Member State or supervisory authority on the basis of Article 26(2) of Directive 95/46/EC shall remain valid until amended, replaced or repealed, if necessary, by that supervisory authority. Decisions adopted by the Commission on the basis of Article 26(4) of Directive 95/46/EC shall remain in force until amended, replaced or repealed, if necessary, by a Commission Decision adopted in accordance with paragraph 2 of this Article.",
       "unit_id": "art46-p5"
     }
   ]

@@ -11,7 +11,6 @@
       "char_start": 0,
       "kind": "paragraph",
       "label": "Article 14(1)",
-      "text": "1. Where personal data have not been obtained from the data subject, the controller shall provide the data subject with the following information: (a) the identity and the contact details of the controller and, where applicable, of the controller's representative; (b) the contact details of the data protection officer, where applicable; (c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; (d) the categories of personal data concerned; (e) the recipients or categories of recipients of the personal data, if any; (f) where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available.",
       "unit_id": "art14-p1"
     },
     {
@@ -19,7 +18,6 @@
       "char_start": 0,
       "kind": "subparagraph",
       "label": "Article 14(1), subparagraph 1",
-      "text": "1. Where personal data have not been obtained from the data subject, the controller shall provide the data subject with the following information:",
       "unit_id": "art14-p1-sub1"
     },
     {
@@ -27,7 +25,6 @@
       "char_start": 147,
       "kind": "point",
       "label": "Article 14(1)(a)",
-      "text": "(a) the identity and the contact details of the controller and, where applicable, of the controller's representative;",
       "unit_id": "art14-p1-a"
     },
     {
@@ -35,7 +32,6 @@
       "char_start": 265,
       "kind": "point",
       "label": "Article 14(1)(b)",
-      "text": "(b) the contact details of the data protection officer, where applicable;",
       "unit_id": "art14-p1-b"
     },
     {
@@ -43,7 +39,6 @@
       "char_start": 339,
       "kind": "point",
       "label": "Article 14(1)(c)",
-      "text": "(c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;",
       "unit_id": "art14-p1-c"
     },
     {
@@ -51,7 +46,6 @@
       "char_start": 462,
       "kind": "point",
       "label": "Article 14(1)(d)",
-      "text": "(d) the categories of personal data concerned;",
       "unit_id": "art14-p1-d"
     },
     {
@@ -59,7 +53,6 @@
       "char_start": 509,
       "kind": "point",
       "label": "Article 14(1)(e)",
-      "text": "(e) the recipients or categories of recipients of the personal data, if any;",
       "unit_id": "art14-p1-e"
     },
     {
@@ -67,7 +60,6 @@
       "char_start": 586,
       "kind": "point",
       "label": "Article 14(1)(f)",
-      "text": "(f) where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available.",
       "unit_id": "art14-p1-f"
     },
     {
@@ -75,7 +67,6 @@
       "char_start": 1035,
       "kind": "paragraph",
       "label": "Article 14(2)",
-      "text": "2. In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject: (a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period; (b) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party; (c) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability; (d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal; (e) the right to lodge a complaint with a supervisory authority; (f) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; (g) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.",
       "unit_id": "art14-p2"
     },
     {
@@ -83,7 +74,6 @@
       "char_start": 1035,
       "kind": "subparagraph",
       "label": "Article 14(2), subparagraph 1",
-      "text": "2. In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject:",
       "unit_id": "art14-p2-sub1"
     },
     {
@@ -91,7 +81,6 @@
       "char_start": 1258,
       "kind": "point",
       "label": "Article 14(2)(a)",
-      "text": "(a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;",
       "unit_id": "art14-p2-a"
     },
     {
@@ -99,7 +88,6 @@
       "char_start": 1389,
       "kind": "point",
       "label": "Article 14(2)(b)",
-      "text": "(b) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party;",
       "unit_id": "art14-p2-b"
     },
     {
@@ -107,7 +95,6 @@
       "char_start": 1525,
       "kind": "point",
       "label": "Article 14(2)(c)",
-      "text": "(c) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability;",
       "unit_id": "art14-p2-c"
     },
     {
@@ -115,7 +102,6 @@
       "char_start": 1770,
       "kind": "point",
       "label": "Article 14(2)(d)",
-      "text": "(d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;",
       "unit_id": "art14-p2-d"
     },
     {
@@ -123,7 +109,6 @@
       "char_start": 2006,
       "kind": "point",
       "label": "Article 14(2)(e)",
-      "text": "(e) the right to lodge a complaint with a supervisory authority;",
       "unit_id": "art14-p2-e"
     },
     {
@@ -131,7 +116,6 @@
       "char_start": 2071,
       "kind": "point",
       "label": "Article 14(2)(f)",
-      "text": "(f) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources;",
       "unit_id": "art14-p2-f"
     },
     {
@@ -139,7 +123,6 @@
       "char_start": 2191,
       "kind": "point",
       "label": "Article 14(2)(g)",
-      "text": "(g) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.",
       "unit_id": "art14-p2-g"
     },
     {
@@ -147,7 +130,6 @@
       "char_start": 2476,
       "kind": "paragraph",
       "label": "Article 14(3)",
-      "text": "3. The controller shall provide the information referred to in paragraphs 1 and 2: (a) within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed; (b) if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject; or (c) if a disclosure to another recipient is envisaged, at the latest when the personal data are first disclosed.",
       "unit_id": "art14-p3"
     },
     {
@@ -155,7 +137,6 @@
       "char_start": 2476,
       "kind": "subparagraph",
       "label": "Article 14(3), subparagraph 1",
-      "text": "3. The controller shall provide the information referred to in paragraphs 1 and 2:",
       "unit_id": "art14-p3-sub1"
     },
     {
@@ -163,7 +144,6 @@
       "char_start": 2559,
       "kind": "point",
       "label": "Article 14(3)(a)",
-      "text": "(a) within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed;",
       "unit_id": "art14-p3-a"
     },
     {
@@ -171,7 +151,6 @@
       "char_start": 2747,
       "kind": "point",
       "label": "Article 14(3)(b)",
-      "text": "(b) if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject; or",
       "unit_id": "art14-p3-b"
     },
     {
@@ -179,7 +158,6 @@
       "char_start": 2906,
       "kind": "point",
       "label": "Article 14(3)(c)",
-      "text": "(c) if a disclosure to another recipient is envisaged, at the latest when the personal data are first disclosed.",
       "unit_id": "art14-p3-c"
     },
     {
@@ -187,7 +165,6 @@
       "char_start": 3019,
       "kind": "subparagraph",
       "label": "Article 14(4), subparagraph 1",
-      "text": "4. Where the controller intends to further process the personal data for a purpose other than that for which the personal data were obtained, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2.",
       "unit_id": "art14-p4-sub1"
     },
     {
@@ -195,7 +172,6 @@
       "char_start": 3019,
       "kind": "paragraph",
       "label": "Article 14(4)",
-      "text": "4. Where the controller intends to further process the personal data for a purpose other than that for which the personal data were obtained, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2.",
       "unit_id": "art14-p4"
     },
     {
@@ -203,7 +179,6 @@
       "char_start": 3352,
       "kind": "paragraph",
       "label": "Article 14(5)",
-      "text": "5. Paragraphs 1 to 4 shall not apply where and insofar as: (a) the data subject already has the information; (b) the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89(1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available; (c) obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject's legitimate interests; or (d) where the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy.",
       "unit_id": "art14-p5"
     },
     {
@@ -211,7 +186,6 @@
       "char_start": 3352,
       "kind": "subparagraph",
       "label": "Article 14(5), subparagraph 1",
-      "text": "5. Paragraphs 1 to 4 shall not apply where and insofar as:",
       "unit_id": "art14-p5-sub1"
     },
     {
@@ -219,7 +193,6 @@
       "char_start": 3411,
       "kind": "point",
       "label": "Article 14(5)(a)",
-      "text": "(a) the data subject already has the information;",
       "unit_id": "art14-p5-a"
     },
     {
@@ -227,7 +200,6 @@
       "char_start": 3461,
       "kind": "point",
       "label": "Article 14(5)(b)",
-      "text": "(b) the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89(1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available;",
       "unit_id": "art14-p5-b"
     },
     {
@@ -235,7 +207,6 @@
       "char_start": 4144,
       "kind": "point",
       "label": "Article 14(5)(c)",
-      "text": "(c) obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject's legitimate interests; or",
       "unit_id": "art14-p5-c"
     },
     {
@@ -243,7 +214,6 @@
       "char_start": 4354,
       "kind": "point",
       "label": "Article 14(5)(d)",
-      "text": "(d) where the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy.",
       "unit_id": "art14-p5-d"
     }
   ]
