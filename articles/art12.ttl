@@ -6,6 +6,7 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 #################################################################
@@ -70,39 +71,49 @@ ex:art12 a gdprkg:Article ;
                         ex:art12-p5 , ex:art12-p6 , ex:art12-p7 , ex:art12-p8 .
 
 ex:art12-p1 a gdprkg:Paragraph ; rdfs:label "Article 12(1)"@en ;
-    skos:note "1 The controller shall take appropriate measures to provide any information referred to in Articles 13 and 14 and any communication under Articles 15 to 22 and 34 relating to processing to the data subject in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically to a child. 2 The information shall be provided in writing, or by other means, including, where appropriate, by electronic means. 3 When requested by the data subject, the information may be provided orally, provided that the identity of the data subject is proven by other means."@en .
+    oa:start 0 ;
+    oa:end   640 .
 
 ex:art12-p2 a gdprkg:Paragraph ; rdfs:label "Article 12(2)"@en ;
-    skos:note "1 The controller shall facilitate the exercise of data subject rights under Articles 15 to 22 . 2 In the cases referred to in Article 11 (2), the controller shall not refuse to act on the request of the data subject for exercising his or her rights under Articles 15 to 22 , unless the controller demonstrates that it is not in a position to identify the data subject."@en .
+    oa:start 641 ;
+    oa:end   1005 .
 
 ex:art12-p3 a gdprkg:Paragraph ; rdfs:label "Article 12(3)"@en ;
-    skos:note "1 The controller shall provide information on action taken on a request under Articles 15 to 22 to the data subject without undue delay and in any event within one month of receipt of the request. 2 That period may be extended by two further months where necessary, taking into account the complexity and number of the requests. 3 The controller shall inform the data subject of any such extension within one month of receipt of the request, together with the reasons for the delay. 4 Where the data subject makes the request by electronic form means, the information shall be provided by electronic means where possible, unless otherwise requested by the data subject."@en .
+    oa:start 1006 ;
+    oa:end   1670 .
 
 ex:art12-p4 a gdprkg:Paragraph ; rdfs:label "Article 12(4)"@en ;
-    skos:note "If the controller does not take action on the request of the data subject, the controller shall inform the data subject without delay and at the latest within one month of receipt of the request of the reasons for not taking action and on the possibility of lodging a complaint with a supervisory authority and seeking a judicial remedy."@en .
+    oa:start 1671 ;
+    oa:end   2011 .
 
 # --- Paragraph 5 (chapeau) + its two lettered points (the ONLY points of Art 12) ---
 ex:art12-p5 a gdprkg:Paragraph ; rdfs:label "Article 12(5)"@en ;
-    skos:note "1 Information provided under Articles 13 and 14 and any communication and any actions taken under Articles 15 to 22 and 34 shall be provided free of charge. 2 Where requests from a data subject are manifestly unfounded or excessive, in particular because of their repetitive character, the controller may either: charge a reasonable fee taking into account the administrative costs of providing the information or communication or taking the action requested; or refuse to act on the request. 3 The controller shall bear the burden of demonstrating the manifestly unfounded or excessive character of the request."@en ;
+    oa:start 2012 ;
+    oa:end   2629 ;
     gdprkg:hasPoint ex:art12-p5-a , ex:art12-p5-b .
 
 ex:art12-p5-a a gdprkg:Point ; rdfs:label "Article 12(5)(a)"@en ;
-    skos:note "charge a reasonable fee taking into account the administrative costs of providing the information or communication or taking the action requested; or"@en .
+    oa:start 2324 ;
+    oa:end   2477 .
 ex:art12-p5-b a gdprkg:Point ; rdfs:label "Article 12(5)(b)"@en ;
-    skos:note "refuse to act on the request."@en .
+    oa:start 2478 ;
+    oa:end   2511 .
 
 ex:art12-p6 a gdprkg:Paragraph ; rdfs:label "Article 12(6)"@en ;
-    skos:note "Without prejudice to Article 11 , where the controller has reasonable doubts concerning the identity of the natural person making the request referred to in Articles 15 to 21 , the controller may request the provision of additional information necessary to confirm the identity of the data subject."@en .
+    oa:start 2630 ;
+    oa:end   2929 .
 
 ex:art12-p7 a gdprkg:Paragraph ; rdfs:label "Article 12(7)"@en ;
-    skos:note "1 The information to be provided to data subjects pursuant to Articles 13 and 14 may be provided in combination with standardised icons in order to give in an easily visible, intelligible and clearly legible manner a meaningful overview of the intended processing. 2 Where the icons are presented electronically they shall be machine-readable."@en .
+    oa:start 2930 ;
+    oa:end   3272 .
 
 # 12(8) — RATIFIED minimal (12F): Point-level source node + Art-92 stub; NO normative unit,
 # NO Commission actor. gdprkg:referencesProvision cannot originate here (its domain is
 # NormativeElement; a Paragraph subject would be entailed GroundedConcept and break CQ-C2),
 # so the Art-92 relation is recorded as an ANNOTATION (rdfs:seeAlso) only — SURFACE-12-EXEC-5.
 ex:art12-p8 a gdprkg:Paragraph ; rdfs:label "Article 12(8)"@en ;
-    skos:note "The Commission shall be empowered to adopt delegated acts in accordance with Article 92 for the purpose of determining the information to be presented by the icons and the procedures for providing standardised icons."@en ;
+    oa:start 3273 ;
+    oa:end   3492 ;
     rdfs:seeAlso ex:ref-art92 .
 
 #################################################################

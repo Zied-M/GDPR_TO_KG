@@ -1,0 +1,194 @@
+{
+  "article": 6,
+  "char_length": 4083,
+  "sha256": "de13c931141cc22da863f374e9ad42deea8aa509b5293f6ffe1700c2d643f805",
+  "source_id": "cellar",
+  "source_url": "http://publications.europa.eu/resource/celex/32016R0679",
+  "title": "Lawfulness of processing",
+  "units": [
+    {
+      "char_end": 1255,
+      "char_start": 0,
+      "kind": "paragraph",
+      "label": "Article 6(1)",
+      "text": "1. Processing shall be lawful only if and to the extent that at least one of the following applies: (a) the data subject has given consent to the processing of his or her personal data for one or more specific purposes; (b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract; (c) processing is necessary for compliance with a legal obligation to which the controller is subject; (d) processing is necessary in order to protect the vital interests of the data subject or of another natural person; (e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller; (f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child. Point (f) of the first subparagraph shall not apply to processing carried out by public authorities in the performance of their tasks.",
+      "unit_id": "art6-p1"
+    },
+    {
+      "char_end": 99,
+      "char_start": 0,
+      "kind": "subparagraph",
+      "label": "Article 6(1), subparagraph 1",
+      "text": "1. Processing shall be lawful only if and to the extent that at least one of the following applies:",
+      "unit_id": "art6-p1-sub1"
+    },
+    {
+      "char_end": 219,
+      "char_start": 100,
+      "kind": "point",
+      "label": "Article 6(1)(a)",
+      "text": "(a) the data subject has given consent to the processing of his or her personal data for one or more specific purposes;",
+      "unit_id": "art6-p1-a"
+    },
+    {
+      "char_end": 412,
+      "char_start": 220,
+      "kind": "point",
+      "label": "Article 6(1)(b)",
+      "text": "(b) processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract;",
+      "unit_id": "art6-p1-b"
+    },
+    {
+      "char_end": 515,
+      "char_start": 413,
+      "kind": "point",
+      "label": "Article 6(1)(c)",
+      "text": "(c) processing is necessary for compliance with a legal obligation to which the controller is subject;",
+      "unit_id": "art6-p1-c"
+    },
+    {
+      "char_end": 633,
+      "char_start": 516,
+      "kind": "point",
+      "label": "Article 6(1)(d)",
+      "text": "(d) processing is necessary in order to protect the vital interests of the data subject or of another natural person;",
+      "unit_id": "art6-p1-d"
+    },
+    {
+      "char_end": 793,
+      "char_start": 634,
+      "kind": "point",
+      "label": "Article 6(1)(e)",
+      "text": "(e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller;",
+      "unit_id": "art6-p1-e"
+    },
+    {
+      "char_end": 1120,
+      "char_start": 794,
+      "kind": "point",
+      "label": "Article 6(1)(f)",
+      "text": "(f) processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child.",
+      "unit_id": "art6-p1-f"
+    },
+    {
+      "char_end": 1255,
+      "char_start": 1121,
+      "kind": "subparagraph",
+      "label": "Article 6(1), subparagraph 2",
+      "text": "Point (f) of the first subparagraph shall not apply to processing carried out by public authorities in the performance of their tasks.",
+      "unit_id": "art6-p1-sub2"
+    },
+    {
+      "char_end": 1669,
+      "char_start": 1256,
+      "kind": "subparagraph",
+      "label": "Article 6(2), subparagraph 1",
+      "text": "2. Member States may maintain or introduce more specific provisions to adapt the application of the rules of this Regulation with regard to processing for compliance with points (c) and (e) of paragraph 1 by determining more precisely specific requirements for the processing and other measures to ensure lawful and fair processing including for other specific processing situations as provided for in Chapter IX.",
+      "unit_id": "art6-p2-sub1"
+    },
+    {
+      "char_end": 1669,
+      "char_start": 1256,
+      "kind": "paragraph",
+      "label": "Article 6(2)",
+      "text": "2. Member States may maintain or introduce more specific provisions to adapt the application of the rules of this Regulation with regard to processing for compliance with points (c) and (e) of paragraph 1 by determining more precisely specific requirements for the processing and other measures to ensure lawful and fair processing including for other specific processing situations as provided for in Chapter IX.",
+      "unit_id": "art6-p2"
+    },
+    {
+      "char_end": 2865,
+      "char_start": 1670,
+      "kind": "paragraph",
+      "label": "Article 6(3)",
+      "text": "3. The basis for the processing referred to in point (c) and (e) of paragraph 1 shall be laid down by: (a) Union law; or (b) Member State law to which the controller is subject. The purpose of the processing shall be determined in that legal basis or, as regards the processing referred to in point (e) of paragraph 1, shall be necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller. That legal basis may contain specific provisions to adapt the application of rules of this Regulation, inter alia: the general conditions governing the lawfulness of processing by the controller; the types of data which are subject to the processing; the data subjects concerned; the entities to, and the purposes for which, the personal data may be disclosed; the purpose limitation; storage periods; and processing operations and processing procedures, including measures to ensure lawful and fair processing such as those for other specific processing situations as provided for in Chapter IX. The Union or the Member State law shall meet an objective of public interest and be proportionate to the legitimate aim pursued.",
+      "unit_id": "art6-p3"
+    },
+    {
+      "char_end": 1772,
+      "char_start": 1670,
+      "kind": "subparagraph",
+      "label": "Article 6(3), subparagraph 1",
+      "text": "3. The basis for the processing referred to in point (c) and (e) of paragraph 1 shall be laid down by:",
+      "unit_id": "art6-p3-sub1"
+    },
+    {
+      "char_end": 1790,
+      "char_start": 1773,
+      "kind": "point",
+      "label": "Article 6(3)(a)",
+      "text": "(a) Union law; or",
+      "unit_id": "art6-p3-a"
+    },
+    {
+      "char_end": 1847,
+      "char_start": 1791,
+      "kind": "point",
+      "label": "Article 6(3)(b)",
+      "text": "(b) Member State law to which the controller is subject.",
+      "unit_id": "art6-p3-b"
+    },
+    {
+      "char_end": 2865,
+      "char_start": 1848,
+      "kind": "subparagraph",
+      "label": "Article 6(3), subparagraph 2",
+      "text": "The purpose of the processing shall be determined in that legal basis or, as regards the processing referred to in point (e) of paragraph 1, shall be necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller. That legal basis may contain specific provisions to adapt the application of rules of this Regulation, inter alia: the general conditions governing the lawfulness of processing by the controller; the types of data which are subject to the processing; the data subjects concerned; the entities to, and the purposes for which, the personal data may be disclosed; the purpose limitation; storage periods; and processing operations and processing procedures, including measures to ensure lawful and fair processing such as those for other specific processing situations as provided for in Chapter IX. The Union or the Member State law shall meet an objective of public interest and be proportionate to the legitimate aim pursued.",
+      "unit_id": "art6-p3-sub2"
+    },
+    {
+      "char_end": 4083,
+      "char_start": 2866,
+      "kind": "paragraph",
+      "label": "Article 6(4)",
+      "text": "4. Where the processing for a purpose other than that for which the personal data have been collected is not based on the data subject's consent or on a Union or Member State law which constitutes a necessary and proportionate measure in a democratic society to safeguard the objectives referred to in Article 23(1), the controller shall, in order to ascertain whether processing for another purpose is compatible with the purpose for which the personal data are initially collected, take into account, inter alia: (a) any link between the purposes for which the personal data have been collected and the purposes of the intended further processing; (b) the context in which the personal data have been collected, in particular regarding the relationship between data subjects and the controller; (c) the nature of the personal data, in particular whether special categories of personal data are processed, pursuant to Article 9, or whether personal data related to criminal convictions and offences are processed, pursuant to Article 10; (d) the possible consequences of the intended further processing for data subjects; (e) the existence of appropriate safeguards, which may include encryption or pseudonymisation.",
+      "unit_id": "art6-p4"
+    },
+    {
+      "char_end": 3380,
+      "char_start": 2866,
+      "kind": "subparagraph",
+      "label": "Article 6(4), subparagraph 1",
+      "text": "4. Where the processing for a purpose other than that for which the personal data have been collected is not based on the data subject's consent or on a Union or Member State law which constitutes a necessary and proportionate measure in a democratic society to safeguard the objectives referred to in Article 23(1), the controller shall, in order to ascertain whether processing for another purpose is compatible with the purpose for which the personal data are initially collected, take into account, inter alia:",
+      "unit_id": "art6-p4-sub1"
+    },
+    {
+      "char_end": 3515,
+      "char_start": 3381,
+      "kind": "point",
+      "label": "Article 6(4)(a)",
+      "text": "(a) any link between the purposes for which the personal data have been collected and the purposes of the intended further processing;",
+      "unit_id": "art6-p4-a"
+    },
+    {
+      "char_end": 3662,
+      "char_start": 3516,
+      "kind": "point",
+      "label": "Article 6(4)(b)",
+      "text": "(b) the context in which the personal data have been collected, in particular regarding the relationship between data subjects and the controller;",
+      "unit_id": "art6-p4-b"
+    },
+    {
+      "char_end": 3904,
+      "char_start": 3663,
+      "kind": "point",
+      "label": "Article 6(4)(c)",
+      "text": "(c) the nature of the personal data, in particular whether special categories of personal data are processed, pursuant to Article 9, or whether personal data related to criminal convictions and offences are processed, pursuant to Article 10;",
+      "unit_id": "art6-p4-c"
+    },
+    {
+      "char_end": 3988,
+      "char_start": 3905,
+      "kind": "point",
+      "label": "Article 6(4)(d)",
+      "text": "(d) the possible consequences of the intended further processing for data subjects;",
+      "unit_id": "art6-p4-d"
+    },
+    {
+      "char_end": 4083,
+      "char_start": 3989,
+      "kind": "point",
+      "label": "Article 6(4)(e)",
+      "text": "(e) the existence of appropriate safeguards, which may include encryption or pseudonymisation.",
+      "unit_id": "art6-p4-e"
+    }
+  ]
+}

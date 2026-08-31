@@ -55,6 +55,29 @@ def leg_shacl():
     return ok
 
 
+def cq_verdict(stdout):
+    """Score a runner on what it PRINTED, independently of its exit code.
+
+    A runner passes only if its own output says so: a terminal verdict line of
+    the form 'ALL ... MATCH ...' and no 'MISMATCH' and no '-> CHECK' row
+    anywhere. Absence of a verdict line is a FAIL, not a pass -- that is what
+    catches a runner which has regressed to exit-0-always (REPAIR-PLAN.md 9.1,
+    where run_owlrl_art6.py printed 'SUMMARY: MISMATCH' and still exited 0).
+    All four markers are ASCII, so this is insensitive to console encoding.
+
+    Returns (ok, line_to_show).
+    """
+    lines = [l.strip() for l in stdout.splitlines() if l.strip()]
+    bad = [l for l in lines if 'MISMATCH' in l or '-> CHECK' in l]
+    if bad:
+        return False, bad[0]
+    good = [l for l in lines
+            if l.startswith('ALL ') and 'MATCH' in l and 'MISMATCH' not in l]
+    if not good:
+        return False, '(no verdict line printed -- runner output not scoreable)'
+    return True, good[-1]
+
+
 def leg_cq():
     print('== Competency questions (SPARQL under OWL 2 RL materialisation) ==')
     ok = True
@@ -62,11 +85,17 @@ def leg_cq():
     for r in RUNNERS:
         p = subprocess.run([sys.executable, r], cwd=cqdir,
                            capture_output=True, text=True)
-        tail = [l for l in p.stdout.strip().splitlines() if l.strip()][-1:] or ['(no output)']
-        print(f'  {r:24s} exit={p.returncode}  {tail[0][:88]}')
-        if p.returncode != 0:
+        said_ok, verdict = cq_verdict(p.stdout or '')
+        good = (p.returncode == 0) and said_ok
+        print(f'  {r:24s} exit={p.returncode}  verdict={"OK" if said_ok else "BAD"}  '
+              f'-> {"PASS" if good else "FAIL"}  {verdict[:88]}')
+        if not good:
+            if p.returncode == 0 and not said_ok:
+                print(f'[verify.py] {r} exited 0 but its own output does not '
+                      f'certify a match; scoring FAIL. See REPAIR-PLAN.md '
+                      f'section 9.1.', file=sys.stderr)
             sys.stderr.write(p.stdout[-3000:] + p.stderr[-2000:])
-        ok &= (p.returncode == 0)
+        ok &= good
     return ok
 
 

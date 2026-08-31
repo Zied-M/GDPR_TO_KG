@@ -344,7 +344,7 @@ in this section (Zied, 2026-08-06).
 |---|---|---|
 | **#1** (inherited) | **CQ-C1 does not reach Permissions.** | Unchanged from Art 12. Art 46's single Permission is the **gate node itself**, so this non-coverage now hides the unit's headline construct from CQ-C1. Grounding is still machine-checked by CQ-C2; the bearer facts are explicit via `grantsPermissionTo` and are asserted as fixtures below. |
 | **#2** (inherited) | **CQ-C3 does not reach permission bearers.** | Unchanged from Art 12. The two `grantsPermissionTo` edges (controller **and** processor) are outside CQ-C3's frozen wording; verified by fixture instead. |
-| **#3 — NEW** | **46(5)'s Directive 95/46/EC citations have NO `rdfs:seeAlso` target and no stub** — the Art-12 12(8) precedent could not be followed in full. | The 12(8) precedent points a `seeAlso` at a **minted stub** (`ex:ref-art92`). T3-E authorises no Directive stub, so there was no node to point at; and `referencesProvision` cannot originate on a Paragraph (domain `NormativeElement` ⇒ the Paragraph would be entailed a `GroundedConcept` and **break CQ-C2** — the very reason 12(8) used `seeAlso`). An external ELI IRI was investigated and **rejected on evidence**: EUR-Lex returns HTTP 200 for `dir/1995/46/art_999/oj` and `art_26/par_77/oj`, i.e. for subdivisions that do not exist, so a 200 proves nothing. **Ruled by Zied 2026-08-07: `skos:note` text only.** The fact IS verified: the full 46(5) text sits in `ex:art46-p5 skos:note` with a `skos:scopeNote` recording the decision. Ledger: `art46-46-5-seealso-target`. |
+| **#3 — NEW** | **46(5)'s Directive 95/46/EC citations have NO `rdfs:seeAlso` target and no stub** — the Art-12 12(8) precedent could not be followed in full. | The 12(8) precedent points a `seeAlso` at a **minted stub** (`ex:ref-art92`). T3-E authorises no Directive stub, so there was no node to point at; and `referencesProvision` cannot originate on a Paragraph (domain `NormativeElement` ⇒ the Paragraph would be entailed a `GroundedConcept` and **break CQ-C2** — the very reason 12(8) used `seeAlso`). An external ELI IRI was investigated and **rejected on evidence**: EUR-Lex returns HTTP 200 for `dir/1995/46/art_999/oj` and `art_26/par_77/oj`, i.e. for subdivisions that do not exist, so a 200 proves nothing. **Ruled by Zied 2026-08-07: source text only, no stub and no `seeAlso`.** The fact IS verified: the full 46(5) text **resolves at the `oa:start` / `oa:end` offsets recorded on `ex:art46-p5`** (`python sources/g0_source_gate.py --text=art46-p5`), with a `skos:scopeNote` recording the decision. Ledger: `art46-46-5-seealso-target`. **AMENDED 2026-08-30 (session S-G), approved by Zied.** This clause read *"`skos:note` text only"* and *"the full 46(5) text sits in `ex:art46-p5 skos:note`"*. The offset-grounding unit (DECISIONS.md REVERSAL 4) replaces that literal with a pointer, so the sentence naming the mechanism became false while the fact it certifies did not change. **Zied's 2026-08-07 ruling is untouched** — it ruled that the text alone discharges this, with no stub and no external IRI, and that still holds; only how the text is carried moved. The `skos:scopeNote` is unchanged. Recorded rather than silently rewritten, because amending a non-coverage record is a T3 act. |
 | **#4 — NEW** | **CQ-C1 does not reach `gdprkg:TransferMechanism`** — all 8 nodes are invisible to it. | The frozen FILTER is `?normType IN (gdprkg:Obligation, gdprkg:Condition, gdprkg:Exception)`. A `TransferMechanism` is none of those (deliberately — T3-B/U5 decided the instruments are **not** normative units). **The query was NOT widened** (playbook §4.1); widening it would have re-imported by the back door exactly the typing the unit refuses. The fact IS verified: grounding for all 8 is checked by **CQ-C2**, provenance/review by **CQ-C6 direct**, and the inventory + `providesSafeguard` edges by the fixtures below. |
 | **#5 — NEW, and the most consequential** | **CQ-C6's inherited branch does not reach a Condition attached via `gdprkg:notApplicableIf`.** `cond-46-1-adequacy-decision-exists` — the 45(3) gate, the single most important node in this unit for the applicability claim — has **no provenance path** under the frozen query. | CQ-C6's inherited branch enumerates the path `(gdprkg:appliesIf` OR `gdprkg:hasException)`. `notApplicableIf` is **not in it** — understandably, since the property had **zero ABox use anywhere** until this unit created its first. So Art 46 contributes **3** inherited rows, not 4. **The query was NOT widened and the edge was NOT re-pointed to `appliesIf` to make the count land** (playbook §4.1 — this is precisely the failure that rule exists to prevent; the Art-14 CQ-C7 case is the precedent). The fact IS verified: the Condition is a first-class `gdprkg:Condition`, `groundedIn ex:art46-p1`, reachable from `ex:perm-46-1-transfer`, counted by **CQ-C1** and **CQ-C2**, and asserted as a fixture below. **This is a genuine gap in the frozen CQ set, exposed by the first ABox use of `notApplicableIf`, and it is Zied's to resolve — not the executor's.** |
 | **#6 — NEW** | **The five new stubs carry no external anchor** (no `owl:sameAs`, no `rdfs:seeAlso` to GDPRtEXT/ELI). | Reuse gate R-3 (2026-08-07) found GDPRtEXT **entirely unreachable**: `https://w3id.org/GDPRtEXT` → 503, ADAPT Centre host root → 503, `purl.org/adaptcentre/...` → 404. A 2020 GitHub mirror does contain all five anchors (`gdpr:article45-3`, `article93-2`, `article40`, `article42`, `article63`), each typed `eli:LegalResourceSubdivision` — the class `gdprkg:ReferencedProvision` is already `rdfs:subClassOf` — so the alignment would have been type-clean. **Ruled by Zied 2026-08-07: stubs stay bare; a link known to 404 inside a file about to be certified is worse than no link.** Ledger: `gdprtext-vocabulary-unreachable`. |
@@ -401,3 +401,282 @@ in this section (Zied, 2026-08-06).
 | `ontology/shapes.ttl` | **UNCHANGED**, `sha1 c0c8963f1632869b9338e42f8dc000acdfc4ea55`, still 10 NodeShapes. |
 | `methodology/competency_questions.json` | **UNCHANGED**, still 27 CQs, `sha1 b9bea058363d69541c7000652f97e4a551ac0693`. No question or `.rq` added, edited or widened. |
 | `owl:Nothing` members / dangling `ex:` IRIs | **0 / 0** — Tier-1. |
+
+---
+
+# Session S-G — M2 exception-scope edges + offset grounding
+
+**Written 2026-08-30, BEFORE any triple was written or any gate was rewritten.**
+Playbook §4.2: every count below is a prediction and is **immutable for this unit**.
+A disagreement between a run and a row here is a **defect in the work** — in the data,
+then in the modelling, then and only then in the prediction — never a discovery, and
+never to be silently reconciled. The unit lands as two commits; each has its own table
+so a mismatch names its own commit.
+
+Two T3 calls were put to Zied and settled before this section was written:
+**the offset property** (`oa:start` / `oa:end`, flat on the provision node — GATE-A
+live-spec check 2026-08-30) and **the amendment of recorded non-coverage #3** (below).
+Everything else here is executor-derived, Tier 2.
+
+## Commit 1 — M2 scope edges
+
+19 `gdprkg:referencesProvision` triples: 3 on `ex:exc-art13-4-already-has-info`
+(→ `art13-p1`, `-p2`, `-p3`) and 4 each on `ex:exc-art14-5-a/-b/-c/-d`
+(→ `art14-p1` … `-p4`). No TBox change. The three single-bearer exceptions get none.
+
+| # | check | predicted |
+|---|---|---|
+| G-1 | `m_conformance.py` **M2** | **3** — `exc-12-2-cannot-identify`, `exc-12-3-otherwise-requested`, `exc-6-1-f-public-authority`, each still violation (i), scope deliberately undeclared |
+| G-2 | `m_conformance.py` **M7** | **3** = M1a+M1b+M2+M3b = 0+0+3+0 |
+| G-3 | `m_conformance.py` M1a/M1b/M3a/M3b/M5/M6 | **0** each, unchanged; exit **0** |
+| G-4 | the five declared exceptions, derived vs actual bearers | **21 / 23 / 23 / 23 / 23, diff 0, unkeyed 0** — reproducing §5b's table from committed edges rather than from an in-memory dry run |
+| G-5 | `sources/g0_source_gate.py` | **unchanged**, exit 0 — no `skos:note` and no `groundedIn` edge is touched |
+| G-6 | `gate_provocation.py` | **13/13** |
+| G-7 | pySHACL, each of the five ABoxes | **conforms**, 0 new violations — shapes target `PrimaryNormativeUnit`; `Paragraph` is not one, so no shape fires on a scope target |
+| G-8 | HermiT, combined load | **consistent**, no unsatisfiable class. The only entailment added is `Paragraph ⊑ eli:LegalResourceSubdivision` (`referencesProvision` range), which every `Paragraph` already satisfies via `gdprkg:LegalProvision` |
+
+### Expected-absence assertions — commit 1
+
+| # | assertion | predicted | why it could have moved |
+|---|---|---|---|
+| G-9 | `CQ-C5x_cross_article_basis.rq` | **2 rows, unchanged** | It reads `referencesProvision`. It binds `?sharedProvision` only where a `gdprkg:LegalBasis` is `groundedIn` it — the `art6-p1-*` Points. The new edges land on `art13-p1..p3` / `art14-p1..p4`, which ground no `LegalBasis`. |
+| G-10 | `CQ-B3_basis_in_union_or_ms_law.rq` | **2 rows, unchanged** | It reads `referencesProvision` but requires `?condition gdprkg:groundedIn ex:art6-p3`. No `Exception` is grounded there. |
+| G-11 | every other frozen CQ | **unchanged** | No other `.rq` reads `referencesProvision`. |
+| G-12 | `methodology/competency_questions.json`, `ontology/shapes.ttl`, `ontology/gdpr_kg.ttl` | **UNCHANGED** by commit 1 | M2 was frozen on the finding that it needs no TBox change; if one turns out to be needed, that is a defect in M2, not a licence to edit. |
+
+### ⚠ COMMIT 1 — THE PREDICTIONS THAT DEVIATED, recorded permanently, not silently reconciled
+
+**Measured 2026-08-30, after the 19 scope edges were written.** Playbook §4.2 order was
+run (data → modelling → prediction). Both deviations are in the **prediction**, and
+both are recorded here with the original wording left standing above.
+
+**G-1 … G-8 all held exactly**, including G-4: the five declared exceptions derive
+**21 / 23 / 23 / 23 / 23, diff 0, unkeyed 0** from committed edges. `m_conformance.py`
+exit 0 with **M2 = 3, M7 = 3**. `g0_source_gate.py` exit 0 unchanged.
+`gate_provocation.py` **13/13**. pySHACL **Conforms: True** on all five ABoxes.
+
+#### Deviation 1 — G-9's number was the two-file figure, not the six-file one
+
+**Predicted: "CQ-C5x — 2 rows, unchanged." Observed: 4 rows, unchanged.**
+
+**The assertion held; the number quoted with it did not.** `CQ-C5x_cross_article_basis.rq`
+states "Expected over art6.ttl + art13.ttl: 2 rows" in its own header, and I carried that
+figure across without noticing it describes a **two-file** union. The certified baseline
+under the **six-file** union has been **4** since Article 14 (`expected_results.md`
+§Article-14 records CQ-C5x = 4). The run returned 4 against an expected 4 → PASS.
+
+**Why it was wrong.** I sourced the number from the query file's comment instead of from
+the recorded expected value for the union the runner actually loads. The substantive
+claim — that M2's scope edges cannot reach this query, because it binds `?sharedProvision`
+only where a `LegalBasis` is `groundedIn` it — is **confirmed**: the count did not move.
+
+#### Deviation 2 — G-11 checked `.rq` files and missed the runners' inline fixtures
+
+**Predicted: "every other frozen CQ unchanged — no other `.rq` reads
+`referencesProvision`." Observed: no frozen CQ moved, but THREE Tier-2 regression
+fixtures did.**
+
+| fixture | file | was | now |
+|---|---|---|---|
+| `referencesProvision` on Art-13 subjects | `run_owlrl_art46.py` | 8 | **11** (+3) |
+| `referencesProvision` on Art-14 subjects | `run_owlrl_art46.py` | 11 | **27** (+16) |
+| `referencesProvision` on Art-14 subjects | `run_owlrl_art14.py` | 11 | **27** (+16) |
+
++3 and +16 are **exactly** the 19 edges the commit writes. Nothing else moved.
+
+**Diagnosis, in playbook §4.2 order.** *Data:* correct — `m_conformance.py` reports
+`scope=3` on the Art-13 exception and `scope=4` on each of the four Art-14 exceptions,
+which is 3 + 16 = 19, with no stray edge. *Modelling:* correct — M2 mandates precisely
+these edges on precisely this property. *Prediction:* **the defect.** I grepped
+`cq_sparql/*.rq` for `referencesProvision` and concluded no other consumer existed. The
+runners carry **inline Python fixtures** that count raw edges and are not `.rq` files, so
+the grep could not see them. The claim was true of queries and false of fixtures, and I
+did not distinguish the two.
+
+**Why the fixtures said "UNCHANGED".** They were written at the Art-46 pass to prove the
+`ex:ref-art46` rewire did not disturb the `referencesProvision` population. They assert a
+*snapshot* of a population that M2 deliberately grows. They were not violated; they went
+stale the moment a rule started adding to that property on purpose.
+
+**Scope of the error.** Confined to three Tier-2, executor-derived regression fixtures.
+**No frozen CQ moved** — every `.rq` row-count in all four runners passed unchanged, and
+`methodology/competency_questions.json` is untouched. These are not Tier-1 locked values
+and not a frozen CQ's expected result, so §4.2's "adjusting a prediction is T3" clause is
+**not** triggered — the same class as the Art-46 `ReferencedProvision` 22-vs-21 deviation
+recorded above. Flagged for Zied regardless.
+
+**How they were repaired — split, not bumped.** Raising 8 to 11 and 11 to 27 would have
+left a fixture whose only content is a number somebody once increased. Each is now
+**two** assertions plus a total: the **citation** half must still be **8 / 11**, and the
+**scope** half is asserted separately at **3 / 16**. A scope edge is one *from* a
+`gdprkg:Exception` *onto* a `gdprkg:Paragraph` or `gdprkg:Point` — the same type
+discrimination `m_conformance.py`'s M2 applies (Zied, 2026-08-28). The original claim
+therefore survives intact and still discriminates: a stray citation now fails the
+citation row rather than hiding inside a larger total. Verified after the change —
+citations **8 / 11 / 49** unchanged, scope **3 / 16**, totals **11 / 27**, all four
+runners exit 0.
+
+**What this cost, stated plainly:** the reuse-first grep that produced G-11 was run over
+one file type and reported as though it covered every consumer. The lesson is the
+narrower claim — *"no `.rq` reads it"* — is what the evidence supported, and that is not
+the same as *"nothing reads it"*.
+
+## Commit 2 — offset grounding
+
+`skos:note` legal-text literals are **replaced** (not supplemented) by `oa:start` /
+`oa:end` pointers into the digest-pinned `sources/art<N>.txt`. Decided by Zied
+2026-08-20 (`modelling_rules_frozen.md` §5b).
+
+| # | check | predicted |
+|---|---|---|
+| G-13 | `skos:note` triples in `articles/*.ttl` | **0** (was **75**: art6 11, art12 10, art13 16, art14 25, art46 13) |
+| G-14 | `oa:start` + `oa:end` triples in `articles/*.ttl` | **150** — 2 per replaced note, 1:1 with G-13 |
+| G-15 | `skos:scopeNote` triples | **1**, unchanged — `ex:art46-p5`, untouched |
+| G-16 | `fixtures/art46_scenarios.ttl` | **UNCHANGED** — its `skos:note` literals are demonstrator commentary, carry no source unit, and are out of the replacement scope |
+| G-17 | new gate run against the **un-migrated** tree, before 2b | **FAILS** — recorded in the report as the red step. A gate first observed after the data already satisfies it has never been shown to fail |
+| G-18 | `sources/g0_source_gate.py` after 2b | exit **0**; **63/63** expected targets resolve; **126/126 = 100.0 %**, denominator still pinned by `g0-expected.json` |
+| G-19 | anchors scored `abridged` | **0** (was 6) — structural, not repaired: there is no literal left to abridge |
+| G-20 | `byte_gate.allow_divergent` entries in force | **0** (was 15) — the byte gate is retired with its subject matter |
+| G-21 | `gate_provocation.py` | **14/14** (was 13/13), **2** of them negative controls |
+| G-22 | `invariance_check.py <commit-1-rev> --annotation-props skos:note,oa:start,oa:end` | **PASSES** — graphs isomorphic after deleting the annotation properties under test; identical IRI sets, `rdf:type`, `rdfs:label`, `gdprkg:*` relations and `reviewStatus`. This is the proof that the five-ABox edit moved nothing but annotations |
+| G-23 | `m_conformance.py` | exit **0**, **M2 = 3 and M7 = 3, unmoved from commit 1** — M3 already reads `units.json`, not `skos:note` (`m_conformance.py:24`), so this unit must not disturb it |
+| G-24 | pySHACL, each of the five ABoxes | **conforms**, **0** new violations; no shape fires on a provision node |
+| G-25 | HermiT, combined load | **consistent**, no unsatisfiable class. `oa:start` / `oa:end` carry no `rdfs:domain`, so no subject is entailed into any class |
+| G-26 | `ontology/shapes.ttl` | **UNCHANGED** — an `rdfs:range` is inferential, not validating (I3.2); the check stays in the gate |
+| G-27 | `methodology/competency_questions.json` | **UNCHANGED**, 27 CQs. No question or `.rq` added, edited or widened |
+| G-28 | TBox `gdprkg:` term count | **UNCHANGED** — this unit mints **no** `gdprkg:` term. It adds exactly two *external* declarations (`oa:start`, `oa:end`), the posture `gdpr_kg.ttl:100-106` already takes for `prov:` and `dcterms:` |
+
+### Expected-absence assertions — commit 2
+
+| # | assertion | predicted | why it could have moved |
+|---|---|---|---|
+| G-29 | every frozen CQ | **unchanged** | No `.rq` reads `skos:note` or either `oa:` term. The single mention in `CQ-B2_basis_conditions.rq:10` is inside a comment. |
+| G-30 | recorded non-coverage **#3** (Art 46, Directive 95/46/EC citations) | **still discharged** | Zied's 2026-08-07 ruling verifies the fact by the full 46(5) text being present. Under offsets that text **resolves** at `ex:art46-p5`'s recorded offsets instead of sitting in a literal. The ruling is unchanged; the wording that names the mechanism is amended in place, **approved by Zied 2026-08-30**. |
+| G-31 | `--selftest` and the `pre_repair` manifest block | **unchanged, still passing** | They assert a captured 2026-08-18 stdout, not the live graph, and remain valid history after the gate is rewritten. |
+
+### COMMIT 2 — MEASURED 2026-08-30, against the predictions above
+
+**Every prediction G-13 … G-31 held. No deviation.** Recorded here in the same table order
+so a reader can check the claim rather than take it.
+
+| # | predicted | measured | |
+|---|---|---|---|
+| G-13 | `skos:note` in `articles/*.ttl` = 0 | **0** (art6 0, art12 0, art13 0, art14 0, art46 0) | ✓ |
+| G-14 | `oa:start` + `oa:end` = 150 | **150** (75 + 75; per article 11/10/16/25/13) | ✓ |
+| G-15 | `skos:scopeNote` = 1 | **1**, `ex:art46-p5`, untouched | ✓ |
+| G-16 | `fixtures/art46_scenarios.ttl` unchanged | **unchanged** — `git diff` empty | ✓ |
+| G-17 | new gate FAILS on the un-migrated tree | **exit 1**; 63/63 `no-pointer`, population 0 of 75, leg 1 correctly PASS. Captured: `reports/g0_gate_red_run_2026-08-30.txt` | ✓ |
+| G-18 | gate exit 0; 63/63 resolve; 126/126 | **exit 0**; 62 `resolved` + 1 `resolved-listed` = **63/63**; **126/126 = 100.0 %**, denominator pinned | ✓ |
+| G-19 | `abridged` = 0 | **0** — the status no longer exists; there is no literal to abridge | ✓ |
+| G-20 | `allow_divergent` in force = 0 | **0** — the byte gate is retired with its subject matter | ✓ |
+| G-21 | `gate_provocation.py` 14/14, 2 negative controls | **14/14**, controls `g0-baseline` and `g0-ttl-whitespace` | ✓ |
+| G-22 | `invariance_check.py` passes | **exit 0**, all five isomorphic; identical IRIs, types, labels, `gdprkg:*` relations, `reviewStatus`, provenance | ✓ |
+| G-23 | `m_conformance.py` exit 0, M2/M7 = 3 | **exit 0**, M2 = 3, M7 = 3, **unmoved from commit 1** | ✓ |
+| G-24 | pySHACL conforms ×5 | **Conforms: True** ×5, 0 new violations | ✓ |
+| G-26 | `shapes.ttl` UNCHANGED | **`sha1 c0c8963f1632869b9338e42f8dc000acdfc4ea55`** — byte-identical | ✓ |
+| G-27 | `competency_questions.json` UNCHANGED, 27 CQs | **`sha1 b9bea058363d69541c7000652f97e4a551ac0693`**, 27 | ✓ |
+| G-28 | no `gdprkg:` term minted | `gdprkg:` classes **53**, object properties **30**, datatype properties **3** — all unchanged. TBox 453 → 457, delta **exactly four named triples** (`oa:start`/`oa:end` as `owl:DatatypeProperty`, `oa:TextPositionSelector` as `owl:Class`, and `gdprkg:LegalProvision rdfs:seeAlso oa:TextPositionSelector`) | ✓ |
+| G-29 | every frozen CQ unchanged | all four `run_owlrl_art*.py` **exit 0**, zero `CHECK` rows; `demo_art46_scenarios.py` exit 0 | ✓ |
+| G-30 | non-coverage #3 still discharged | `--text=art46-p5` resolves to the full 46(5) text at 2119:2574; `skos:scopeNote` untouched; wording amended in place with its marker | ✓ |
+| G-31 | `--selftest` unchanged, still passing | **exit 0**, reproduces the 2026-08-18 constants from the captured table | ✓ |
+
+**G-25 (HermiT, combined load) is NOT measured here and is not claimed.** `reason_check.py`
+reports the TBox COHERENT at 457 triples with both `owl:AllDisjointClasses` sets unchanged,
+but that is a structural proxy, not a DL reasoner. The combined-load HermiT run is Zied's,
+on his machine, and it is the one leg of the technical gate no sandbox result covers.
+
+### One tool was extended, and it is worth naming
+
+`sources/invariance_check.py` gained `oa:start` / `oa:end` in its `PROPS` table so it could
+cover a pass that DELETES one annotation property and ADDS another on the same node. That
+is the mechanism the tool's own header anticipates (*"add `rdfs:comment` when a pass writes
+one"*), and G-22 is the strongest single check in this unit: it proves the five-ABox edit
+touched nothing but annotations, without anyone having to read 150 new triples.
+
+**Noticed, not fixed** (surgical-change rule): the tool's usage string advertises
+`--annotation-props skos:note,rdfs:comment` (space-separated) but only the `=` form is
+parsed; the space form silently falls back to the default property list instead of erroring.
+Here it was fail-safe — the fallback produced a false FAIL, not a false PASS — but a check
+whose configuration can be silently ignored is the shape of defect this project has twice
+had to repair. Flagged for whoever owns that file next.
+
+### ⚠ COMMIT 2 — ONE PREDICTION MOVED AFTER REVIEW, and the reason is a real defect
+
+**G-21 predicted `gate_provocation.py` at 14/14. It is 15/15.** The prediction was
+correct when written and correct when first measured; a code review run after commit 2
+found a hole in the gate, and closing it required a fifteenth case. Recorded here rather
+than edited above, because a prediction that moves for a *good* reason still has to say so.
+
+#### The defect: legs 2 and 3 were applied to 63 of 75 nodes
+
+`report()` scored only the provisions listed in `normalised_gate.targets` — the 63
+expected grounding targets that make up the pinned denominator. The other **12
+offset-bearing provisions**, the ones that ground no normative unit (13(4), 46(5) and the
+like), were counted by `population()` but never scored. A corrupted pointer on any of them
+resolved to the wrong text and the gate reported `legs 2+3: PASS` and **exit 0**.
+
+**Reproduced before it was fixed**, in a sandbox copy: shifting `ex:art46-p5`'s `oa:start`
+from 2119 to 2120 produced `126/126 = 100.0 %`, all verdicts PASS, exit 0.
+
+**This is F-02 reappearing in a new place.** F-02 was "the denominator moved with the
+numerator, so a deleted anchor still printed 100 %". The pinned denominator fixed that and
+is intact — but pinning the denominator to the 63 targets is exactly what left the other
+12 unscored. The gate the whole unit is built on had, for the length of one commit, a
+silent hole of the same shape as the one it was rewritten to close.
+
+**And it landed on the worst possible node.** `ex:art46-p5` is where recorded non-coverage
+**#3** now points: this session amended that record, with Zied's approval, to say the
+46(5) text *"resolves at the offsets recorded on `ex:art46-p5`"*. Until this fix, nothing
+checked that it did.
+
+#### The fix, and why a fix alone was not enough
+
+`report()` now scores **every** offset-bearing node. The 12 non-targets are reported in
+their own block — *outside* the pinned fraction, so `126/126` keeps meaning exactly what it
+meant — and `main()` gates on them. New provocation case **`g0-nontarget-shift`** shifts
+`ex:art46-p5`'s pointer by one and requires exit 1.
+
+The case matters as much as the fix. **A hole closed without a provocation is a hole
+nobody has shown is closed** — which is the argument `gate_provocation.py` exists to make,
+and it would have been hollow to fix this quietly.
+
+#### Two smaller review findings, both fixed
+
+- **A `.pyc` was committed.** `git add -A` swept
+  `sources/__pycache__/g0_source_gate.cpython-312.pyc` into commit `e6b2c64`; the tree had
+  **no `.gitignore` at all**. Removed from tracking; a two-line `.gitignore` added. A tree
+  whose integrity story is "every file here is a reviewed source of record" should not
+  carry build artifacts.
+- **`g0-source-corrupt`'s docstring was false.** It claimed a "SAME-LENGTH substitution"
+  while replacing 49 characters with 50, so `SOURCE.json`'s `char_length` check fired
+  alongside the `sha256` check and the case did not isolate leg 1 as documented. It still
+  exited 3 — for two reasons instead of one. Now genuinely same-length (`controller` →
+  `kontroller`), with the length equality noted in the case so the next edit does not
+  silently break it again.
+
+#### What this says about the unit
+
+The red-first discipline worked exactly as intended on the paths it covered: G-17 caught a
+gate that could not fail, and every one of G-13…G-31 held. It did **not** catch this,
+because every provocation case sabotaged a node that happened to be a grounding target —
+the harness and the gate shared the same blind spot. **Provocation proves a check can fail
+on the cases you thought of.** Review is what found the case nobody thought of, and the
+honest reading is that this unit needed both.
+
+### What this unit is claimed to demonstrate — and what it is not
+
+**Claimed:** the two-copies drift class is **deleted**, not repaired. Before, provision
+text existed in the digest-pinned source *and* in an ABox literal, and the two had
+already diverged on all 74 anchors (REVERSAL 2). After, there is one copy and a
+pointer, so the failure mode has no place left to occur. G-19 and G-20 are that claim
+in numbers, and they fall out of the structure rather than out of a repair pass.
+
+**Not claimed:** that the offsets are *correct readings of the law*. The gate proves
+they resolve, that they match the extraction manifest, and that the source file has
+not moved. Whether `art13-p1`'s range is the right range for Article 13(1) is a source
+reading, and is the same human judgement it was before this unit.
+
+**Not certified here.** Every figure above is a **sandbox proxy** until Zied's local
+Protégé/HermiT, pySHACL and `run_owlrl_art*.py` runs reproduce it (playbook §5). The
+report will separate OBJECTIVE / PROXY / CANNOT-VERIFY and will not let a proxy read
+as a verdict.

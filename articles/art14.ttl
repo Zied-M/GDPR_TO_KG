@@ -6,6 +6,7 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 #################################################################
@@ -99,41 +100,56 @@ ex:art14 a gdprkg:Article ;
 
 # --- Paragraph 1 (chapeau) + its six lettered points ---
 ex:art14-p1 a gdprkg:Paragraph ; rdfs:label "Article 14(1)"@en ;
-    skos:note "Where personal data have not been obtained from the data subject, the controller shall provide the data subject with the following information:"@en ;
+    oa:start 0 ;
+    oa:end   1034 ;
     gdprkg:hasPoint ex:art14-p1-a , ex:art14-p1-b , ex:art14-p1-c , ex:art14-p1-d , ex:art14-p1-e , ex:art14-p1-f .
 
 ex:art14-p1-a a gdprkg:Point ; rdfs:label "Article 14(1)(a)"@en ;
-    skos:note "the identity and the contact details of the controller and, where applicable, of the controller's representative;"@en .
+    oa:start 147 ;
+    oa:end   264 .
 ex:art14-p1-b a gdprkg:Point ; rdfs:label "Article 14(1)(b)"@en ;
-    skos:note "the contact details of the data protection officer, where applicable;"@en .
+    oa:start 265 ;
+    oa:end   338 .
 ex:art14-p1-c a gdprkg:Point ; rdfs:label "Article 14(1)(c)"@en ;
-    skos:note "the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;"@en .
+    oa:start 339 ;
+    oa:end   461 .
 ex:art14-p1-d a gdprkg:Point ; rdfs:label "Article 14(1)(d)"@en ;
-    skos:note "the categories of personal data concerned;"@en .
+    oa:start 462 ;
+    oa:end   508 .
 ex:art14-p1-e a gdprkg:Point ; rdfs:label "Article 14(1)(e)"@en ;
-    skos:note "the recipients or categories of recipients of the personal data, if any;"@en .
+    oa:start 509 ;
+    oa:end   585 .
 ex:art14-p1-f a gdprkg:Point ; rdfs:label "Article 14(1)(f)"@en ;
-    skos:note "where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47 , or the second subparagraph of Article 49 (1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available."@en .
+    oa:start 586 ;
+    oa:end   1034 .
 
 # --- Paragraph 2 (chapeau) + its seven lettered points ---
 ex:art14-p2 a gdprkg:Paragraph ; rdfs:label "Article 14(2)"@en ;
-    skos:note "In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject:"@en ;
+    oa:start 1035 ;
+    oa:end   2475 ;
     gdprkg:hasPoint ex:art14-p2-a , ex:art14-p2-b , ex:art14-p2-c , ex:art14-p2-d , ex:art14-p2-e , ex:art14-p2-f , ex:art14-p2-g .
 
 ex:art14-p2-a a gdprkg:Point ; rdfs:label "Article 14(2)(a)"@en ;
-    skos:note "the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;"@en .
+    oa:start 1258 ;
+    oa:end   1388 .
 ex:art14-p2-b a gdprkg:Point ; rdfs:label "Article 14(2)(b)"@en ;
-    skos:note "where the processing is based on point (f) of Article 6 (1), the legitimate interests pursued by the controller or by a third party;"@en .
+    oa:start 1389 ;
+    oa:end   1524 .
 ex:art14-p2-c a gdprkg:Point ; rdfs:label "Article 14(2)(c)"@en ;
-    skos:note "the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability;"@en .
+    oa:start 1525 ;
+    oa:end   1769 .
 ex:art14-p2-d a gdprkg:Point ; rdfs:label "Article 14(2)(d)"@en ;
-    skos:note "where processing is based on point (a) of Article 6 (1) or point (a) of Article 9 (2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;"@en .
+    oa:start 1770 ;
+    oa:end   2005 .
 ex:art14-p2-e a gdprkg:Point ; rdfs:label "Article 14(2)(e)"@en ;
-    skos:note "the right to lodge a complaint with a supervisory authority;"@en .
+    oa:start 2006 ;
+    oa:end   2070 .
 ex:art14-p2-f a gdprkg:Point ; rdfs:label "Article 14(2)(f)"@en ;
-    skos:note "from which source the personal data originate, and if applicable, whether it came from publicly accessible sources;"@en .
+    oa:start 2071 ;
+    oa:end   2190 .
 ex:art14-p2-g a gdprkg:Point ; rdfs:label "Article 14(2)(g)"@en ;
-    skos:note "the existence of automated decision-making, including profiling, referred to in Article 22 (1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."@en .
+    oa:start 2191 ;
+    oa:end   2475 .
 
 # --- Paragraph 3 (chapeau) + its three lettered points ---
 # 14(3) carries NO DISCLOSURE CONTENT OF ITS OWN (brief §2.3, v2 finding 4, re-confirmed
@@ -146,39 +162,49 @@ ex:art14-p2-g a gdprkg:Point ; rdfs:label "Article 14(2)(g)"@en ;
 # hasTimeLimit legal string on the 22 duties it governs (Art-12 12F precedent: a Point may
 # legitimately carry no normative unit). SURFACE-14-EXEC-4.
 ex:art14-p3 a gdprkg:Paragraph ; rdfs:label "Article 14(3)"@en ;
-    skos:note "The controller shall provide the information referred to in paragraphs 1 and 2:"@en ;
+    oa:start 2476 ;
+    oa:end   3018 ;
     gdprkg:hasPoint ex:art14-p3-a , ex:art14-p3-b , ex:art14-p3-c .
 
 ex:art14-p3-a a gdprkg:Point ; rdfs:label "Article 14(3)(a)"@en ;
-    skos:note "within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed;"@en .
+    oa:start 2559 ;
+    oa:end   2746 .
 ex:art14-p3-b a gdprkg:Point ; rdfs:label "Article 14(3)(b)"@en ;
-    skos:note "if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject; or"@en .
+    oa:start 2747 ;
+    oa:end   2905 .
 ex:art14-p3-c a gdprkg:Point ; rdfs:label "Article 14(3)(c)"@en ;
-    skos:note "if a disclosure to another recipient is envisaged, at the latest when the personal data are first disclosed."@en .
+    oa:start 2906 ;
+    oa:end   3018 .
 
 # --- Paragraph 4 (no point subdivision -> grounding target is the Paragraph, per R4) ---
 ex:art14-p4 a gdprkg:Paragraph ; rdfs:label "Article 14(4)"@en ;
-    skos:note "Where the controller intends to further process the personal data for a purpose other than that for which the personal data were obtained, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2."@en .
+    oa:start 3019 ;
+    oa:end   3351 .
 
 # --- Paragraph 5 (chapeau) + its four lettered exemption grounds ---
 # 14(5)'s opener scopes over paragraphs 1 TO 4 AS A BLOCK (brief §3 finding 5).
 ex:art14-p5 a gdprkg:Paragraph ; rdfs:label "Article 14(5)"@en ;
-    skos:note "Paragraphs 1 to 4 shall not apply where and insofar as:"@en ;
+    oa:start 3352 ;
+    oa:end   4540 ;
     gdprkg:hasPoint ex:art14-p5-a , ex:art14-p5-b , ex:art14-p5-c , ex:art14-p5-d .
 
 ex:art14-p5-a a gdprkg:Point ; rdfs:label "Article 14(5)(a)"@en ;
-    skos:note "the data subject already has the information;"@en .
+    oa:start 3411 ;
+    oa:end   3460 .
 # 14(5)(b) is TWO things in one Point: an exemption GROUND (first half, citing Art 89(1))
 # and an affirmative controller DUTY that arises in that case (second half). Both are
 # grounded here — the Exception ex:exc-art14-5-b-impossible-disproportionate AND the
 # Obligation ex:obl-art14-5-b-protective-measures. That SHARED grounding Point is what
 # makes CQ-A6 answerable (T3-C). SURFACE-14-EXEC-6.
 ex:art14-p5-b a gdprkg:Point ; rdfs:label "Article 14(5)(b)"@en ;
-    skos:note "the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89 (1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available;"@en .
+    oa:start 3461 ;
+    oa:end   4143 .
 ex:art14-p5-c a gdprkg:Point ; rdfs:label "Article 14(5)(c)"@en ;
-    skos:note "obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject's legitimate interests; or"@en .
+    oa:start 4144 ;
+    oa:end   4353 .
 ex:art14-p5-d a gdprkg:Point ; rdfs:label "Article 14(5)(d)"@en ;
-    skos:note "where the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy."@en .
+    oa:start 4354 ;
+    oa:end   4540 .
 
 #################################################################
 #  1b — REFERENCED PROVISIONS  (R6 stubs, never populated)
@@ -377,9 +403,31 @@ ex:cond-14-4-prior a gdprkg:Condition ;
 #  so it carries no hasException at all.
 #################################################################
 
+#  M2 SCOPE (S-G, 2026-08-30) — applies to all four grounds below.
+#  Each ground now declares, as referencesProvision edges, the scope 14(5)
+#  states verbatim ("Paragraphs 1 to 4 shall not apply..."). Previously that
+#  scope lived only in the rdfs:label prose, which no query can act on.
+#
+#  TWO FACTS ON ONE PROPERTY, separated by TARGET TYPE (Zied, 2026-08-28).
+#  (b), (c) and (d) already carried a referencesProvision edge meaning "a
+#  provision my own TEXT cites" -> ex:ref-art89 and ex:ref-union-ms-law. Those
+#  targets are typed gdprkg:ReferencedProvision; a SCOPE target is a
+#  gdprkg:Paragraph or gdprkg:Point. The two facts are therefore already
+#  separable with no TBox change and no gdprkg:defeatsScope sub-property.
+#  From this commit the discrimination is load-bearing on three of the five
+#  declared exceptions rather than hypothetical.
+#  CEILING, recorded: an exception that CITES an in-scope Paragraph without
+#  defeating it would be misread as scope. No such case exists across the five
+#  certified articles; if one appears, mint the sub-property then.
+#
+#  This does NOT decide blanket-vs-per-obligation (the #!SURFACE above stands).
+#  ex:obl-art14-5-b-protective-measures stays outside all four derived bearer
+#  sets without an exclusion list, because it is grounded in art14-p5-b —
+#  paragraph 5, outside the declared scope. The exclusion falls out of the text.
 ex:exc-art14-5-a-already-has-info a gdprkg:Exception ;
     rdfs:label "Paragraphs 1 to 4 do not apply where/insofar as the data subject already has the information (Art 14(5)(a))"@en ;
-    gdprkg:groundedIn ex:art14-p5-a .
+    gdprkg:groundedIn ex:art14-p5-a ;
+    gdprkg:referencesProvision ex:art14-p1 , ex:art14-p2 , ex:art14-p3 , ex:art14-p4 .
 
 # Cites Article 89(1) -> the one NEW stub of this pass. The citation is carried HERE, on the
 # exemption GROUND, because that is where the source text places it ("subject to the conditions
@@ -388,7 +436,9 @@ ex:exc-art14-5-a-already-has-info a gdprkg:Exception ;
 ex:exc-art14-5-b-impossible-disproportionate a gdprkg:Exception ;
     rdfs:label "Paragraphs 1 to 4 do not apply where/insofar as the provision of the information proves impossible or would involve a disproportionate effort, in particular for archiving in the public interest, scientific or historical research or statistical purposes subject to the conditions and safeguards of Article 89(1), or in so far as the paragraph-1 obligation is likely to render impossible or seriously impair the achievement of the objectives of that processing (Art 14(5)(b))"@en ;
     gdprkg:groundedIn ex:art14-p5-b ;
-    gdprkg:referencesProvision ex:ref-art89 .
+    # citation (ReferencedProvision) + scope (Paragraphs) on one property, see above
+    gdprkg:referencesProvision ex:ref-art89 ;
+    gdprkg:referencesProvision ex:art14-p1 , ex:art14-p2 , ex:art14-p3 , ex:art14-p4 .
 
 # 14(5)(c) and (d) both invoke "Union or Member State law" -> ex:ref-union-ms-law is REUSED
 # from art6.ttl rather than re-minted (reuse-first gate; the Art-12 ex:ref-art22 precedent).
@@ -397,12 +447,14 @@ ex:exc-art14-5-b-impossible-disproportionate a gdprkg:Exception ;
 ex:exc-art14-5-c-laid-down-by-law a gdprkg:Exception ;
     rdfs:label "Paragraphs 1 to 4 do not apply where/insofar as obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject's legitimate interests (Art 14(5)(c))"@en ;
     gdprkg:groundedIn ex:art14-p5-c ;
-    gdprkg:referencesProvision ex:ref-union-ms-law .
+    gdprkg:referencesProvision ex:ref-union-ms-law ;
+    gdprkg:referencesProvision ex:art14-p1 , ex:art14-p2 , ex:art14-p3 , ex:art14-p4 .
 
 ex:exc-art14-5-d-professional-secrecy a gdprkg:Exception ;
     rdfs:label "Paragraphs 1 to 4 do not apply where/insofar as the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy (Art 14(5)(d))"@en ;
     gdprkg:groundedIn ex:art14-p5-d ;
-    gdprkg:referencesProvision ex:ref-union-ms-law .
+    gdprkg:referencesProvision ex:ref-union-ms-law ;
+    gdprkg:referencesProvision ex:art14-p1 , ex:art14-p2 , ex:art14-p3 , ex:art14-p4 .
 
 #################################################################
 #  6 — OBLIGATIONS (24; controller-borne primary units)

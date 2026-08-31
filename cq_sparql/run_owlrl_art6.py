@@ -8,7 +8,10 @@
 #  Needs a networked (or pre-provisioned) machine:
 #      pip install rdflib owlrl
 #      python run_owlrl_art6.py
-#  Run from the cq_sparql/ directory.
+#  Run from anywhere. The graph tree is resolved as:
+#      --root <dir>  >  $GDPR_KG_ROOT  >  the tree this script lives in
+#  (see kg_root.py). Missing inputs exit 2, not 1, so a path failure is
+#  distinguishable from a CQ failure. The TBox sha256 is printed below.
 #
 #  What it does (cq_sparql/README.md regime):
 #    1. load ../ontology/gdpr_kg.ttl (TBox) + ../articles/art6.ttl
@@ -22,15 +25,22 @@
 #       cq_sparql/expected_results.md (Article-6 section).
 # =====================================================================
 import os, sys
+import kg_root                      # --root / GDPR_KG_ROOT + TBox sha256 (S-B)
 try:
     import rdflib
     import owlrl
 except ImportError:
     sys.exit("Missing deps. Run:  pip install rdflib owlrl")
 
-TBOX = os.path.join('..', 'ontology', 'gdpr_kg.ttl')
-ART6 = os.path.join('..', 'articles', 'art6.ttl')
-ART13 = os.path.join('..', 'articles', 'art13.ttl')
+ROOT = kg_root.resolve_root()
+sys.argv = kg_root.strip_root_args()
+
+TBOX = os.path.join(ROOT, 'ontology', 'gdpr_kg.ttl')
+ART6 = os.path.join(ROOT, 'articles', 'art6.ttl')
+ART13 = os.path.join(ROOT, 'articles', 'art13.ttl')
+kg_root.require(TBOX, ART6, ART13)
+kg_root.provenance(ROOT, TBOX)
+QDIR = os.path.join(ROOT, 'cq_sparql')   # .rq files come from the same tree as the data
 
 g = rdflib.Graph()
 for f in (TBOX, ART6, ART13):
@@ -58,7 +68,7 @@ def short(t):
 
 all_ok = True
 for fname, label, expected in QUERIES:
-    q = open(fname, encoding='utf-8').read()
+    q = open(os.path.join(QDIR, fname), encoding='utf-8').read()
     rows = list(g.query(q))
     ok = (len(rows) == expected)
     all_ok = all_ok and ok
@@ -68,8 +78,16 @@ for fname, label, expected in QUERIES:
         print("      " + "  ".join(short(x) for x in r))
     print()
 
-print("=" * 60)
-print("SUMMARY: %s" % ("ALL CQ ROW-COUNTS MATCH expected_results.md" if all_ok
-                        else "MISMATCH — compare against cq_sparql/expected_results.md (Article-6 section)"))
 print("Also confirm CQ-C1 (Art-6 = 9 grounded norms) and CQ-C2 (0 GroundedConcept lacking groundedIn)")
 print("with the existing CQ-C1/CQ-C2 .rq over the same materialised graph.")
+
+print("=" * 60)
+if all_ok:
+    print("ALL CQ ROW-COUNTS MATCH expected_results.md §Article-6")
+    print("(PROXY ONLY — certification is Zied's: combined HermiT + local pySHACL + this run.)")
+    sys.exit(0)
+else:
+    print("MISMATCH — compare against cq_sparql/expected_results.md (Article-6 section).")
+    print("Per playbook §4.2 the DEFAULT diagnosis is a defect in the data or the modelling,")
+    print("NOT a wrong prediction. Investigate in that order; never silently reconcile.")
+    sys.exit(1)

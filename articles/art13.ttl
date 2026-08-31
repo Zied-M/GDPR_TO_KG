@@ -6,6 +6,7 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 #################################################################
@@ -68,45 +69,61 @@ ex:art13 a gdprkg:Article ;
 
 # --- Paragraph 1 + its points ---
 ex:art13-p1 a gdprkg:Paragraph ; rdfs:label "Article 13(1)"@en ;
-    skos:note "Where personal data ... are collected from the data subject, the controller shall, at the time when personal data are obtained, provide ... all of the following information:"@en ;
+    oa:start 0 ;
+    oa:end   1197 ;
     gdprkg:hasPoint ex:art13-p1-a , ex:art13-p1-b , ex:art13-p1-c , ex:art13-p1-d , ex:art13-p1-e , ex:art13-p1-f .
 
 ex:art13-p1-a a gdprkg:Point ; rdfs:label "Article 13(1)(a)"@en ;
-    skos:note "the identity and the contact details of the controller and, where applicable, of the controller's representative;"@en .
+    oa:start 218 ;
+    oa:end   335 .
 ex:art13-p1-b a gdprkg:Point ; rdfs:label "Article 13(1)(b)"@en ;
-    skos:note "the contact details of the data protection officer, where applicable;"@en .
+    oa:start 336 ;
+    oa:end   409 .
 ex:art13-p1-c a gdprkg:Point ; rdfs:label "Article 13(1)(c)"@en ;
-    skos:note "the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;"@en .
+    oa:start 410 ;
+    oa:end   532 .
 ex:art13-p1-d a gdprkg:Point ; rdfs:label "Article 13(1)(d)"@en ;
-    skos:note "where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party;"@en .
+    oa:start 533 ;
+    oa:end   668 .
 ex:art13-p1-e a gdprkg:Point ; rdfs:label "Article 13(1)(e)"@en ;
-    skos:note "the recipients or categories of recipients of the personal data, if any;"@en .
+    oa:start 669 ;
+    oa:end   745 .
 ex:art13-p1-f a gdprkg:Point ; rdfs:label "Article 13(1)(f)"@en ;
-    skos:note "where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation and the existence or absence of an adequacy decision ... reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them ..."@en .
+    oa:start 746 ;
+    oa:end   1197 .
 
 # --- Paragraph 2 + its points ---
 ex:art13-p2 a gdprkg:Paragraph ; rdfs:label "Article 13(2)"@en ;
-    skos:note "In addition to the information referred to in paragraph 1, the controller shall, at the time when personal data are obtained, provide ... the following further information necessary to ensure fair and transparent processing:"@en ;
+    oa:start 1198 ;
+    oa:end   2689 ;
     gdprkg:hasPoint ex:art13-p2-a , ex:art13-p2-b , ex:art13-p2-c , ex:art13-p2-d , ex:art13-p2-e , ex:art13-p2-f .
 
 ex:art13-p2-a a gdprkg:Point ; rdfs:label "Article 13(2)(a)"@en ;
-    skos:note "the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;"@en .
+    oa:start 1444 ;
+    oa:end   1574 .
 ex:art13-p2-b a gdprkg:Point ; rdfs:label "Article 13(2)(b)"@en ;
-    skos:note "the existence of the right to request from the controller access to and rectification or erasure ... or restriction of processing ... or to object to processing as well as the right to data portability;"@en .
+    oa:start 1575 ;
+    oa:end   1818 .
 ex:art13-p2-c a gdprkg:Point ; rdfs:label "Article 13(2)(c)"@en ;
-    skos:note "where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time ...;"@en .
+    oa:start 1819 ;
+    oa:end   2058 .
 ex:art13-p2-d a gdprkg:Point ; rdfs:label "Article 13(2)(d)"@en ;
-    skos:note "the right to lodge a complaint with a supervisory authority;"@en .
+    oa:start 2059 ;
+    oa:end   2123 .
 ex:art13-p2-e a gdprkg:Point ; rdfs:label "Article 13(2)(e)"@en ;
-    skos:note "whether the provision of personal data is a statutory or contractual requirement ... and of the possible consequences of failure to provide such data;"@en .
+    oa:start 2124 ;
+    oa:end   2404 .
 ex:art13-p2-f a gdprkg:Point ; rdfs:label "Article 13(2)(f)"@en ;
-    skos:note "the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and ... meaningful information about the logic involved ...;"@en .
+    oa:start 2405 ;
+    oa:end   2689 .
 
 # --- Paragraphs 3 and 4 (no point subdivision -> grounding target is the Paragraph, per R4) ---
 ex:art13-p3 a gdprkg:Paragraph ; rdfs:label "Article 13(3)"@en ;
-    skos:note "Where the controller intends to further process the personal data for a purpose other than that for which the personal data were collected, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2."@en .
+    oa:start 2690 ;
+    oa:end   3023 .
 ex:art13-p4 a gdprkg:Paragraph ; rdfs:label "Article 13(4)"@en ;
-    skos:note "Paragraphs 1, 2 and 3 shall not apply where and insofar as the data subject already has the information."@en .
+    oa:start 3024 ;
+    oa:end   3131 .
 
 #################################################################
 #  1b — OUT-OF-SCOPE REFERENCED PROVISIONS (R6)  — stubs, never populated
@@ -244,9 +261,20 @@ ex:cond-13-3-prior a gdprkg:Condition ; rdfs:label "prior to that further proces
 #  is NOT decided by the model (report, surfaced item S2).
 #################################################################
 
+#  M2 SCOPE (S-G, 2026-08-30). The scope this exception defeats was stated only
+#  in the rdfs:label above, which no query can act on; it is now declared as
+#  referencesProvision edges onto the Paragraphs 13(4) names verbatim
+#  ("Paragraphs 1, 2 and 3 shall not apply..."). groundedIn still records where
+#  the exception's OWN text sits (13(4)); referencesProvision records what it
+#  acts on. Different facts, and the TBox already distinguishes them.
+#  This does NOT decide blanket-vs-per-obligation -- that stays with the legal
+#  reviewer (CLAUDE.md deferred register, and the #!SURFACE above). It records
+#  the reading the model applied, so the reviewer reviews ONE declared scope
+#  instead of reverse-engineering intent from 21 hasException edges.
 ex:exc-art13-4-already-has-info a gdprkg:Exception ;
     rdfs:label "Paragraphs 1-3 do not apply where/insofar as the data subject already has the information (Art 13(4))"@en ;
-    gdprkg:groundedIn ex:art13-p4 .
+    gdprkg:groundedIn ex:art13-p4 ;
+    gdprkg:referencesProvision ex:art13-p1 , ex:art13-p2 , ex:art13-p3 .
 
 #################################################################
 #  5 — OBLIGATIONS (point-level; primary normative units)

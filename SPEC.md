@@ -85,6 +85,10 @@ LegalBasis and Consent alike.
 **R-B2.** Grounding direction is canonical: `GROUNDED_IN` (norm to source). `SOURCE_OF` is
 its `owl:inverseOf`, reasoner-inferred, never asserted.
 
+**R-B2a.** Provision text is carried as `oa:start` / `oa:end` character offsets into
+`sources/art<N>.txt`, not as a stored copy. Each source file is digest-pinned in
+`sources/SOURCE.json`; `sources/art<N>.units.json` records the range per unit.
+
 **R-B3.** Every primary normative unit (`PrimaryNormativeUnit`: Obligation, Right,
 LegalBasis, Consent) carries provenance and a review status. Condition and Exception
 inherit these from their parent unit rather than carrying their own.
@@ -142,6 +146,39 @@ execution are recorded per article.
 
 A competency question without an expected answer is not a test. The 27-question set is
 frozen in `methodology/competency_questions.json`.
+
+---
+
+### 5.1 Which state this snapshot is
+
+This repository is a **periodic snapshot**. The canonical graph — TBox, SHACL shapes and
+article ABoxes — lives in the working tree (`gdpr-kg-foundation/`), which is upstream of
+this one and is refreshed into it at milestones, not continuously. Between milestones the
+two may legitimately differ.
+
+This matters when reading a `verify.py` result. A failure here means one of two different
+things, and they are not interchangeable:
+
+- the graph in *this snapshot* genuinely fails a leg; or
+- this snapshot has fallen behind the canonical tree, and the failure describes a state
+  that no longer exists upstream.
+
+To tell them apart, compare the hashes below against the ones the runners print. Every
+runner emits a `[ROOT]` line and the `sha256` of the TBox it actually read, before it
+loads anything, so a reported count can always be tied to the exact bytes that produced
+it.
+
+**This snapshot corresponds to the `gdpr-kg-foundation` state with canonical
+`ontology/gdpr_kg.ttl` sha256 `8ab94608659ae5868bdedff894b368e2648758708a0999a70d6a771adb53815c`
+and `ontology/shapes.ttl` sha256
+`6abce9a50b8ed375a9f41ace8b7f42eef406b6a94a903bbd55b31409ae8a323f` (snapshot taken
+2026-08-18).**
+
+If those two hashes match what the runners report here, the snapshot is current and a
+`verify.py` verdict describes the live graph. If they do not, the snapshot is stale and the
+verdict describes the snapshot only. Regenerate this paragraph with
+`python3 snapshot_drift_check.py --spec-line` in the canonical tree; that script is the
+publish-time gate and fails loudly when the two trees have diverged.
 
 ---
 

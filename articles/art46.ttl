@@ -6,6 +6,7 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 #################################################################
@@ -103,27 +104,35 @@ ex:art46 a gdprkg:Article ;
 
 # --- Paragraph 1 (unlettered) — the gate + the permission ---
 ex:art46-p1 a gdprkg:Paragraph ; rdfs:label "Article 46(1)"@en ;
-    skos:note "In the absence of a decision pursuant to Article 45 (3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."@en .
+    oa:start 0 ;
+    oa:end   352 .
 
 # --- Paragraph 2 (chapeau) + six lettered points: NO supervisory-authority authorisation ---
 # NB the 46(2) list is NOT qualified by "in particular" (verified on disk) — see 46(3).
 ex:art46-p2 a gdprkg:Paragraph ; rdfs:label "Article 46(2)"@en ;
-    skos:note "The appropriate safeguards referred to in paragraph 1 may be provided for, without requiring any specific authorisation from a supervisory authority, by: ..."@en ;
+    oa:start 353 ;
+    oa:end   1451 ;
     gdprkg:hasPoint ex:art46-p2-a , ex:art46-p2-b , ex:art46-p2-c ,
                     ex:art46-p2-d , ex:art46-p2-e , ex:art46-p2-f .
 
 ex:art46-p2-a a gdprkg:Point ; rdfs:label "Article 46(2)(a)"@en ;
-    skos:note "a legally binding and enforceable instrument between public authorities or bodies;"@en .
+    oa:start 510 ;
+    oa:end   596 .
 ex:art46-p2-b a gdprkg:Point ; rdfs:label "Article 46(2)(b)"@en ;
-    skos:note "binding corporate rules in accordance with Article 47 ;"@en .
+    oa:start 597 ;
+    oa:end   655 .
 ex:art46-p2-c a gdprkg:Point ; rdfs:label "Article 46(2)(c)"@en ;
-    skos:note "standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93 (2);"@en .
+    oa:start 656 ;
+    oa:end   793 .
 ex:art46-p2-d a gdprkg:Point ; rdfs:label "Article 46(2)(d)"@en ;
-    skos:note "standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in Article 93 (2);"@en .
+    oa:start 794 ;
+    oa:end   964 .
 ex:art46-p2-e a gdprkg:Point ; rdfs:label "Article 46(2)(e)"@en ;
-    skos:note "an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects’ rights; or"@en .
+    oa:start 965 ;
+    oa:end   1205 .
 ex:art46-p2-f a gdprkg:Point ; rdfs:label "Article 46(2)(f)"@en ;
-    skos:note "an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects’ rights."@en .
+    oa:start 1206 ;
+    oa:end   1451 .
 
 # --- Paragraph 3 (chapeau) + two lettered points: authorisation REQUIRED ---
 # !! The 46(3) list IS qualified by "in particular" — it is NON-EXHAUSTIVE, and 46(2) is
@@ -132,17 +141,21 @@ ex:art46-p2-f a gdprkg:Point ; rdfs:label "Article 46(2)(f)"@en ;
 # no appropriate safeguard") is defensible over 46(2) and UNSOUND over 46(3). It binds
 # fixtures/art46_scenarios.ttl and every query written against this file.
 ex:art46-p3 a gdprkg:Paragraph ; rdfs:label "Article 46(3)"@en ;
-    skos:note "Subject to the authorisation from the competent supervisory authority, the appropriate safeguards referred to in paragraph 1 may also be provided for, in particular, by: ..."@en ;
+    oa:start 1452 ;
+    oa:end   1968 ;
     gdprkg:hasPoint ex:art46-p3-a , ex:art46-p3-b .
 
 ex:art46-p3-a a gdprkg:Point ; rdfs:label "Article 46(3)(a)"@en ;
-    skos:note "contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or"@en .
+    oa:start 1625 ;
+    oa:end   1807 .
 ex:art46-p3-b a gdprkg:Point ; rdfs:label "Article 46(3)(b)"@en ;
-    skos:note "provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights."@en .
+    oa:start 1808 ;
+    oa:end   1968 .
 
 # --- Paragraph 4 (unlettered) — the supervisory-authority duty ---
 ex:art46-p4 a gdprkg:Paragraph ; rdfs:label "Article 46(4)"@en ;
-    skos:note "The supervisory authority shall apply the consistency mechanism referred to in Article 63 in the cases referred to in paragraph 3 of this Article."@en .
+    oa:start 1969 ;
+    oa:end   2118 .
 
 # --- Paragraph 5 (unlettered) — TRANSITIONAL LAW, no normative unit (T3-D) ---
 # 46(5) saves two classes of pre-GDPR instrument: Member-State/supervisory-authority
@@ -166,7 +179,8 @@ ex:art46-p4 a gdprkg:Paragraph ; rdfs:label "Article 46(4)"@en ;
 # skos:note text only, recorded as a non-coverage under playbook §4.1. Tier-1 "new stubs = 5"
 # is unchanged. Ledger carry: art46-46-5-seealso-target.
 ex:art46-p5 a gdprkg:Paragraph ; rdfs:label "Article 46(5)"@en ;
-    skos:note "1 Authorisations by a Member State or supervisory authority on the basis of Article 26(2) of Directive 95/46/EC shall remain valid until amended, replaced or repealed, if necessary, by that supervisory authority. 2 Decisions adopted by the Commission on the basis of Article 26(4) of Directive 95/46/EC shall remain in force until amended, replaced or repealed, if necessary, by a Commission Decision adopted in accordance with paragraph 2 of this Article."@en ;
+    oa:start 2119 ;
+    oa:end   2574 ;
     skos:scopeNote "OUT-OF-SCOPE TRANSITIONAL LAW (T3-D). Cites Directive 95/46/EC Art 26(2) (first sentence) and Art 26(4) (second sentence) — the project's first citations to an instrument outside the GDPR entirely. NO ReferencedProvision stub is minted for either (T3-E), NO rdfs:seeAlso target is asserted (no verifiable external IRI exists — see the block comment above), and NO normative unit is generated. Recorded as text only. This is a deliberate, ruled non-coverage, not an omission."@en .
 
 #################################################################
@@ -253,7 +267,11 @@ ex:actor-supervisory-authority a gdprkg:Actor_SupervisoryAuthority ;
     rdfs:label "Supervisory authority"@en .
 ex:actor-processor a gdprkg:Processor ;
     rdfs:label "Processor"@en ;
-    skos:note "Minted by the Art-46 pass (T3-I). 46(1) permits 'a controller OR processor' to transfer — disjunctive in addressee, both permitted — so the 46(1) Permission carries TWO grantsPermissionTo edges. gdprkg:Processor was declared in Phase 3 and idle until now; this is an instance mint, not a TBox change."@en .
+    # S-C Task 4: this was a skos:note. It is a MODELLING JUSTIFICATION,
+    # not legal text, and ex:actor-processor has no source unit to be an
+    # anchor for, so the skos:note triple is deleted rather than split.
+    # REPAIR-PLAN.md 6.5 / "S-C Task 4".
+    rdfs:comment "Minted by the Art-46 pass (T3-I). 46(1) permits 'a controller OR processor' to transfer — disjunctive in addressee, both permitted — so the 46(1) Permission carries TWO grantsPermissionTo edges. gdprkg:Processor was declared in Phase 3 and idle until now; this is an instance mint, not a TBox change."@en .
 
 #################################################################
 #  4 — CANONICAL DOMAIN NODES (REUSED, type re-declared only)

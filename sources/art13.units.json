@@ -1,0 +1,170 @@
+{
+  "article": 13,
+  "char_length": 3131,
+  "sha256": "f35693c6b088dfbadaa340fd5001c6845343e9a5fdd58e4c94017a5270390db3",
+  "source_id": "cellar",
+  "source_url": "http://publications.europa.eu/resource/celex/32016R0679",
+  "title": "Information to be provided where personal data are collected from the data subject",
+  "units": [
+    {
+      "char_end": 1197,
+      "char_start": 0,
+      "kind": "paragraph",
+      "label": "Article 13(1)",
+      "text": "1. Where personal data relating to a data subject are collected from the data subject, the controller shall, at the time when personal data are obtained, provide the data subject with all of the following information: (a) the identity and the contact details of the controller and, where applicable, of the controller's representative; (b) the contact details of the data protection officer, where applicable; (c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; (d) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party; (e) the recipients or categories of recipients of the personal data, if any; (f) where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available.",
+      "unit_id": "art13-p1"
+    },
+    {
+      "char_end": 217,
+      "char_start": 0,
+      "kind": "subparagraph",
+      "label": "Article 13(1), subparagraph 1",
+      "text": "1. Where personal data relating to a data subject are collected from the data subject, the controller shall, at the time when personal data are obtained, provide the data subject with all of the following information:",
+      "unit_id": "art13-p1-sub1"
+    },
+    {
+      "char_end": 335,
+      "char_start": 218,
+      "kind": "point",
+      "label": "Article 13(1)(a)",
+      "text": "(a) the identity and the contact details of the controller and, where applicable, of the controller's representative;",
+      "unit_id": "art13-p1-a"
+    },
+    {
+      "char_end": 409,
+      "char_start": 336,
+      "kind": "point",
+      "label": "Article 13(1)(b)",
+      "text": "(b) the contact details of the data protection officer, where applicable;",
+      "unit_id": "art13-p1-b"
+    },
+    {
+      "char_end": 532,
+      "char_start": 410,
+      "kind": "point",
+      "label": "Article 13(1)(c)",
+      "text": "(c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;",
+      "unit_id": "art13-p1-c"
+    },
+    {
+      "char_end": 668,
+      "char_start": 533,
+      "kind": "point",
+      "label": "Article 13(1)(d)",
+      "text": "(d) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party;",
+      "unit_id": "art13-p1-d"
+    },
+    {
+      "char_end": 745,
+      "char_start": 669,
+      "kind": "point",
+      "label": "Article 13(1)(e)",
+      "text": "(e) the recipients or categories of recipients of the personal data, if any;",
+      "unit_id": "art13-p1-e"
+    },
+    {
+      "char_end": 1197,
+      "char_start": 746,
+      "kind": "point",
+      "label": "Article 13(1)(f)",
+      "text": "(f) where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available.",
+      "unit_id": "art13-p1-f"
+    },
+    {
+      "char_end": 2689,
+      "char_start": 1198,
+      "kind": "paragraph",
+      "label": "Article 13(2)",
+      "text": "2. In addition to the information referred to in paragraph 1, the controller shall, at the time when personal data are obtained, provide the data subject with the following further information necessary to ensure fair and transparent processing: (a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period; (b) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability; (c) where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal; (d) the right to lodge a complaint with a supervisory authority; (e) whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data and of the possible consequences of failure to provide such data; (f) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.",
+      "unit_id": "art13-p2"
+    },
+    {
+      "char_end": 1443,
+      "char_start": 1198,
+      "kind": "subparagraph",
+      "label": "Article 13(2), subparagraph 1",
+      "text": "2. In addition to the information referred to in paragraph 1, the controller shall, at the time when personal data are obtained, provide the data subject with the following further information necessary to ensure fair and transparent processing:",
+      "unit_id": "art13-p2-sub1"
+    },
+    {
+      "char_end": 1574,
+      "char_start": 1444,
+      "kind": "point",
+      "label": "Article 13(2)(a)",
+      "text": "(a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;",
+      "unit_id": "art13-p2-a"
+    },
+    {
+      "char_end": 1818,
+      "char_start": 1575,
+      "kind": "point",
+      "label": "Article 13(2)(b)",
+      "text": "(b) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability;",
+      "unit_id": "art13-p2-b"
+    },
+    {
+      "char_end": 2058,
+      "char_start": 1819,
+      "kind": "point",
+      "label": "Article 13(2)(c)",
+      "text": "(c) where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;",
+      "unit_id": "art13-p2-c"
+    },
+    {
+      "char_end": 2123,
+      "char_start": 2059,
+      "kind": "point",
+      "label": "Article 13(2)(d)",
+      "text": "(d) the right to lodge a complaint with a supervisory authority;",
+      "unit_id": "art13-p2-d"
+    },
+    {
+      "char_end": 2404,
+      "char_start": 2124,
+      "kind": "point",
+      "label": "Article 13(2)(e)",
+      "text": "(e) whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data and of the possible consequences of failure to provide such data;",
+      "unit_id": "art13-p2-e"
+    },
+    {
+      "char_end": 2689,
+      "char_start": 2405,
+      "kind": "point",
+      "label": "Article 13(2)(f)",
+      "text": "(f) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.",
+      "unit_id": "art13-p2-f"
+    },
+    {
+      "char_end": 3023,
+      "char_start": 2690,
+      "kind": "subparagraph",
+      "label": "Article 13(3), subparagraph 1",
+      "text": "3. Where the controller intends to further process the personal data for a purpose other than that for which the personal data were collected, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2.",
+      "unit_id": "art13-p3-sub1"
+    },
+    {
+      "char_end": 3023,
+      "char_start": 2690,
+      "kind": "paragraph",
+      "label": "Article 13(3)",
+      "text": "3. Where the controller intends to further process the personal data for a purpose other than that for which the personal data were collected, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2.",
+      "unit_id": "art13-p3"
+    },
+    {
+      "char_end": 3131,
+      "char_start": 3024,
+      "kind": "subparagraph",
+      "label": "Article 13(4), subparagraph 1",
+      "text": "4. Paragraphs 1, 2 and 3 shall not apply where and insofar as the data subject already has the information.",
+      "unit_id": "art13-p4-sub1"
+    },
+    {
+      "char_end": 3131,
+      "char_start": 3024,
+      "kind": "paragraph",
+      "label": "Article 13(4)",
+      "text": "4. Paragraphs 1, 2 and 3 shall not apply where and insofar as the data subject already has the information.",
+      "unit_id": "art13-p4"
+    }
+  ]
+}

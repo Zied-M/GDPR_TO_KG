@@ -10,6 +10,7 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 #################################################################
@@ -104,6 +105,18 @@ prov:wasDerivedFrom               a owl:ObjectProperty .
 # Dublin Core terms reused as super-properties (grounding + cross-reference)
 dcterms:source                    a owl:ObjectProperty .
 dcterms:references                a owl:ObjectProperty .   # "a resource referenced/cited by the described resource" — super-property for gdprkg:referencesProvision
+
+# W3C Web Annotation Vocabulary [w3c2017webannotation] — http://www.w3.org/ns/oa#
+# REUSED, NOT IMPORTED. Same posture as prov: and dcterms: above: the IRIs are
+# reused and the only axioms about them in this project are the two below. The OA
+# ontology is NOT owl:imports-ed, so nothing else it says enters the graph.
+# oa: publishes these as rdf:Property (OA is RDFS-flavoured); they are declared
+# owl:DatatypeProperty here so the TBox stays OWL 2 DL. Offset grounding, S-G
+# 2026-08-30 — see the block at the DATATYPE PROPERTIES section for the full
+# reuse-first divergence justification.
+oa:start                          a owl:DatatypeProperty .
+oa:end                            a owl:DatatypeProperty .
+oa:TextPositionSelector           a owl:Class .
 
 #################################################################
 #  LAYER 1 — Legal-source structure  (Regulation → Article → Paragraph → Point)
@@ -613,6 +626,21 @@ gdprkg:hasTimeLimit a owl:DatatypeProperty ; rdfs:label "hasTimeLimit" ;
 gdprkg:reviewStatus a owl:DatatypeProperty ; rdfs:label "reviewStatus" ;
     rdfs:range xsd:string ;
     rdfs:comment "Human/legal review status of a generated node. Required-presence on non-source generated nodes is a Phase-4 SHACL constraint, not an OWL axiom."@en .
+
+# ---- OFFSET GROUNDING (S-G, 2026-08-30) ----------------------------------
+# Provision text is an oa:start/oa:end range in sources/art<N>.txt, not a stored
+# copy. NO gdprkg: term is minted -- oa:* is reused, not owl:imports-ed.
+# GATE-A live-spec check 2026-08-30 (playbook 3.2), full four-part divergence
+# justification in DECISIONS.md REVERSAL 4. In short: oa:start/oa:end carry NO
+# rdfs:domain, so they entail nothing about the node they sit on; NIF's
+# beginIndex/endIndex were rejected because rdfs:domain nif:String would entail
+# a legal subdivision IS a character sequence; and the offsets are carried flat
+# rather than via oa:hasSelector, whose rdfs:domain oa:ResourceSelection would
+# entail every Paragraph is a resource-selection. The seeAlso below records
+# that we knew the intended OA shape and chose not to use it.
+# Shapes target PrimaryNormativeUnit, so none fires on a provision; the check
+# lives in sources/g0_source_gate.py.
+gdprkg:LegalProvision rdfs:seeAlso oa:TextPositionSelector .
 
 gdprkg:workingTextSource a owl:DatatypeProperty ; rdfs:label "workingTextSource" ;
     rdfs:range xsd:anyURI ;

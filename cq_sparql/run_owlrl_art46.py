@@ -13,7 +13,10 @@
 #  Needs a networked (or pre-provisioned) machine:
 #      pip install rdflib owlrl
 #      python run_owlrl_art46.py
-#  Run from the cq_sparql/ directory.
+#  Run from anywhere. The graph tree is resolved as:
+#      --root <dir>  >  $GDPR_KG_ROOT  >  the tree this script lives in
+#  (see kg_root.py). Missing inputs exit 2, not 1, so a path failure is
+#  distinguishable from a CQ failure. The TBox sha256 is printed below.
 #
 #  What it does:
 #    1. load the COMBINED 6-file union into ONE graph:
@@ -57,18 +60,25 @@
 #  regression, and NO PROXY HERE COVERS IT.
 # =====================================================================
 import os, sys
+import kg_root                      # --root / GDPR_KG_ROOT + TBox sha256 (S-B)
 try:
     import rdflib
     import owlrl
 except ImportError:
     sys.exit("Missing deps. Run:  pip install rdflib owlrl")
 
-TBOX  = os.path.join('..', 'ontology',  'gdpr_kg.ttl')
-ART13 = os.path.join('..', 'articles', 'art13.ttl')
-ART6  = os.path.join('..', 'articles', 'art6.ttl')
-ART12 = os.path.join('..', 'articles', 'art12.ttl')
-ART14 = os.path.join('..', 'articles', 'art14.ttl')
-ART46 = os.path.join('..', 'articles', 'art46.ttl')
+ROOT = kg_root.resolve_root()
+sys.argv = kg_root.strip_root_args()
+
+TBOX  = os.path.join(ROOT, 'ontology',  'gdpr_kg.ttl')
+ART13 = os.path.join(ROOT, 'articles', 'art13.ttl')
+ART6  = os.path.join(ROOT, 'articles', 'art6.ttl')
+ART12 = os.path.join(ROOT, 'articles', 'art12.ttl')
+ART14 = os.path.join(ROOT, 'articles', 'art14.ttl')
+ART46 = os.path.join(ROOT, 'articles', 'art46.ttl')
+kg_root.require(TBOX, ART13, ART6, ART12, ART14, ART46)
+kg_root.provenance(ROOT, TBOX)
+QDIR = os.path.join(ROOT, 'cq_sparql')   # .rq files come from the same tree as the data
 
 GDPRKG = "https://w3id.org/gdprkg#"
 DATA   = "https://w3id.org/gdprkg/data#"      # prefix ex:
@@ -172,7 +182,7 @@ QUERIES = [
 ]
 
 for fname, label, expected, regime, note in QUERIES:
-    q = open(fname, encoding='utf-8').read()
+    q = open(os.path.join(QDIR, fname), encoding='utf-8').read()
     src = g if regime == "materialised" else g_plain
     rows = list(src.query(q))
     ok = (len(rows) == expected)
@@ -192,7 +202,7 @@ for fname, label, expected, regime, note in QUERIES:
 # CQ-C6 — provenance/review: 297 rows = 80 "direct" + 217 "inherited"
 # ---------------------------------------------------------------------
 print("=== CQ-C6  provenance / review (mode split) ===")
-c6 = list(g.query(open("CQ-C6_provenance_review.rq", encoding='utf-8').read()))
+c6 = list(g.query(open(os.path.join(QDIR, "CQ-C6_provenance_review.rq"), encoding='utf-8').read()))
 n_direct    = sum(1 for r in c6 if str(r["mode"]) == "direct")
 n_inherited = sum(1 for r in c6 if str(r["mode"]) == "inherited")
 n_total     = len(c6)
@@ -378,12 +388,39 @@ a46_in = sorted(short(s) for s in g_plain.subjects(GK.referencesProvision, EX["a
 check("ex:art46 referencesProvision in-edges (the rewire, from the other side)", len(a46_in), 2)
 check("ex:art46 in-edge subjects are the two 1(f) Conditions",
       a46_in == ["ex:cond-13-1-f-transfer-safeguarded", "ex:cond-14-1-f-transfer-safeguarded"], True)
-check("referencesProvision on Art-13 subjects UNCHANGED at 8",
-      len([1 for s, _, _ in rp if is_art13(s)]), 8)
+# ---- S-G 2026-08-30: the M2 scope edges moved these two raw-edge counts ----
+# These fixtures asserted "UNCHANGED at N" because the Art-46 pass needed to show
+# that the ex:ref-art46 rewire did not disturb the referencesProvision population.
+# The M2 unit DELIBERATELY grows that population: every multi-bearer Exception now
+# declares the scope it defeats on the same property (3 edges in art13, 16 in
+# art14, 19 total). The old totals are recorded here, not overwritten silently.
+#
+# The counts are SPLIT rather than bumped, so the original claim keeps its
+# discriminating power: the CITATION half must still be unchanged at 8 / 11, and
+# a stray scope edge shows up as scope, not as a bigger single number.
+# A scope edge is one FROM a gdprkg:Exception ONTO a gdprkg:Paragraph or
+# gdprkg:Point -- the same type discrimination m_conformance.py M2 applies
+# (Zied, 2026-08-28). Everything else on the property is a citation.
+def _is_scope(s, o):
+    return ((s, RDF.type, GK.Exception) in g_plain
+            and ((o, RDF.type, GK.Paragraph) in g_plain
+                 or (o, RDF.type, GK.Point) in g_plain))
+
+
+check("referencesProvision CITATIONS on Art-13 subjects UNCHANGED at 8",
+      len([1 for s, _, o in rp if is_art13(s) and not _is_scope(s, o)]), 8)
+check("referencesProvision M2 SCOPE edges on Art-13 subjects (S-G, was 0)",
+      len([1 for s, _, o in rp if is_art13(s) and _is_scope(s, o)]), 3)
+check("referencesProvision on Art-13 subjects, TOTAL (was 8 before S-G)",
+      len([1 for s, _, _ in rp if is_art13(s)]), 11)
 check("referencesProvision on Art-12 subjects UNCHANGED at 49",
       len([1 for s, _, _ in rp if is_art12(s)]), 49)
-check("referencesProvision on Art-14 subjects UNCHANGED at 11",
-      len([1 for s, _, _ in rp if is_art14(s)]), 11)
+check("referencesProvision CITATIONS on Art-14 subjects UNCHANGED at 11",
+      len([1 for s, _, o in rp if is_art14(s) and not _is_scope(s, o)]), 11)
+check("referencesProvision M2 SCOPE edges on Art-14 subjects (S-G, was 0)",
+      len([1 for s, _, o in rp if is_art14(s) and _is_scope(s, o)]), 16)
+check("referencesProvision on Art-14 subjects, TOTAL (was 11 before S-G)",
+      len([1 for s, _, _ in rp if is_art14(s)]), 27)
 
 # ---- the demonstrator must NOT be in this union ----
 check("fixtures/art46_scenarios.ttl NOT loaded (0 exs: scenario IRIs present)",

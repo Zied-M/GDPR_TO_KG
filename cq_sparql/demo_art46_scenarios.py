@@ -41,6 +41,7 @@
 #  Usage:  cd cq_sparql && python demo_art46_scenarios.py
 # =====================================================================
 import os, sys
+import kg_root                      # --root / GDPR_KG_ROOT + TBox sha256 (S-B)
 try:
     import rdflib
 except ImportError:
@@ -54,13 +55,18 @@ print("  proxy for one, and must not be reported as certification evidence.")
 print(BANNER)
 print()
 
-FILES = [os.path.join('..', 'ontology', 'gdpr_kg.ttl'),
-         os.path.join('..', 'articles', 'art13.ttl'),
-         os.path.join('..', 'articles', 'art6.ttl'),
-         os.path.join('..', 'articles', 'art12.ttl'),
-         os.path.join('..', 'articles', 'art14.ttl'),
-         os.path.join('..', 'articles', 'art46.ttl')]
-FIXTURE = os.path.join('..', 'fixtures', 'art46_scenarios.ttl')
+ROOT = kg_root.resolve_root()
+sys.argv = kg_root.strip_root_args()
+
+FILES = [os.path.join(ROOT, 'ontology', 'gdpr_kg.ttl'),
+         os.path.join(ROOT, 'articles', 'art13.ttl'),
+         os.path.join(ROOT, 'articles', 'art6.ttl'),
+         os.path.join(ROOT, 'articles', 'art12.ttl'),
+         os.path.join(ROOT, 'articles', 'art14.ttl'),
+         os.path.join(ROOT, 'articles', 'art46.ttl')]
+FIXTURE = os.path.join(ROOT, 'fixtures', 'art46_scenarios.ttl')
+kg_root.require(*(FILES + [FIXTURE]))
+kg_root.provenance(ROOT, FILES[0], extra=[('FIXTURE', FIXTURE)])
 
 g = rdflib.Graph()
 for f in FILES:

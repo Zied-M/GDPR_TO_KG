@@ -11,7 +11,10 @@
 #  Needs a networked (or pre-provisioned) machine:
 #      pip install rdflib owlrl
 #      python run_owlrl_art12.py
-#  Run from the cq_sparql/ directory.
+#  Run from anywhere. The graph tree is resolved as:
+#      --root <dir>  >  $GDPR_KG_ROOT  >  the tree this script lives in
+#  (see kg_root.py). Missing inputs exit 2, not 1, so a path failure is
+#  distinguishable from a CQ failure. The TBox sha256 is printed below.
 #
 #  What it does (cq_sparql/README.md regime):
 #    1. load the COMBINED 4-file union into ONE graph:
@@ -48,16 +51,23 @@
 #  regime it used.
 # =====================================================================
 import os, sys
+import kg_root                      # --root / GDPR_KG_ROOT + TBox sha256 (S-B)
 try:
     import rdflib
     import owlrl
 except ImportError:
     sys.exit("Missing deps. Run:  pip install rdflib owlrl")
 
-TBOX  = os.path.join('..', 'ontology',  'gdpr_kg.ttl')
-ART13 = os.path.join('..', 'articles', 'art13.ttl')
-ART6  = os.path.join('..', 'articles', 'art6.ttl')
-ART12 = os.path.join('..', 'articles', 'art12.ttl')
+ROOT = kg_root.resolve_root()
+sys.argv = kg_root.strip_root_args()
+
+TBOX  = os.path.join(ROOT, 'ontology',  'gdpr_kg.ttl')
+ART13 = os.path.join(ROOT, 'articles', 'art13.ttl')
+ART6  = os.path.join(ROOT, 'articles', 'art6.ttl')
+ART12 = os.path.join(ROOT, 'articles', 'art12.ttl')
+kg_root.require(TBOX, ART13, ART6, ART12)
+kg_root.provenance(ROOT, TBOX)
+QDIR = os.path.join(ROOT, 'cq_sparql')   # .rq files come from the same tree as the data
 
 GDPRKG = "https://w3id.org/gdprkg#"
 DATA   = "https://w3id.org/gdprkg/data#"      # prefix ex:
@@ -130,7 +140,7 @@ QUERIES = [
 ]
 
 for fname, label, expected, regime, note in QUERIES:
-    q = open(fname, encoding='utf-8').read()
+    q = open(os.path.join(QDIR, fname), encoding='utf-8').read()
     src = g if regime == "materialised" else g_plain
     rows = list(src.query(q))
     ok = (len(rows) == expected)
@@ -148,7 +158,7 @@ for fname, label, expected, regime, note in QUERIES:
 #   (the query returns a ?mode column; split on it and assert all three)
 # ---------------------------------------------------------------------
 print("=== CQ-C6  provenance / review (mode split) ===")
-c6 = list(g.query(open("CQ-C6_provenance_review.rq", encoding='utf-8').read()))
+c6 = list(g.query(open(os.path.join(QDIR, "CQ-C6_provenance_review.rq"), encoding='utf-8').read()))
 n_direct    = sum(1 for r in c6 if str(r["mode"]) == "direct")
 n_inherited = sum(1 for r in c6 if str(r["mode"]) == "inherited")
 n_total     = len(c6)

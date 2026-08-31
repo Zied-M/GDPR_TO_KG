@@ -1,0 +1,72 @@
+{
+  "articles": [
+    {
+      "article": 6,
+      "char_length": 4083,
+      "file": "art6.txt",
+      "sha256": "de13c931141cc22da863f374e9ad42deea8aa509b5293f6ffe1700c2d643f805",
+      "title": "Lawfulness of processing",
+      "unit_count": 23,
+      "units_file": "art6.units.json"
+    },
+    {
+      "article": 12,
+      "char_length": 3492,
+      "file": "art12.txt",
+      "sha256": "f279dfb165812ff0e303d6b4fe684a1cefb437692e3ebc2f6503691591c96662",
+      "title": "Transparent information, communication and modalities for the exercise of the rights of the data subject",
+      "unit_count": 19,
+      "units_file": "art12.units.json"
+    },
+    {
+      "article": 13,
+      "char_length": 3131,
+      "file": "art13.txt",
+      "sha256": "f35693c6b088dfbadaa340fd5001c6845343e9a5fdd58e4c94017a5270390db3",
+      "title": "Information to be provided where personal data are collected from the data subject",
+      "unit_count": 20,
+      "units_file": "art13.units.json"
+    },
+    {
+      "article": 14,
+      "char_length": 4540,
+      "file": "art14.txt",
+      "sha256": "ccaf24b06a96f5ed2830c7cec646fbbf002da9b1ae1012d9dc7e0e68a221dbc6",
+      "title": "Information to be provided where personal data have not been obtained from the data subject",
+      "unit_count": 30,
+      "units_file": "art14.units.json"
+    },
+    {
+      "article": 46,
+      "char_length": 2574,
+      "file": "art46.txt",
+      "sha256": "85e6308650a35e4969eed48fee60aeba9e509bc66533dcaf9fd443116522fe46",
+      "title": "Transfers subject to appropriate safeguards",
+      "unit_count": 18,
+      "units_file": "art46.units.json"
+    }
+  ],
+  "celex": "32016R0679",
+  "comparison_rule": {
+    "exact_is_not_byte_exact": "'Exact' under this rule is NOT byte equality, and never was. REPAIR-PLAN.md 6.4: ex:art46-p2-e and ex:art46-p2-f carry U+2019 where sources/art46.txt carries U+0027, and the gate scores both exact solely because U+2019 folds to U+0027. If the folds were removed or tightened, those two would stop resolving and the count would fall by 2 with no file having changed.",
+    "implemented_by": [
+      "sources/g0_source_gate.py: normalize()",
+      "sources/regenerate_notes.py: is_pure_formatting()"
+    ],
+    "quoting_rule": "NO fidelity percentage may be quoted without naming the contract it was computed under. The two contracts in use, and their values as of 2026-08-19 after session S-D re-measured them:  (a) NORMALISED (this rule) - 126/126 grounded nodes resolved = 100.0%; 57 of 63 grounding provisions exact, 6 abridged, 0 mismatch, 0 no-anchor.  (b) BYTE EQUALITY - 59/74 anchors with a same-unit_id source unit are byte-identical to that unit; of the remaining 15, 5 are proper byte substrings and 10 are '...' elisions, every one of them named in sources/g0-expected.json byte_gate.allow_divergent. Before session S-B-note it was 0/74.  CORRECTED 2026-08-19 (AUDIT-v0.md Q1 divergence 2): this field read '124/126 grounded nodes resolved = 98.4%; 55 of 63 grounding provisions exact' and '57/74' - the S-B-note values, left unrevised when S-C Task 2 de-abridged art13-p2-f and art6-p3 and moved them. Both values are now GATED rather than merely recorded: sources/g0_source_gate.py exits 1 if the normalised figure is not reached and exits 3 if the byte figure is not.",
+    "recorded": "2026-08-18, session S-B-note",
+    "statement": "Two strings are EQUAL for fidelity purposes iff they are equal after NFC normalisation, typographic folds, and whitespace collapse, applied in that order. This is the rule the G0-source gate has always used; it is stated here because it had never been written down as the comparison rule, only as a processing note.",
+    "steps": [
+      "NFC (unicodedata.normalize)",
+      "typographic folds (curly quotes -> ASCII, dashes -> '-', non-breaking and thin spaces -> U+0020)",
+      "whitespace collapse (runs of whitespace -> a single U+0020, ends trimmed)"
+    ]
+  },
+  "document_bytes": 806864,
+  "document_sha256": "962539af03738bf552319ff4ce42d69e5f95a576307c4dfed7bf87e81b646b9d",
+  "normalisation": "art2kg.text.normalize (NFC, typographic folds, whitespace collapse)",
+  "normalisation_note": "The 'normalisation' field names the PRODUCTION pipeline that built sources/*.txt. 'comparison_rule' names the rule anchors are COMPARED under. They coincide today; they are separate fields because they are separate claims.",
+  "retrieved_at": "2026-08-11T06:16:53+00:00",
+  "source_id": "cellar",
+  "source_url": "http://publications.europa.eu/resource/celex/32016R0679"
+}
