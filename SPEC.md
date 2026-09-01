@@ -169,10 +169,15 @@ loads anything, so a reported count can always be tied to the exact bytes that p
 it.
 
 **This snapshot corresponds to the `gdpr-kg-foundation` state with canonical
-`ontology/gdpr_kg.ttl` sha256 `8ab94608659ae5868bdedff894b368e2648758708a0999a70d6a771adb53815c`
+`ontology/gdpr_kg.ttl` sha256 `26aaf694acd245764dc5b54705f96b119f56ad7c793bad9dcf3c116839f91ea7`
 and `ontology/shapes.ttl` sha256
 `6abce9a50b8ed375a9f41ace8b7f42eef406b6a94a903bbd55b31409ae8a323f` (snapshot taken
-2026-08-18).**
+2026-08-31).**
+
+The TBox digest moved on 2026-08-31 (offset grounding, then a comment pass); the shapes
+digest has not moved since 2026-08-18. `snapshot_drift_check.py` now **verifies** this
+paragraph rather than only emitting it — a stale pin here reports "snapshot is stale"
+while the two trees are identical, which is the opposite of what this section is for.
 
 If those two hashes match what the runners report here, the snapshot is current and a
 `verify.py` verdict describes the live graph. If they do not, the snapshot is stale and the

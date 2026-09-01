@@ -31,3 +31,6 @@ workorder_*.md
 *_kickoff.md
 *_instantiation_brief.md
 agents/
+
+# manuscript workspace - not part of the published artifact
+paper_draft/
