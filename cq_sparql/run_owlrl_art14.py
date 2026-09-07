@@ -126,7 +126,8 @@ VERBOSE = ("-v" in sys.argv or "--verbose" in sys.argv)
 # =====================================================================
 # (file, label, expected, regime, note)
 QUERIES = [
-    ("CQ-C1_article_to_norms_grounded.rq", "CQ-C1  article -> grounded norms", 100, "materialised",
+    ("CQ-C1_article_to_norms_grounded.rq", "CQ-C1  article -> grounded norms", 102, "materialised",
+     "WORK ORDER F 2026-09-06 -- ex:cond-collected-from-data-subject. NOTE ON DISCIPLINE: unlike every other expectation moved by that unit, THESE WERE SET AFTER THE RUN, NOT BEFORE IT. The unit checked only run_owlrl_art46.py for regression and missed this runner; publish-gdpr-kg/verify.py caught it. The derivation is given so the number can be checked against reasoning rather than accepted because a runner printed it. DERIVATION 100 -> 102: BOTH grounding legs of the new Condition are present in this union (art13.ttl and art14.ttl are both loaded), so ONE node yields TWO rows. It is the first node in the project with two groundedIn edges; permitted (minCount 1, no maxCount). || ORIGINAL NOTE FOLLOWS: "
      "TIER 2. Art-14 delta +40 (24 Obligation + 12 Condition + 4 Exception). "
      "6 Permissions still excluded by the frozen FILTER -> recorded non-coverage #1, NOT a defect."),
     ("CQ-C2_uniform_grounding.rq", "CQ-C2  uniform grounding (0 = pass)", 0, "materialised",
@@ -154,7 +155,8 @@ QUERIES = [
     ("CQ-A1_art13_coverage.rq", "CQ-A1  obligations + grounding (unscoped)", 58, "materialised",
      "TIER 2. Query is not article-scoped: 21 art13 + 13 art12 + 24 art14. "
      "The Art-13 answer it was written for is UNCHANGED at 21."),
-    ("CQ-A3_conditional_duties.rq", "CQ-A3  conditional duties (Art 13/14)", 90, "materialised",
+    ("CQ-A3_conditional_duties.rq", "CQ-A3  conditional duties (Art 13/14)", 111, "materialised",
+     "WORK ORDER F 2026-09-06 -- ex:cond-collected-from-data-subject. NOTE ON DISCIPLINE: unlike every other expectation moved by that unit, THESE WERE SET AFTER THE RUN, NOT BEFORE IT. The unit checked only run_owlrl_art46.py for regression and missed this runner; publish-gdpr-kg/verify.py caught it. The derivation is given so the number can be checked against reasoning rather than accepted because a runner printed it. DERIVATION 90 -> 111: +21 ONLY, the Article-13 side. The 23 Article-14 duties attach to the SAME shared trigger with gdprkg:notApplicableIf, which this frozen query does not mention, so they contribute NOTHING. RECORDED NON-COVERAGE -- CQ-A3 was DELIBERATELY NOT FIXED (Zied, option B, 2026-09-06) because its frozen probe names APPLIES_IF edges explicitly. The query was NOT widened. || ORIGINAL NOTE FOLLOWS: "
      "TIER 2 = 29 art13 + 0 art6 (its appliesIf subjects are LegalBasis) + 7 art12 (the other 5 sit "
      "on Permissions) + 54 art14. 23 of Art-14's 24 obligations are conditional; the exception is "
      "obl-art14-5-b-protective-measures."),
@@ -211,10 +213,15 @@ c6 = list(g.query(open(os.path.join(QDIR, "CQ-C6_provenance_review.rq"), encodin
 n_direct    = sum(1 for r in c6 if str(r["mode"]) == "direct")
 n_inherited = sum(1 for r in c6 if str(r["mode"]) == "inherited")
 n_total     = len(c6)
-c6_ok = (n_direct == 70 and n_inherited == 214 and n_total == 284)
+# WORK ORDER F + CQ-C6 ENCODING FIX, 2026-09-06: inherited 214 -> 258 = +44, being 21 art13
+# appliesIf parents AND 23 art14 notApplicableIf parents. The 23 count HERE because CQ-C6's
+# encoding was fixed that day (notApplicableIf added to the inherited parent path); they do NOT
+# count in CQ-A3, which was deliberately left unfixed. direct unchanged at 70.
+# SET AFTER THE RUN, not before -- see the CQ-C1 note above.
+c6_ok = (n_direct == 70 and n_inherited == 258 and n_total == 328)
 all_ok = all_ok and c6_ok
 print("    file=CQ-C6_provenance_review.rq  regime=materialised")
-print("    direct=%d (expected 70)  inherited=%d (expected 214)  total=%d (expected 284)  -> %s"
+print("    direct=%d (expected 70)  inherited=%d (expected 258)  total=%d (expected 328)  -> %s"
       % (n_direct, n_inherited, n_total, "PASS" if c6_ok else "CHECK"))
 print("    NOTE: direct 70 is TIER 1 (LOCKED, brief 6.1) = 46 + 24 Art-14 obligations.")
 print("    NOTE: inherited 214 is TIER 2 = 50 art13 + 4 art6 + 14 art12 + 146 art14")
@@ -336,10 +343,32 @@ check("gdprkg:reliesOnLegalBasis COMBINED (2 art13 + 2 art14)", len(rolb), 4)
 check("gdprkg:reliesOnLegalBasis on Art-14 subjects",
       len([1 for s, _, _ in rolb if is_art14(s)]), 2)
 
-# ---- forbidden edges on Art-14 nodes (f2-domain-family must NOT trigger) ----
-for pr in ("notApplicableIf", "hasLegalEffect"):
-    n = len([1 for s, _, _ in g_plain.triples((None, GK[pr], None)) if is_art14(s)])
-    check("forbidden gdprkg:%s on Art-14 nodes (f2 carry not triggered)" % pr, n, 0)
+# ---- f2-domain-family must NOT trigger ----
+# WORK ORDER F 2026-09-06 -- THIS BLOCK CHANGED MEANING AND THE CHANGE IS DELIBERATE.
+# It used to assert a BLANKET ABSENCE: zero gdprkg:notApplicableIf on any Art-14 node. That was
+# correct for the Art-14 pass (art14.ttl's own header said "NO notApplicableIf") but it was NEVER
+# the f2 carry's actual trigger -- f2 fires on notApplicableIf attached to a gdprkg:LegalBasis.
+# Work Order F deliberately attaches 23 such edges to Art-14 OBLIGATIONS, on Zied's decided model,
+# certified 2026-09-06. So the blanket prohibition is SUPERSEDED BY A LATER CERTIFIED DECISION, not
+# quietly relaxed to make a run pass. Same treatment as the three re-scoped fixtures in
+# run_owlrl_art46.py. What replaces it is STRICTER where it matters: the real f2 guard is asserted
+# directly, and the 23 new edges are BOUNDED rather than merely permitted.
+# SET AFTER THE RUN, not before -- see the CQ-C1 note above.
+n = len([1 for s, _, _ in g_plain.triples((None, GK.hasLegalEffect, None)) if is_art14(s)])
+check("forbidden gdprkg:hasLegalEffect on Art-14 nodes (unchanged, still 0)", n, 0)
+
+nai14 = [(s, o) for s, _, o in g_plain.triples((None, GK.notApplicableIf, None)) if is_art14(s)]
+check("gdprkg:notApplicableIf on Art-14 nodes [was 0 pre-WO-F; now the 23 collection-source edges]",
+      len(nai14), 23)
+check("all 23 are gdprkg:Obligation subjects",
+      all((s, RDF.type, GK.Obligation) in g_plain for s, _ in nai14), True)
+check("all 23 target the ONE shared node ex:cond-collected-from-data-subject",
+      {short(o) for _, o in nai14} == {"ex:cond-collected-from-data-subject"}, True)
+check("THE REAL f2-domain-family TRIGGER: notApplicableIf on a gdprkg:LegalBasis - MUST be 0",
+      len([1 for s, _, _ in g_plain.triples((None, GK.notApplicableIf, None))
+           if (s, RDF.type, GK.LegalBasis) in g_plain]), 0)
+check("ex:obl-art14-5-b-protective-measures is NOT among them (outside the 14(1)-(4) scope)",
+      not any(short(s) == "ex:obl-art14-5-b-protective-measures" for s, _ in nai14), True)
 
 # ---- Art-12 regression: Permission machinery untouched ----
 check("gdprkg:grantsPermissionTo edges (REGRESSION, art12)",

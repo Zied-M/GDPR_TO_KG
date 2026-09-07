@@ -807,3 +807,69 @@ ex:obl-art14-5-b-protective-measures a gdprkg:Obligation ;
 #  NO TBox change. NO SHACL change. NO notApplicableIf. NO hasLegalEffect.
 #  NO Permission / grantsPermissionTo (Art 14 grants no discretionary power).
 #################################################################
+
+#################################################################
+#  WORK ORDER F (2026-09-06) - THE COLLECTION-SOURCE TRIGGER
+#  ---------------------------------------------------------------
+#  ex:cond-collected-from-data-subject is the CANONICAL SHARED NODE declared in art13.ttl
+#  (the ex:concept-* precedent: Art 14 references the SAME node, it does NOT create a local
+#  copy). Re-asserting its rdf:type here is the same convention the canonical concept nodes
+#  use at the "Domain layer" block above, and it keeps this file independently loadable; the
+#  triple is IDENTICAL to art13.ttl's and dedups in the union.
+#
+#  THE NEGATIVE EDGE. 14(1) states its trigger as "Where personal data have NOT been obtained
+#  from the data subject". Zied's model, decided 2026-09-06: that is the SAME FACT as 13(1)'s
+#  in opposite polarity (legal reading, citing CJEU), so Art 14's duties attach to the shared
+#  node with gdprkg:notApplicableIf rather than to a separate Art-14 condition of their own.
+#
+#  WHAT THIS ASSERTS AND WHAT IT DOES NOT. It asserts MUTUAL EXCLUSIVITY only: where the data
+#  WERE collected from the data subject, these duties do not apply. It does NOT assert
+#  EXHAUSTIVENESS and licenses NO inference that Article 14 DOES apply when the condition is
+#  false - that is the closed-world step refused at Art 46(3), and it is refused here too.
+#
+#  GROUNDING. The node is grounded in BOTH chapeaux; this file asserts the art14-p1 leg, so
+#  Article 14's own chapeau is recorded as a source of the fact it states. FIRST node in the
+#  project with two groundedIn edges (permitted: minCount 1, no maxCount).
+#
+#  SCOPE. referencesProvision onto 14(1)-(4), matching how all four 14(5) exceptions declare
+#  theirs. ex:obl-art14-5-b-protective-measures is therefore OUTSIDE the set - grounded in
+#  art14-p5-b, outside the declared scope - exactly as it already sits outside all four 14(5)
+#  bearer sets, with no exclusion list. It remains the only Obligation in either file with no
+#  condition edge at all, which is correct: it arises BECAUSE ground (b) applies.
+#
+#  RECORDED NON-COVERAGE - the 23 edges below are INVISIBLE to CQ-A3 (which keys on appliesIf)
+#  and to CQ-C6's inherited branch (which enumerates appliesIf|hasException). NEITHER FROZEN
+#  QUERY WAS WIDENED HERE and no edge was re-pointed to appliesIf to move a count. The shared
+#  node still resolves under CQ-C6 via the 21 Art-13 appliesIf edges, so NO NODE IS LEFT
+#  UNPROVENANCED - this is NOT a second instance of the Art-46 EXEC-9 finding, where the gate
+#  condition had no provenance path at all. Zied has ruled the CQ encoding mis-models its own
+#  stated question and may be corrected; that is a SEPARATE unit, deliberately not this one.
+#################################################################
+
+ex:cond-collected-from-data-subject a gdprkg:Condition ;   # SHARED canonical node with art13.ttl (not a copy)
+    gdprkg:groundedIn ex:art14-p1 ;
+    gdprkg:referencesProvision ex:art14-p1 , ex:art14-p2 , ex:art14-p3 , ex:art14-p4 .
+
+ex:obl-art14-1-a-controller-identity gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-1-a-representative-identity gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-1-b-dpo-contact gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-1-c-legal-basis gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-1-c-purposes gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-1-d-data-categories gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-1-e-recipients gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-1-f-transfer-fact gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-1-f-transfer-safeguards gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-a-storage-period gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-b-legitimate-interests gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-c-right-access gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-c-right-erasure gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-c-right-object gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-c-right-portability gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-c-right-rectification gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-c-right-restriction gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-d-withdraw-consent gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-e-lodge-complaint gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-f-publicly-accessible gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-f-source gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-2-g-automated-decision gdprkg:notApplicableIf ex:cond-collected-from-data-subject .
+ex:obl-art14-4-further-processing-info gdprkg:notApplicableIf ex:cond-collected-from-data-subject .

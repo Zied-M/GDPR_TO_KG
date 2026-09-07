@@ -117,7 +117,8 @@ all_ok = True
 # =====================================================================
 # (file, label, expected, regime, note)
 QUERIES = [
-    ("CQ-C1_article_to_norms_grounded.rq", "CQ-C1  article -> grounded norms", 60, "materialised",
+    ("CQ-C1_article_to_norms_grounded.rq", "CQ-C1  article -> grounded norms", 61, "materialised",
+     "WORK ORDER F 2026-09-06 -- ex:cond-collected-from-data-subject. NOTE ON DISCIPLINE: unlike every other expectation moved by that unit, THESE WERE SET AFTER THE RUN, NOT BEFORE IT. The unit checked only run_owlrl_art46.py for regression and missed this runner; publish-gdpr-kg/verify.py caught it. The derivation is given so the number can be checked against reasoning rather than accepted because a runner printed it. DERIVATION 60 -> 61: one new Condition, and in THIS union only its art13-p1 grounding leg exists -- the art14-p1 leg lives in art14.ttl, which this 4-file runner does not load. Exactly +1 row. || ORIGINAL NOTE FOLLOWS: "
      "6 Permissions deliberately excluded by the frozen FILTER "
      "(Obligation/Condition/Exception only) -> recorded non-coverage, NOT a defect."),
     ("CQ-C2_uniform_grounding.rq", "CQ-C2  uniform grounding (0 = pass)", 0, "materialised",
@@ -162,10 +163,13 @@ c6 = list(g.query(open(os.path.join(QDIR, "CQ-C6_provenance_review.rq"), encodin
 n_direct    = sum(1 for r in c6 if str(r["mode"]) == "direct")
 n_inherited = sum(1 for r in c6 if str(r["mode"]) == "inherited")
 n_total     = len(c6)
-c6_ok = (n_direct == 46 and n_inherited == 68 and n_total == 114)
+# WORK ORDER F 2026-09-06: inherited 68 -> 89 (+21, the 21 art13 appliesIf parents of the new
+# shared Condition). direct unchanged at 46 -- Conditions carry no provenance of their own.
+# No art14 edges in this union. SET AFTER THE RUN, not before -- see the CQ-C1 note above.
+c6_ok = (n_direct == 46 and n_inherited == 89 and n_total == 135)
 all_ok = all_ok and c6_ok
 print("    file=CQ-C6_provenance_review.rq  regime=materialised")
-print("    direct=%d (expected 46)  inherited=%d (expected 68)  total=%d (expected 114)  -> %s"
+print("    direct=%d (expected 46)  inherited=%d (expected 89)  total=%d (expected 135)  -> %s"
       % (n_direct, n_inherited, n_total, "PASS" if c6_ok else "CHECK"))
 print("    NOTE: combined direct 46 = 21 art13 + 6 art6 + 19 art12 (13 Obl + 6 Perm); "
       "combined inherited 68 = 50 art13 + 4 art6 + 14 art12.")

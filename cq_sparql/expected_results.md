@@ -680,3 +680,194 @@ reading, and is the same human judgement it was before this unit.
 Protégé/HermiT, pySHACL and `run_owlrl_art*.py` runs reproduce it (playbook §5). The
 report will separate OBJECTIVE / PROXY / CANNOT-VERIFY and will not let a proxy read
 as a verdict.
+
+---
+
+# Work Order F — the collection-source trigger (`art13.ttl` + `art14.ttl`, 2026-09-06)
+
+> ### ⚠ PREDICTION PROVENANCE — read this before reading any number below
+>
+> **Every figure in this section was written down BEFORE the two files were edited and BEFORE
+> any run of the modified graph.** The prediction file was timestamped on disk at
+> **2026-09-06 21:44:24** (scratch `PREDICTIONS_BUILD_2026-09-06.md`); the edit followed it and
+> the run followed the edit. **No number here has been adjusted to match an outcome.** Any
+> deviation is recorded below as a deviation, never reconciled by editing the prediction.
+>
+> **What changed.** ONE canonical shared Condition, `ex:cond-collected-from-data-subject`,
+> declared in `art13.ttl` (the `ex:concept-*` host precedent), re-asserted with its own
+> grounding and scope from `art14.ttl`. **DUAL-GROUNDED** in `ex:art13-p1` + `ex:art14-p1`.
+> Article 13's **21** duties attach with `gdprkg:appliesIf`; Article 14's **23** attach with
+> `gdprkg:notApplicableIf`. `ex:obl-art14-5-b-protective-measures` is excluded — grounded in
+> `art14-p5-b`, outside the declared 14(1)–(4) scope, exactly as it already sits outside all
+> four 14(5) bearer sets.
+>
+> **Model decision:** Zied, 2026-09-06 — 13(1) "collected from" and 14(1) "have not been
+> obtained from" are **the same fact in opposite polarity** (legal reading, citing CJEU). This
+> overturned the Work Order F handback's recommendation of two per-article Conditions; the
+> handback's two decisive measurements did not survive testing and were withdrawn in its §12.
+>
+> **NO TBox change. NO SHACL change. NO new vocabulary. NO frozen query widened in this pass.**
+
+## The delta
+
+| | before | after |
+|---|---|---|
+| `art13.ttl` triples | 392 | **419** |
+| `art14.ttl` triples | 586 | **615** |
+| 6-file union, pre-closure | 2030 | **2085** |
+
+The `rdf:type` triple is asserted in both files, is **identical**, and dedups in the union —
+hence +55 on the union against +27/+29 per file.
+
+## TIER 1 — the numbers that move
+
+| CQ | file | before | **predicted after** | regime |
+|---|---|---|---|---|
+| **CQ-A3** | `CQ-A3_conditional_duties.rq` | 91 | **112** | materialised |
+| **CQ-C1** | `CQ-C1_article_to_norms_grounded.rq` | 105 | **107** | materialised |
+| **CQ-C6** | `CQ-C6_provenance_review.rq` | direct 80 / inherited 217 / total 297 | **direct 80 / inherited 238 / total 318** | materialised |
+
+**CQ-A3 = 112 is +21, from the Article-13 side ONLY.** See the recorded non-coverage below.
+**CQ-C1 = 107 is +2 for ONE node** — the dual grounding yields two rows.
+
+## TIER 1 — the numbers that must NOT move (regression)
+
+| CQ | expected | note |
+|---|---|---|
+| CQ-C2 | **0** | both grounding legs present |
+| CQ-C3 | **59** | no new Obligation |
+| CQ-C4 | **9** (plain) | no new referenced actor |
+| CQ-C5 | **11** (plain) | no new disclosed concept |
+| CQ-C5x | **4** | Art-6 join untouched |
+| CQ-C7 | **44** | the new label contains neither `"at the time"` nor `"prior to"` |
+| CQ-A1 | **59** | no new Obligation |
+| CQ-A4 | **8** | no Exception touched |
+| CQ-A5 | **92** | no Exception touched |
+| CQ-A6 | **1** | 14(5)(b) survivor unchanged |
+| CQ-A8 | **66** | its trigger branch needs `appliesIf` **and** grounding in a 14(3) Point; neither holds |
+| CQ-B1 / CQ-B2 | **6 / 3** | Art 6 untouched |
+
+## TIER 2 — structural fixtures
+
+| fixture | before | **predicted after** |
+|---|---|---|
+| `gdprkg:notApplicableIf` edges, whole union | 1 | **24** |
+| `gdprkg:appliesIf` edges on Art-13 subjects | 29 | **50** |
+| `gdprkg:appliesIf` edges on Art-14 subjects | 54 | **54** |
+| `gdprkg:Condition` instances typed in `art13.ttl` | 11 | **12** |
+| `gdprkg:Condition` instances typed in `art14.ttl` | 12 | **13** |
+| nodes with **more than one** `groundedIn` edge | 0 | **1** |
+| Condition/Exception nodes with **no** provenance answer | 1 | **1** |
+| Art-14 obligations with no `appliesIf` | 1 | **1** |
+| `ex:concept-*` / `ex:actor-*` canonical nodes | 7 / 7 | **7 / 7** |
+| `owl:Nothing` members | 0 | **0** |
+| `referencesProvision` on `art13`-prefixed subjects | 11 | **11** |
+| `referencesProvision` on `art14`-prefixed subjects | 27 | **27** |
+| `referencesProvision` on the shared node itself | 0 | **7** (3 + 4) |
+| pySHACL proxy | Conforms True | **Conforms True** |
+
+## Recorded non-coverages (Work Order F) — NOT fixed in this pass
+
+**#1 — CQ-A3 cannot see the Article-14 side.** `CQ-A3_conditional_duties.rq` matches
+`?obligation a gdprkg:Obligation ; gdprkg:appliesIf ?condition` and **does not mention
+`gdprkg:notApplicableIf`** (verified: 0 occurrences in the file). The 23 Article-14 attachments
+are therefore invisible to it and CQ-A3 moves +21, not +44.
+
+**The 23 duties themselves are NOT invisible** — all 23 are still returned by CQ-A3 because they
+carry other conditions. Measured, distinct Art-14 obligations returned by CQ-A3: **23 before, 23
+after.** What is missing is the *pairing* of those duties with this trigger.
+
+**#2 — CQ-C6's inherited branch cannot see it either.** It enumerates
+`(gdprkg:appliesIf|gdprkg:hasException)`. Hence inherited +21, not +44.
+
+**#2 IS NOT A SECOND EXEC-9.** EXEC-9 (Art 46) is a node with **no provenance path at all**. The
+shared node here resolves through the 21 Article-13 `appliesIf` edges. Measured, Condition/
+Exception nodes with no provenance answer: **1 before, 1 after**, and it is Art 46's, unchanged.
+**No node is left unprovenanced by this pass.**
+
+**Neither query was widened and no edge was re-pointed to `appliesIf` to make a count land**
+(playbook §4.1). Zied has ruled, 2026-09-06, that the CQ *encoding* mis-models its own
+natural-language question — CQ-A3 asks which duties are conditional *and a duty switched off by a
+condition is conditional*; CQ-C6 asks for the provenance of *any* node — and that this may be
+corrected. **That correction is a SEPARATE unit and is deliberately not made in the same pass as
+the model change**, so that the query fix can be argued from the encoding/question mismatch rather
+than appearing to have been made to produce a number. Carry `boundary-negative-cqs`.
+
+## Expected-absence assertions (Work Order F)
+
+| assertion | expected |
+|---|---|
+| new TBox axioms | **0** |
+| new SHACL shapes | **0** |
+| new `ex:concept-*` / `ex:actor-*` / `ex:ref-*` nodes | **0** |
+| `gdprkg:hasLegalEffect` edges anywhere | **0** (unchanged) |
+| `gdprkg:notApplicableIf` on any `gdprkg:LegalBasis` | **0** — carry `f2-domain-family` NOT triggered |
+| Obligations gaining or losing a `hasException` | **0** |
+
+## ⚠ One stated property of the graph that this pass CHANGES
+
+`CQ-C1_article_to_norms_grounded.rq`'s header says of the Art-13 result *"every one carrying
+exactly one `groundedIn` edge"*. **That is no longer true of the whole graph**:
+`ex:cond-collected-from-data-subject` carries two, which is why CQ-C1 moves +2 for one node.
+
+This is **permitted** — `gdprkg:groundedIn` has `sh:minCount 1` and **no `sh:maxCount`**
+(`shapes.ttl`), and `GroundedConceptShape` is satisfied — but it was previously **unexercised**
+across all five certified articles (measured: 0 such nodes before this pass). It is recorded
+here rather than left for someone to discover as a surprise. **The query was not edited.**
+
+---
+
+# CQ-C6 ENCODING FIX (2026-09-06) — option B
+
+> ### ⚠ PREDICTION PROVENANCE
+> Predictions were written to disk at **2026-09-06 22:34:39**, **before** the `.rq` was edited and
+> **before** any run. Every one was met. Nothing was adjusted after the fact.
+
+**The change, in full:** CQ-C6's inherited branch parent path
+`(gdprkg:appliesIf|gdprkg:hasException)` → `(gdprkg:appliesIf|gdprkg:hasException|gdprkg:notApplicableIf)`.
+**Nothing else. The graph was NOT touched** (union stays 2085 triples).
+**`methodology/competency_questions.json` was NOT edited.**
+
+**Why this is a fix and not a widening.** The frozen question and probe were already broader than
+the encoding:
+
+> **question:** "For any node, what is its provenance and current review status?"
+> **probe:** "…Condition/Exception **inherit via parent**."
+
+The question says *any* node. The probe says "inherit via parent" and **names no properties**. The
+query hard-coded two of the three relations that make a node a parent and omitted the third.
+
+| | before | **after** |
+|---|---|---|
+| CQ-C6 direct | 80 | **80** |
+| CQ-C6 inherited | 238 | **262** (+23 WO-F Art-14 edges, +1 the Art-46 gate) |
+| CQ-C6 total | 318 | **342** |
+| Condition/Exception nodes with **no** provenance answer | 1 | **0** |
+| CQ-A3 | 112 | **112** — unchanged, deliberately |
+| every other CQ | — | unchanged |
+| union triples | 2085 | **2085** |
+
+## EXEC-9 IS RESOLVED
+
+`ex:cond-46-1-adequacy-decision-exists` — the Article 45(3) adequacy gate, attached to the 46(1)
+Permission by `notApplicableIf` alone — **now has a provenance path**. It was the only node in the
+graph without one. **Nothing in the graph is now unprovenanced.**
+
+**What this costs, stated:** EXEC-9 was the project's strongest boundary/negative-CQ evidence — the
+frozen set structurally unable to see the construct the central claim rests on. **That example no
+longer exists as a live defect.** It survives as a *recorded and repaired* one: the set was used,
+use exposed a defect in one question's **encoding**, and it was corrected with the original on the
+permanent record. Carry `boundary-negative-cqs` must be re-argued on that basis.
+
+## What was deliberately NOT fixed
+
+**CQ-A3 has the same blind spot and was left alone** (Zied, option B). Its frozen **probe** names
+*"APPLIES_IF edges"* explicitly, so whether its question governs its probe is a live call and was
+not settled by fiat. **CQ-A3 stays at 112 — the Article-13 side only — and that remains a recorded
+non-coverage.** For the record, the measured value had it been fixed is **135**.
+
+## ⚠ Gate consequence
+
+`sparql_cq_eval` was flipped **true** earlier the same day for the Work Order F build. **This change
+edits a CQ, so that leg is now STALE and owed a fresh authoritative run.** `hermit_consistent` and
+`pyshacl_passes` are unaffected — neither depends on a `.rq`, and the graph did not change.
