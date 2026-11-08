@@ -1,0 +1,166 @@
+{
+  "n_repeats": 5,
+  "strata": {
+    "APP-12": {
+      "graph": {
+        "n_items": 5,
+        "stable": 5,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 5
+        },
+        "status_stable": 5,
+        "status_proportion": 1.0
+      },
+      "text": {
+        "n_items": 5,
+        "stable": 5,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 5
+        },
+        "status_stable": 5,
+        "status_proportion": 1.0
+      }
+    },
+    "APP-13": {
+      "graph": {
+        "n_items": 15,
+        "stable": 15,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.7961166989641515,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 15
+        },
+        "status_stable": 15,
+        "status_proportion": 1.0
+      },
+      "text": {
+        "n_items": 15,
+        "stable": 15,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.7961166989641515,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 15
+        },
+        "status_stable": 15,
+        "status_proportion": 1.0
+      }
+    },
+    "APP-14": {
+      "graph": {
+        "n_items": 20,
+        "stable": 20,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 20
+        },
+        "status_stable": 20,
+        "status_proportion": 1.0
+      },
+      "text": {
+        "n_items": 20,
+        "stable": 20,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 20
+        },
+        "status_stable": 20,
+        "status_proportion": 1.0
+      }
+    },
+    "APP-46": {
+      "graph": {
+        "n_items": 5,
+        "stable": 5,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 5
+        },
+        "status_stable": 5,
+        "status_proportion": 1.0
+      },
+      "text": {
+        "n_items": 5,
+        "stable": 5,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 5
+        },
+        "status_stable": 5,
+        "status_proportion": 1.0
+      }
+    },
+    "NA-46": {
+      "graph": {
+        "n_items": 5,
+        "stable": 5,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 5
+        },
+        "status_stable": 5,
+        "status_proportion": 1.0
+      },
+      "text": {
+        "n_items": 5,
+        "stable": 5,
+        "unstable": 0,
+        "proportion": 1.0,
+        "wilson95": [
+          0.5655175352168251,
+          1.0
+        ],
+        "gradient_runs_agreeing": {
+          "5": 5
+        },
+        "status_stable": 5,
+        "status_proportion": 1.0
+      }
+    }
+  },
+  "incomplete_items": []
+}

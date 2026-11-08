@@ -1,0 +1,369 @@
+{
+  "alpha": 0.05,
+  "arms": [
+    "graph",
+    "text"
+  ],
+  "n_items": 220,
+  "strata": {
+    "APP-12": {
+      "n_items": 24,
+      "arms": {
+        "graph": {
+          "n_with_fraction": 9,
+          "median_fraction": 0.0,
+          "mean_fraction": 0.2222222222222222,
+          "all_targets": 2,
+          "none": 7,
+          "partial": 0,
+          "no_targets": 13,
+          "no_reliance": 2,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 2,
+          "binary_not_reached": 7
+        },
+        "text": {
+          "n_with_fraction": 14,
+          "median_fraction": 1.0,
+          "mean_fraction": 1.0,
+          "all_targets": 14,
+          "none": 0,
+          "partial": 0,
+          "no_targets": 7,
+          "no_reliance": 3,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 14,
+          "binary_not_reached": 0
+        }
+      },
+      "primary": {
+        "test": "Wilcoxon signed-rank, two-sided (exact)",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 6,
+        "n_ties": 1,
+        "n_nonzero": 5,
+        "W_plus": 0,
+        "median_graph": 0.0,
+        "median_text": 1.0,
+        "median_difference": -1.0,
+        "p": 0.0625,
+        "significant_at_0.05": false
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 2,
+              "targets": 16
+            }
+          },
+          "distinct_relations_surfaced": 1,
+          "distinct_relations_targeted": 1
+        },
+        "text": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 24,
+              "targets": 24
+            }
+          },
+          "distinct_relations_surfaced": 1,
+          "distinct_relations_targeted": 1
+        }
+      }
+    },
+    "APP-13": {
+      "n_items": 74,
+      "arms": {
+        "graph": {
+          "n_with_fraction": 73,
+          "median_fraction": 1.0,
+          "mean_fraction": 1.0,
+          "all_targets": 73,
+          "none": 0,
+          "partial": 0,
+          "no_targets": 0,
+          "no_reliance": 1,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 73,
+          "binary_not_reached": 0
+        },
+        "text": {
+          "n_with_fraction": 64,
+          "median_fraction": 0.6666666666666666,
+          "mean_fraction": 0.6067708333333333,
+          "all_targets": 0,
+          "none": 0,
+          "partial": 64,
+          "no_targets": 0,
+          "no_reliance": 10,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 64,
+          "binary_not_reached": 0
+        }
+      },
+      "primary": {
+        "test": "Wilcoxon signed-rank, two-sided (normal approximation)",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 64,
+        "n_ties": 0,
+        "n_nonzero": 64,
+        "W_plus": 2080.0,
+        "median_graph": 1.0,
+        "median_text": 0.6666666666666666,
+        "median_difference": 0.33333333333333337,
+        "p": 8.504308368628699e-14,
+        "significant_at_0.05": true
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 483,
+              "targets": 483
+            },
+            "hasException": {
+              "surfaced": 243,
+              "targets": 243
+            }
+          },
+          "distinct_relations_surfaced": 4,
+          "distinct_relations_targeted": 4
+        },
+        "text": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 290,
+              "targets": 353
+            },
+            "hasException": {
+              "surfaced": 12,
+              "targets": 177
+            }
+          },
+          "distinct_relations_surfaced": 4,
+          "distinct_relations_targeted": 4
+        }
+      }
+    },
+    "APP-14": {
+      "n_items": 74,
+      "arms": {
+        "graph": {
+          "n_with_fraction": 70,
+          "median_fraction": 1.0,
+          "mean_fraction": 1.0,
+          "all_targets": 70,
+          "none": 0,
+          "partial": 0,
+          "no_targets": 2,
+          "no_reliance": 2,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 70,
+          "binary_not_reached": 0
+        },
+        "text": {
+          "n_with_fraction": 61,
+          "median_fraction": 0.14285714285714285,
+          "mean_fraction": 0.13583138173302106,
+          "all_targets": 0,
+          "none": 10,
+          "partial": 51,
+          "no_targets": 13,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 51,
+          "binary_not_reached": 10
+        }
+      },
+      "primary": {
+        "test": "Wilcoxon signed-rank, two-sided (normal approximation)",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 59,
+        "n_ties": 0,
+        "n_nonzero": 59,
+        "W_plus": 1770.0,
+        "median_graph": 1.0,
+        "median_text": 0.14285714285714285,
+        "median_difference": 0.8571428571428572,
+        "p": 1.2176926134088717e-12,
+        "significant_at_0.05": true
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 402,
+              "targets": 402
+            },
+            "hasException": {
+              "surfaced": 808,
+              "targets": 808
+            },
+            "notApplicableIf": {
+              "surfaced": 202,
+              "targets": 202
+            }
+          },
+          "distinct_relations_surfaced": 7,
+          "distinct_relations_targeted": 7
+        },
+        "text": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 2,
+              "targets": 226
+            },
+            "hasException": {
+              "surfaced": 47,
+              "targets": 456
+            },
+            "notApplicableIf": {
+              "surfaced": 30,
+              "targets": 114
+            }
+          },
+          "distinct_relations_surfaced": 7,
+          "distinct_relations_targeted": 7
+        }
+      }
+    },
+    "APP-46": {
+      "n_items": 24,
+      "arms": {
+        "graph": {
+          "n_with_fraction": 0,
+          "median_fraction": null,
+          "mean_fraction": null,
+          "all_targets": 0,
+          "none": 0,
+          "partial": 0,
+          "no_targets": 24,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 0,
+          "binary_not_reached": 0
+        },
+        "text": {
+          "n_with_fraction": 0,
+          "median_fraction": null,
+          "mean_fraction": null,
+          "all_targets": 0,
+          "none": 0,
+          "partial": 0,
+          "no_targets": 24,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 0,
+          "binary_not_reached": 0
+        }
+      },
+      "primary": {
+        "test": "Wilcoxon signed-rank, two-sided (no non-zero differences)",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 0,
+        "n_ties": 0,
+        "n_nonzero": 0,
+        "W_plus": null,
+        "median_graph": null,
+        "median_text": null,
+        "median_difference": null,
+        "p": null,
+        "significant_at_0.05": false
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {},
+          "distinct_relations_surfaced": 0,
+          "distinct_relations_targeted": 0
+        },
+        "text": {
+          "by_kind": {},
+          "distinct_relations_surfaced": 0,
+          "distinct_relations_targeted": 0
+        }
+      }
+    },
+    "NA-46": {
+      "n_items": 24,
+      "arms": {
+        "graph": {
+          "n_with_fraction": 0,
+          "median_fraction": null,
+          "mean_fraction": null,
+          "all_targets": 0,
+          "none": 0,
+          "partial": 0,
+          "no_targets": 24,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 0,
+          "binary_not_reached": 0
+        },
+        "text": {
+          "n_with_fraction": 0,
+          "median_fraction": null,
+          "mean_fraction": null,
+          "all_targets": 0,
+          "none": 0,
+          "partial": 0,
+          "no_targets": 24,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "binary_reached": 0,
+          "binary_not_reached": 0
+        }
+      },
+      "primary": {
+        "test": "Wilcoxon signed-rank, two-sided (no non-zero differences)",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 0,
+        "n_ties": 0,
+        "n_nonzero": 0,
+        "W_plus": null,
+        "median_graph": null,
+        "median_text": null,
+        "median_difference": null,
+        "p": null,
+        "significant_at_0.05": false
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {},
+          "distinct_relations_surfaced": 0,
+          "distinct_relations_targeted": 0
+        },
+        "text": {
+          "by_kind": {},
+          "distinct_relations_surfaced": 0,
+          "distinct_relations_targeted": 0
+        }
+      }
+    }
+  }
+}

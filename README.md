@@ -59,6 +59,7 @@ kg/source/                    scraped GDPR text, point-level
 scripts/gdpr/                 the scraper that produced it
 references.bib                verified bibliography; nothing is cited that isn't here
 verify.py                     runs all three gate legs
+evaluation/                   the paper's three pre-registered studies: samples, harness, traces, analyses (see its README)
 ```
 
 Runners resolve paths relative to `cq_sparql/`, so **don't restructure the tree** without

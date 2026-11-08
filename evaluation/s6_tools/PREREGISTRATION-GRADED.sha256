@@ -1,0 +1,11 @@
+sha256   1a9a5f412e4ed184ea7c7edd77761f36b6a1162316227a97e20e3dd34ccb40d3
+file     PREREGISTRATION-GRADED.md
+bytes    11853
+frozen   2026-09-16 (S9), before any generation on graded.frozen.json
+
+Verify this digest before reading any result of the graded-measure study. An edited
+PREREGISTRATION-GRADED.md is a failed pre-registration, not a revised one.
+PREREGISTRATION.md and PREREGISTRATION-STABILITY.md are frozen separately and are not
+edited by this file.
+
+    .venv/Scripts/python.exe -c "import hashlib,sys;print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" paper_draft/s6_tools/PREREGISTRATION-GRADED.md

@@ -8,10 +8,43 @@
 # parent and labels each row ?mode = "direct" | "inherited", so the query answers "for ANY
 # node", not just primary units.
 # Expected over art13.ttl: 21 "direct" rows (one per Obligation) PLUS "inherited" rows for
-# every Condition/Exception resolved through each parent it attaches to (e.g. the single
+# every Condition/Exception resolved through each parent it attaches to VIA ANY OF THE THREE
+# parent relations (appliesIf, hasException, notApplicableIf — the third added 2026-09-06); e.g. the single
 # 13(4) Exception resolves via all 21 obligations → 21 inherited rows; each Condition via
 # the obligations whose appliesIf reaches it). Every grounded node's provenance is now
 # resolvable; no grounded node is left without a provenance/status answer.
+# ---------------------------------------------------------------------------
+# ENCODING FIX (2026-09-06) — gdprkg:notApplicableIf ADDED to the inherited parent path.
+#
+# THIS IS NOT A WIDENING OF THE QUESTION. The frozen competency question and its frozen
+# probe were ALREADY broader than this query's encoding, and the encoding was the thing
+# out of step. Verbatim from methodology/competency_questions.json (UNCHANGED by this fix):
+#
+#   question: "For any node, what is its provenance and current review status?"
+#   probe:    "Provenance/review layer present from the start (provenance + reviewStatus
+#              required on primary normative units; Condition/Exception inherit via parent)."
+#
+# The question says ANY node. The probe says Condition/Exception "inherit via parent" and
+# names NO properties. This query hard-coded TWO of the three relations that can make a node
+# a parent — appliesIf and hasException — and silently omitted the third, notApplicableIf.
+# That was an omission in the ENCODING, not a boundary of the QUESTION.
+#
+# WHAT THIS RESOLVES: EXEC-9. ex:cond-46-1-adequacy-decision-exists — the Article 45(3)
+# adequacy gate, attached to the 46(1) Permission by notApplicableIf ALONE — had NO
+# provenance path under this query, and it was the ONLY node in the whole graph in that
+# position. It now resolves. Measured: Condition/Exception nodes with no provenance answer
+# 1 -> 0; inherited rows 238 -> 262 (+23 Work-Order-F Art-14 edges, +1 the Art-46 gate).
+#
+# NOTE WHAT WAS **NOT** DONE. CQ-A3 has the same blind spot and was DELIBERATELY LEFT ALONE
+# (Zied, 2026-09-06, option B): its frozen PROBE names "APPLIES_IF edges" explicitly, so
+# whether its question governs its probe is a live call and was not resolved by fiat. CQ-A3
+# therefore still reports the Article-13 side only (112, not 135) and that stays a RECORDED
+# NON-COVERAGE. competency_questions.json was not edited for either query.
+#
+# SEQUENCING, deliberate: this fix was held back from the Work Order F commit so that a
+# frozen query is not seen to change in the same breath as the model change whose numbers
+# depended on it. The model landed and was certified first; this stands on its own.
+# ---------------------------------------------------------------------------
 PREFIX gdprkg: <https://w3id.org/gdprkg#>
 PREFIX prov:   <http://www.w3.org/ns/prov#>
 SELECT ?node ?mode ?status ?record ?activity ?agent
@@ -24,10 +57,12 @@ WHERE {
   }
   UNION
   {
-    # inherited: a Condition/Exception resolves provenance/status via its parent norm
+    # inherited: a Condition/Exception resolves provenance/status via its parent norm.
+    # gdprkg:notApplicableIf ADDED 2026-09-06 (Zied's decision, option B) — see the
+    # ENCODING FIX note in this file's header.
     ?node a ?t .
     FILTER(?t IN (gdprkg:Condition, gdprkg:Exception))
-    ?parent (gdprkg:appliesIf|gdprkg:hasException) ?node ;
+    ?parent (gdprkg:appliesIf|gdprkg:hasException|gdprkg:notApplicableIf) ?node ;
             gdprkg:reviewStatus ?status ;
             gdprkg:hasProvenance ?record .
     BIND("inherited" AS ?mode)

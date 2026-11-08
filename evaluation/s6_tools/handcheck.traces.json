@@ -1,0 +1,1930 @@
+{
+  "model": "qwen2.5:7b",
+  "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "num_ctx": 16384,
+  "turn_cap": 10,
+  "k": 5,
+  "temperature": 0.0,
+  "arms": [
+    "text",
+    "graph"
+  ],
+  "sample_file": "sample.frozen.json",
+  "split": "pilot",
+  "sample_sha256": "6a3997899b064b26109ca8d1cb1e9be732bdbe8bf93c774760fb6af3431cfde8",
+  "corpus_sha256": "a9cbcdb548d44b6b223052c1995c1a397b0abd76a1d72fd4cc8cd039f47ecefd",
+  "source_digests": {
+    "12": "f279dfb165812ff0e303d6b4fe684a1cefb437692e3ebc2f6503691591c96662",
+    "13": "f35693c6b088dfbadaa340fd5001c6845343e9a5fdd58e4c94017a5270390db3",
+    "14": "ccaf24b06a96f5ed2830c7cec646fbbf002da9b1ae1012d9dc7e0e68a221dbc6",
+    "46": "85e6308650a35e4969eed48fee60aeba9e509bc66533dcaf9fd443116522fe46"
+  },
+  "generated_at": "2026-09-15 15:00:57",
+  "n_items": 6,
+  "records": [
+    {
+      "id": "seg01511",
+      "stratum": "APP-12",
+      "article": 12,
+      "gold_label": "NON_COMPLIANT",
+      "segment": "If you wish to access your personal data or exercise your rights, you may submit a request to our customer service team. In cases where requests are complex or numerous, our standard response period may be extended by up to two additional months. Any information and communications regarding your rights, or actions taken in response to your requests, will be provided free of charge.",
+      "arms": {
+        "text": {
+          "arm": "text",
+          "article": 12,
+          "turns": 4,
+          "turn_cap_hit": false,
+          "calls": 3,
+          "final": "Based on the provided GDPR Article 12 provisions, the policy segment appears to be compliant with the requirements. Here's a breakdown of the compliance:\n\n1. **Facilitating Exercise of Data Subject Rights**: The policy states that requests for access to personal data or exercising rights can be submitted to customer service. This aligns with Article 12(2), which mandates controllers to facilitate the exercise of data subject rights under Articles 15-22.\n\n2. **Response Period**: The policy mentions an extended response period in cases where requests are complex or numerous, up to two additional months. While this is not explicitly covered by Article 12, it does not violate any specific provisions and can be seen as a reasonable extension of the standard response time (30 days under Article 12(3)).\n\n3. **Free of Charge**: The policy states that information and communications regarding rights will be provided free of charge, which aligns with Article 12(5), stating that such information should be provided free of charge unless the request is manifestly unfounded or excessive.\n\n4. **Manifestly Unfounded or Excessive Requests**: While not explicitly stated in the policy segment, the conditions for charging fees or refusing requests are covered by Article 12(5)(a) and (b), which allow controllers to charge reasonable fees or refuse requests under certain circumstances.\n\nGiven these points, the policy segment is compliant with GDPR Article 12 provisions. Therefore, my verdict is:\n\n**COMPLIANT**\n\nJustification: The policy adheres to the requirements of facilitating data subject rights as per Article 12(2), provides free information and communications as required by Article 12(5), and implicitly complies with the conditions for charging fees or refusing requests under Article 12(5).",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "access personal data and exercise rights"
+              },
+              "returned": [
+                {
+                  "duty_id": "Article 12(2)",
+                  "text": "2. The controller shall facilitate the exercise of data subject rights under Articles 15 to 22. In the cases referred to in Article 11(2), the controller shall not refuse to act on the request of the data subject for exercising his or her rights under Articles 15 to 22, unless the controller demonstrates that it is not in a position to identify the data subject."
+                },
+                {
+                  "duty_id": "Article 12(2), subparagraph 1",
+                  "text": "2. The controller shall facilitate the exercise of data subject rights under Articles 15 to 22. In the cases referred to in Article 11(2), the controller shall not refuse to act on the request of the data subject for exercising his or her rights under Articles 15 to 22, unless the controller demonstrates that it is not in a position to identify the data subject."
+                },
+                {
+                  "duty_id": "Article 12(1)",
+                  "text": "1. The controller shall take appropriate measures to provide any information referred to in Articles 13 and 14 and any communication under Articles 15 to 22 and 34 relating to processing to the data subject in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically to a child. The information shall be provided in writing, or by other means, including, where appropriate, by electronic means. When requested by the data subject, the information may be provided orally, provided that the identity of the data subject is proven by other means."
+                },
+                {
+                  "duty_id": "Article 12(1), subparagraph 1",
+                  "text": "1. The controller shall take appropriate measures to provide any information referred to in Articles 13 and 14 and any communication under Articles 15 to 22 and 34 relating to processing to the data subject in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically to a child. The information shall be provided in writing, or by other means, including, where appropriate, by electronic means. When requested by the data subject, the information may be provided orally, provided that the identity of the data subject is proven by other means."
+                },
+                {
+                  "duty_id": "Article 12(5), subparagraph 1",
+                  "text": "5. Information provided under Articles 13 and 14 and any communication and any actions taken under Articles 15 to 22 and 34 shall be provided free of charge. Where requests from a data subject are manifestly unfounded or excessive, in particular because of their repetitive character, the controller may either:"
+                }
+              ],
+              "returned_chars": 2577,
+              "provenance": {
+                "units_text": [
+                  "art12-p1",
+                  "art12-p1-sub1",
+                  "art12-p2",
+                  "art12-p2-sub1",
+                  "art12-p5-sub1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 12(1)",
+                  "Article 12(1), subparagraph 1",
+                  "Article 12(2)",
+                  "Article 12(2), subparagraph 1",
+                  "Article 12(5), subparagraph 1"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "Article 12(5), subparagraph 1"
+              },
+              "returned": {
+                "chapeau": {
+                  "citation": "Article 12(5), subparagraph 1",
+                  "text": "5. Information provided under Articles 13 and 14 and any communication and any actions taken under Articles 15 to 22 and 34 shall be provided free of charge. Where requests from a data subject are manifestly unfounded or excessive, in particular because of their repetitive character, the controller may either:"
+                },
+                "siblings": [
+                  {
+                    "citation": "Article 12(5)(a)",
+                    "text": "(a) charge a reasonable fee taking into account the administrative costs of providing the information or communication or taking the action requested; or"
+                  },
+                  {
+                    "citation": "Article 12(5)(b)",
+                    "text": "(b) refuse to act on the request."
+                  },
+                  {
+                    "citation": "Article 12(5), subparagraph 2",
+                    "text": "The controller shall bear the burden of demonstrating the manifestly unfounded or excessive character of the request."
+                  }
+                ]
+              },
+              "returned_chars": 849,
+              "provenance": {
+                "units_text": [
+                  "art12-p5-a",
+                  "art12-p5-b",
+                  "art12-p5-sub1",
+                  "art12-p5-sub2"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 12(5)(a)",
+                  "Article 12(5)(b)",
+                  "Article 12(5), subparagraph 1",
+                  "Article 12(5), subparagraph 2"
+                ]
+              }
+            },
+            {
+              "turn": 3,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 12"
+              },
+              "returned": {
+                "error": "no such provision",
+                "known_citations": [
+                  "Article 12(1), subparagraph 1",
+                  "Article 12(1)",
+                  "Article 12(2), subparagraph 1",
+                  "Article 12(2)",
+                  "Article 12(3), subparagraph 1",
+                  "Article 12(3)",
+                  "Article 12(4), subparagraph 1",
+                  "Article 12(4)"
+                ]
+              },
+              "returned_chars": 251,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            491,
+            1120,
+            1373,
+            1507
+          ],
+          "max_prompt_eval": 1507,
+          "error": null,
+          "seconds": 34.7
+        },
+        "graph": {
+          "arm": "graph",
+          "article": 12,
+          "turns": 5,
+          "turn_cap_hit": false,
+          "calls": 4,
+          "final": "Based on the provided GDPR Article 12(2) and the policy segment, the policy complies with the requirements of this article. Here's why:\n\n- The policy states that requests for access to personal data or exercising rights can be submitted to customer service, which aligns with the obligation to facilitate the exercise of data subject rights under Articles 15 to 22 (get_provision result).\n- The policy does not refuse to act on complex or numerous requests without a valid reason, such as being unable to identify the data subject. This is in line with the condition that the controller shall not refuse to act unless it can demonstrate that it cannot identify the data subject (get_conditions result).\n\nTherefore, the policy segment is **COMPLIANT** with GDPR Article 12(2).",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "access personal data and exercise rights"
+              },
+              "returned": [
+                {
+                  "citation": "Article 12(2)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-12-2-facilitate",
+                      "statement": "Facilitate the exercise of data subject rights under Articles 15 to 22",
+                      "type": "Obligation"
+                    },
+                    {
+                      "duty_id": "obl-12-2-no-refusal",
+                      "statement": "Not refuse to act on the data subject's request to exercise his or her Arts-15-22 rights, in the cases referred to in Article 11(2)",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 12(2), subparagraph 1",
+                  "duties": []
+                },
+                {
+                  "citation": "Article 12(1)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-12-1-form",
+                      "statement": "Provide the Arts-13/14 information and Arts-15-22/34 communications in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically to a child",
+                      "type": "Obligation"
+                    },
+                    {
+                      "duty_id": "obl-12-1-medium",
+                      "statement": "Provide the information in writing, or by other means, including, where appropriate, by electronic means (12E(i): sentence-level unit)",
+                      "type": "Obligation"
+                    },
+                    {
+                      "duty_id": "perm-12-1-oral",
+                      "statement": "May provide the information orally, when requested by the data subject, provided the identity of the data subject is proven by other means",
+                      "type": "Permission"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 12(1), subparagraph 1",
+                  "duties": []
+                },
+                {
+                  "citation": "Article 12(5), subparagraph 1",
+                  "duties": []
+                }
+              ],
+              "returned_chars": 1337,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [
+                  "obl-12-1-form",
+                  "obl-12-1-medium",
+                  "obl-12-2-facilitate",
+                  "obl-12-2-no-refusal",
+                  "perm-12-1-oral"
+                ],
+                "citations": [
+                  "Article 12(1)",
+                  "Article 12(1), subparagraph 1",
+                  "Article 12(2)",
+                  "Article 12(2), subparagraph 1",
+                  "Article 12(5), subparagraph 1"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "obl-12-2-facilitate"
+              },
+              "returned": {
+                "duty_id": "obl-12-2-facilitate",
+                "statement": "Facilitate the exercise of data subject rights under Articles 15 to 22",
+                "conditions": []
+              },
+              "returned_chars": 139,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [
+                  "obl-12-2-facilitate"
+                ],
+                "citations": []
+              }
+            },
+            {
+              "turn": 3,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "obl-12-2-no-refusal"
+              },
+              "returned": {
+                "duty_id": "obl-12-2-no-refusal",
+                "statement": "Not refuse to act on the data subject's request to exercise his or her Arts-15-22 rights, in the cases referred to in Article 11(2)",
+                "conditions": [
+                  {
+                    "kind": "appliesIf",
+                    "statement": "the case is one referred to in Article 11(2) (Art 12(2) s2)",
+                    "cites": [
+                      "Article 12(2)"
+                    ]
+                  },
+                  {
+                    "kind": "hasException",
+                    "statement": "the controller demonstrates that it is not in a position to identify the data subject (Art 12(2) s2)",
+                    "cites": [
+                      "Article 12(2)"
+                    ]
+                  }
+                ]
+              },
+              "returned_chars": 496,
+              "provenance": {
+                "units_text": [],
+                "relations": [
+                  "cond-12-2-art11-2-case",
+                  "exc-12-2-cannot-identify"
+                ],
+                "duties": [
+                  "obl-12-2-no-refusal"
+                ],
+                "citations": [
+                  "Article 12(2)"
+                ]
+              }
+            },
+            {
+              "turn": 4,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 12(2)"
+              },
+              "returned": {
+                "citation": "Article 12(2)",
+                "text": "2. The controller shall facilitate the exercise of data subject rights under Articles 15 to 22. In the cases referred to in Article 11(2), the controller shall not refuse to act on the request of the data subject for exercising his or her rights under Articles 15 to 22, unless the controller demonstrates that it is not in a position to identify the data subject."
+              },
+              "returned_chars": 405,
+              "provenance": {
+                "units_text": [
+                  "art12-p2"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            491,
+            932,
+            1024,
+            1232,
+            1373
+          ],
+          "max_prompt_eval": 1373,
+          "error": null,
+          "seconds": 16.5
+        }
+      }
+    },
+    {
+      "id": "seg00196",
+      "stratum": "APP-13",
+      "article": 13,
+      "gold_label": "COMPLIANT",
+      "segment": "When you provide your personal data, we will inform you of our identity and contact details, as well as those of our representative and our Data Protection Officer, if applicable. We will specify any recipients of your data, the storage period or criteria for retention, and whether data processing is based on legitimate interests. You will be informed of your rights to access, rectify, erase, restrict or object to processing, and to data portability. Where consent is required, you may withdraw it at any time. We will clarify if providing data is a legal or contractual requirement and explain any automated decision-making, including profiling. If we intend to use your data for new purposes, you will be notified in advance.",
+      "arms": {
+        "text": {
+          "arm": "text",
+          "article": 13,
+          "turns": 2,
+          "turn_cap_hit": false,
+          "calls": 1,
+          "final": "Based on the provided GDPR Article 13 policy segment, let's analyze it against the identified provisions:\n\n1. **Article 13(1)(a)**: The controller’s identity and contact details are mentioned.\n2. **Article 13(1)(b)**: Contact details of the Data Protection Officer (DPO) are provided if applicable.\n3. **Article 13(1)(c)**: Purposes of processing, legal basis for processing, and recipients or categories of recipients are specified.\n4. **Article 13(1)(d)**: Where processing is based on legitimate interests under Article 6(1)(f), the legitimate interests pursued by the controller or a third party are mentioned.\n5. **Article 13(2)(c)**: The existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal is stated.\n6. **Article 13(2)(f)**: Information about automated decision-making and profiling, including meaningful information about the logic involved, as well as the significance and envisaged consequences of such processing for the data subject.\n\nThe policy segment covers all these points comprehensively:\n\n- Identity and contact details (a)\n- Contact details of DPO if applicable (b)\n- Purposes of processing, legal basis, recipients or categories of recipients (c)\n- Legitimate interests pursued by the controller or a third party (d)\n- Right to withdraw consent at any time (c)\n- Information about automated decision-making and profiling (f)\n\nTherefore, the policy segment is **COMPLIANT** with GDPR Article 13.\n\nVerdict: COMPLIANT. The policy segment covers all required information as per GDPR Article 13 provisions.",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "GDPR Article 13 policy segment"
+              },
+              "returned": [
+                {
+                  "duty_id": "Article 13(2)(c)",
+                  "text": "(c) where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;"
+                },
+                {
+                  "duty_id": "Article 13(1)(d)",
+                  "text": "(d) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party;"
+                },
+                {
+                  "duty_id": "Article 13(1)(f)",
+                  "text": "(f) where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available."
+                },
+                {
+                  "duty_id": "Article 13(2)(f)",
+                  "text": "(f) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+                },
+                {
+                  "duty_id": "Article 13(1)",
+                  "text": "1. Where personal data relating to a data subject are collected from the data subject, the controller shall, at the time when personal data are obtained, provide the data subject with all of the following information: (a) the identity and the contact details of the controller and, where applicable, of the controller's representative; (b) the contact details of the data protection officer, where applicable; (c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; (d) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party; (e) the recipients or categories of recipients of the personal data, if any; (f) where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available."
+                }
+              ],
+              "returned_chars": 2528,
+              "provenance": {
+                "units_text": [
+                  "art13-p1",
+                  "art13-p1-d",
+                  "art13-p1-f",
+                  "art13-p2-c",
+                  "art13-p2-f"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 13(1)",
+                  "Article 13(1)(d)",
+                  "Article 13(1)(f)",
+                  "Article 13(2)(c)",
+                  "Article 13(2)(f)"
+                ]
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            561,
+            1192
+          ],
+          "max_prompt_eval": 1192,
+          "error": null,
+          "seconds": 22.2
+        },
+        "graph": {
+          "arm": "graph",
+          "article": 13,
+          "turns": 5,
+          "turn_cap_hit": false,
+          "calls": 4,
+          "final": "Based on the provided GDPR Article 13 provisions, the privacy policy segment appears to be compliant with the requirements of Article 13. Here's a breakdown of the compliance:\n\n- **Identity and Contact Details**: The policy states that when personal data are provided, the identity and contact details of the controller (you) will be disclosed. This aligns with Article 13(1)(a).\n\n- **Recipients of Data**: The policy mentions specifying any recipients of your data, which is in line with Article 13(1)(b).\n\n- **Storage Period or Criteria for Retention**: The policy includes the storage period or criteria for retention, as required by Article 13(1)(c).\n\n- **Legitimate Interests**: The policy specifies whether data processing is based on legitimate interests, which complies with Article 13(1)(d).\n\n- **Rights of Data Subjects**: The policy informs about rights to access, rectify, erase, restrict or object to processing, and to data portability. This aligns with the general requirements for transparency under GDPR.\n\n- **Consent Withdrawal**: The policy states that you may withdraw consent at any time, which is in line with Article 13(2)(c).\n\n- **Automated Decision-Making**: The policy mentions providing information about automated decision-making and profiling, as required by Article 13(2)(f).\n\nThe conditions for these duties are generally met based on the timing of data collection (Article 13(1) and (2)) and exceptions where the data subject already has the information (Article 13(4)). The policy does not mention transfers to third countries or international organizations, which is covered by Article 13(1)(f), but this omission does not render it non-compliant as long as other relevant provisions are met.\n\nVerdict: **COMPLIANT**\n\nJustification: The privacy policy segment complies with the requirements of GDPR Article 13, including providing necessary information at the time personal data are obtained and informing about rights and automated decision-making processes.",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "Article 13 privacy policy segment"
+              },
+              "returned": [
+                {
+                  "citation": "Article 13(2)(c)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art13-2-c-withdraw-consent",
+                      "statement": "Inform of the existence of the right to withdraw consent at any time",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 13(1)(d)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art13-1-d-legitimate-interests",
+                      "statement": "Provide the legitimate interests pursued by the controller or a third party",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 13(1)(f)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art13-1-f-transfer-fact",
+                      "statement": "Provide the fact of intended transfer to a third country/international org and the existence/absence of an adequacy decision",
+                      "type": "Obligation"
+                    },
+                    {
+                      "duty_id": "obl-art13-1-f-transfer-safeguards",
+                      "statement": "Provide reference to the appropriate/suitable safeguards and the means to obtain a copy",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 13(2)(f)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art13-2-f-automated-decision",
+                      "statement": "Inform of the existence of automated decision-making incl. profiling, with meaningful information about the logic, significance and envisaged consequences",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 13(1)",
+                  "duties": []
+                }
+              ],
+              "returned_chars": 1173,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [
+                  "obl-art13-1-d-legitimate-interests",
+                  "obl-art13-1-f-transfer-fact",
+                  "obl-art13-1-f-transfer-safeguards",
+                  "obl-art13-2-c-withdraw-consent",
+                  "obl-art13-2-f-automated-decision"
+                ],
+                "citations": [
+                  "Article 13(1)",
+                  "Article 13(1)(d)",
+                  "Article 13(1)(f)",
+                  "Article 13(2)(c)",
+                  "Article 13(2)(f)"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "obl-art13-2-c-withdraw-consent"
+              },
+              "returned": {
+                "duty_id": "obl-art13-2-c-withdraw-consent",
+                "statement": "Inform of the existence of the right to withdraw consent at any time",
+                "conditions": [
+                  {
+                    "kind": "appliesIf",
+                    "statement": "at the time when personal data are obtained (para 2)",
+                    "cites": [
+                      "Article 13(2)"
+                    ]
+                  },
+                  {
+                    "kind": "appliesIf",
+                    "statement": "processing based on Article 6(1)(a) or Article 9(2)(a)",
+                    "cites": [
+                      "Article 13(2)(c)"
+                    ]
+                  },
+                  {
+                    "kind": "appliesIf",
+                    "statement": "personal data relating to a data subject are collected from the data subject (Art 13(1); the same fact, negated, is the Art 14(1) trigger)",
+                    "cites": [
+                      "Article 13(1)",
+                      "Article 14(1)"
+                    ]
+                  },
+                  {
+                    "kind": "hasException",
+                    "statement": "Paragraphs 1-3 do not apply where/insofar as the data subject already has the information (Art 13(4))",
+                    "cites": [
+                      "Article 13(4)"
+                    ]
+                  }
+                ]
+              },
+              "returned_chars": 786,
+              "provenance": {
+                "units_text": [],
+                "relations": [
+                  "cond-13-2-at-time-obtained",
+                  "cond-13-2-c-consent-basis",
+                  "cond-collected-from-data-subject",
+                  "exc-art13-4-already-has-info"
+                ],
+                "duties": [
+                  "obl-art13-2-c-withdraw-consent"
+                ],
+                "citations": [
+                  "Article 13(1)",
+                  "Article 13(2)",
+                  "Article 13(2)(c)",
+                  "Article 13(4)",
+                  "Article 14(1)"
+                ]
+              }
+            },
+            {
+              "turn": 3,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "obl-art13-2-f-automated-decision"
+              },
+              "returned": {
+                "duty_id": "obl-art13-2-f-automated-decision",
+                "statement": "Inform of the existence of automated decision-making incl. profiling, with meaningful information about the logic, significance and envisaged consequences",
+                "conditions": [
+                  {
+                    "kind": "appliesIf",
+                    "statement": "at the time when personal data are obtained (para 2)",
+                    "cites": [
+                      "Article 13(2)"
+                    ]
+                  },
+                  {
+                    "kind": "appliesIf",
+                    "statement": "personal data relating to a data subject are collected from the data subject (Art 13(1); the same fact, negated, is the Art 14(1) trigger)",
+                    "cites": [
+                      "Article 13(1)",
+                      "Article 14(1)"
+                    ]
+                  },
+                  {
+                    "kind": "hasException",
+                    "statement": "Paragraphs 1-3 do not apply where/insofar as the data subject already has the information (Art 13(4))",
+                    "cites": [
+                      "Article 13(4)"
+                    ]
+                  }
+                ]
+              },
+              "returned_chars": 749,
+              "provenance": {
+                "units_text": [],
+                "relations": [
+                  "cond-13-2-at-time-obtained",
+                  "cond-collected-from-data-subject",
+                  "exc-art13-4-already-has-info"
+                ],
+                "duties": [
+                  "obl-art13-2-f-automated-decision"
+                ],
+                "citations": [
+                  "Article 13(1)",
+                  "Article 13(2)",
+                  "Article 13(4)",
+                  "Article 14(1)"
+                ]
+              }
+            },
+            {
+              "turn": 4,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 13"
+              },
+              "returned": {
+                "error": "no such provision",
+                "known_citations": [
+                  "Article 13(1)",
+                  "Article 13(1), subparagraph 1",
+                  "Article 13(1)(a)",
+                  "Article 13(1)(b)",
+                  "Article 13(1)(c)",
+                  "Article 13(1)(d)",
+                  "Article 13(1)(e)",
+                  "Article 13(1)(f)"
+                ]
+              },
+              "returned_chars": 221,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            561,
+            944,
+            1245,
+            1511,
+            1645
+          ],
+          "max_prompt_eval": 1645,
+          "error": null,
+          "seconds": 31.4
+        }
+      }
+    },
+    {
+      "id": "seg00808",
+      "stratum": "APP-14",
+      "article": 14,
+      "gold_label": "COMPLIANT",
+      "segment": "When we collect your personal data from sources other than yourself, we ensure transparency by providing you with the following details: our identity and contact information, and if applicable, that of our representative and our Data Protection Officer; the purposes for which we process your personal data and the legal basis for doing so; how long we will store your data, or the criteria used to determine this period; your rights to access, rectify, erase, restrict, object to processing, and to data portability; your right to lodge a complaint with a supervisory authority; the source from which your personal data was obtained, including whether it originated from publicly accessible sources; and, if automated decision-making (including profiling) is involved, meaningful information about the logic, significance, and potential consequences. If your data is used to contact you or shared with another party, we will provide this information at the time of first contact or disclosure.",
+      "arms": {
+        "text": {
+          "arm": "text",
+          "article": 14,
+          "turns": 3,
+          "turn_cap_hit": false,
+          "calls": 2,
+          "final": "Based on the provided GDPR provisions, the policy segment appears to comply with Article 14 requirements. The policy includes all necessary details:\n\n- Identity and contact information (implied by providing \"our identity and contact information\")\n- Purposes of processing and legal basis\n- Storage period or criteria for determining it\n- Rights of data subjects: access, rectification, erasure, restriction, objection to processing, and data portability\n- Right to lodge a complaint with a supervisory authority\n- Source of personal data (publicly accessible sources)\n- Information about automated decision-making\n\nThe policy also includes the statement that if providing this information proves impossible or would involve a disproportionate effort, appropriate measures will be taken to protect the data subject's rights and freedoms.\n\nVerdict: **COMPLIANT**\n\nJustification: The policy segment covers all required elements as per Article 14(2) of the GDPR. Specifically, it includes:\n- Identity and contact information (implied)\n- Purposes of processing and legal basis\n- Storage period or criteria for determining it\n- Rights of data subjects: access, rectification, erasure, restriction, objection to processing, and data portability\n- Right to lodge a complaint with a supervisory authority\n- Source of personal data (publicly accessible sources)\n- Information about automated decision-making\n\nThe policy also addresses the conditions where providing this information might be impossible or involve disproportionate effort.",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "Article 14 notification requirements"
+              },
+              "returned": [
+                {
+                  "duty_id": "Article 14(2)(d)",
+                  "text": "(d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;"
+                },
+                {
+                  "duty_id": "Article 14(2)(b)",
+                  "text": "(b) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party;"
+                },
+                {
+                  "duty_id": "Article 14(1)(f)",
+                  "text": "(f) where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available."
+                },
+                {
+                  "duty_id": "Article 14(5)(b)",
+                  "text": "(b) the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89(1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available;"
+                },
+                {
+                  "duty_id": "Article 14(2)",
+                  "text": "2. In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject: (a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period; (b) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party; (c) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability; (d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal; (e) the right to lodge a complaint with a supervisory authority; (f) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; (g) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+                }
+              ],
+              "returned_chars": 3162,
+              "provenance": {
+                "units_text": [
+                  "art14-p1-f",
+                  "art14-p2",
+                  "art14-p2-b",
+                  "art14-p2-d",
+                  "art14-p5-b"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 14(1)(f)",
+                  "Article 14(2)",
+                  "Article 14(2)(b)",
+                  "Article 14(2)(d)",
+                  "Article 14(5)(b)"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "Article 14(2)(b)"
+              },
+              "returned": {
+                "chapeau": {
+                  "citation": "Article 14(2), subparagraph 1",
+                  "text": "2. In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject:"
+                },
+                "siblings": [
+                  {
+                    "citation": "Article 14(2)(a)",
+                    "text": "(a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;"
+                  },
+                  {
+                    "citation": "Article 14(2)(c)",
+                    "text": "(c) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability;"
+                  },
+                  {
+                    "citation": "Article 14(2)(d)",
+                    "text": "(d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;"
+                  },
+                  {
+                    "citation": "Article 14(2)(e)",
+                    "text": "(e) the right to lodge a complaint with a supervisory authority;"
+                  },
+                  {
+                    "citation": "Article 14(2)(f)",
+                    "text": "(f) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources;"
+                  },
+                  {
+                    "citation": "Article 14(2)(g)",
+                    "text": "(g) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+                  }
+                ]
+              },
+              "returned_chars": 1658,
+              "provenance": {
+                "units_text": [
+                  "art14-p2-a",
+                  "art14-p2-c",
+                  "art14-p2-d",
+                  "art14-p2-e",
+                  "art14-p2-f",
+                  "art14-p2-g",
+                  "art14-p2-sub1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 14(2)(a)",
+                  "Article 14(2)(c)",
+                  "Article 14(2)(d)",
+                  "Article 14(2)(e)",
+                  "Article 14(2)(f)",
+                  "Article 14(2)(g)",
+                  "Article 14(2), subparagraph 1"
+                ]
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            603,
+            1343,
+            1790
+          ],
+          "max_prompt_eval": 1790,
+          "error": null,
+          "seconds": 20.7
+        },
+        "graph": {
+          "arm": "graph",
+          "article": 14,
+          "turns": 4,
+          "turn_cap_hit": false,
+          "calls": 3,
+          "final": "Based on the provided information, the policy segment generally complies with Article 14 of the GDPR. The policy includes most of the required elements: identity and contact details, purposes for processing, legal basis, storage period, rights of the data subject, right to complain, source of personal data, and additional information if automated decision-making is involved.\n\nHowever, there are a few points that need clarification:\n\n1. **Article 14(2)(d) - Right to Withdraw Consent**: The policy should explicitly inform individuals about their right to withdraw consent at any time, as required by Article 14(2)(d). This was identified in the conditions check but not directly mentioned in the provided segment.\n\n2. **Article 14(3) - Timing of Information Provision**: The policy states that information will be provided \"at the time of first contact or disclosure.\" While this is generally correct, it should align more closely with Article 14(3), which specifies when such information must be provided in certain scenarios (e.g., at the latest during the first communication to the data subject).\n\nGiven these points, the policy segment can be considered **COMPLIANT** but could benefit from a few minor adjustments for full clarity and precision.\n\nVerdict: COMPLIANT\n\nJustification: The policy includes most of the required elements under Article 14. However, it should explicitly mention the right to withdraw consent (Article 14(2)(d)) and align more closely with the timing requirements specified in Article 14(3).",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "Article 14 notification requirements"
+              },
+              "returned": [
+                {
+                  "citation": "Article 14(2)(d)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art14-2-d-withdraw-consent",
+                      "statement": "Inform of the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal (Art 14(2)(d))",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 14(2)(b)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art14-2-b-legitimate-interests",
+                      "statement": "Provide the legitimate interests pursued by the controller or by a third party (Art 14(2)(b))",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 14(1)(f)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art14-1-f-transfer-fact",
+                      "statement": "Provide the fact of intended transfer to a recipient in a third country or international organisation and the existence/absence of a Commission adequacy decision (Art 14(1)(f))",
+                      "type": "Obligation"
+                    },
+                    {
+                      "duty_id": "obl-art14-1-f-transfer-safeguards",
+                      "statement": "Provide reference to the appropriate/suitable safeguards and the means to obtain a copy of them or where they have been made available (Art 14(1)(f))",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 14(5)(b)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art14-5-b-protective-measures",
+                      "statement": "Take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available, where the 14(5)(b) exemption applies (Art 14(5)(b), second sentence)",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 14(2)",
+                  "duties": []
+                }
+              ],
+              "returned_chars": 1477,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [
+                  "obl-art14-1-f-transfer-fact",
+                  "obl-art14-1-f-transfer-safeguards",
+                  "obl-art14-2-b-legitimate-interests",
+                  "obl-art14-2-d-withdraw-consent",
+                  "obl-art14-5-b-protective-measures"
+                ],
+                "citations": [
+                  "Article 14(1)(f)",
+                  "Article 14(2)",
+                  "Article 14(2)(b)",
+                  "Article 14(2)(d)",
+                  "Article 14(5)(b)"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "obl-art14-2-d-withdraw-consent"
+              },
+              "returned": {
+                "duty_id": "obl-art14-2-d-withdraw-consent",
+                "statement": "Inform of the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal (Art 14(2)(d))",
+                "conditions": [
+                  {
+                    "kind": "appliesIf",
+                    "statement": "processing is based on point (a) of Article 6(1) or point (a) of Article 9(2) (Art 14(2)(d))",
+                    "cites": [
+                      "Article 14(2)(d)"
+                    ]
+                  },
+                  {
+                    "kind": "appliesIf",
+                    "statement": "if the personal data are to be used for communication with the data subject: at the latest at the time of the first communication to that data subject (Art 14(3)(b))",
+                    "cites": [
+                      "Article 14(3)(b)"
+                    ]
+                  },
+                  {
+                    "kind": "appliesIf",
+                    "statement": "if a disclosure to another recipient is envisaged: at the latest when the personal data are first disclosed (Art 14(3)(c))",
+                    "cites": [
+                      "Article 14(3)(c)"
+                    ]
+                  },
+                  {
+                    "kind": "notApplicableIf",
+                    "statement": "personal data relating to a data subject are collected from the data subject (Art 13(1); the same fact, negated, is the Art 14(1) trigger)",
+                    "cites": [
+                      "Article 13(1)",
+                      "Article 14(1)"
+                    ]
+                  },
+                  {
+                    "kind": "hasException",
+                    "statement": "Paragraphs 1 to 4 do not apply where/insofar as the data subject already has the information (Art 14(5)(a))",
+                    "cites": [
+                      "Article 14(5)(a)"
+                    ]
+                  },
+                  {
+                    "kind": "hasException",
+                    "statement": "Paragraphs 1 to 4 do not apply where/insofar as the provision of the information proves impossible or would involve a disproportionate effort, in particular for archiving in the public interest, scientific or historical research or statistical purposes subject to the conditions and safeguards of Article 89(1), or in so far as the paragraph-1 obligation is likely to render impossible or seriously impair the achievement of the objectives of that processing (Art 14(5)(b))",
+                    "cites": [
+                      "Article 14(5)(b)"
+                    ]
+                  },
+                  {
+                    "kind": "hasException",
+                    "statement": "Paragraphs 1 to 4 do not apply where/insofar as obtaining or disclosure is expressly laid down by Union or Member State law to which the controller is subject and which provides appropriate measures to protect the data subject's legitimate interests (Art 14(5)(c))",
+                    "cites": [
+                      "Article 14(5)(c)"
+                    ]
+                  },
+                  {
+                    "kind": "hasException",
+                    "statement": "Paragraphs 1 to 4 do not apply where/insofar as the personal data must remain confidential subject to an obligation of professional secrecy regulated by Union or Member State law, including a statutory obligation of secrecy (Art 14(5)(d))",
+                    "cites": [
+                      "Article 14(5)(d)"
+                    ]
+                  }
+                ]
+              },
+              "returned_chars": 2447,
+              "provenance": {
+                "units_text": [],
+                "relations": [
+                  "cond-14-2-d-consent-basis",
+                  "cond-14-3-b-first-communication",
+                  "cond-14-3-c-first-disclosure",
+                  "cond-collected-from-data-subject",
+                  "exc-art14-5-a-already-has-info",
+                  "exc-art14-5-b-impossible-disproportionate",
+                  "exc-art14-5-c-laid-down-by-law",
+                  "exc-art14-5-d-professional-secrecy"
+                ],
+                "duties": [
+                  "obl-art14-2-d-withdraw-consent"
+                ],
+                "citations": [
+                  "Article 13(1)",
+                  "Article 14(1)",
+                  "Article 14(2)(d)",
+                  "Article 14(3)(b)",
+                  "Article 14(3)(c)",
+                  "Article 14(5)(a)",
+                  "Article 14(5)(b)",
+                  "Article 14(5)(c)",
+                  "Article 14(5)(d)"
+                ]
+              }
+            },
+            {
+              "turn": 3,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 14"
+              },
+              "returned": {
+                "error": "no such provision",
+                "known_citations": [
+                  "Article 14(1)",
+                  "Article 14(1), subparagraph 1",
+                  "Article 14(1)(a)",
+                  "Article 14(1)(b)",
+                  "Article 14(1)(c)",
+                  "Article 14(1)(d)",
+                  "Article 14(1)(e)",
+                  "Article 14(1)(f)"
+                ]
+              },
+              "returned_chars": 221,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            603,
+            1076,
+            1799,
+            1933
+          ],
+          "max_prompt_eval": 1933,
+          "error": null,
+          "seconds": 24.1
+        }
+      }
+    },
+    {
+      "id": "seg01231",
+      "stratum": "APP-14",
+      "article": 14,
+      "gold_label": "COMPLIANT",
+      "segment": "When we receive your personal data from sources other than yourself, we inform you of our identity and contact information, the intended purposes and legal basis for processing, the categories of data collected, and any recipients or categories of recipients of your data. If data may be transferred internationally, we will notify you of the destination and relevant safeguards. You are informed of how long your data will be stored or the criteria for determining this period, as well as the legitimate interests pursued, if applicable. You have the right to request access, correction, deletion, restriction, or portability of your data, and to object to processing. You may also lodge a complaint with a supervisory authority. We will let you know the source of your data, including whether it was from publicly accessible sources, and will provide this information within one month or at the time of first communication or disclosure.",
+      "arms": {
+        "text": {
+          "arm": "text",
+          "article": 14,
+          "turns": 3,
+          "turn_cap_hit": false,
+          "calls": 2,
+          "final": "Based on the provided GDPR provisions, the policy segment appears to comply with Article 14 requirements. Here's a breakdown:\n\n- The policy informs you of the controller’s identity and contact information (Article 14(2)(b)).\n- It states the intended purposes and legal basis for processing (Article 14(2)(b) and (d)).\n- It mentions the categories of data collected (not explicitly stated in Article 14 but implied by the policy).\n- Recipients or categories of recipients are mentioned (implied from the policy).\n- International transfers, if applicable, are notified with relevant safeguards (Article 14(2)(f) and (g)).\n- The storage period is provided (Article 14(2)(a)), though it may be replaced by criteria for determining this period.\n- The right to access, correction, deletion, restriction, or portability of data, as well as the right to object to processing, are mentioned (Article 14(2)(c)).\n- The right to lodge a complaint with a supervisory authority is included (Article 14(2)(e)).\n- The source of your data and whether it came from publicly accessible sources is provided within one month or at the time of first communication or disclosure (implied by Article 14(2)(f)).\n\nThe policy does not explicitly mention automated decision-making, but this is not required for all processing activities under Article 14. The policy also does not address the specific conditions where providing such information would be impossible or involve a disproportionate effort (Article 14(5)(b)), which is an exception to the general requirement.\n\nVerdict: **COMPLIANT**\n\nJustification: The policy segment covers all the mandatory elements required by Article 14, with the possible exception of automated decision-making and the specific conditions for not providing certain information. However, these omissions do not render the policy non-compliant as they are optional or exceptional circumstances.",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "GDPR Article 14 notification requirements"
+              },
+              "returned": [
+                {
+                  "duty_id": "Article 14(2)(d)",
+                  "text": "(d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;"
+                },
+                {
+                  "duty_id": "Article 14(2)(b)",
+                  "text": "(b) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party;"
+                },
+                {
+                  "duty_id": "Article 14(1)(f)",
+                  "text": "(f) where applicable, that the controller intends to transfer personal data to a recipient in a third country or international organisation and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means to obtain a copy of them or where they have been made available."
+                },
+                {
+                  "duty_id": "Article 14(5)(b)",
+                  "text": "(b) the provision of such information proves impossible or would involve a disproportionate effort, in particular for processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes, subject to the conditions and safeguards referred to in Article 89(1) or in so far as the obligation referred to in paragraph 1 of this Article is likely to render impossible or seriously impair the achievement of the objectives of that processing. In such cases the controller shall take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available;"
+                },
+                {
+                  "duty_id": "Article 14(2)",
+                  "text": "2. In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject: (a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period; (b) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party; (c) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability; (d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal; (e) the right to lodge a complaint with a supervisory authority; (f) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; (g) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+                }
+              ],
+              "returned_chars": 3162,
+              "provenance": {
+                "units_text": [
+                  "art14-p1-f",
+                  "art14-p2",
+                  "art14-p2-b",
+                  "art14-p2-d",
+                  "art14-p5-b"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 14(1)(f)",
+                  "Article 14(2)",
+                  "Article 14(2)(b)",
+                  "Article 14(2)(d)",
+                  "Article 14(5)(b)"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "Article 14(2)(b)"
+              },
+              "returned": {
+                "chapeau": {
+                  "citation": "Article 14(2), subparagraph 1",
+                  "text": "2. In addition to the information referred to in paragraph 1, the controller shall provide the data subject with the following information necessary to ensure fair and transparent processing in respect of the data subject:"
+                },
+                "siblings": [
+                  {
+                    "citation": "Article 14(2)(a)",
+                    "text": "(a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;"
+                  },
+                  {
+                    "citation": "Article 14(2)(c)",
+                    "text": "(c) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject and to object to processing as well as the right to data portability;"
+                  },
+                  {
+                    "citation": "Article 14(2)(d)",
+                    "text": "(d) where processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;"
+                  },
+                  {
+                    "citation": "Article 14(2)(e)",
+                    "text": "(e) the right to lodge a complaint with a supervisory authority;"
+                  },
+                  {
+                    "citation": "Article 14(2)(f)",
+                    "text": "(f) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources;"
+                  },
+                  {
+                    "citation": "Article 14(2)(g)",
+                    "text": "(g) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject."
+                  }
+                ]
+              },
+              "returned_chars": 1658,
+              "provenance": {
+                "units_text": [
+                  "art14-p2-a",
+                  "art14-p2-c",
+                  "art14-p2-d",
+                  "art14-p2-e",
+                  "art14-p2-f",
+                  "art14-p2-g",
+                  "art14-p2-sub1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 14(2)(a)",
+                  "Article 14(2)(c)",
+                  "Article 14(2)(d)",
+                  "Article 14(2)(e)",
+                  "Article 14(2)(f)",
+                  "Article 14(2)(g)",
+                  "Article 14(2), subparagraph 1"
+                ]
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            593,
+            1335,
+            1782
+          ],
+          "max_prompt_eval": 1782,
+          "error": null,
+          "seconds": 27.3
+        },
+        "graph": {
+          "arm": "graph",
+          "article": 14,
+          "turns": 2,
+          "turn_cap_hit": false,
+          "calls": 1,
+          "final": "Based on the provided policy segment and the provisions identified from Article 14, let's analyze compliance:\n\n### Provisions Identified:\n- **Article 14(2)(b)**: Provide the legitimate interests pursued by the controller or by a third party.\n- **Article 14(2)(d)**: Inform of the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal.\n- **Article 14(1)(f)**: Provide the fact of intended transfer to a recipient in a third country or international organisation and the existence/absence of a Commission adequacy decision. Also provide reference to the appropriate/suitable safeguards and the means to obtain a copy of them or where they have been made available.\n- **Article 14(5)(b)**: Take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available.\n\n### Analysis:\nThe policy segment covers most of these provisions:\n\n1. **Article 14(2)(d)** is not explicitly mentioned in the segment but should be included as it pertains to informing about the right to withdraw consent.\n2. The segment mentions providing \"the intended purposes and legal basis for processing,\" which aligns with Article 14(2)(a).\n3. The segment covers the categories of data collected, recipients or categories of recipients, international transfers (destination and relevant safeguards), storage period, legitimate interests pursued, rights to access, correction, deletion, restriction, portability, and complaint.\n4. The source of the data is mentioned, including whether it was from publicly accessible sources.\n\n### Verdict:\nThe policy segment appears **COMPLIANT** with Article 14 as it covers most of the required information under this article. However, there are a few minor points that could be improved:\n\n- Ensure that the notification about the right to withdraw consent (Article 14(2)(d)) is included.\n- Clarify if the storage period criteria and legitimate interests pursued are explicitly stated.\n\n### Justification:\nThe policy segment complies with Article 14 by providing necessary information such as data processing purposes, legal basis, categories of data, recipients, international transfers, storage duration, rights of the data subject, and source of data. The missing point is ensuring explicit mention of the right to withdraw consent (Article 14(2)(d)).\n\nVerdict: **COMPLIANT** with Article 14, but consider adding a statement about the right to withdraw consent for full compliance.",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "GDPR Article 14 notification requirements"
+              },
+              "returned": [
+                {
+                  "citation": "Article 14(2)(d)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art14-2-d-withdraw-consent",
+                      "statement": "Inform of the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal (Art 14(2)(d))",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 14(2)(b)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art14-2-b-legitimate-interests",
+                      "statement": "Provide the legitimate interests pursued by the controller or by a third party (Art 14(2)(b))",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 14(1)(f)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art14-1-f-transfer-fact",
+                      "statement": "Provide the fact of intended transfer to a recipient in a third country or international organisation and the existence/absence of a Commission adequacy decision (Art 14(1)(f))",
+                      "type": "Obligation"
+                    },
+                    {
+                      "duty_id": "obl-art14-1-f-transfer-safeguards",
+                      "statement": "Provide reference to the appropriate/suitable safeguards and the means to obtain a copy of them or where they have been made available (Art 14(1)(f))",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 14(5)(b)",
+                  "duties": [
+                    {
+                      "duty_id": "obl-art14-5-b-protective-measures",
+                      "statement": "Take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available, where the 14(5)(b) exemption applies (Art 14(5)(b), second sentence)",
+                      "type": "Obligation"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 14(2)",
+                  "duties": []
+                }
+              ],
+              "returned_chars": 1477,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [
+                  "obl-art14-1-f-transfer-fact",
+                  "obl-art14-1-f-transfer-safeguards",
+                  "obl-art14-2-b-legitimate-interests",
+                  "obl-art14-2-d-withdraw-consent",
+                  "obl-art14-5-b-protective-measures"
+                ],
+                "citations": [
+                  "Article 14(1)(f)",
+                  "Article 14(2)",
+                  "Article 14(2)(b)",
+                  "Article 14(2)(d)",
+                  "Article 14(5)(b)"
+                ]
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            593,
+            1068
+          ],
+          "max_prompt_eval": 1068,
+          "error": null,
+          "seconds": 30.9
+        }
+      }
+    },
+    {
+      "id": "seg05439",
+      "stratum": "APP-46",
+      "article": 46,
+      "gold_label": "COMPLIANT",
+      "segment": "We may transfer personal data to third countries or international organisations only where we have established appropriate safeguards to protect your information. Such safeguards may include legally binding and enforceable instruments between public authorities, binding corporate rules across our group, or an approved code of conduct with binding and enforceable commitments from the data recipient. In certain cases, and subject to authorisation by the relevant supervisory authority, administrative arrangements or authorisations may also be used to ensure enforceable data subject rights and effective legal remedies. All such transfers are made to ensure your rights and protections are maintained, and you will always have access to appropriate remedies in the event of a dispute.",
+      "arms": {
+        "text": {
+          "arm": "text",
+          "article": 46,
+          "turns": 8,
+          "turn_cap_hit": false,
+          "calls": 7,
+          "final": "Verdict: COMPLIANT\n\nJustification:\nThe policy segment aligns well with GDPR Article 46. The policy mentions that transfers are only made after establishing \"appropriate safeguards,\" which is in line with the requirement under Article 46(1) of providing appropriate safeguards and ensuring enforceable data subject rights and effective legal remedies.\n\nSpecifically, the policy includes:\n- Legally binding and enforceable instruments between public authorities (Article 46(2)(a))\n- Binding corporate rules across the group (implied by \"binding corporate rules\" in Article 47)\n- An approved code of conduct with binding and enforceable commitments from the data recipient (Article 46(2)(e))\n\nThese safeguards ensure that the conditions set out in Articles 46(1) and 46(3)(a) are met. The policy also mentions access to appropriate remedies, which is consistent with the requirement for effective legal remedies.\n\nTherefore, based on the provisions from Article 46(1), (2)(e), and (3)(a), the policy segment is compliant with GDPR requirements for transferring personal data to third countries or international organizations.",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "transfer of personal data to third countries or international organisations"
+              },
+              "returned": [
+                {
+                  "duty_id": "Article 46(1)",
+                  "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+                },
+                {
+                  "duty_id": "Article 46(1), subparagraph 1",
+                  "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+                },
+                {
+                  "duty_id": "Article 46(3)(a)",
+                  "text": "(a) contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or"
+                },
+                {
+                  "duty_id": "Article 46(3)",
+                  "text": "3. Subject to the authorisation from the competent supervisory authority, the appropriate safeguards referred to in paragraph 1 may also be provided for, in particular, by: (a) contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or (b) provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights."
+                },
+                {
+                  "duty_id": "Article 46(2)(e)",
+                  "text": "(e) an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights; or"
+                }
+              ],
+              "returned_chars": 1874,
+              "provenance": {
+                "units_text": [
+                  "art46-p1",
+                  "art46-p1-sub1",
+                  "art46-p2-e",
+                  "art46-p3",
+                  "art46-p3-a"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 46(1)",
+                  "Article 46(1), subparagraph 1",
+                  "Article 46(2)(e)",
+                  "Article 46(3)",
+                  "Article 46(3)(a)"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "Article 46(1)"
+              },
+              "returned": {
+                "chapeau": {
+                  "citation": "Article 46(1), subparagraph 1",
+                  "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+                },
+                "siblings": []
+              },
+              "returned_chars": 438,
+              "provenance": {
+                "units_text": [
+                  "art46-p1-sub1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 46(1), subparagraph 1"
+                ]
+              }
+            },
+            {
+              "turn": 3,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "Article 46(3)(a)"
+              },
+              "returned": {
+                "chapeau": {
+                  "citation": "Article 46(3), subparagraph 1",
+                  "text": "3. Subject to the authorisation from the competent supervisory authority, the appropriate safeguards referred to in paragraph 1 may also be provided for, in particular, by:"
+                },
+                "siblings": [
+                  {
+                    "citation": "Article 46(3)(b)",
+                    "text": "(b) provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights."
+                  }
+                ]
+              },
+              "returned_chars": 462,
+              "provenance": {
+                "units_text": [
+                  "art46-p3-b",
+                  "art46-p3-sub1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 46(3)(b)",
+                  "Article 46(3), subparagraph 1"
+                ]
+              }
+            },
+            {
+              "turn": 4,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "Article 46(2)(e)"
+              },
+              "returned": {
+                "chapeau": {
+                  "citation": "Article 46(2), subparagraph 1",
+                  "text": "2. The appropriate safeguards referred to in paragraph 1 may be provided for, without requiring any specific authorisation from a supervisory authority, by:"
+                },
+                "siblings": [
+                  {
+                    "citation": "Article 46(2)(a)",
+                    "text": "(a) a legally binding and enforceable instrument between public authorities or bodies;"
+                  },
+                  {
+                    "citation": "Article 46(2)(b)",
+                    "text": "(b) binding corporate rules in accordance with Article 47;"
+                  },
+                  {
+                    "citation": "Article 46(2)(c)",
+                    "text": "(c) standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93(2);"
+                  },
+                  {
+                    "citation": "Article 46(2)(d)",
+                    "text": "(d) standard data protection clauses adopted by a supervisory authority and approved by the Commission pursuant to the examination procedure referred to in Article 93(2);"
+                  },
+                  {
+                    "citation": "Article 46(2)(f)",
+                    "text": "(f) an approved certification mechanism pursuant to Article 42 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights."
+                  }
+                ]
+              },
+              "returned_chars": 1166,
+              "provenance": {
+                "units_text": [
+                  "art46-p2-a",
+                  "art46-p2-b",
+                  "art46-p2-c",
+                  "art46-p2-d",
+                  "art46-p2-f",
+                  "art46-p2-sub1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 46(2)(a)",
+                  "Article 46(2)(b)",
+                  "Article 46(2)(c)",
+                  "Article 46(2)(d)",
+                  "Article 46(2)(f)",
+                  "Article 46(2), subparagraph 1"
+                ]
+              }
+            },
+            {
+              "turn": 5,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 46(1)"
+              },
+              "returned": {
+                "citation": "Article 46(1)",
+                "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+              },
+              "returned_chars": 393,
+              "provenance": {
+                "units_text": [
+                  "art46-p1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            },
+            {
+              "turn": 6,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 46(3)(a)"
+              },
+              "returned": {
+                "citation": "Article 46(3)(a)",
+                "text": "(a) contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or"
+              },
+              "returned_chars": 226,
+              "provenance": {
+                "units_text": [
+                  "art46-p3-a"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            },
+            {
+              "turn": 7,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 46(2)(e)"
+              },
+              "returned": {
+                "citation": "Article 46(2)(e)",
+                "text": "(e) an approved code of conduct pursuant to Article 40 together with binding and enforceable commitments of the controller or processor in the third country to apply the appropriate safeguards, including as regards data subjects' rights; or"
+              },
+              "returned_chars": 284,
+              "provenance": {
+                "units_text": [
+                  "art46-p2-e"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            548,
+            985,
+            1122,
+            1273,
+            1596,
+            1718,
+            1811,
+            1918
+          ],
+          "max_prompt_eval": 1918,
+          "error": null,
+          "seconds": 26.5
+        },
+        "graph": {
+          "arm": "graph",
+          "article": 46,
+          "turns": 4,
+          "turn_cap_hit": false,
+          "calls": 3,
+          "final": "Based on the GDPR Article 46(1) provision and the conditions identified, the policy segment is compliant with the article. The policy states that personal data may only be transferred to third countries or international organizations if appropriate safeguards have been established, which aligns with the requirement in Article 46(1). Additionally, the policy mentions that enforceable data subject rights and effective legal remedies are available, which also satisfies the conditions set out in Article 46(1).\n\nVerdict: COMPLIANT\n\nJustification: The policy segment complies with Article 46(1) of the GDPR as it states that transfers to third countries or international organizations can only occur if appropriate safeguards have been provided and enforceable data subject rights and effective legal remedies are available. This aligns with the official text from Article 46(1), which requires both conditions to be met for such transfers.",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "transfer of personal data to third countries or international organisations"
+              },
+              "returned": [
+                {
+                  "citation": "Article 46(1)",
+                  "duties": [
+                    {
+                      "duty_id": "perm-46-1-transfer",
+                      "statement": "May transfer personal data to a third country or an international organisation, only if appropriate safeguards have been provided and enforceable data subject rights and effective legal remedies are available (Art 46(1))",
+                      "type": "Permission"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 46(1), subparagraph 1",
+                  "duties": []
+                },
+                {
+                  "citation": "Article 46(3)(a)",
+                  "duties": [
+                    {
+                      "duty_id": "mech-46-3-a",
+                      "statement": "Contractual clauses between the controller or processor and the controller, processor or recipient in the third country or international organisation (Art 46(3)(a)) — AUTHORISATION REQUIRED",
+                      "type": "TransferMechanism"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 46(3)",
+                  "duties": []
+                },
+                {
+                  "citation": "Article 46(2)(e)",
+                  "duties": [
+                    {
+                      "duty_id": "mech-46-2-e",
+                      "statement": "An approved code of conduct pursuant to Article 40, together with binding and enforceable commitments of the controller or processor in the third country (Art 46(2)(e))",
+                      "type": "TransferMechanism"
+                    }
+                  ]
+                }
+              ],
+              "returned_chars": 1040,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [
+                  "mech-46-2-e",
+                  "mech-46-3-a",
+                  "perm-46-1-transfer"
+                ],
+                "citations": [
+                  "Article 46(1)",
+                  "Article 46(1), subparagraph 1",
+                  "Article 46(2)(e)",
+                  "Article 46(3)",
+                  "Article 46(3)(a)"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "perm-46-1-transfer"
+              },
+              "returned": {
+                "duty_id": "perm-46-1-transfer",
+                "statement": "May transfer personal data to a third country or an international organisation, only if appropriate safeguards have been provided and enforceable data subject rights and effective legal remedies are available (Art 46(1))",
+                "conditions": [
+                  {
+                    "kind": "appliesIf",
+                    "statement": "enforceable data subject rights and effective legal remedies for data subjects are available",
+                    "cites": [
+                      "Article 46(1)"
+                    ]
+                  },
+                  {
+                    "kind": "appliesIf",
+                    "statement": "the controller or processor has provided appropriate safeguards",
+                    "cites": [
+                      "Article 46(1)"
+                    ]
+                  },
+                  {
+                    "kind": "notApplicableIf",
+                    "statement": "an adequacy decision under Article 45(3) exists for the third country, territory or international organisation",
+                    "cites": [
+                      "Article 46(1)"
+                    ]
+                  }
+                ]
+              },
+              "returned_chars": 761,
+              "provenance": {
+                "units_text": [],
+                "relations": [
+                  "cond-46-1-adequacy-decision-exists",
+                  "cond-46-1-enforceable-rights-remedies",
+                  "cond-46-1-safeguards-provided"
+                ],
+                "duties": [
+                  "perm-46-1-transfer"
+                ],
+                "citations": [
+                  "Article 46(1)"
+                ]
+              }
+            },
+            {
+              "turn": 3,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 46(1)"
+              },
+              "returned": {
+                "citation": "Article 46(1)",
+                "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+              },
+              "returned_chars": 393,
+              "provenance": {
+                "units_text": [
+                  "art46-p1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            548,
+            888,
+            1121,
+            1243
+          ],
+          "max_prompt_eval": 1243,
+          "error": null,
+          "seconds": 15.6
+        }
+      }
+    },
+    {
+      "id": "seg07789",
+      "stratum": "NA-46",
+      "article": 46,
+      "gold_label": "NOT_APPLICABLE",
+      "segment": "This organisation does not engage in the transfer of personal data to countries outside the European Economic Area or to international organisations. As such, the requirements relating to appropriate safeguards for international data transfers are not applicable to our activities. If our practices change in the future and such transfers become necessary, we will update our policies accordingly and ensure all necessary safeguards are implemented to protect individuals’ personal information.",
+      "arms": {
+        "text": {
+          "arm": "text",
+          "article": 46,
+          "turns": 4,
+          "turn_cap_hit": false,
+          "calls": 3,
+          "final": "Based on the GDPR Article 46(1) provision, the policy segment is NON_COMPLIANT. The relevant text from Article 46(1) states:\n\n\"1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available.\"\n\nThe policy segment states that the organization does not engage in transferring personal data outside the European Economic Area (EEA) or to international organizations. While this may be true at present, it fails to address the requirement of providing appropriate safeguards if such transfers were to occur in the future. The policy should explicitly state how and when appropriate safeguards will be implemented if necessary.\n\nVerdict: NON_COMPLIANT\nJustification: The policy does not currently provide for appropriate safeguards as required by Article 46(1) GDPR, even though it mentions that they would be implemented if transfers were to occur in the future. This is a requirement under the current regulation and must be addressed explicitly.",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "international data transfer"
+              },
+              "returned": [
+                {
+                  "duty_id": "Article 46(1)",
+                  "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+                },
+                {
+                  "duty_id": "Article 46(1), subparagraph 1",
+                  "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+                },
+                {
+                  "duty_id": "Article 46(3)(a)",
+                  "text": "(a) contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or"
+                },
+                {
+                  "duty_id": "Article 46(3)",
+                  "text": "3. Subject to the authorisation from the competent supervisory authority, the appropriate safeguards referred to in paragraph 1 may also be provided for, in particular, by: (a) contractual clauses between the controller or processor and the controller, processor or the recipient of the personal data in the third country or international organisation; or (b) provisions to be inserted into administrative arrangements between public authorities or bodies which include enforceable and effective data subject rights."
+                },
+                {
+                  "duty_id": "Article 46(2)(c)",
+                  "text": "(c) standard data protection clauses adopted by the Commission in accordance with the examination procedure referred to in Article 93(2);"
+                }
+              ],
+              "returned_chars": 1771,
+              "provenance": {
+                "units_text": [
+                  "art46-p1",
+                  "art46-p1-sub1",
+                  "art46-p2-c",
+                  "art46-p3",
+                  "art46-p3-a"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 46(1)",
+                  "Article 46(1), subparagraph 1",
+                  "Article 46(2)(c)",
+                  "Article 46(3)",
+                  "Article 46(3)(a)"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "Article 46(1)"
+              },
+              "returned": {
+                "chapeau": {
+                  "citation": "Article 46(1), subparagraph 1",
+                  "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+                },
+                "siblings": []
+              },
+              "returned_chars": 438,
+              "provenance": {
+                "units_text": [
+                  "art46-p1-sub1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": [
+                  "Article 46(1), subparagraph 1"
+                ]
+              }
+            },
+            {
+              "turn": 3,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 46(1)"
+              },
+              "returned": {
+                "citation": "Article 46(1)",
+                "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+              },
+              "returned_chars": 393,
+              "provenance": {
+                "units_text": [
+                  "art46-p1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            496,
+            908,
+            1045,
+            1167
+          ],
+          "max_prompt_eval": 1167,
+          "error": null,
+          "seconds": 18.2
+        },
+        "graph": {
+          "arm": "graph",
+          "article": 46,
+          "turns": 4,
+          "turn_cap_hit": false,
+          "calls": 3,
+          "final": "Verdict: NON_COMPLIANT\n\nJustification: The policy segment states that the organization does not engage in transferring personal data to countries outside the European Economic Area or international organizations, implying that such transfers are currently non-existent. However, Article 46(1) of the GDPR stipulates that a controller or processor may transfer personal data to a third country or an international organisation only if appropriate safeguards have been provided and enforceable data subject rights and effective legal remedies are available. The policy does not address what actions would be taken should such transfers become necessary in the future, which is contrary to Article 46(1). Specifically, it fails to outline how the organization would ensure that appropriate safeguards are in place if a transfer becomes necessary.\n\nThe policy also mentions updating policies accordingly if practices change and such transfers become necessary. However, this does not comply with the requirement under Article 46(1) for ensuring enforceable data subject rights and effective legal remedies are available before any transfer takes place. Therefore, the policy is NON_COMPLIANT with GDPR Article 46(1).",
+          "trace": [
+            {
+              "turn": 1,
+              "call": "find_duties",
+              "args": {
+                "topic": "international data transfer"
+              },
+              "returned": [
+                {
+                  "citation": "Article 46(1)",
+                  "duties": [
+                    {
+                      "duty_id": "perm-46-1-transfer",
+                      "statement": "May transfer personal data to a third country or an international organisation, only if appropriate safeguards have been provided and enforceable data subject rights and effective legal remedies are available (Art 46(1))",
+                      "type": "Permission"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 46(1), subparagraph 1",
+                  "duties": []
+                },
+                {
+                  "citation": "Article 46(3)(a)",
+                  "duties": [
+                    {
+                      "duty_id": "mech-46-3-a",
+                      "statement": "Contractual clauses between the controller or processor and the controller, processor or recipient in the third country or international organisation (Art 46(3)(a)) — AUTHORISATION REQUIRED",
+                      "type": "TransferMechanism"
+                    }
+                  ]
+                },
+                {
+                  "citation": "Article 46(3)",
+                  "duties": []
+                },
+                {
+                  "citation": "Article 46(2)(c)",
+                  "duties": [
+                    {
+                      "duty_id": "mech-46-2-c",
+                      "statement": "Standard data protection clauses adopted by the Commission (Art 46(2)(c))",
+                      "type": "TransferMechanism"
+                    }
+                  ]
+                }
+              ],
+              "returned_chars": 945,
+              "provenance": {
+                "units_text": [],
+                "relations": [],
+                "duties": [
+                  "mech-46-2-c",
+                  "mech-46-3-a",
+                  "perm-46-1-transfer"
+                ],
+                "citations": [
+                  "Article 46(1)",
+                  "Article 46(1), subparagraph 1",
+                  "Article 46(2)(c)",
+                  "Article 46(3)",
+                  "Article 46(3)(a)"
+                ]
+              }
+            },
+            {
+              "turn": 2,
+              "call": "get_conditions",
+              "args": {
+                "duty_id": "perm-46-1-transfer"
+              },
+              "returned": {
+                "duty_id": "perm-46-1-transfer",
+                "statement": "May transfer personal data to a third country or an international organisation, only if appropriate safeguards have been provided and enforceable data subject rights and effective legal remedies are available (Art 46(1))",
+                "conditions": [
+                  {
+                    "kind": "appliesIf",
+                    "statement": "enforceable data subject rights and effective legal remedies for data subjects are available",
+                    "cites": [
+                      "Article 46(1)"
+                    ]
+                  },
+                  {
+                    "kind": "appliesIf",
+                    "statement": "the controller or processor has provided appropriate safeguards",
+                    "cites": [
+                      "Article 46(1)"
+                    ]
+                  },
+                  {
+                    "kind": "notApplicableIf",
+                    "statement": "an adequacy decision under Article 45(3) exists for the third country, territory or international organisation",
+                    "cites": [
+                      "Article 46(1)"
+                    ]
+                  }
+                ]
+              },
+              "returned_chars": 761,
+              "provenance": {
+                "units_text": [],
+                "relations": [
+                  "cond-46-1-adequacy-decision-exists",
+                  "cond-46-1-enforceable-rights-remedies",
+                  "cond-46-1-safeguards-provided"
+                ],
+                "duties": [
+                  "perm-46-1-transfer"
+                ],
+                "citations": [
+                  "Article 46(1)"
+                ]
+              }
+            },
+            {
+              "turn": 3,
+              "call": "get_provision",
+              "args": {
+                "citation": "Article 46(1)"
+              },
+              "returned": {
+                "citation": "Article 46(1)",
+                "text": "1. In the absence of a decision pursuant to Article 45(3), a controller or processor may transfer personal data to a third country or an international organisation only if the controller or processor has provided appropriate safeguards, and on condition that enforceable data subject rights and effective legal remedies for data subjects are available."
+              },
+              "returned_chars": 393,
+              "provenance": {
+                "units_text": [
+                  "art46-p1"
+                ],
+                "relations": [],
+                "duties": [],
+                "citations": []
+              }
+            }
+          ],
+          "prompt_eval_counts": [
+            496,
+            809,
+            1042,
+            1164
+          ],
+          "max_prompt_eval": 1164,
+          "error": null,
+          "seconds": 17.1
+        }
+      }
+    }
+  ]
+}

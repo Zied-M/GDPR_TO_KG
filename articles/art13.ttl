@@ -252,6 +252,50 @@ ex:cond-13-3-further-processing a gdprkg:Condition ; rdfs:label "controller inte
 ex:cond-13-3-prior a gdprkg:Condition ; rdfs:label "prior to that further processing (temporal)"@en ;
     gdprkg:groundedIn ex:art13-p3 .
 
+# ---- CANONICAL SHARED CONDITION - the collection-source trigger (Work Order F, 2026-09-06) ----
+#  THE FACT THAT DECIDES WHICH ARTICLE APPLIES, and until now the one fact in these two files
+#  that was not a node: the distinction survived only as WHICH FILE a duty sat in, which is
+#  filing, not knowledge. Raised by the paper stream, verified on disk (0 occurrences of
+#  "from the data subject" in either file before this commit).
+#
+#  ONE SHARED NODE, OPPOSITE EDGES - Zied's model, decided 2026-09-06 on the legal reading that
+#  13(1) "collected from the data subject" and 14(1) "have not been obtained from the data
+#  subject" are THE SAME FACT IN OPPOSITE POLARITY (Zied, citing CJEU). The model asserts only
+#  MUTUAL EXCLUSIVITY, never EXHAUSTIVENESS: notApplicableIf switches Art 14 OFF when this holds
+#  and licenses NO inference that Art 14 applies when it does not. That closed-world step was
+#  refused at Art 46(3) and is refused here.
+#
+#  #!SURFACE the equivalence of the two verbs ("collected from" / "obtained from") is a LEGAL
+#  reading taken by the author, not a fact stated by either chapeau. It is the one call this
+#  model makes that the source text does not make for it. Adjacent to I8 / art14-legal-residuals.
+#
+#  DUAL-GROUNDED, and deliberately so: the fact is stated in BOTH chapeaux, so it is grounded in
+#  both. THIS IS THE FIRST NODE IN THE PROJECT WITH TWO groundedIn EDGES. Permitted -
+#  gdprkg:groundedIn has minCount 1 and NO maxCount (shapes.ttl) - but previously unexercised, so
+#  CQ-C1 returns TWO rows for this one node and its header note "every one carrying exactly one
+#  groundedIn edge" no longer describes the whole graph. That is a real change to a stated
+#  property and it is recorded, not glossed. The art14-p1 leg is asserted FROM art14.ttl, so each
+#  file grounds the node in its own chapeau and neither file reaches into the other's.
+#
+#  Hosted here on the ex:concept-* precedent (canonical nodes are declared in art13.ttl and
+#  REUSED, not copied, by art14.ttl). Scope declared with referencesProvision onto the paragraphs
+#  it governs - the M2 pattern (S-G 2026-08-30): groundedIn records where the text SITS,
+#  referencesProvision records what it ACTS ON, and scope targets are Paragraphs/Points while
+#  citation targets are ReferencedProvision, so the two facts stay separable with no new
+#  sub-property.
+#
+#  RECORDED NON-COVERAGE, NOT FIXED HERE: CQ-A3 keys on gdprkg:appliesIf and does not mention
+#  gdprkg:notApplicableIf, so the 23 Article-14 attachments are INVISIBLE to it - CQ-A3 moves
+#  91 -> 112, i.e. +21 from the Art-13 side ONLY. Likewise CQ-C6's inherited branch enumerates
+#  (appliesIf|hasException). THE FROZEN QUERIES WERE NOT WIDENED IN THIS PASS and the edges were
+#  NOT re-pointed to appliesIf to make a count land (playbook 4.1). Zied has ruled the CQ
+#  encoding itself mis-models its own stated question and may be corrected - that correction is
+#  a SEPARATE unit, deliberately not made in the same pass as the model change.
+ex:cond-collected-from-data-subject a gdprkg:Condition ;
+    rdfs:label "personal data relating to a data subject are collected from the data subject (Art 13(1); the same fact, negated, is the Art 14(1) trigger)"@en ;
+    gdprkg:groundedIn ex:art13-p1 ;
+    gdprkg:referencesProvision ex:art13-p1 , ex:art13-p2 , ex:art13-p3 .
+
 #################################################################
 #  4 — SHARED EXCEPTION (13(4)) — one node, grounded 13(4), referenced by all para-1/2/3 obligations
 #  #!SURFACE blanket vs per-obligation attachment of 13(4) is an OPEN
@@ -493,3 +537,29 @@ ex:obl-art13-3-further-processing-info a gdprkg:Obligation ;
 #################################################################
 #  END — 21 Obligations (P1:9, P2:11, P3:1); 11 Conditions; 1 Exception.
 #################################################################
+
+#  WORK ORDER F (2026-09-06) - the 21 Article-13 duties APPLY IF the personal data were
+#  collected from the data subject. ALL 21, and the set falls out of the text rather than
+#  from a list: 13(4) declares its own scope as "Paragraphs 1, 2 and 3" and every Art-13
+#  Obligation is grounded in one of those three.
+ex:obl-art13-1-a-controller-identity gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-1-a-representative-identity gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-1-b-dpo-contact gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-1-c-legal-basis gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-1-c-purposes gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-1-d-legitimate-interests gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-1-e-recipients gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-1-f-transfer-fact gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-1-f-transfer-safeguards gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-a-storage-period gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-b-right-access gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-b-right-erasure gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-b-right-object gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-b-right-portability gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-b-right-rectification gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-b-right-restriction gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-c-withdraw-consent gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-d-lodge-complaint gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-e-statutory-contractual gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-2-f-automated-decision gdprkg:appliesIf ex:cond-collected-from-data-subject .
+ex:obl-art13-3-further-processing-info gdprkg:appliesIf ex:cond-collected-from-data-subject .

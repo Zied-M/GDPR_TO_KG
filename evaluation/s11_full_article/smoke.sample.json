@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "purpose": "end-to-end check only, s6 pilot segments, NO number enters the analysis"
+  },
+  "items": [
+    {
+      "id": "seg04097|obl-art13-1-d-legitimate-interests",
+      "segment_id": "seg04097",
+      "global_index": 4097,
+      "text_sha256_16": "effa289b0aeca9e4",
+      "article": 13,
+      "stratum": "SMOKE-13",
+      "duty_id": "obl-art13-1-d-legitimate-interests"
+    },
+    {
+      "id": "seg08609|obl-art13-3-further-processing-info",
+      "segment_id": "seg08609",
+      "global_index": 8609,
+      "text_sha256_16": "9692ae39216a0a91",
+      "article": 13,
+      "stratum": "SMOKE-13",
+      "duty_id": "obl-art13-3-further-processing-info"
+    },
+    {
+      "id": "seg04709|obl-art14-1-a-controller-identity",
+      "segment_id": "seg04709",
+      "global_index": 4709,
+      "text_sha256_16": "65f5a37380bf9415",
+      "article": 14,
+      "stratum": "SMOKE-14",
+      "duty_id": "obl-art14-1-a-controller-identity"
+    },
+    {
+      "id": "seg06918|obl-art14-2-d-withdraw-consent",
+      "segment_id": "seg06918",
+      "global_index": 6918,
+      "text_sha256_16": "1916c328a1145bd6",
+      "article": 14,
+      "stratum": "SMOKE-14",
+      "duty_id": "obl-art14-2-d-withdraw-consent"
+    }
+  ]
+}

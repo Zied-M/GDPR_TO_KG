@@ -1,0 +1,652 @@
+{
+ "summary": {
+  "13": {
+   "n": 42,
+   "repaired": 7,
+   "unparseable": 0,
+   "links_recall_mean": 0.7043650793650793,
+   "links_recall_median": 0.6666666666666666,
+   "links_complete": 7,
+   "graph_recall_mean": 0.9821428571428571,
+   "wilcoxon_links_vs_graph": [
+    1.2724450870749138e-07,
+    35,
+    3.5,
+    "normal approximation"
+   ]
+  },
+  "14": {
+   "n": 46,
+   "repaired": 13,
+   "unparseable": 0,
+   "links_recall_mean": 0.9825310559006211,
+   "links_recall_median": 1.0,
+   "links_complete": 43,
+   "graph_recall_mean": 1.0,
+   "wilcoxon_links_vs_graph": [
+    0.25,
+    3,
+    0,
+    "exact"
+   ]
+  }
+ },
+ "items": [
+  {
+   "id": "seg06682|obl-art13-2-b-right-rectification",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01841|obl-art13-2-e-statutory-contractual",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg05742|obl-art13-1-a-representative-identity",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg03862|obl-art13-3-further-processing-info",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg00948|obl-art13-1-f-transfer-safeguards",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.5,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg08797|obl-art13-2-b-right-erasure",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg05930|obl-art13-2-a-storage-period",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg00807|obl-art13-2-c-withdraw-consent",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.75,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07340|obl-art13-2-b-right-erasure",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg08844|obl-art13-1-c-legal-basis",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01277|obl-art13-2-e-statutory-contractual",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06447|obl-art13-2-b-right-rectification",
+   "article": 13,
+   "how": "repaired",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01136|obl-art13-1-f-transfer-safeguards",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.5,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg03392|obl-art13-1-b-dpo-contact",
+   "article": 13,
+   "how": "repaired",
+   "links_recall": 0.75,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07622|obl-art13-1-a-controller-identity",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06071|obl-art13-1-e-recipients",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.75,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg08703|obl-art13-1-a-controller-identity",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01935|obl-art13-2-b-right-portability",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01794|obl-art13-1-a-representative-identity",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg05695|obl-art13-1-d-legitimate-interests",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.5,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg02546|obl-art13-1-f-transfer-fact",
+   "article": 13,
+   "how": "repaired",
+   "links_recall": 0.5,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg08233|obl-art13-2-d-lodge-complaint",
+   "article": 13,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg08139|obl-art13-2-f-automated-decision",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07669|obl-art13-2-b-right-access",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg03439|obl-art13-1-d-legitimate-interests",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.5,
+   "graph_recall": 0.75
+  },
+  {
+   "id": "seg03157|obl-art13-1-c-purposes",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06400|obl-art13-2-c-withdraw-consent",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.5,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01418|obl-art13-2-d-lodge-complaint",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07528|obl-art13-2-b-right-object",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06494|obl-art13-1-e-recipients",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.75,
+   "graph_recall": 0.5
+  },
+  {
+   "id": "seg07246|obl-art13-2-b-right-access",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07481|obl-art13-2-b-right-object",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07152|obl-art13-3-further-processing-info",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07387|obl-art13-1-c-purposes",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg05883|obl-art13-2-b-right-portability",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg00337|obl-art13-2-b-right-restriction",
+   "article": 13,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg02264|obl-art13-2-f-automated-decision",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04943|obl-art13-2-a-storage-period",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg08891|obl-art13-1-b-dpo-contact",
+   "article": 13,
+   "how": "repaired",
+   "links_recall": 0.75,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01324|obl-art13-1-f-transfer-fact",
+   "article": 13,
+   "how": "repaired",
+   "links_recall": 0.5,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg02781|obl-art13-1-c-legal-basis",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04708|obl-art13-2-b-right-restriction",
+   "article": 13,
+   "how": "frozen",
+   "links_recall": 0.6666666666666666,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04756|obl-art14-2-f-source",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg03111|obl-art14-2-c-right-portability",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg05085|obl-art14-2-d-withdraw-consent",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07999|obl-art14-2-c-right-access",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07341|obl-art14-1-b-dpo-contact",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg03581|obl-art14-2-c-right-portability",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg03863|obl-art14-2-c-right-erasure",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg08469|obl-art14-2-a-storage-period",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07858|obl-art14-1-e-recipients",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04662|obl-art14-2-d-withdraw-consent",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06965|obl-art14-2-b-legitimate-interests",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg05179|obl-art14-1-c-legal-basis",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg05038|obl-art14-1-b-dpo-contact",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg02030|obl-art14-2-e-lodge-complaint",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg00996|obl-art14-1-c-legal-basis",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07905|obl-art14-1-f-transfer-fact",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04427|obl-art14-2-c-right-access",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg05884|obl-art14-1-a-representative-identity",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07435|obl-art14-1-f-transfer-safeguards",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01701|obl-art14-2-c-right-rectification",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg03064|obl-art14-2-c-right-erasure",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04098|obl-art14-1-a-representative-identity",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg02453|obl-art14-1-a-controller-identity",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg07529|obl-art14-1-f-transfer-safeguards",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 0.75,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06401|obl-art14-2-g-automated-decision",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04145|obl-art14-2-b-legitimate-interests",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg00244|obl-art14-2-a-storage-period",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04051|obl-art14-2-g-automated-decision",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 0.5714285714285714,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06213|obl-art14-2-e-lodge-complaint",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg00761|obl-art14-1-e-recipients",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 0.875,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg02829|obl-art14-4-further-processing-info",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04239|obl-art14-2-f-publicly-accessible",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06448|obl-art14-1-f-transfer-fact",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg02500|obl-art14-2-f-source",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg00150|obl-art14-2-f-publicly-accessible",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg02641|obl-art14-2-c-right-restriction",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg03487|obl-art14-1-a-controller-identity",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04615|obl-art14-1-d-data-categories",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg08234|obl-art14-2-c-right-object",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01983|obl-art14-2-c-right-object",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06542|obl-art14-4-further-processing-info",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg06354|obl-art14-1-d-data-categories",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg04897|obl-art14-1-c-purposes",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01889|obl-art14-1-c-purposes",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg01325|obl-art14-2-c-right-rectification",
+   "article": 14,
+   "how": "repaired",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  },
+  {
+   "id": "seg02923|obl-art14-2-c-right-restriction",
+   "article": 14,
+   "how": "frozen",
+   "links_recall": 1.0,
+   "graph_recall": 1.0
+  }
+ ]
+}

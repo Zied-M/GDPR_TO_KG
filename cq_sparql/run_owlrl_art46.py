@@ -130,8 +130,13 @@ VERBOSE = ("-v" in sys.argv or "--verbose" in sys.argv)
 # =====================================================================
 # (file, label, expected, regime, note)
 QUERIES = [
-    ("CQ-C1_article_to_norms_grounded.rq", "CQ-C1  article -> grounded norms", 105, "materialised",
-     "TIER 2. Art-46 delta +5 (1 Obligation + 4 Conditions + 0 Exceptions). The 46(1) PERMISSION is "
+    ("CQ-C1_article_to_norms_grounded.rq", "CQ-C1  article -> grounded norms", 107, "materialised",
+     "WORK ORDER F 2026-09-06: 105 -> 107, +2 FOR ONE NODE. ex:cond-collected-from-data-subject is "
+     "DUAL-GROUNDED (art13-p1 + art14-p1) and this query returns one row per groundedIn edge. It is "
+     "the FIRST node in the project with two; permitted (minCount 1, NO maxCount) but previously "
+     "unexercised, so this query's own header note 'every one carrying exactly one groundedIn edge' "
+     "NO LONGER DESCRIBES THE WHOLE GRAPH. Predicted in expected_results.md BEFORE the run; the "
+     "query itself was NOT edited. || Art-46 delta +5 (1 Obligation + 4 Conditions + 0 Exceptions). The 46(1) PERMISSION is "
      "excluded by the frozen FILTER (non-coverage #1) AND so are all 8 TransferMechanism nodes "
      "(non-coverage #4, NEW). Neither query was widened."),
     ("CQ-C2_uniform_grounding.rq", "CQ-C2  uniform grounding (0 = pass)", 0, "materialised",
@@ -158,9 +163,18 @@ QUERIES = [
      "contains 'at the time' or 'prior to', and none was worded to attract or avoid the filter."),
     ("CQ-A1_art13_coverage.rq", "CQ-A1  obligations + grounding (unscoped)", 59, "materialised",
      "TIER 2, +1: obl-46-4-consistency-mechanism @ ex:art46-p4. Query is not article-scoped."),
-    ("CQ-A3_conditional_duties.rq", "CQ-A3  conditional duties", 91, "materialised",
-     "TIER 2, +1. obl-46-4 carries exactly one appliesIf. The 46(1) PERMISSION's TWO appliesIf edges "
-     "do NOT count — the query requires ?obligation a gdprkg:Obligation."),
+    ("CQ-A3_conditional_duties.rq", "CQ-A3  conditional duties", 112, "materialised",
+     "WORK ORDER F 2026-09-06: 91 -> 112, and the +21 IS THE ARTICLE-13 SIDE ONLY. The 23 Article-14 "
+     "duties attach to the same shared trigger with gdprkg:notApplicableIf, which this frozen query "
+     "does not mention (verified: 0 occurrences in the .rq), so they contribute NOTHING here. "
+     "RECORDED NON-COVERAGE #1 of this pass. The 23 duties are NOT invisible to the query overall — "
+     "distinct art14 obligations returned is 23 both before and after; what is missing is their "
+     "PAIRING with this trigger. THE QUERY WAS NOT WIDENED AND NO EDGE WAS RE-POINTED TO appliesIf "
+     "TO MAKE THE COUNT LAND (playbook 4.1). Zied ruled 2026-09-06 that the ENCODING mis-models the "
+     "question CQ-A3 states in words (a duty switched OFF by a condition is conditional); that "
+     "correction is a SEPARATE unit, deliberately not this one. Predicted in expected_results.md "
+     "BEFORE the run. || Art-46 legacy note: +1 was obl-46-4, one appliesIf; the 46(1) PERMISSION's "
+     "TWO appliesIf edges do NOT count - the query requires ?obligation a gdprkg:Obligation."),
     ("CQ-A4_art13_exemption.rq", "CQ-A4  exemptions, grouped (unscoped)", 8, "materialised",
      "TIER 2 — EXPECTED ZERO DELTA. Art 46 has 0 Exceptions, so it contributes no group."),
     ("CQ-A5_art14_exemptions.rq", "CQ-A5  Art-14 exemptions -> defeated duties (REGRESSION)", 92, "materialised",
@@ -199,17 +213,18 @@ for fname, label, expected, regime, note in QUERIES:
     print()
 
 # ---------------------------------------------------------------------
-# CQ-C6 — provenance/review: 297 rows = 80 "direct" + 217 "inherited"
+# CQ-C6 - provenance/review: 318 rows = 80 "direct" + 238 "inherited"
+# WORK ORDER F 2026-09-06: inherited 217 -> 238 (+21, the Art-13 appliesIf side only).
 # ---------------------------------------------------------------------
 print("=== CQ-C6  provenance / review (mode split) ===")
 c6 = list(g.query(open(os.path.join(QDIR, "CQ-C6_provenance_review.rq"), encoding='utf-8').read()))
 n_direct    = sum(1 for r in c6 if str(r["mode"]) == "direct")
 n_inherited = sum(1 for r in c6 if str(r["mode"]) == "inherited")
 n_total     = len(c6)
-c6_ok = (n_direct == 80 and n_inherited == 217 and n_total == 297)
+c6_ok = (n_direct == 80 and n_inherited == 262 and n_total == 342)
 all_ok = all_ok and c6_ok
 print("    file=CQ-C6_provenance_review.rq  regime=materialised")
-print("    direct=%d (expected 80)  inherited=%d (expected 217)  total=%d (expected 297)  -> %s"
+print("    direct=%d (expected 80)  inherited=%d (expected 262)  total=%d (expected 342)  -> %s"
       % (n_direct, n_inherited, n_total, "PASS" if c6_ok else "CHECK"))
 print("    NOTE: direct 80 = 70 + 10, and the 10 is 1 Permission + 1 Obligation + 8 TransferMechanism.")
 print("          The 8 mechanisms COUNT because CQ-C6's direct branch keys on the reviewStatus/")
@@ -221,6 +236,22 @@ print("          enumerates (appliesIf|hasException) and does NOT include notApp
 print("          cond-46-1-adequacy-decision-exists — the 45(3) gate, the most important node in this")
 print("          unit — has NO provenance path under the frozen query. The query was NOT widened and")
 print("          the edge was NOT re-pointed to appliesIf to make the count land (playbook 4.1).")
+print("    NOTE: ^^ THE TWO NOTES ABOVE ARE HISTORICAL AS OF 2026-09-06 - RETAINED, NOT DELETED.")
+print("          CQ-C6's ENCODING WAS FIXED that day (Zied, option B): notApplicableIf was added to")
+print("          the inherited parent path, because the frozen QUESTION ('for any node') and PROBE")
+print("          ('Condition/Exception inherit via parent', naming no properties) were ALREADY")
+print("          broader than the encoding. EXEC-9 IS RESOLVED: cond-46-1-adequacy-decision-exists")
+print("          now HAS a provenance path, and Cond/Exc nodes with no provenance answer is 0.")
+print("          inherited 262 = 238 + 23 Work-Order-F art14 edges + 1 the Art-46 gate itself.")
+print("          CQ-A3 has the SAME blind spot and was DELIBERATELY NOT FIXED - its frozen probe")
+print("          names APPLIES_IF, so that call was left open. CQ-A3 stays 112, a recorded gap.")
+print("    NOTE: WORK ORDER F 2026-09-06 - inherited 238 = 217 + 21, NOT +44. The 23 Article-14")
+print("          notApplicableIf edges to ex:cond-collected-from-data-subject are invisible to the")
+print("          same closed (appliesIf|hasException) list. RECORDED NON-COVERAGE #2 of that pass.")
+print("          BUT THIS IS **NOT** A SECOND EXEC-9: the shared node RESOLVES here via the 21")
+print("          Article-13 appliesIf edges, so NO NODE IS LEFT UNPROVENANCED. Measured, Cond/Exc")
+print("          nodes with no provenance answer: 1 before and 1 after, and it is art46's, unchanged.")
+print("          EXEC-9 is a node with NO path at all; this is a lower row count. Different in kind.")
 print()
 
 
@@ -305,11 +336,26 @@ check("NO TransferMechanism infers gdprkg:NormativeElement (EXEC-1: seeAlso, not
 
 # ---- the applicability gate itself ----
 nai = list(g_plain.triples((None, GK.notApplicableIf, None)))
-check("gdprkg:notApplicableIf edges, WHOLE UNION [TIER 1 = 1, FIRST use anywhere]", len(nai), 1)
-check("notApplicableIf subject is ex:perm-46-1-transfer",
-      [short(s) for s, _, _ in nai] == ["ex:perm-46-1-transfer"], True)
-check("notApplicableIf object is ex:cond-46-1-adequacy-decision-exists",
-      [short(o) for _, _, o in nai] == ["ex:cond-46-1-adequacy-decision-exists"], True)
+# WORK ORDER F 2026-09-06 - THESE THREE FIXTURES WERE UNION-SCOPED AND ARE NOW ART-46-SCOPED.
+# They were written when Art 46 held the ONLY notApplicableIf edge in the project, so "the whole
+# union has exactly one, and it is Art 46's" was a true and useful Art-46 assertion. WO-F attaches
+# 23 more (23 Art-14 duties -> ex:cond-collected-from-data-subject), so the union count is now 24.
+# The Art-46 FACT the fixtures exist to protect is unchanged and is still asserted below, exactly:
+# the 46(1) Permission still carries exactly one notApplicableIf, still to the 45(3) gate condition.
+# The union total is kept as a separate fixture so a stray future edge is still caught.
+# Predicted in expected_results.md BEFORE the run.
+check("gdprkg:notApplicableIf edges, WHOLE UNION [was 1 pre-WO-F; 1 art46 + 23 art14]", len(nai), 24)
+nai46 = [(x, o) for x, _, o in nai if short(x) == "ex:perm-46-1-transfer"]
+check("Art-46 notApplicableIf edges on ex:perm-46-1-transfer [TIER 1 = 1, unchanged by WO-F]",
+      len(nai46), 1)
+check("that edge's object is ex:cond-46-1-adequacy-decision-exists",
+      [short(o) for _, o in nai46] == ["ex:cond-46-1-adequacy-decision-exists"], True)
+check("WO-F notApplicableIf edges, all subjects are art14 Obligations",
+      all(short(x).startswith("ex:obl-art14") for x, _, o in nai if short(x) != "ex:perm-46-1-transfer"), True)
+check("WO-F notApplicableIf edges all target ex:cond-collected-from-data-subject",
+      all(short(o) == "ex:cond-collected-from-data-subject" for x, _, o in nai if short(x) != "ex:perm-46-1-transfer"), True)
+check("notApplicableIf on a gdprkg:LegalBasis (carry f2-domain-family trigger) - MUST be 0",
+      len([1 for x, _, _ in nai if (x, RDF.type, GK.LegalBasis) in g_plain]), 0)
 check("the 46(1) Permission infers NormativeElement (F2 NOT tripped: domain is satisfied)",
       (EX["perm-46-1-transfer"], RDF.type, GK.NormativeElement) in g, True)
 
@@ -450,6 +496,10 @@ if all_ok:
     print("(PROXY ONLY — certification is Zied's: combined 6-file HermiT + local pySHACL x5 + this run.)")
     print("The HermiT leg is a GENUINE SATISFIABILITY QUESTION this unit, not a regression:")
     print("two TBox terms were added. Nothing here covers it.")
+    print("WORK ORDER F (2026-09-06) NOW ALSO RIDES ON THIS RUNNER, AND ITS HermiT LEG IS THE")
+    print("OPPOSITE CASE: WO-F added ZERO TBox axioms, so for that pass the consistency run is a")
+    print("REGRESSION, not a satisfiability question. Do not read the Art-46 sentence above as")
+    print("describing it. Both legs are still Zied's to run; nothing here covers either.")
     sys.exit(0)
 else:
     print("MISMATCH — see rows above.")
