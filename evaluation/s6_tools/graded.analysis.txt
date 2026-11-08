@@ -1,0 +1,73 @@
+PRE-REGISTERED GRADED-MEASURE ANALYSIS (PREREGISTRATION-GRADED.md section 6).
+Stratified, never pooled. alpha 0.05 two-sided per stratum.
+
+PRIMARY: per-item FRACTION of target pairs surfaced. Paired Wilcoxon signed-rank.
+
+THE GRAPH ARM'S FRACTION IS EXPECTED AT OR NEAR 1.0 BY CONSTRUCTION (section 3):
+get_conditions returns the relation nodes. That is the tool surface, not model
+behaviour. THE INFORMATIVE QUANTITY IS THE TEXT ARM'S FRACTION.
+
+stratum  arm        n   median     mean    all  none  partial   noTgt   noRel
+-----------------------------------------------------------------------------
+APP-12   graph      9    0.000    0.222      2     7        0      13       2
+APP-12   text      14    1.000    1.000     14     0        0       7       3
+APP-12     Wilcoxon signed-rank, two-sided (exact): n paired 6 (ties 1), median diff -1.000, p = 0.062500
+
+APP-13   graph     73    1.000    1.000     73     0        0       0       1
+APP-13   text      64    0.667    0.607      0     0       64       0      10
+APP-13     Wilcoxon signed-rank, two-sided (normal approximation): n paired 64 (ties 0), median diff 0.333, p = 0.000000  SIGNIFICANT
+
+APP-14   graph     70    1.000    1.000     70     0        0       2       2
+APP-14   text      61    0.143    0.136      0    10       51      13       0
+APP-14     Wilcoxon signed-rank, two-sided (normal approximation): n paired 59 (ties 0), median diff 0.857, p = 0.000000  SIGNIFICANT
+
+APP-46   graph      0      n/a      n/a      0     0        0      24       0
+APP-46   text       0      n/a      n/a      0     0        0      24       0
+APP-46     Wilcoxon signed-rank, two-sided (no non-zero differences): n paired 0 (ties 0), median diff n/a, p = n/a (no non-zero differences)
+
+NA-46    graph      0      n/a      n/a      0     0        0      24       0
+NA-46    text       0      n/a      n/a      0     0        0      24       0
+NA-46      Wilcoxon signed-rank, two-sided (no non-zero differences): n paired 0 (ties 0), median diff n/a, p = n/a (no non-zero differences)
+
+SECONDARY, descriptive only, NOT significance-tested.
+DISTINCT relation counts are mandatory: a large pair gap is NOT a
+reachability claim, and these are what stop it being read as one.
+
+stratum  arm    kind             surfaced/targets
+----------------------------------------------------------
+APP-12   graph  appliesIf        2/16
+APP-12   graph  DISTINCT rels    1/1
+APP-12   text   appliesIf        24/24
+APP-12   text   DISTINCT rels    1/1
+APP-13   graph  appliesIf        483/483
+APP-13   graph  hasException     243/243
+APP-13   graph  DISTINCT rels    4/4
+APP-13   text   appliesIf        290/353
+APP-13   text   hasException     12/177
+APP-13   text   DISTINCT rels    4/4
+APP-14   graph  appliesIf        402/402
+APP-14   graph  hasException     808/808
+APP-14   graph  notApplicableIf  202/202
+APP-14   graph  DISTINCT rels    7/7
+APP-14   text   appliesIf        2/226
+APP-14   text   hasException     47/456
+APP-14   text   notApplicableIf  30/114
+APP-14   text   DISTINCT rels    7/7
+APP-46   graph  DISTINCT rels    0/0
+APP-46   text   DISTINCT rels    0/0
+NA-46    graph  DISTINCT rels    0/0
+NA-46    text   DISTINCT rels    0/0
+
+The binary statistic of PREREGISTRATION.md on these same items, DESCRIPTIVE
+only. That study's test is not re-run and its result is not revised.
+
+APP-12   graph  binary reached 2 / not_reached 7
+APP-12   text   binary reached 14 / not_reached 0
+APP-13   graph  binary reached 73 / not_reached 0
+APP-13   text   binary reached 64 / not_reached 0
+APP-14   graph  binary reached 70 / not_reached 0
+APP-14   text   binary reached 51 / not_reached 10
+APP-46   graph  binary reached 0 / not_reached 0
+APP-46   text   binary reached 0 / not_reached 0
+NA-46    graph  binary reached 0 / not_reached 0
+NA-46    text   binary reached 0 / not_reached 0

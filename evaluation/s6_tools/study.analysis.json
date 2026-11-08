@@ -1,0 +1,412 @@
+{
+  "alpha": 0.05,
+  "arms": [
+    "graph",
+    "text"
+  ],
+  "n_items": 250,
+  "strata": {
+    "APP-12": {
+      "n_items": 25,
+      "arms": {
+        "graph": {
+          "reached": 5,
+          "not_reached": 7,
+          "no_targets": 13,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 12,
+          "rate": 0.4166666666666667,
+          "wilson95": [
+            0.19326031365875665,
+            0.6804886874504503
+          ],
+          "turns_mean": 4.8,
+          "calls_mean": 3.8
+        },
+        "text": {
+          "reached": 7,
+          "not_reached": 0,
+          "no_targets": 18,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 7,
+          "rate": 1.0,
+          "wilson95": [
+            0.6456695649333126,
+            1.0
+          ],
+          "turns_mean": 3.96,
+          "calls_mean": 2.96
+        }
+      },
+      "primary": {
+        "test": "McNemar exact, two-sided",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 7,
+        "discordant_graph_only": 0,
+        "discordant_text_only": 4,
+        "concordant_both_reached": 3,
+        "concordant_neither": 0,
+        "p": 0.125,
+        "significant_at_0.05": false
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 8,
+              "targets": 22
+            }
+          },
+          "all_kinds": {
+            "surfaced": 8,
+            "targets": 22
+          }
+        },
+        "text": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 14,
+              "targets": 14
+            }
+          },
+          "all_kinds": {
+            "surfaced": 14,
+            "targets": 14
+          }
+        }
+      },
+      "verdict_disagreement_keyword_scan": {
+        "disagree": 1,
+        "agree": 24,
+        "unparsed": 0
+      }
+    },
+    "APP-13": {
+      "n_items": 75,
+      "arms": {
+        "graph": {
+          "reached": 74,
+          "not_reached": 0,
+          "no_targets": 0,
+          "no_reliance": 1,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 74,
+          "rate": 1.0,
+          "wilson95": [
+            0.950650220603614,
+            1.0
+          ],
+          "turns_mean": 5.28,
+          "calls_mean": 4.28
+        },
+        "text": {
+          "reached": 59,
+          "not_reached": 0,
+          "no_targets": 2,
+          "no_reliance": 14,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 59,
+          "rate": 1.0,
+          "wilson95": [
+            0.9388706294732116,
+            1.0
+          ],
+          "turns_mean": 3.44,
+          "calls_mean": 2.53
+        }
+      },
+      "primary": {
+        "test": "McNemar exact, two-sided",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 59,
+        "discordant_graph_only": 0,
+        "discordant_text_only": 0,
+        "concordant_both_reached": 59,
+        "concordant_neither": 0,
+        "p": null,
+        "significant_at_0.05": false
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 483,
+              "targets": 483
+            },
+            "hasException": {
+              "surfaced": 244,
+              "targets": 244
+            }
+          },
+          "all_kinds": {
+            "surfaced": 727,
+            "targets": 727
+          }
+        },
+        "text": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 200,
+              "targets": 240
+            },
+            "hasException": {
+              "surfaced": 0,
+              "targets": 120
+            }
+          },
+          "all_kinds": {
+            "surfaced": 200,
+            "targets": 360
+          }
+        }
+      },
+      "verdict_disagreement_keyword_scan": {
+        "disagree": 20,
+        "agree": 54,
+        "unparsed": 1
+      }
+    },
+    "APP-14": {
+      "n_items": 100,
+      "arms": {
+        "graph": {
+          "reached": 90,
+          "not_reached": 0,
+          "no_targets": 8,
+          "no_reliance": 2,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 90,
+          "rate": 1.0,
+          "wilson95": [
+            0.9590643744356734,
+            1.0
+          ],
+          "turns_mean": 3.95,
+          "calls_mean": 3.01
+        },
+        "text": {
+          "reached": 75,
+          "not_reached": 8,
+          "no_targets": 16,
+          "no_reliance": 1,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 83,
+          "rate": 0.9036144578313253,
+          "wilson95": [
+            0.8211736349852804,
+            0.9503472596410781
+          ],
+          "turns_mean": 3.28,
+          "calls_mean": 2.28
+        }
+      },
+      "primary": {
+        "test": "McNemar exact, two-sided",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 80,
+        "discordant_graph_only": 8,
+        "discordant_text_only": 0,
+        "concordant_both_reached": 72,
+        "concordant_neither": 0,
+        "p": 0.0078125,
+        "significant_at_0.05": true
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 466,
+              "targets": 466
+            },
+            "hasException": {
+              "surfaced": 932,
+              "targets": 932
+            },
+            "notApplicableIf": {
+              "surfaced": 233,
+              "targets": 233
+            }
+          },
+          "all_kinds": {
+            "surfaced": 1631,
+            "targets": 1631
+          }
+        },
+        "text": {
+          "by_kind": {
+            "appliesIf": {
+              "surfaced": 3,
+              "targets": 274
+            },
+            "hasException": {
+              "surfaced": 65,
+              "targets": 548
+            },
+            "notApplicableIf": {
+              "surfaced": 37,
+              "targets": 137
+            }
+          },
+          "all_kinds": {
+            "surfaced": 105,
+            "targets": 959
+          }
+        }
+      },
+      "verdict_disagreement_keyword_scan": {
+        "disagree": 27,
+        "agree": 72,
+        "unparsed": 1
+      }
+    },
+    "APP-46": {
+      "n_items": 25,
+      "arms": {
+        "graph": {
+          "reached": 0,
+          "not_reached": 0,
+          "no_targets": 25,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 0,
+          "rate": null,
+          "wilson95": null,
+          "turns_mean": 4.12,
+          "calls_mean": 3.12
+        },
+        "text": {
+          "reached": 0,
+          "not_reached": 0,
+          "no_targets": 25,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 0,
+          "rate": null,
+          "wilson95": null,
+          "turns_mean": 4.84,
+          "calls_mean": 3.84
+        }
+      },
+      "primary": {
+        "test": "McNemar exact, two-sided",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 0,
+        "discordant_graph_only": 0,
+        "discordant_text_only": 0,
+        "concordant_both_reached": 0,
+        "concordant_neither": 0,
+        "p": null,
+        "significant_at_0.05": false
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {},
+          "all_kinds": {
+            "surfaced": 0,
+            "targets": 0
+          }
+        },
+        "text": {
+          "by_kind": {},
+          "all_kinds": {
+            "surfaced": 0,
+            "targets": 0
+          }
+        }
+      },
+      "verdict_disagreement_keyword_scan": {
+        "disagree": 1,
+        "agree": 24,
+        "unparsed": 0
+      }
+    },
+    "NA-46": {
+      "n_items": 25,
+      "arms": {
+        "graph": {
+          "reached": 0,
+          "not_reached": 0,
+          "no_targets": 25,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 0,
+          "rate": null,
+          "wilson95": null,
+          "turns_mean": 3.8,
+          "calls_mean": 2.8
+        },
+        "text": {
+          "reached": 0,
+          "not_reached": 0,
+          "no_targets": 25,
+          "no_reliance": 0,
+          "excluded_turn_cap": 0,
+          "excluded_error": 0,
+          "denominator": 0,
+          "rate": null,
+          "wilson95": null,
+          "turns_mean": 3.96,
+          "calls_mean": 2.96
+        }
+      },
+      "primary": {
+        "test": "McNemar exact, two-sided",
+        "pair": [
+          "graph",
+          "text"
+        ],
+        "n_paired": 0,
+        "discordant_graph_only": 0,
+        "discordant_text_only": 0,
+        "concordant_both_reached": 0,
+        "concordant_neither": 0,
+        "p": null,
+        "significant_at_0.05": false
+      },
+      "secondary_descriptive_not_tested": {
+        "graph": {
+          "by_kind": {},
+          "all_kinds": {
+            "surfaced": 0,
+            "targets": 0
+          }
+        },
+        "text": {
+          "by_kind": {},
+          "all_kinds": {
+            "surfaced": 0,
+            "targets": 0
+          }
+        }
+      },
+      "verdict_disagreement_keyword_scan": {
+        "disagree": 10,
+        "agree": 10,
+        "unparsed": 5
+      }
+    }
+  }
+}

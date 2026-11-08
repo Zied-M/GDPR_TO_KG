@@ -1,0 +1,10 @@
+sha256   3b4b3e91aae86806bd50b368565dc1c3ec7762ed802a4412937ff56828ac0979
+file     PREREGISTRATION-STABILITY.md
+bytes    6956
+frozen   2026-09-15 (S8), before any generation
+
+Verify this digest before reading any stability result. An edited
+PREREGISTRATION-STABILITY.md is a failed pre-registration, not a revised one.
+PREREGISTRATION.md is frozen separately and is not edited by this file.
+
+    .venv/Scripts/python.exe -c "import hashlib,sys;print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" paper_draft/s6_tools/PREREGISTRATION-STABILITY.md

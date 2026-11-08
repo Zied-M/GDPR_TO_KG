@@ -1,0 +1,2631 @@
+{
+  "meta": {
+    "corpus_path_basename": "LexiGen_corpus.json",
+    "corpus_sha256": "a9cbcdb548d44b6b223052c1995c1a397b0abd76a1d72fd4cc8cd039f47ecefd",
+    "disjoint": true,
+    "n_pilot": 40,
+    "n_study": 250,
+    "plan": "E4: 100 Art 14 / 75 Art 13 / 25 Art 12 / 25 Art 46 applicable / 25 Art 46 not-applicable; pilot 16/12/4/4/4, disjoint",
+    "sample_sha256": "96cdc651592ddc51f031103cb27dc7198ce8a6d06555be4abbaeac4bfbfa5a40",
+    "seed": 20260915,
+    "supersedes": {
+      "path": "s5_pilot/sample.frozen.json",
+      "reason": "frozen against a grounding measure; 100 of 250 study items on Article 46, which has 0 cross-provision attachments. Strata changed, so the seed is not reused.",
+      "seed": 20260913
+    }
+  },
+  "pilot": [
+    {
+      "article": 14,
+      "batch_id": "B101",
+      "global_index": 4709,
+      "id": "seg04709",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "65f5a37380bf9415"
+    },
+    {
+      "article": 14,
+      "batch_id": "B148",
+      "global_index": 6918,
+      "id": "seg06918",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "1916c328a1145bd6"
+    },
+    {
+      "article": 14,
+      "batch_id": "B22",
+      "global_index": 996,
+      "id": "seg00996",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "1e25f958ced2d719"
+    },
+    {
+      "article": 14,
+      "batch_id": "B109",
+      "global_index": 5085,
+      "id": "seg05085",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "f51ea1d805bbfa58"
+    },
+    {
+      "article": 14,
+      "batch_id": "B24",
+      "global_index": 1090,
+      "id": "seg01090",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "0c0fee2f80a47ebe"
+    },
+    {
+      "article": 14,
+      "batch_id": "B129",
+      "global_index": 6025,
+      "id": "seg06025",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "1e5901a82127d3b0"
+    },
+    {
+      "article": 14,
+      "batch_id": "B131",
+      "global_index": 6119,
+      "id": "seg06119",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "4ba0d29e1c112133"
+    },
+    {
+      "article": 14,
+      "batch_id": "B140",
+      "global_index": 6542,
+      "id": "seg06542",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "c0c956201afb2171"
+    },
+    {
+      "article": 14,
+      "batch_id": "B122",
+      "global_index": 5696,
+      "id": "seg05696",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "9bd44faaadfef17f"
+    },
+    {
+      "article": 14,
+      "batch_id": "B184",
+      "global_index": 8610,
+      "id": "seg08610",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "25207e651e61508e"
+    },
+    {
+      "article": 14,
+      "batch_id": "B31",
+      "global_index": 1419,
+      "id": "seg01419",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "6831f3a2810f019d"
+    },
+    {
+      "article": 14,
+      "batch_id": "B126",
+      "global_index": 5884,
+      "id": "seg05884",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "fccac5ba1a876376"
+    },
+    {
+      "article": 14,
+      "batch_id": "B32",
+      "global_index": 1466,
+      "id": "seg01466",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "dc4682f092ba959b"
+    },
+    {
+      "article": 14,
+      "batch_id": "B96",
+      "global_index": 4474,
+      "id": "seg04474",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "f20b12a6286dcb6b"
+    },
+    {
+      "article": 14,
+      "batch_id": "B29",
+      "global_index": 1325,
+      "id": "seg01325",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "b2219439f5db4abd"
+    },
+    {
+      "article": 14,
+      "batch_id": "B90",
+      "global_index": 4192,
+      "id": "seg04192",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "450e9bbdb6db0369"
+    },
+    {
+      "article": 13,
+      "batch_id": "B88",
+      "global_index": 4097,
+      "id": "seg04097",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "effa289b0aeca9e4"
+    },
+    {
+      "article": 13,
+      "batch_id": "B184",
+      "global_index": 8609,
+      "id": "seg08609",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "9692ae39216a0a91"
+    },
+    {
+      "article": 13,
+      "batch_id": "B41",
+      "global_index": 1888,
+      "id": "seg01888",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "d88fc611c2078787"
+    },
+    {
+      "article": 13,
+      "batch_id": "B183",
+      "global_index": 8562,
+      "id": "seg08562",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "86bc39dff516c086"
+    },
+    {
+      "article": 13,
+      "batch_id": "B188",
+      "global_index": 8797,
+      "id": "seg08797",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "59e6105c70e78a4e"
+    },
+    {
+      "article": 13,
+      "batch_id": "B34",
+      "global_index": 1559,
+      "id": "seg01559",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "bdd1d052ec0ce6c4"
+    },
+    {
+      "article": 13,
+      "batch_id": "B147",
+      "global_index": 6870,
+      "id": "seg06870",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "fe0107754530c2f3"
+    },
+    {
+      "article": 13,
+      "batch_id": "B113",
+      "global_index": 5272,
+      "id": "seg05272",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "6c1c39ea25d5d23e"
+    },
+    {
+      "article": 13,
+      "batch_id": "B40",
+      "global_index": 1841,
+      "id": "seg01841",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "34c5e7719be65d89"
+    },
+    {
+      "article": 13,
+      "batch_id": "B77",
+      "global_index": 3580,
+      "id": "seg03580",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "88d54aa7971d196e"
+    },
+    {
+      "article": 13,
+      "batch_id": "B181",
+      "global_index": 8468,
+      "id": "seg08468",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "845e8a163f3cd35c"
+    },
+    {
+      "article": 13,
+      "batch_id": "B10",
+      "global_index": 431,
+      "id": "seg00431",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "11f83c9096a3185e"
+    },
+    {
+      "article": 12,
+      "batch_id": "B19",
+      "global_index": 853,
+      "id": "seg00853",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "5fb2b8188a2e6a5c"
+    },
+    {
+      "article": 12,
+      "batch_id": "B38",
+      "global_index": 1746,
+      "id": "seg01746",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "a7da6509d06ea644"
+    },
+    {
+      "article": 12,
+      "batch_id": "B154",
+      "global_index": 7198,
+      "id": "seg07198",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "f018b2022e022f0c"
+    },
+    {
+      "article": 12,
+      "batch_id": "B4",
+      "global_index": 148,
+      "id": "seg00148",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "2221c8b1fc5f6e33"
+    },
+    {
+      "article": 46,
+      "batch_id": "B169",
+      "global_index": 7930,
+      "id": "seg07930",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "a10a064782a720fc"
+    },
+    {
+      "article": 46,
+      "batch_id": "B38",
+      "global_index": 1773,
+      "id": "seg01773",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "688cf735b688941a"
+    },
+    {
+      "article": 46,
+      "batch_id": "B43",
+      "global_index": 2008,
+      "id": "seg02008",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "b865d4d0a3c1d080"
+    },
+    {
+      "article": 46,
+      "batch_id": "B73",
+      "global_index": 3418,
+      "id": "seg03418",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "fd1ec893983b6040"
+    },
+    {
+      "article": 46,
+      "batch_id": "B162",
+      "global_index": 7601,
+      "id": "seg07601",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "92f1ffee655beb8b"
+    },
+    {
+      "article": 46,
+      "batch_id": "B156",
+      "global_index": 7319,
+      "id": "seg07319",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "f721f00d7460b9f8"
+    },
+    {
+      "article": 46,
+      "batch_id": "B170",
+      "global_index": 7977,
+      "id": "seg07977",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "f25b217c53e3371c"
+    },
+    {
+      "article": 46,
+      "batch_id": "B25",
+      "global_index": 1162,
+      "id": "seg01162",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "68ce8c8634a9f76d"
+    }
+  ],
+  "study": [
+    {
+      "article": 14,
+      "batch_id": "B4",
+      "global_index": 150,
+      "id": "seg00150",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "0762c48dc3161033"
+    },
+    {
+      "article": 14,
+      "batch_id": "B15",
+      "global_index": 667,
+      "id": "seg00667",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "8318a5ef5b8eec6e"
+    },
+    {
+      "article": 14,
+      "batch_id": "B92",
+      "global_index": 4286,
+      "id": "seg04286",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "9d99bac6a2c9529a"
+    },
+    {
+      "article": 14,
+      "batch_id": "B58",
+      "global_index": 2688,
+      "id": "seg02688",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "82932e78fcd64fb9"
+    },
+    {
+      "article": 14,
+      "batch_id": "B185",
+      "global_index": 8657,
+      "id": "seg08657",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "4431e4547834a5d5"
+    },
+    {
+      "article": 14,
+      "batch_id": "B104",
+      "global_index": 4850,
+      "id": "seg04850",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "33d686650b3a56d7"
+    },
+    {
+      "article": 14,
+      "batch_id": "B164",
+      "global_index": 7670,
+      "id": "seg07670",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "ed678cbc40876fbb"
+    },
+    {
+      "article": 14,
+      "batch_id": "B169",
+      "global_index": 7905,
+      "id": "seg07905",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "65c189ea2b97725a"
+    },
+    {
+      "article": 14,
+      "batch_id": "B20",
+      "global_index": 902,
+      "id": "seg00902",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "848dd705afe3a32d"
+    },
+    {
+      "article": 14,
+      "batch_id": "B156",
+      "global_index": 7294,
+      "id": "seg07294",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "9bce34eee0365c5e"
+    },
+    {
+      "article": 14,
+      "batch_id": "B171",
+      "global_index": 7999,
+      "id": "seg07999",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "c61905db977e27e6"
+    },
+    {
+      "article": 14,
+      "batch_id": "B191",
+      "global_index": 8939,
+      "id": "seg08939",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "b939af3a098032b2"
+    },
+    {
+      "article": 14,
+      "batch_id": "B37",
+      "global_index": 1701,
+      "id": "seg01701",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "aca8995f5a1c4336"
+    },
+    {
+      "article": 14,
+      "batch_id": "B111",
+      "global_index": 5179,
+      "id": "seg05179",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "ebe1ff12a947d516"
+    },
+    {
+      "article": 14,
+      "batch_id": "B71",
+      "global_index": 3299,
+      "id": "seg03299",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "23bcdaca2bbe33e2"
+    },
+    {
+      "article": 14,
+      "batch_id": "B142",
+      "global_index": 6636,
+      "id": "seg06636",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "49103df48dc54639"
+    },
+    {
+      "article": 14,
+      "batch_id": "B121",
+      "global_index": 5649,
+      "id": "seg05649",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "650541376fdae3e0"
+    },
+    {
+      "article": 14,
+      "batch_id": "B153",
+      "global_index": 7153,
+      "id": "seg07153",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "26547acd1f4885af"
+    },
+    {
+      "article": 14,
+      "batch_id": "B35",
+      "global_index": 1607,
+      "id": "seg01607",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "3ab5404e273c25fa"
+    },
+    {
+      "article": 14,
+      "batch_id": "B188",
+      "global_index": 8798,
+      "id": "seg08798",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "0eaddb51c03c3b20"
+    },
+    {
+      "article": 14,
+      "batch_id": "B10",
+      "global_index": 432,
+      "id": "seg00432",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "bb1a3ab73d07116e"
+    },
+    {
+      "article": 14,
+      "batch_id": "B7",
+      "global_index": 291,
+      "id": "seg00291",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "c9c42f9347036846"
+    },
+    {
+      "article": 14,
+      "batch_id": "B1",
+      "global_index": 9,
+      "id": "seg00009",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "099eb0a357c81c00"
+    },
+    {
+      "article": 14,
+      "batch_id": "B110",
+      "global_index": 5132,
+      "id": "seg05132",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "02ed1278f38a786e"
+    },
+    {
+      "article": 14,
+      "batch_id": "B82",
+      "global_index": 3816,
+      "id": "seg03816",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "129d25a47745e024"
+    },
+    {
+      "article": 14,
+      "batch_id": "B46",
+      "global_index": 2124,
+      "id": "seg02124",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "9314a5bf6e81c8d5"
+    },
+    {
+      "article": 14,
+      "batch_id": "B84",
+      "global_index": 3910,
+      "id": "seg03910",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "6479a64d6ccf1613"
+    },
+    {
+      "article": 14,
+      "batch_id": "B52",
+      "global_index": 2406,
+      "id": "seg02406",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "15bbf2da4e9815e3"
+    },
+    {
+      "article": 14,
+      "batch_id": "B117",
+      "global_index": 5461,
+      "id": "seg05461",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "141ed1923017206d"
+    },
+    {
+      "article": 14,
+      "batch_id": "B165",
+      "global_index": 7717,
+      "id": "seg07717",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "b5cad6cea635543d"
+    },
+    {
+      "article": 14,
+      "batch_id": "B75",
+      "global_index": 3487,
+      "id": "seg03487",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "efe4d3e07d77836b"
+    },
+    {
+      "article": 14,
+      "batch_id": "B144",
+      "global_index": 6730,
+      "id": "seg06730",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "21fae0d68156c016"
+    },
+    {
+      "article": 14,
+      "batch_id": "B38",
+      "global_index": 1748,
+      "id": "seg01748",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "f7c83e5a1c0e2d8a"
+    },
+    {
+      "article": 14,
+      "batch_id": "B124",
+      "global_index": 5790,
+      "id": "seg05790",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "92cf7d58f5defba9"
+    },
+    {
+      "article": 14,
+      "batch_id": "B2",
+      "global_index": 56,
+      "id": "seg00056",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "7da72c812f810208"
+    },
+    {
+      "article": 14,
+      "batch_id": "B66",
+      "global_index": 3064,
+      "id": "seg03064",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "5f5a4a0d489ae0d2"
+    },
+    {
+      "article": 14,
+      "batch_id": "B106",
+      "global_index": 4944,
+      "id": "seg04944",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "345f2954a6343185"
+    },
+    {
+      "article": 14,
+      "batch_id": "B102",
+      "global_index": 4756,
+      "id": "seg04756",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "e5d70d5f12028820"
+    },
+    {
+      "article": 14,
+      "batch_id": "B33",
+      "global_index": 1513,
+      "id": "seg01513",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "f97729b576a175bc"
+    },
+    {
+      "article": 14,
+      "batch_id": "B87",
+      "global_index": 4051,
+      "id": "seg04051",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "c955b4ea56162d58"
+    },
+    {
+      "article": 14,
+      "batch_id": "B91",
+      "global_index": 4239,
+      "id": "seg04239",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "e901fc919b3b02d0"
+    },
+    {
+      "article": 14,
+      "batch_id": "B107",
+      "global_index": 4991,
+      "id": "seg04991",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "daa4dcc07e10c363"
+    },
+    {
+      "article": 14,
+      "batch_id": "B56",
+      "global_index": 2594,
+      "id": "seg02594",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "a3743c847dfa3109"
+    },
+    {
+      "article": 14,
+      "batch_id": "B187",
+      "global_index": 8751,
+      "id": "seg08751",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "2b39dabd7a4394d2"
+    },
+    {
+      "article": 14,
+      "batch_id": "B41",
+      "global_index": 1889,
+      "id": "seg01889",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "5bdddefd46f9c0bd"
+    },
+    {
+      "article": 14,
+      "batch_id": "B86",
+      "global_index": 4004,
+      "id": "seg04004",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "dc30a8ebfd2933a7"
+    },
+    {
+      "article": 14,
+      "batch_id": "B40",
+      "global_index": 1842,
+      "id": "seg01842",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "a74aa4780344e3c4"
+    },
+    {
+      "article": 14,
+      "batch_id": "B16",
+      "global_index": 714,
+      "id": "seg00714",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "1b9c4fcebf613cb6"
+    },
+    {
+      "article": 14,
+      "batch_id": "B36",
+      "global_index": 1654,
+      "id": "seg01654",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "2b992f9b17f7fe74"
+    },
+    {
+      "article": 14,
+      "batch_id": "B127",
+      "global_index": 5931,
+      "id": "seg05931",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "62e48b80c90a5152"
+    },
+    {
+      "article": 14,
+      "batch_id": "B162",
+      "global_index": 7576,
+      "id": "seg07576",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "590ed4c272438de4"
+    },
+    {
+      "article": 14,
+      "batch_id": "B3",
+      "global_index": 103,
+      "id": "seg00103",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "fa71340320534638"
+    },
+    {
+      "article": 14,
+      "batch_id": "B100",
+      "global_index": 4662,
+      "id": "seg04662",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "e7c5e4dea65ad184"
+    },
+    {
+      "article": 14,
+      "batch_id": "B67",
+      "global_index": 3111,
+      "id": "seg03111",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "992c306cb66749fa"
+    },
+    {
+      "article": 14,
+      "batch_id": "B77",
+      "global_index": 3581,
+      "id": "seg03581",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "b75f290e40cb4a05"
+    },
+    {
+      "article": 14,
+      "batch_id": "B123",
+      "global_index": 5743,
+      "id": "seg05743",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "ca111ca93a214b5f"
+    },
+    {
+      "article": 14,
+      "batch_id": "B81",
+      "global_index": 3769,
+      "id": "seg03769",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "f599c5c3dafb5393"
+    },
+    {
+      "article": 14,
+      "batch_id": "B183",
+      "global_index": 8563,
+      "id": "seg08563",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "0a005f8720a9836d"
+    },
+    {
+      "article": 14,
+      "batch_id": "B85",
+      "global_index": 3957,
+      "id": "seg03957",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "72ab3db8ccc6228a"
+    },
+    {
+      "article": 14,
+      "batch_id": "B79",
+      "global_index": 3675,
+      "id": "seg03675",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "e8d64e6f515c3fa8"
+    },
+    {
+      "article": 14,
+      "batch_id": "B72",
+      "global_index": 3346,
+      "id": "seg03346",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "e67a5853a6926e08"
+    },
+    {
+      "article": 14,
+      "batch_id": "B115",
+      "global_index": 5367,
+      "id": "seg05367",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "28569827218388ec"
+    },
+    {
+      "article": 14,
+      "batch_id": "B74",
+      "global_index": 3440,
+      "id": "seg03440",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "93bfbec07f15765e"
+    },
+    {
+      "article": 14,
+      "batch_id": "B17",
+      "global_index": 761,
+      "id": "seg00761",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "1f6e27d9302d8193"
+    },
+    {
+      "article": 14,
+      "batch_id": "B108",
+      "global_index": 5038,
+      "id": "seg05038",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "503407e0b12fbf9d"
+    },
+    {
+      "article": 14,
+      "batch_id": "B180",
+      "global_index": 8422,
+      "id": "seg08422",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "327b128d3aa53c9a"
+    },
+    {
+      "article": 14,
+      "batch_id": "B125",
+      "global_index": 5837,
+      "id": "seg05837",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "854759d2062fd558"
+    },
+    {
+      "article": 14,
+      "batch_id": "B47",
+      "global_index": 2171,
+      "id": "seg02171",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "f6fe2ffe3e85384c"
+    },
+    {
+      "article": 14,
+      "batch_id": "B179",
+      "global_index": 8375,
+      "id": "seg08375",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "801744cbfa29fcf0"
+    },
+    {
+      "article": 14,
+      "batch_id": "B21",
+      "global_index": 949,
+      "id": "seg00949",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "6519bbe03e28c2fb"
+    },
+    {
+      "article": 14,
+      "batch_id": "B170",
+      "global_index": 7952,
+      "id": "seg07952",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "2d996d16b3c51481"
+    },
+    {
+      "article": 14,
+      "batch_id": "B112",
+      "global_index": 5226,
+      "id": "seg05226",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "1b6a9b495c51e626"
+    },
+    {
+      "article": 14,
+      "batch_id": "B167",
+      "global_index": 7811,
+      "id": "seg07811",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "ccbd4824494b5162"
+    },
+    {
+      "article": 14,
+      "batch_id": "B44",
+      "global_index": 2030,
+      "id": "seg02030",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "7b8c126c50320d80"
+    },
+    {
+      "article": 14,
+      "batch_id": "B178",
+      "global_index": 8328,
+      "id": "seg08328",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "51d9afe6ea2fc541"
+    },
+    {
+      "article": 14,
+      "batch_id": "B160",
+      "global_index": 7482,
+      "id": "seg07482",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "2005011622cc892a"
+    },
+    {
+      "article": 14,
+      "batch_id": "B45",
+      "global_index": 2077,
+      "id": "seg02077",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "c23e146d72f827d0"
+    },
+    {
+      "article": 14,
+      "batch_id": "B161",
+      "global_index": 7529,
+      "id": "seg07529",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "1d22be33daf5745d"
+    },
+    {
+      "article": 14,
+      "batch_id": "B13",
+      "global_index": 573,
+      "id": "seg00573",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "0870b650e5ad4619"
+    },
+    {
+      "article": 14,
+      "batch_id": "B119",
+      "global_index": 5555,
+      "id": "seg05555",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "a5cbc24b860755b4"
+    },
+    {
+      "article": 14,
+      "batch_id": "B190",
+      "global_index": 8892,
+      "id": "seg08892",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "d1915f3fec68a3d6"
+    },
+    {
+      "article": 14,
+      "batch_id": "B30",
+      "global_index": 1372,
+      "id": "seg01372",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "0c466ba30f10ed8c"
+    },
+    {
+      "article": 14,
+      "batch_id": "B95",
+      "global_index": 4427,
+      "id": "seg04427",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "0055d5eb5fe7e47c"
+    },
+    {
+      "article": 14,
+      "batch_id": "B176",
+      "global_index": 8234,
+      "id": "seg08234",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "1588526303d3cbf8"
+    },
+    {
+      "article": 14,
+      "batch_id": "B175",
+      "global_index": 8187,
+      "id": "seg08187",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "5f8f954d4c14d09f"
+    },
+    {
+      "article": 14,
+      "batch_id": "B23",
+      "global_index": 1043,
+      "id": "seg01043",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "59bcd3e59d560ab5"
+    },
+    {
+      "article": 14,
+      "batch_id": "B143",
+      "global_index": 6683,
+      "id": "seg06683",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "79c2917f14ce48e0"
+    },
+    {
+      "article": 14,
+      "batch_id": "B48",
+      "global_index": 2218,
+      "id": "seg02218",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "d052b24f7e7b5f4b"
+    },
+    {
+      "article": 14,
+      "batch_id": "B88",
+      "global_index": 4098,
+      "id": "seg04098",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "6cf34742c6200ba2"
+    },
+    {
+      "article": 14,
+      "batch_id": "B147",
+      "global_index": 6871,
+      "id": "seg06871",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "57398eff582ba894"
+    },
+    {
+      "article": 14,
+      "batch_id": "B18",
+      "global_index": 808,
+      "id": "seg00808",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "4ad95f5490fe96a0"
+    },
+    {
+      "article": 14,
+      "batch_id": "B54",
+      "global_index": 2500,
+      "id": "seg02500",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "d6ace9b359b47b9c"
+    },
+    {
+      "article": 14,
+      "batch_id": "B64",
+      "global_index": 2970,
+      "id": "seg02970",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "bdd1ad56e602b3b1"
+    },
+    {
+      "article": 14,
+      "batch_id": "B116",
+      "global_index": 5414,
+      "id": "seg05414",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "9501e546ae31d06c"
+    },
+    {
+      "article": 14,
+      "batch_id": "B159",
+      "global_index": 7435,
+      "id": "seg07435",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "e8a4af809c922d9d"
+    },
+    {
+      "article": 14,
+      "batch_id": "B61",
+      "global_index": 2829,
+      "id": "seg02829",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "c3967340fd2a2dfe"
+    },
+    {
+      "article": 14,
+      "batch_id": "B151",
+      "global_index": 7059,
+      "id": "seg07059",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "1afa2444a20089c8"
+    },
+    {
+      "article": 14,
+      "batch_id": "B28",
+      "global_index": 1278,
+      "id": "seg01278",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "4638c422bbfa06a4"
+    },
+    {
+      "article": 14,
+      "batch_id": "B139",
+      "global_index": 6495,
+      "id": "seg06495",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "d5bb179e83737c90"
+    },
+    {
+      "article": 14,
+      "batch_id": "B8",
+      "global_index": 338,
+      "id": "seg00338",
+      "label": "COMPLIANT",
+      "stratum": "APP-14",
+      "text_sha256_16": "bd9fe54704e77c98"
+    },
+    {
+      "article": 13,
+      "batch_id": "B166",
+      "global_index": 7763,
+      "id": "seg07763",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "15546419d1c5ee36"
+    },
+    {
+      "article": 13,
+      "batch_id": "B173",
+      "global_index": 8092,
+      "id": "seg08092",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "33d7081d894e6623"
+    },
+    {
+      "article": 13,
+      "batch_id": "B170",
+      "global_index": 7951,
+      "id": "seg07951",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "9bca6cc0fee2a15f"
+    },
+    {
+      "article": 13,
+      "batch_id": "B144",
+      "global_index": 6729,
+      "id": "seg06729",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "cf555a96e04068c9"
+    },
+    {
+      "article": 13,
+      "batch_id": "B63",
+      "global_index": 2922,
+      "id": "seg02922",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "d5a698aa240616ff"
+    },
+    {
+      "article": 13,
+      "batch_id": "B64",
+      "global_index": 2969,
+      "id": "seg02969",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "4bd9a3669f796a16"
+    },
+    {
+      "article": 13,
+      "batch_id": "B75",
+      "global_index": 3486,
+      "id": "seg03486",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "fc844405bf9ebbad"
+    },
+    {
+      "article": 13,
+      "batch_id": "B67",
+      "global_index": 3110,
+      "id": "seg03110",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "b0cfd788d43542ae"
+    },
+    {
+      "article": 13,
+      "batch_id": "B81",
+      "global_index": 3768,
+      "id": "seg03768",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "a96e87e9b25b209f"
+    },
+    {
+      "article": 13,
+      "batch_id": "B12",
+      "global_index": 525,
+      "id": "seg00525",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "a04b2f8221e60e9b"
+    },
+    {
+      "article": 13,
+      "batch_id": "B149",
+      "global_index": 6964,
+      "id": "seg06964",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "c6d088bed3e6caf2"
+    },
+    {
+      "article": 13,
+      "batch_id": "B115",
+      "global_index": 5366,
+      "id": "seg05366",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "d5560f6a94a47502"
+    },
+    {
+      "article": 13,
+      "batch_id": "B9",
+      "global_index": 384,
+      "id": "seg00384",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "5472dc745ea2d05b"
+    },
+    {
+      "article": 13,
+      "batch_id": "B177",
+      "global_index": 8280,
+      "id": "seg08280",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "d8adc2e4a5603c03"
+    },
+    {
+      "article": 13,
+      "batch_id": "B54",
+      "global_index": 2499,
+      "id": "seg02499",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "778f69ef3234d39c"
+    },
+    {
+      "article": 13,
+      "batch_id": "B132",
+      "global_index": 6165,
+      "id": "seg06165",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "81f60bfe908ef3b0"
+    },
+    {
+      "article": 13,
+      "batch_id": "B6",
+      "global_index": 243,
+      "id": "seg00243",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "c4c50cd3c1c9b899"
+    },
+    {
+      "article": 13,
+      "batch_id": "B185",
+      "global_index": 8656,
+      "id": "seg08656",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "ee3f7ec420d91a71"
+    },
+    {
+      "article": 13,
+      "batch_id": "B131",
+      "global_index": 6118,
+      "id": "seg06118",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "d32f06a120a7c22b"
+    },
+    {
+      "article": 13,
+      "batch_id": "B103",
+      "global_index": 4802,
+      "id": "seg04802",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "da50c828aef834be"
+    },
+    {
+      "article": 13,
+      "batch_id": "B107",
+      "global_index": 4990,
+      "id": "seg04990",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "de686f90f4923a2d"
+    },
+    {
+      "article": 13,
+      "batch_id": "B71",
+      "global_index": 3298,
+      "id": "seg03298",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "59725e7bc8b81408"
+    },
+    {
+      "article": 13,
+      "batch_id": "B11",
+      "global_index": 478,
+      "id": "seg00478",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "30e2e37d0f89d01a"
+    },
+    {
+      "article": 13,
+      "batch_id": "B168",
+      "global_index": 7857,
+      "id": "seg07857",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "b6cab766d27a6866"
+    },
+    {
+      "article": 13,
+      "batch_id": "B91",
+      "global_index": 4238,
+      "id": "seg04238",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "37c37715ff496f83"
+    },
+    {
+      "article": 13,
+      "batch_id": "B30",
+      "global_index": 1371,
+      "id": "seg01371",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "1541715e6cc602a7"
+    },
+    {
+      "article": 13,
+      "batch_id": "B13",
+      "global_index": 572,
+      "id": "seg00572",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "0d81ebd71b7e6695"
+    },
+    {
+      "article": 13,
+      "batch_id": "B52",
+      "global_index": 2405,
+      "id": "seg02405",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "84fb91111a1c5356"
+    },
+    {
+      "article": 13,
+      "batch_id": "B50",
+      "global_index": 2311,
+      "id": "seg02311",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "38039978c8a4444e"
+    },
+    {
+      "article": 13,
+      "batch_id": "B31",
+      "global_index": 1418,
+      "id": "seg01418",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "8e36de833228dee9"
+    },
+    {
+      "article": 13,
+      "batch_id": "B72",
+      "global_index": 3345,
+      "id": "seg03345",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "1e4bcf15f05c9ce2"
+    },
+    {
+      "article": 13,
+      "batch_id": "B154",
+      "global_index": 7199,
+      "id": "seg07199",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "746581e99272d2c7"
+    },
+    {
+      "article": 13,
+      "batch_id": "B4",
+      "global_index": 149,
+      "id": "seg00149",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "14490a0890b0e28c"
+    },
+    {
+      "article": 13,
+      "batch_id": "B23",
+      "global_index": 1042,
+      "id": "seg01042",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "929cb8b9161dc8fd"
+    },
+    {
+      "article": 13,
+      "batch_id": "B93",
+      "global_index": 4332,
+      "id": "seg04332",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "5e72116bad28b74a"
+    },
+    {
+      "article": 13,
+      "batch_id": "B175",
+      "global_index": 8186,
+      "id": "seg08186",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "ce5857fa8691f819"
+    },
+    {
+      "article": 13,
+      "batch_id": "B20",
+      "global_index": 901,
+      "id": "seg00901",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "b35e144ffbad1433"
+    },
+    {
+      "article": 13,
+      "batch_id": "B104",
+      "global_index": 4849,
+      "id": "seg04849",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "ed11b417ed7213e1"
+    },
+    {
+      "article": 13,
+      "batch_id": "B78",
+      "global_index": 3627,
+      "id": "seg03627",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "c04bac536ce1849a"
+    },
+    {
+      "article": 13,
+      "batch_id": "B111",
+      "global_index": 5178,
+      "id": "seg05178",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "da1c551f1064ba88"
+    },
+    {
+      "article": 13,
+      "batch_id": "B82",
+      "global_index": 3815,
+      "id": "seg03815",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "6490a362d0d7a9d7"
+    },
+    {
+      "article": 13,
+      "batch_id": "B141",
+      "global_index": 6588,
+      "id": "seg06588",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "100c48b233d59cd5"
+    },
+    {
+      "article": 13,
+      "batch_id": "B43",
+      "global_index": 1982,
+      "id": "seg01982",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "8937546c9177334f"
+    },
+    {
+      "article": 13,
+      "batch_id": "B105",
+      "global_index": 4896,
+      "id": "seg04896",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "85feb08ebb1ad623"
+    },
+    {
+      "article": 13,
+      "batch_id": "B27",
+      "global_index": 1230,
+      "id": "seg01230",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "356f2d278e256390"
+    },
+    {
+      "article": 13,
+      "batch_id": "B59",
+      "global_index": 2734,
+      "id": "seg02734",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "9a0458fbc149e15b"
+    },
+    {
+      "article": 13,
+      "batch_id": "B65",
+      "global_index": 3016,
+      "id": "seg03016",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "baea49944ba4736d"
+    },
+    {
+      "article": 13,
+      "batch_id": "B57",
+      "global_index": 2640,
+      "id": "seg02640",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "b80b74b70368131e"
+    },
+    {
+      "article": 13,
+      "batch_id": "B110",
+      "global_index": 5131,
+      "id": "seg05131",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "8816a78f1daaec04"
+    },
+    {
+      "article": 13,
+      "batch_id": "B150",
+      "global_index": 7011,
+      "id": "seg07011",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "fd6ef859d51ed42a"
+    },
+    {
+      "article": 13,
+      "batch_id": "B114",
+      "global_index": 5319,
+      "id": "seg05319",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "f9fd4cf9e3ef4a60"
+    },
+    {
+      "article": 13,
+      "batch_id": "B38",
+      "global_index": 1747,
+      "id": "seg01747",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "6365058dcf64bcaa"
+    },
+    {
+      "article": 13,
+      "batch_id": "B16",
+      "global_index": 713,
+      "id": "seg00713",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "acaff06a6f5311d9"
+    },
+    {
+      "article": 13,
+      "batch_id": "B109",
+      "global_index": 5084,
+      "id": "seg05084",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "4ee4bca13268d161"
+    },
+    {
+      "article": 13,
+      "batch_id": "B37",
+      "global_index": 1700,
+      "id": "seg01700",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "e836966434a77a80"
+    },
+    {
+      "article": 13,
+      "batch_id": "B39",
+      "global_index": 1794,
+      "id": "seg01794",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "2fc7f982f6e91f83"
+    },
+    {
+      "article": 13,
+      "batch_id": "B32",
+      "global_index": 1465,
+      "id": "seg01465",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "1fc1ee916f3d93e6"
+    },
+    {
+      "article": 13,
+      "batch_id": "B99",
+      "global_index": 4614,
+      "id": "seg04614",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "55c21c90896a9bdf"
+    },
+    {
+      "article": 13,
+      "batch_id": "B120",
+      "global_index": 5601,
+      "id": "seg05601",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "5bbf65c8c766af30"
+    },
+    {
+      "article": 13,
+      "batch_id": "B76",
+      "global_index": 3533,
+      "id": "seg03533",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "dbecd58322ed3438"
+    },
+    {
+      "article": 13,
+      "batch_id": "B86",
+      "global_index": 4003,
+      "id": "seg04003",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "abcd329f4304cab0"
+    },
+    {
+      "article": 13,
+      "batch_id": "B36",
+      "global_index": 1653,
+      "id": "seg01653",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "68de7ec6683429a9"
+    },
+    {
+      "article": 13,
+      "batch_id": "B155",
+      "global_index": 7246,
+      "id": "seg07246",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "efc80d13ac355274"
+    },
+    {
+      "article": 13,
+      "batch_id": "B46",
+      "global_index": 2123,
+      "id": "seg02123",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "27ca6966f327d793"
+    },
+    {
+      "article": 13,
+      "batch_id": "B136",
+      "global_index": 6353,
+      "id": "seg06353",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "470c855ae3f803c9"
+    },
+    {
+      "article": 13,
+      "batch_id": "B165",
+      "global_index": 7716,
+      "id": "seg07716",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "c4a193511c0a543f"
+    },
+    {
+      "article": 13,
+      "batch_id": "B58",
+      "global_index": 2687,
+      "id": "seg02687",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "773f55bfe37955a9"
+    },
+    {
+      "article": 13,
+      "batch_id": "B26",
+      "global_index": 1183,
+      "id": "seg01183",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "0d2d4540c042903e"
+    },
+    {
+      "article": 13,
+      "batch_id": "B187",
+      "global_index": 8750,
+      "id": "seg08750",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "40716b3e89086cd3"
+    },
+    {
+      "article": 13,
+      "batch_id": "B125",
+      "global_index": 5836,
+      "id": "seg05836",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "a3d06723bd07ab77"
+    },
+    {
+      "article": 13,
+      "batch_id": "B162",
+      "global_index": 7575,
+      "id": "seg07575",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "9f7fda60d3f9d197"
+    },
+    {
+      "article": 13,
+      "batch_id": "B108",
+      "global_index": 5037,
+      "id": "seg05037",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "4408aa2c4e98c564"
+    },
+    {
+      "article": 13,
+      "batch_id": "B146",
+      "global_index": 6823,
+      "id": "seg06823",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "f04f070b4319daac"
+    },
+    {
+      "article": 13,
+      "batch_id": "B24",
+      "global_index": 1089,
+      "id": "seg01089",
+      "label": "COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "b7943bcd44b07b6f"
+    },
+    {
+      "article": 13,
+      "batch_id": "B100",
+      "global_index": 4661,
+      "id": "seg04661",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-13",
+      "text_sha256_16": "060cb71eee8cc6a1"
+    },
+    {
+      "article": 12,
+      "batch_id": "B149",
+      "global_index": 6963,
+      "id": "seg06963",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "3d1d151a45099fca"
+    },
+    {
+      "article": 12,
+      "batch_id": "B46",
+      "global_index": 2122,
+      "id": "seg02122",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "1f611f629644e590"
+    },
+    {
+      "article": 12,
+      "batch_id": "B153",
+      "global_index": 7151,
+      "id": "seg07151",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "b8b5772561c55c45"
+    },
+    {
+      "article": 12,
+      "batch_id": "B97",
+      "global_index": 4519,
+      "id": "seg04519",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "74bcd3b7c575d1b6"
+    },
+    {
+      "article": 12,
+      "batch_id": "B179",
+      "global_index": 8373,
+      "id": "seg08373",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "eed2946a1c19d235"
+    },
+    {
+      "article": 12,
+      "batch_id": "B136",
+      "global_index": 6352,
+      "id": "seg06352",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "abce6a2e0bcc6914"
+    },
+    {
+      "article": 12,
+      "batch_id": "B161",
+      "global_index": 7527,
+      "id": "seg07527",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "4af8049ec12a631a"
+    },
+    {
+      "article": 12,
+      "batch_id": "B167",
+      "global_index": 7809,
+      "id": "seg07809",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "a6e1343604bbe04b"
+    },
+    {
+      "article": 12,
+      "batch_id": "B85",
+      "global_index": 3955,
+      "id": "seg03955",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "2c9498e139354dac"
+    },
+    {
+      "article": 12,
+      "batch_id": "B171",
+      "global_index": 7997,
+      "id": "seg07997",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "f0bf0730db3b644a"
+    },
+    {
+      "article": 12,
+      "batch_id": "B71",
+      "global_index": 3297,
+      "id": "seg03297",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "aae1544a5941d5db"
+    },
+    {
+      "article": 12,
+      "batch_id": "B34",
+      "global_index": 1558,
+      "id": "seg01558",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "d70fe4779960dafc"
+    },
+    {
+      "article": 12,
+      "batch_id": "B7",
+      "global_index": 289,
+      "id": "seg00289",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "a27684aa97cb126c"
+    },
+    {
+      "article": 12,
+      "batch_id": "B23",
+      "global_index": 1041,
+      "id": "seg01041",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "75faad260307d07b"
+    },
+    {
+      "article": 12,
+      "batch_id": "B165",
+      "global_index": 7715,
+      "id": "seg07715",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "737917cc55478970"
+    },
+    {
+      "article": 12,
+      "batch_id": "B142",
+      "global_index": 6634,
+      "id": "seg06634",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "0481b7241c8271e2"
+    },
+    {
+      "article": 12,
+      "batch_id": "B108",
+      "global_index": 5036,
+      "id": "seg05036",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "140793668e4ed101"
+    },
+    {
+      "article": 12,
+      "batch_id": "B52",
+      "global_index": 2404,
+      "id": "seg02404",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "93f93039890f5722"
+    },
+    {
+      "article": 12,
+      "batch_id": "B68",
+      "global_index": 3156,
+      "id": "seg03156",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "a128d8abcc6b11c7"
+    },
+    {
+      "article": 12,
+      "batch_id": "B168",
+      "global_index": 7856,
+      "id": "seg07856",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "18eaf3ab10880b3a"
+    },
+    {
+      "article": 12,
+      "batch_id": "B101",
+      "global_index": 4707,
+      "id": "seg04707",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "2af4a5021124a78a"
+    },
+    {
+      "article": 12,
+      "batch_id": "B28",
+      "global_index": 1276,
+      "id": "seg01276",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "f9f10b591706d916"
+    },
+    {
+      "article": 12,
+      "batch_id": "B70",
+      "global_index": 3250,
+      "id": "seg03250",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "393b9e643bb1bdaa"
+    },
+    {
+      "article": 12,
+      "batch_id": "B11",
+      "global_index": 477,
+      "id": "seg00477",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "929c470700db04b6"
+    },
+    {
+      "article": 12,
+      "batch_id": "B144",
+      "global_index": 6728,
+      "id": "seg06728",
+      "label": "COMPLIANT",
+      "stratum": "APP-12",
+      "text_sha256_16": "8a76f54314a74ecb"
+    },
+    {
+      "article": 46,
+      "batch_id": "B97",
+      "global_index": 4546,
+      "id": "seg04546",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "0c06b4ab3a36a696"
+    },
+    {
+      "article": 46,
+      "batch_id": "B142",
+      "global_index": 6661,
+      "id": "seg06661",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "dbbcef271b809016"
+    },
+    {
+      "article": 46,
+      "batch_id": "B84",
+      "global_index": 3935,
+      "id": "seg03935",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "21bddd188dacd80b"
+    },
+    {
+      "article": 46,
+      "batch_id": "B135",
+      "global_index": 6332,
+      "id": "seg06332",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "f6c591b4a98c61e3"
+    },
+    {
+      "article": 46,
+      "batch_id": "B91",
+      "global_index": 4264,
+      "id": "seg04264",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "5cc84e63547a51e5"
+    },
+    {
+      "article": 46,
+      "batch_id": "B58",
+      "global_index": 2713,
+      "id": "seg02713",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "c82f049802c1d394"
+    },
+    {
+      "article": 46,
+      "batch_id": "B49",
+      "global_index": 2290,
+      "id": "seg02290",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "11441cdbaea7502e"
+    },
+    {
+      "article": 46,
+      "batch_id": "B75",
+      "global_index": 3512,
+      "id": "seg03512",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "f1f7f71572726d89"
+    },
+    {
+      "article": 46,
+      "batch_id": "B121",
+      "global_index": 5674,
+      "id": "seg05674",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "16d67c52e0de0c21"
+    },
+    {
+      "article": 46,
+      "batch_id": "B55",
+      "global_index": 2572,
+      "id": "seg02572",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "404b7b47b15fe1d8"
+    },
+    {
+      "article": 46,
+      "batch_id": "B133",
+      "global_index": 6238,
+      "id": "seg06238",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "d3799811531399ce"
+    },
+    {
+      "article": 46,
+      "batch_id": "B139",
+      "global_index": 6520,
+      "id": "seg06520",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "0fee7902a32cda66"
+    },
+    {
+      "article": 46,
+      "batch_id": "B110",
+      "global_index": 5157,
+      "id": "seg05157",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "963f92bf5f8d51eb"
+    },
+    {
+      "article": 46,
+      "batch_id": "B92",
+      "global_index": 4311,
+      "id": "seg04311",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "60479e05d4ea3d0c"
+    },
+    {
+      "article": 46,
+      "batch_id": "B47",
+      "global_index": 2196,
+      "id": "seg02196",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "78b24e17c6a3c108"
+    },
+    {
+      "article": 46,
+      "batch_id": "B29",
+      "global_index": 1350,
+      "id": "seg01350",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "daec4d36edf1c636"
+    },
+    {
+      "article": 46,
+      "batch_id": "B113",
+      "global_index": 5298,
+      "id": "seg05298",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "395c7a83b04a93e2"
+    },
+    {
+      "article": 46,
+      "batch_id": "B116",
+      "global_index": 5439,
+      "id": "seg05439",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "0722e9c49f2cb07b"
+    },
+    {
+      "article": 46,
+      "batch_id": "B130",
+      "global_index": 6097,
+      "id": "seg06097",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "c67239a89a8b3622"
+    },
+    {
+      "article": 46,
+      "batch_id": "B83",
+      "global_index": 3888,
+      "id": "seg03888",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "69623ffede82b164"
+    },
+    {
+      "article": 46,
+      "batch_id": "B6",
+      "global_index": 269,
+      "id": "seg00269",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "6b6b2fbe338167b1"
+    },
+    {
+      "article": 46,
+      "batch_id": "B122",
+      "global_index": 5721,
+      "id": "seg05721",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "df44d9fffe0c2b75"
+    },
+    {
+      "article": 46,
+      "batch_id": "B51",
+      "global_index": 2384,
+      "id": "seg02384",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "d98d6c8ab32febe9"
+    },
+    {
+      "article": 46,
+      "batch_id": "B147",
+      "global_index": 6896,
+      "id": "seg06896",
+      "label": "COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "8ed05342644f1b0b"
+    },
+    {
+      "article": 46,
+      "batch_id": "B42",
+      "global_index": 1961,
+      "id": "seg01961",
+      "label": "NON_COMPLIANT",
+      "stratum": "APP-46",
+      "text_sha256_16": "167f7fbf414dfa25"
+    },
+    {
+      "article": 46,
+      "batch_id": "B134",
+      "global_index": 6285,
+      "id": "seg06285",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "deacc69d25b140c3"
+    },
+    {
+      "article": 46,
+      "batch_id": "B188",
+      "global_index": 8823,
+      "id": "seg08823",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "d07abcd3cfdaf425"
+    },
+    {
+      "article": 46,
+      "batch_id": "B88",
+      "global_index": 4123,
+      "id": "seg04123",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "58e91452f15c5013"
+    },
+    {
+      "article": 46,
+      "batch_id": "B57",
+      "global_index": 2666,
+      "id": "seg02666",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "5d5df012f29158db"
+    },
+    {
+      "article": 46,
+      "batch_id": "B125",
+      "global_index": 5862,
+      "id": "seg05862",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "a548e868f2a0c00b"
+    },
+    {
+      "article": 46,
+      "batch_id": "B56",
+      "global_index": 2619,
+      "id": "seg02619",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "1e60576df6323463"
+    },
+    {
+      "article": 46,
+      "batch_id": "B138",
+      "global_index": 6473,
+      "id": "seg06473",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "9f6b721308a40ba1"
+    },
+    {
+      "article": 46,
+      "batch_id": "B128",
+      "global_index": 6003,
+      "id": "seg06003",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "967b357f69b94767"
+    },
+    {
+      "article": 46,
+      "batch_id": "B72",
+      "global_index": 3371,
+      "id": "seg03371",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "d94e352fee6250aa"
+    },
+    {
+      "article": 46,
+      "batch_id": "B136",
+      "global_index": 6379,
+      "id": "seg06379",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "f8e9269be6268e67"
+    },
+    {
+      "article": 46,
+      "batch_id": "B183",
+      "global_index": 8588,
+      "id": "seg08588",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "c668414f3c8ed818"
+    },
+    {
+      "article": 46,
+      "batch_id": "B117",
+      "global_index": 5486,
+      "id": "seg05486",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "079c21bc3c7debd2"
+    },
+    {
+      "article": 46,
+      "batch_id": "B61",
+      "global_index": 2854,
+      "id": "seg02854",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "d1cfebbb0b283ac5"
+    },
+    {
+      "article": 46,
+      "batch_id": "B164",
+      "global_index": 7695,
+      "id": "seg07695",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "9d056d840ddc0b12"
+    },
+    {
+      "article": 46,
+      "batch_id": "B3",
+      "global_index": 128,
+      "id": "seg00128",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "b53bbd0eff45f750"
+    },
+    {
+      "article": 46,
+      "batch_id": "B28",
+      "global_index": 1303,
+      "id": "seg01303",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "dc2956e2fd3b3497"
+    },
+    {
+      "article": 46,
+      "batch_id": "B34",
+      "global_index": 1585,
+      "id": "seg01585",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "80d2cacb551e0e92"
+    },
+    {
+      "article": 46,
+      "batch_id": "B93",
+      "global_index": 4358,
+      "id": "seg04358",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "19c8e4e3bf29296c"
+    },
+    {
+      "article": 46,
+      "batch_id": "B74",
+      "global_index": 3465,
+      "id": "seg03465",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "05b477f1687b08fd"
+    },
+    {
+      "article": 46,
+      "batch_id": "B65",
+      "global_index": 3042,
+      "id": "seg03042",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "3d7e276c82833a1a"
+    },
+    {
+      "article": 46,
+      "batch_id": "B151",
+      "global_index": 7084,
+      "id": "seg07084",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "a8a3dfda6625e181"
+    },
+    {
+      "article": 46,
+      "batch_id": "B103",
+      "global_index": 4828,
+      "id": "seg04828",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "a4b2b6373137b2be"
+    },
+    {
+      "article": 46,
+      "batch_id": "B53",
+      "global_index": 2478,
+      "id": "seg02478",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "feb0a62546903d21"
+    },
+    {
+      "article": 46,
+      "batch_id": "B82",
+      "global_index": 3841,
+      "id": "seg03841",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "e29e29149d5104e9"
+    },
+    {
+      "article": 46,
+      "batch_id": "B119",
+      "global_index": 5580,
+      "id": "seg05580",
+      "label": "NOT_APPLICABLE",
+      "stratum": "NA-46",
+      "text_sha256_16": "b5dcc76d3f152c79"
+    }
+  ]
+}

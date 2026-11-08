@@ -1,0 +1,254 @@
+[  1/250] seg00128 r1 art46 text:3calls graph:3calls | elapsed 0.5m
+[  2/250] seg00269 r1 art46 text:3calls graph:3calls | elapsed 0.8m
+[  3/250] seg00338 r1 art14 text:4calls graph:4calls | elapsed 1.5m
+[  4/250] seg00572 r1 art13 text:1calls graph:5calls | elapsed 2.2m
+[  5/250] seg00949 r1 art14 text:2calls graph:4calls | elapsed 3.0m
+[  6/250] seg01230 r1 art13 text:3calls graph:5calls | elapsed 3.8m
+[  7/250] seg01303 r1 art46 text:3calls graph:3calls | elapsed 4.3m
+[  8/250] seg01700 r1 art13 text:3calls graph:4calls | elapsed 5.1m
+[  9/250] seg01701 r1 art14 text:7calls graph:2calls | elapsed 5.7m
+[ 10/250] seg01961 r1 art46 text:3calls graph:3calls | elapsed 6.2m
+[ 11/250] seg02405 r1 art13 text:3calls graph:4calls | elapsed 7.7m
+[ 12/250] seg02500 r1 art14 text:3calls graph:3calls | elapsed 8.3m
+[ 13/250] seg02572 r1 art46 text:3calls graph:3calls | elapsed 8.8m
+[ 14/250] seg02594 r1 art14 text:5calls graph:3calls | elapsed 9.5m
+[ 15/250] seg03297 r1 art12 text:3calls graph:3calls | elapsed 10.1m
+[ 16/250] seg03298 r1 art13 text:2calls graph:5calls | elapsed 10.8m
+[ 17/250] seg03533 r1 art13 text:1calls graph:4calls | elapsed 11.3m
+[ 18/250] seg03841 r1 art46 text:3calls graph:2calls | elapsed 11.7m
+[ 19/250] seg04004 r1 art14 text:2calls graph:3calls | elapsed 12.3m
+[ 20/250] seg04051 r1 art14 text:2calls graph:4calls | elapsed 13.1m
+[ 21/250] seg04123 r1 art46 text:3calls graph:3calls | elapsed 13.6m
+[ 22/250] seg04944 r1 art14 text:2calls graph:2calls | elapsed 14.2m
+[ 23/250] seg05178 r1 art13 text:3calls graph:3calls | elapsed 14.7m
+[ 24/250] seg05298 r1 art46 text:5calls graph:3calls | elapsed 15.3m
+[ 25/250] seg05319 r1 art13 text:5calls graph:5calls | elapsed 15.9m
+[ 26/250] seg05366 r1 art13 text:2calls graph:4calls | elapsed 16.5m
+[ 27/250] seg05461 r1 art14 text:2calls graph:2calls | elapsed 16.9m
+[ 28/250] seg05580 r1 art46 text:3calls graph:5calls | elapsed 17.5m
+[ 29/250] seg05601 r1 art13 text:2calls graph:5calls | elapsed 18.1m
+[ 30/250] seg05790 r1 art14 text:3calls graph:3calls | elapsed 18.8m
+[ 31/250] seg06118 r1 art13 text:2calls graph:3calls | elapsed 19.3m
+[ 32/250] seg06495 r1 art14 text:2calls graph:3calls | elapsed 20.0m
+[ 33/250] seg06520 r1 art46 text:3calls graph:3calls | elapsed 20.5m
+[ 34/250] seg06588 r1 art13 text:4calls graph:4calls | elapsed 21.2m
+[ 35/250] seg06634 r1 art12 text:3calls graph:4calls | elapsed 21.7m
+[ 36/250] seg06683 r1 art14 text:2calls graph:2calls | elapsed 22.3m
+[ 37/250] seg06728 r1 art12 text:3calls graph:3calls | elapsed 22.9m
+[ 38/250] seg06871 r1 art14 text:2calls graph:4calls | elapsed 23.5m
+[ 39/250] seg07011 r1 art13 text:3calls graph:5calls | elapsed 24.4m
+[ 40/250] seg07153 r1 art14 text:2calls graph:4calls | elapsed 25.3m
+[ 41/250] seg07294 r1 art14 text:2calls graph:4calls | elapsed 26.1m
+[ 42/250] seg07527 r1 art12 text:3calls graph:3calls | elapsed 26.6m
+[ 43/250] seg07576 r1 art14 text:2calls graph:2calls | elapsed 27.2m
+[ 44/250] seg07716 r1 art13 text:2calls graph:5calls | elapsed 27.8m
+[ 45/250] seg07717 r1 art14 text:2calls graph:2calls | elapsed 28.5m
+[ 46/250] seg07809 r1 art12 text:4calls graph:6calls | elapsed 29.4m
+[ 47/250] seg07951 r1 art13 text:2calls graph:5calls | elapsed 30.0m
+[ 48/250] seg07952 r1 art14 text:2calls graph:3calls | elapsed 30.5m
+[ 49/250] seg08563 r1 art14 text:2calls graph:1calls | elapsed 31.1m
+[ 50/250] seg08798 r1 art14 text:2calls graph:2calls | elapsed 31.6m
+[ 51/250] seg00128 r2 art46 text:3calls graph:3calls | elapsed 32.1m
+[ 52/250] seg00269 r2 art46 text:3calls graph:3calls | elapsed 32.5m
+[ 53/250] seg00338 r2 art14 text:4calls graph:4calls | elapsed 33.1m
+[ 54/250] seg00572 r2 art13 text:1calls graph:5calls | elapsed 33.9m
+[ 55/250] seg00949 r2 art14 text:2calls graph:4calls | elapsed 34.7m
+[ 56/250] seg01230 r2 art13 text:3calls graph:5calls | elapsed 35.5m
+[ 57/250] seg01303 r2 art46 text:3calls graph:3calls | elapsed 35.9m
+[ 58/250] seg01700 r2 art13 text:3calls graph:4calls | elapsed 36.8m
+[ 59/250] seg01701 r2 art14 text:7calls graph:2calls | elapsed 37.3m
+[ 60/250] seg01961 r2 art46 text:3calls graph:3calls | elapsed 37.8m
+[ 61/250] seg02405 r2 art13 text:3calls graph:4calls | elapsed 39.3m
+[ 62/250] seg02500 r2 art14 text:3calls graph:3calls | elapsed 40.0m
+[ 63/250] seg02572 r2 art46 text:3calls graph:3calls | elapsed 40.4m
+[ 64/250] seg02594 r2 art14 text:5calls graph:3calls | elapsed 41.1m
+[ 65/250] seg03297 r2 art12 text:3calls graph:3calls | elapsed 41.7m
+[ 66/250] seg03298 r2 art13 text:2calls graph:5calls | elapsed 42.4m
+[ 67/250] seg03533 r2 art13 text:1calls graph:4calls | elapsed 43.0m
+[ 68/250] seg03841 r2 art46 text:3calls graph:2calls | elapsed 43.4m
+[ 69/250] seg04004 r2 art14 text:2calls graph:3calls | elapsed 44.0m
+[ 70/250] seg04051 r2 art14 text:2calls graph:4calls | elapsed 44.8m
+[ 71/250] seg04123 r2 art46 text:3calls graph:3calls | elapsed 45.3m
+[ 72/250] seg04944 r2 art14 text:2calls graph:2calls | elapsed 45.9m
+[ 73/250] seg05178 r2 art13 text:3calls graph:3calls | elapsed 46.4m
+[ 74/250] seg05298 r2 art46 text:5calls graph:3calls | elapsed 46.9m
+[ 75/250] seg05319 r2 art13 text:5calls graph:5calls | elapsed 47.6m
+[ 76/250] seg05366 r2 art13 text:2calls graph:4calls | elapsed 48.1m
+[ 77/250] seg05461 r2 art14 text:2calls graph:2calls | elapsed 48.6m
+[ 78/250] seg05580 r2 art46 text:3calls graph:5calls | elapsed 49.1m
+[ 79/250] seg05601 r2 art13 text:2calls graph:5calls | elapsed 49.8m
+[ 80/250] seg05790 r2 art14 text:3calls graph:3calls | elapsed 50.5m
+[ 81/250] seg06118 r2 art13 text:2calls graph:3calls | elapsed 51.0m
+[ 82/250] seg06495 r2 art14 text:2calls graph:3calls | elapsed 51.7m
+[ 83/250] seg06520 r2 art46 text:3calls graph:3calls | elapsed 52.1m
+[ 84/250] seg06588 r2 art13 text:4calls graph:4calls | elapsed 52.8m
+[ 85/250] seg06634 r2 art12 text:3calls graph:4calls | elapsed 53.4m
+[ 86/250] seg06683 r2 art14 text:2calls graph:2calls | elapsed 53.9m
+[ 87/250] seg06728 r2 art12 text:3calls graph:3calls | elapsed 54.5m
+[ 88/250] seg06871 r2 art14 text:2calls graph:4calls | elapsed 55.2m
+[ 89/250] seg07011 r2 art13 text:3calls graph:5calls | elapsed 56.1m
+[ 90/250] seg07153 r2 art14 text:2calls graph:4calls | elapsed 57.0m
+[ 91/250] seg07294 r2 art14 text:2calls graph:4calls | elapsed 57.7m
+[ 92/250] seg07527 r2 art12 text:3calls graph:3calls | elapsed 58.3m
+[ 93/250] seg07576 r2 art14 text:2calls graph:2calls | elapsed 58.8m
+[ 94/250] seg07716 r2 art13 text:2calls graph:5calls | elapsed 59.5m
+[ 95/250] seg07717 r2 art14 text:2calls graph:2calls | elapsed 60.1m
+[ 96/250] seg07809 r2 art12 text:4calls graph:6calls | elapsed 61.0m
+[ 97/250] seg07951 r2 art13 text:2calls graph:5calls | elapsed 61.7m
+[ 98/250] seg07952 r2 art14 text:2calls graph:3calls | elapsed 62.1m
+[ 99/250] seg08563 r2 art14 text:2calls graph:1calls | elapsed 62.7m
+[100/250] seg08798 r2 art14 text:2calls graph:2calls | elapsed 63.2m
+[101/250] seg00128 r3 art46 text:3calls graph:3calls | elapsed 63.7m
+[102/250] seg00269 r3 art46 text:3calls graph:3calls | elapsed 64.1m
+[103/250] seg00338 r3 art14 text:4calls graph:4calls | elapsed 64.8m
+[104/250] seg00572 r3 art13 text:1calls graph:5calls | elapsed 65.5m
+[105/250] seg00949 r3 art14 text:2calls graph:4calls | elapsed 66.3m
+[106/250] seg01230 r3 art13 text:3calls graph:5calls | elapsed 67.1m
+[107/250] seg01303 r3 art46 text:3calls graph:3calls | elapsed 67.6m
+[108/250] seg01700 r3 art13 text:3calls graph:4calls | elapsed 68.4m
+[109/250] seg01701 r3 art14 text:7calls graph:2calls | elapsed 69.0m
+resumed 109 of 250 units from stability.traces.json.partial.jsonl
+[110/250] seg01961 r3 art46 text:3calls graph:3calls | elapsed 0.6m
+[111/250] seg02405 r3 art13 text:3calls graph:4calls | elapsed 2.1m
+[112/250] seg02500 r3 art14 text:3calls graph:3calls | elapsed 2.7m
+[113/250] seg02572 r3 art46 text:3calls graph:3calls | elapsed 3.2m
+[114/250] seg02594 r3 art14 text:5calls graph:3calls | elapsed 3.9m
+[115/250] seg03297 r3 art12 text:3calls graph:3calls | elapsed 4.5m
+[116/250] seg03298 r3 art13 text:2calls graph:5calls | elapsed 5.3m
+[117/250] seg03533 r3 art13 text:1calls graph:4calls | elapsed 5.8m
+[118/250] seg03841 r3 art46 text:3calls graph:2calls | elapsed 6.2m
+[119/250] seg04004 r3 art14 text:2calls graph:3calls | elapsed 6.8m
+[120/250] seg04051 r3 art14 text:2calls graph:4calls | elapsed 7.6m
+[121/250] seg04123 r3 art46 text:3calls graph:3calls | elapsed 8.2m
+[122/250] seg04944 r3 art14 text:2calls graph:2calls | elapsed 8.8m
+[123/250] seg05178 r3 art13 text:3calls graph:3calls | elapsed 9.3m
+[124/250] seg05298 r3 art46 text:5calls graph:3calls | elapsed 9.9m
+[125/250] seg05319 r3 art13 text:5calls graph:5calls | elapsed 10.5m
+[126/250] seg05366 r3 art13 text:2calls graph:4calls | elapsed 11.1m
+[127/250] seg05461 r3 art14 text:2calls graph:2calls | elapsed 11.6m
+[128/250] seg05580 r3 art46 text:3calls graph:5calls | elapsed 12.1m
+[129/250] seg05601 r3 art13 text:2calls graph:5calls | elapsed 12.7m
+[130/250] seg05790 r3 art14 text:3calls graph:3calls | elapsed 13.5m
+[131/250] seg06118 r3 art13 text:2calls graph:3calls | elapsed 14.0m
+[132/250] seg06495 r3 art14 text:2calls graph:3calls | elapsed 14.7m
+[133/250] seg06520 r3 art46 text:3calls graph:3calls | elapsed 15.2m
+[134/250] seg06588 r3 art13 text:4calls graph:4calls | elapsed 15.9m
+[135/250] seg06634 r3 art12 text:3calls graph:4calls | elapsed 16.5m
+[136/250] seg06683 r3 art14 text:2calls graph:2calls | elapsed 17.1m
+[137/250] seg06728 r3 art12 text:3calls graph:3calls | elapsed 17.7m
+[138/250] seg06871 r3 art14 text:2calls graph:4calls | elapsed 18.4m
+[139/250] seg07011 r3 art13 text:3calls graph:5calls | elapsed 19.2m
+[140/250] seg07153 r3 art14 text:2calls graph:4calls | elapsed 20.2m
+[141/250] seg07294 r3 art14 text:2calls graph:4calls | elapsed 20.9m
+[142/250] seg07527 r3 art12 text:3calls graph:3calls | elapsed 21.5m
+[143/250] seg07576 r3 art14 text:2calls graph:2calls | elapsed 22.1m
+[144/250] seg07716 r3 art13 text:2calls graph:5calls | elapsed 22.8m
+[145/250] seg07717 r3 art14 text:2calls graph:2calls | elapsed 23.4m
+[146/250] seg07809 r3 art12 text:4calls graph:6calls | elapsed 24.3m
+[147/250] seg07951 r3 art13 text:2calls graph:5calls | elapsed 25.0m
+[148/250] seg07952 r3 art14 text:2calls graph:3calls | elapsed 25.5m
+[149/250] seg08563 r3 art14 text:2calls graph:1calls | elapsed 26.1m
+[150/250] seg08798 r3 art14 text:2calls graph:2calls | elapsed 26.7m
+[151/250] seg00128 r4 art46 text:3calls graph:3calls | elapsed 27.2m
+[152/250] seg00269 r4 art46 text:3calls graph:3calls | elapsed 27.6m
+[153/250] seg00338 r4 art14 text:4calls graph:4calls | elapsed 28.3m
+[154/250] seg00572 r4 art13 text:1calls graph:5calls | elapsed 29.0m
+[155/250] seg00949 r4 art14 text:2calls graph:4calls | elapsed 29.9m
+[156/250] seg01230 r4 art13 text:3calls graph:5calls | elapsed 30.7m
+[157/250] seg01303 r4 art46 text:3calls graph:3calls | elapsed 31.2m
+[158/250] seg01700 r4 art13 text:3calls graph:4calls | elapsed 32.0m
+[159/250] seg01701 r4 art14 text:7calls graph:2calls | elapsed 32.6m
+[160/250] seg01961 r4 art46 text:3calls graph:3calls | elapsed 33.1m
+[161/250] seg02405 r4 art13 text:3calls graph:4calls | elapsed 34.7m
+[162/250] seg02500 r4 art14 text:3calls graph:3calls | elapsed 35.4m
+[163/250] seg02572 r4 art46 text:3calls graph:3calls | elapsed 35.9m
+[164/250] seg02594 r4 art14 text:5calls graph:3calls | elapsed 36.6m
+[165/250] seg03297 r4 art12 text:3calls graph:3calls | elapsed 37.3m
+[166/250] seg03298 r4 art13 text:2calls graph:5calls | elapsed 38.0m
+[167/250] seg03533 r4 art13 text:1calls graph:4calls | elapsed 38.5m
+[168/250] seg03841 r4 art46 text:3calls graph:2calls | elapsed 39.0m
+[169/250] seg04004 r4 art14 text:2calls graph:3calls | elapsed 39.6m
+[170/250] seg04051 r4 art14 text:2calls graph:4calls | elapsed 40.5m
+[171/250] seg04123 r4 art46 text:3calls graph:3calls | elapsed 41.0m
+[172/250] seg04944 r4 art14 text:2calls graph:2calls | elapsed 41.6m
+[173/250] seg05178 r4 art13 text:3calls graph:3calls | elapsed 42.1m
+[174/250] seg05298 r4 art46 text:5calls graph:3calls | elapsed 42.7m
+[175/250] seg05319 r4 art13 text:5calls graph:5calls | elapsed 43.4m
+[176/250] seg05366 r4 art13 text:2calls graph:4calls | elapsed 44.0m
+[177/250] seg05461 r4 art14 text:2calls graph:2calls | elapsed 44.4m
+[178/250] seg05580 r4 art46 text:3calls graph:5calls | elapsed 45.0m
+[179/250] seg05601 r4 art13 text:2calls graph:5calls | elapsed 45.7m
+[180/250] seg05790 r4 art14 text:3calls graph:3calls | elapsed 46.4m
+[181/250] seg06118 r4 art13 text:2calls graph:3calls | elapsed 47.0m
+[182/250] seg06495 r4 art14 text:2calls graph:3calls | elapsed 47.7m
+[183/250] seg06520 r4 art46 text:3calls graph:3calls | elapsed 48.1m
+[184/250] seg06588 r4 art13 text:4calls graph:4calls | elapsed 48.9m
+[185/250] seg06634 r4 art12 text:3calls graph:4calls | elapsed 49.4m
+[186/250] seg06683 r4 art14 text:2calls graph:2calls | elapsed 50.1m
+[187/250] seg06728 r4 art12 text:3calls graph:3calls | elapsed 50.6m
+[188/250] seg06871 r4 art14 text:2calls graph:4calls | elapsed 51.3m
+[189/250] seg07011 r4 art13 text:3calls graph:5calls | elapsed 52.2m
+[190/250] seg07153 r4 art14 text:2calls graph:4calls | elapsed 53.2m
+[191/250] seg07294 r4 art14 text:2calls graph:4calls | elapsed 53.9m
+[192/250] seg07527 r4 art12 text:3calls graph:3calls | elapsed 54.5m
+[193/250] seg07576 r4 art14 text:2calls graph:2calls | elapsed 55.1m
+[194/250] seg07716 r4 art13 text:2calls graph:5calls | elapsed 55.8m
+[195/250] seg07717 r4 art14 text:2calls graph:2calls | elapsed 56.4m
+[196/250] seg07809 r4 art12 text:4calls graph:6calls | elapsed 57.3m
+[197/250] seg07951 r4 art13 text:2calls graph:5calls | elapsed 58.0m
+[198/250] seg07952 r4 art14 text:2calls graph:3calls | elapsed 58.5m
+[199/250] seg08563 r4 art14 text:2calls graph:1calls | elapsed 59.1m
+[200/250] seg08798 r4 art14 text:2calls graph:2calls | elapsed 59.6m
+[201/250] seg00128 r5 art46 text:3calls graph:3calls | elapsed 60.1m
+[202/250] seg00269 r5 art46 text:3calls graph:3calls | elapsed 60.5m
+[203/250] seg00338 r5 art14 text:4calls graph:4calls | elapsed 61.2m
+[204/250] seg00572 r5 art13 text:1calls graph:5calls | elapsed 62.0m
+[205/250] seg00949 r5 art14 text:2calls graph:4calls | elapsed 62.8m
+[206/250] seg01230 r5 art13 text:3calls graph:5calls | elapsed 63.6m
+[207/250] seg01303 r5 art46 text:3calls graph:3calls | elapsed 64.1m
+[208/250] seg01700 r5 art13 text:3calls graph:4calls | elapsed 65.0m
+[209/250] seg01701 r5 art14 text:7calls graph:2calls | elapsed 65.6m
+[210/250] seg01961 r5 art46 text:3calls graph:3calls | elapsed 66.1m
+[211/250] seg02405 r5 art13 text:3calls graph:4calls | elapsed 67.7m
+[212/250] seg02500 r5 art14 text:3calls graph:3calls | elapsed 68.3m
+[213/250] seg02572 r5 art46 text:3calls graph:3calls | elapsed 68.8m
+[214/250] seg02594 r5 art14 text:5calls graph:3calls | elapsed 69.6m
+[215/250] seg03297 r5 art12 text:3calls graph:3calls | elapsed 70.2m
+[216/250] seg03298 r5 art13 text:2calls graph:5calls | elapsed 70.9m
+[217/250] seg03533 r5 art13 text:1calls graph:4calls | elapsed 71.5m
+[218/250] seg03841 r5 art46 text:3calls graph:2calls | elapsed 71.9m
+[219/250] seg04004 r5 art14 text:2calls graph:3calls | elapsed 72.6m
+[220/250] seg04051 r5 art14 text:2calls graph:4calls | elapsed 73.4m
+[221/250] seg04123 r5 art46 text:3calls graph:3calls | elapsed 73.9m
+[222/250] seg04944 r5 art14 text:2calls graph:2calls | elapsed 74.5m
+[223/250] seg05178 r5 art13 text:3calls graph:3calls | elapsed 75.1m
+[224/250] seg05298 r5 art46 text:5calls graph:3calls | elapsed 75.6m
+[225/250] seg05319 r5 art13 text:5calls graph:5calls | elapsed 76.3m
+[226/250] seg05366 r5 art13 text:2calls graph:4calls | elapsed 76.9m
+[227/250] seg05461 r5 art14 text:2calls graph:2calls | elapsed 77.4m
+[228/250] seg05580 r5 art46 text:3calls graph:5calls | elapsed 77.9m
+[229/250] seg05601 r5 art13 text:2calls graph:5calls | elapsed 78.6m
+[230/250] seg05790 r5 art14 text:3calls graph:3calls | elapsed 79.4m
+[231/250] seg06118 r5 art13 text:2calls graph:3calls | elapsed 79.9m
+[232/250] seg06495 r5 art14 text:2calls graph:3calls | elapsed 80.7m
+[233/250] seg06520 r5 art46 text:3calls graph:3calls | elapsed 81.1m
+[234/250] seg06588 r5 art13 text:4calls graph:4calls | elapsed 81.9m
+[235/250] seg06634 r5 art12 text:3calls graph:4calls | elapsed 82.5m
+[236/250] seg06683 r5 art14 text:2calls graph:2calls | elapsed 83.1m
+[237/250] seg06728 r5 art12 text:3calls graph:3calls | elapsed 83.7m
+[238/250] seg06871 r5 art14 text:2calls graph:4calls | elapsed 84.5m
+[239/250] seg07011 r5 art13 text:3calls graph:5calls | elapsed 85.4m
+[240/250] seg07153 r5 art14 text:2calls graph:4calls | elapsed 86.4m
+[241/250] seg07294 r5 art14 text:2calls graph:4calls | elapsed 87.1m
+[242/250] seg07527 r5 art12 text:3calls graph:3calls | elapsed 87.7m
+[243/250] seg07576 r5 art14 text:2calls graph:2calls | elapsed 88.3m
+[244/250] seg07716 r5 art13 text:2calls graph:5calls | elapsed 89.0m
+[245/250] seg07717 r5 art14 text:2calls graph:2calls | elapsed 89.7m
+[246/250] seg07809 r5 art12 text:4calls graph:6calls | elapsed 90.7m
+[247/250] seg07951 r5 art13 text:2calls graph:5calls | elapsed 91.4m
+[248/250] seg07952 r5 art14 text:2calls graph:3calls | elapsed 91.8m
+[249/250] seg08563 r5 art14 text:2calls graph:1calls | elapsed 92.4m
+[250/250] seg08798 r5 art14 text:2calls graph:2calls | elapsed 93.0m
+
+wrote paper_draft/s6_tools/stability.traces.json
+250 units (50 items x 5 repeats) x 2 arms | turn cap hit: 0 | errors: 0 | max prompt_eval_count 3207 of num_ctx 16384

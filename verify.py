@@ -6,6 +6,7 @@ verify.py - reproduce the three verification legs of the GDPR KG gate.
     python verify.py --shacl       # pySHACL conformance only
     python verify.py --cq          # SPARQL competency questions under OWL 2 RL
     python verify.py --reasoner    # headless HermiT consistency
+    python verify.py --eval        # evaluation/ digests (pre-registrations, instruments)
 
 Exit code 0 iff every requested leg passes. See SPEC.md section 5.
 
@@ -124,9 +125,28 @@ def leg_reasoner():
     return len(unsat) == 0
 
 
+def leg_eval():
+    """Not a gate leg: checks every digest in evaluation/*/*.sha256 against the files."""
+    import glob, hashlib
+    print('== Evaluation integrity (pre-registration and instrument digests) ==')
+    ok = True
+    for sidecar in sorted(glob.glob(os.path.join(ROOT, 'evaluation', '*', '*.sha256'))):
+        lines = open(sidecar, encoding='utf-8').read().splitlines()
+        kv = dict(l.split(None, 1) for l in lines if l.startswith(('sha256 ', 'file ')))
+        pairs = [(kv['sha256'].strip(), kv['file'].strip())] if kv.keys() >= {'sha256', 'file'} \
+            else [(h, n.lstrip('*')) for h, n in (l.split(None, 1) for l in lines if l.strip())]
+        for want, name in pairs:
+            path = os.path.join(os.path.dirname(sidecar), name)
+            got = hashlib.sha256(open(path, 'rb').read()).hexdigest() if os.path.exists(path) else 'missing'
+            ok &= got == want
+            print(f'  {"OK  " if got == want else "FAIL"} {os.path.relpath(path, ROOT)}')
+    return ok
+
+
 def main():
     args = set(sys.argv[1:])
-    legs = [('--shacl', leg_shacl), ('--cq', leg_cq), ('--reasoner', leg_reasoner)]
+    legs = [('--shacl', leg_shacl), ('--cq', leg_cq), ('--reasoner', leg_reasoner),
+            ('--eval', leg_eval)]
     chosen = [(f, fn) for f, fn in legs if f in args] or legs
     results = []
     for flag, fn in chosen:

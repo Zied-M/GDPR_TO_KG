@@ -1,0 +1,9 @@
+sha256   eddf157fbcd42e3b3fec6805ba65521bb9c7db014655442e92bb76eb8b078cd1
+file     PREREGISTRATION.md
+bytes    14412
+frozen   2026-09-15 (S8), before any generation
+
+Verify this digest before reading any result of the study. An edited
+PREREGISTRATION.md is a failed pre-registration, not a revised one.
+
+    .venv/Scripts/python.exe -c "import hashlib,sys;print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" paper_draft/s6_tools/PREREGISTRATION.md

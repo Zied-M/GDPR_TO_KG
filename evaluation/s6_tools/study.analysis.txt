@@ -1,0 +1,61 @@
+PRE-REGISTERED ANALYSIS. Stratified, never pooled: there is no number across
+strata here and one may not be constructed. alpha 0.05 two-sided per stratum.
+
+PRIMARY: per-item rate = reached / (reached + not_reached), per arm, per stratum.
+no_targets and no_reliance sit beside the rate and are NEVER in the denominator.
+
+stratum  arm     reach   notr  noTgt  noRel   cap   err  rate [95% CI]    
+--------------------------------------------------------------------------
+APP-12   graph       5      7     13      0     0     0  0.417 [0.193,0.680]
+APP-12   text        7      0     18      0     0     0  1.000 [0.646,1.000]
+APP-12     McNemar exact: n paired 7, discordant graph 0 / text 4, concordant 3 yes 0 no, p = 0.12500
+APP-12     verdict disagreement (KEYWORD SCAN, not a headline): 1 disagree, 24 agree, 0 unparsed
+
+APP-13   graph      74      0      0      1     0     0  1.000 [0.951,1.000]
+APP-13   text       59      0      2     14     0     0  1.000 [0.939,1.000]
+APP-13     McNemar exact: n paired 59, discordant graph 0 / text 0, concordant 59 yes 0 no, p = n/a (no discordant pairs)
+APP-13     verdict disagreement (KEYWORD SCAN, not a headline): 20 disagree, 54 agree, 1 unparsed
+
+APP-14   graph      90      0      8      2     0     0  1.000 [0.959,1.000]
+APP-14   text       75      8     16      1     0     0  0.904 [0.821,0.950]
+APP-14     McNemar exact: n paired 80, discordant graph 8 / text 0, concordant 72 yes 0 no, p = 0.00781  SIGNIFICANT
+APP-14     verdict disagreement (KEYWORD SCAN, not a headline): 27 disagree, 72 agree, 1 unparsed
+
+APP-46   graph       0      0     25      0     0     0  n/a (den 0)     
+APP-46   text        0      0     25      0     0     0  n/a (den 0)     
+APP-46     McNemar exact: n paired 0, discordant graph 0 / text 0, concordant 0 yes 0 no, p = n/a (no discordant pairs)
+APP-46     verdict disagreement (KEYWORD SCAN, not a headline): 1 disagree, 24 agree, 0 unparsed
+
+NA-46    graph       0      0     25      0     0     0  n/a (den 0)     
+NA-46    text        0      0     25      0     0     0  n/a (den 0)     
+NA-46      McNemar exact: n paired 0, discordant graph 0 / text 0, concordant 0 yes 0 no, p = n/a (no discordant pairs)
+NA-46      verdict disagreement (KEYWORD SCAN, not a headline): 10 disagree, 10 agree, 5 unparsed
+
+SECONDARY, per duty-relation pair, by relation kind.
+DESCRIPTIVE ONLY. Deliberately NOT significance-tested: pairs are nested within
+items and clustered hard by the fanout skew (8 nodes carry 201 of 258).
+
+stratum  arm    kind             surfaced/targets
+--------------------------------------------------------
+APP-12   graph  appliesIf        8/22
+APP-12   graph  ALL              8/22
+APP-12   text   appliesIf        14/14
+APP-12   text   ALL              14/14
+APP-13   graph  appliesIf        483/483
+APP-13   graph  hasException     244/244
+APP-13   graph  ALL              727/727
+APP-13   text   appliesIf        200/240
+APP-13   text   hasException     0/120
+APP-13   text   ALL              200/360
+APP-14   graph  appliesIf        466/466
+APP-14   graph  hasException     932/932
+APP-14   graph  notApplicableIf  233/233
+APP-14   graph  ALL              1631/1631
+APP-14   text   appliesIf        3/274
+APP-14   text   hasException     65/548
+APP-14   text   notApplicableIf  37/137
+APP-14   text   ALL              105/959
+APP-46   graph  ALL              0/0
+APP-46   text   ALL              0/0
+NA-46    graph  ALL              0/0
+NA-46    text   ALL              0/0

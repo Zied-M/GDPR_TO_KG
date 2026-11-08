@@ -1,0 +1,41 @@
+PRE-REGISTERED STABILITY ANALYSIS (PREREGISTRATION-STABILITY.md section 4).
+
+PRIMARY: proportion of items whose RELIED-PROVISION SET is identical across all
+5 runs, per arm, per stratum, with Wilson intervals. Stratified, never pooled.
+
+AT TEMPERATURE 0.0 THIS IS HARNESS REPRODUCIBILITY, NOT GENERATION VARIANCE.
+A high figure is a FLOOR, not a finding. It does not answer whether an LLM
+justification can change between runs; that needs temperature above 0.
+
+stratum  arm        n  stable  unstable  proportion [95% CI] status stable
+--------------------------------------------------------------------------
+APP-12   graph      5       5         0  1.000 [0.566,1.000] 5/5
+APP-12   text       5       5         0  1.000 [0.566,1.000] 5/5
+APP-13   graph     15      15         0  1.000 [0.796,1.000] 15/15
+APP-13   text      15      15         0  1.000 [0.796,1.000] 15/15
+APP-14   graph     20      20         0  1.000 [0.839,1.000] 20/20
+APP-14   text      20      20         0  1.000 [0.839,1.000] 20/20
+APP-46   graph      5       5         0  1.000 [0.566,1.000] 5/5
+APP-46   text       5       5         0  1.000 [0.566,1.000] 5/5
+NA-46    graph      5       5         0  1.000 [0.566,1.000] 5/5
+NA-46    text       5       5         0  1.000 [0.566,1.000] 5/5
+
+PER-ITEM RESOLUTION: how many of the 5 runs agree on the relied-provision set.
+Reported as a gradient because that is what N = 5 was chosen to expose.
+
+stratum  arm    runs agreeing -> items
+----------------------------------------------------
+APP-12   graph  {5: 5}
+APP-12   text   {5: 5}
+APP-13   graph  {5: 15}
+APP-13   text   {5: 15}
+APP-14   graph  {5: 20}
+APP-14   text   {5: 20}
+APP-46   graph  {5: 5}
+APP-46   text   {5: 5}
+NA-46    graph  {5: 5}
+NA-46    text   {5: 5}
+
+SECONDARY (provisions cited in the final answer): NOT COMPUTED.
+It needs a prose parser that owes a hand-check before it may produce any
+number. The parser is not built, so this line produces none, per section 3.

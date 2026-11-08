@@ -1,0 +1,585 @@
+{
+  "source": "2026-09-15 15:00:57",
+  "model": "qwen2.5:7b",
+  "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "num_ctx": 16384,
+  "turn_cap": 10,
+  "k": 5,
+  "sample_file": "sample.frozen.json",
+  "split": "pilot",
+  "n_items": 6,
+  "items": [
+    {
+      "id": "seg01511",
+      "stratum": "APP-12",
+      "article": 12,
+      "arms": {
+        "text": {
+          "arm": "text",
+          "status": "reached",
+          "relied_units": [
+            "art12-p5-a",
+            "art12-p5-b",
+            "art12-p5-sub1"
+          ],
+          "relied_duties": [
+            "perm-12-5-a-fee",
+            "perm-12-5-b-refuse"
+          ],
+          "relied_duties_direct": [],
+          "n_targets": 2,
+          "n_surfaced": 2,
+          "turns": 4,
+          "calls": 3,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": [
+            {
+              "duty_id": "perm-12-5-a-fee",
+              "relation_id": "cond-12-5-unfounded-excessive",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art12-p5"
+              ],
+              "surfaced": true,
+              "how": "provision_text"
+            },
+            {
+              "duty_id": "perm-12-5-b-refuse",
+              "relation_id": "cond-12-5-unfounded-excessive",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art12-p5"
+              ],
+              "surfaced": true,
+              "how": "provision_text"
+            }
+          ]
+        },
+        "graph": {
+          "arm": "graph",
+          "status": "no_targets",
+          "relied_units": [
+            "art12-p2"
+          ],
+          "relied_duties": [
+            "obl-12-2-facilitate",
+            "obl-12-2-no-refusal"
+          ],
+          "relied_duties_direct": [
+            "obl-12-2-facilitate",
+            "obl-12-2-no-refusal"
+          ],
+          "n_targets": 0,
+          "n_surfaced": 0,
+          "turns": 5,
+          "calls": 4,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": []
+        }
+      }
+    },
+    {
+      "id": "seg00196",
+      "stratum": "APP-13",
+      "article": 13,
+      "arms": {
+        "text": {
+          "arm": "text",
+          "status": "no_reliance",
+          "relied_units": [],
+          "relied_duties": [],
+          "relied_duties_direct": [],
+          "n_targets": 0,
+          "n_surfaced": 0,
+          "turns": 2,
+          "calls": 1,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": []
+        },
+        "graph": {
+          "arm": "graph",
+          "status": "reached",
+          "relied_units": [
+            "art13-p2-c",
+            "art13-p2-f"
+          ],
+          "relied_duties": [
+            "obl-art13-2-c-withdraw-consent",
+            "obl-art13-2-f-automated-decision"
+          ],
+          "relied_duties_direct": [
+            "obl-art13-2-c-withdraw-consent",
+            "obl-art13-2-f-automated-decision"
+          ],
+          "n_targets": 6,
+          "n_surfaced": 6,
+          "turns": 5,
+          "calls": 4,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": [
+            {
+              "duty_id": "obl-art13-2-c-withdraw-consent",
+              "relation_id": "cond-13-2-at-time-obtained",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art13-p2"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art13-2-c-withdraw-consent",
+              "relation_id": "cond-collected-from-data-subject",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art13-p1",
+                "art14-p1"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art13-2-c-withdraw-consent",
+              "relation_id": "exc-art13-4-already-has-info",
+              "kind": "hasException",
+              "relation_cites": [
+                "art13-p4"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art13-2-f-automated-decision",
+              "relation_id": "cond-13-2-at-time-obtained",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art13-p2"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art13-2-f-automated-decision",
+              "relation_id": "cond-collected-from-data-subject",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art13-p1",
+                "art14-p1"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art13-2-f-automated-decision",
+              "relation_id": "exc-art13-4-already-has-info",
+              "kind": "hasException",
+              "relation_cites": [
+                "art13-p4"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "seg00808",
+      "stratum": "APP-14",
+      "article": 14,
+      "arms": {
+        "text": {
+          "arm": "text",
+          "status": "reached",
+          "relied_units": [
+            "art14-p2-b"
+          ],
+          "relied_duties": [
+            "obl-art14-2-b-legitimate-interests"
+          ],
+          "relied_duties_direct": [],
+          "n_targets": 7,
+          "n_surfaced": 1,
+          "turns": 3,
+          "calls": 2,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": [
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "cond-14-3-b-first-communication",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art14-p3-b"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "cond-14-3-c-first-disclosure",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art14-p3-c"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "cond-collected-from-data-subject",
+              "kind": "notApplicableIf",
+              "relation_cites": [
+                "art13-p1",
+                "art14-p1"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "exc-art14-5-a-already-has-info",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-a"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "exc-art14-5-b-impossible-disproportionate",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-b"
+              ],
+              "surfaced": true,
+              "how": "provision_text"
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "exc-art14-5-c-laid-down-by-law",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-c"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "exc-art14-5-d-professional-secrecy",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-d"
+              ],
+              "surfaced": false,
+              "how": null
+            }
+          ]
+        },
+        "graph": {
+          "arm": "graph",
+          "status": "reached",
+          "relied_units": [
+            "art14-p2-d"
+          ],
+          "relied_duties": [
+            "obl-art14-2-d-withdraw-consent"
+          ],
+          "relied_duties_direct": [
+            "obl-art14-2-d-withdraw-consent"
+          ],
+          "n_targets": 7,
+          "n_surfaced": 7,
+          "turns": 4,
+          "calls": 3,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": [
+            {
+              "duty_id": "obl-art14-2-d-withdraw-consent",
+              "relation_id": "cond-14-3-b-first-communication",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art14-p3-b"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art14-2-d-withdraw-consent",
+              "relation_id": "cond-14-3-c-first-disclosure",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art14-p3-c"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art14-2-d-withdraw-consent",
+              "relation_id": "cond-collected-from-data-subject",
+              "kind": "notApplicableIf",
+              "relation_cites": [
+                "art13-p1",
+                "art14-p1"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art14-2-d-withdraw-consent",
+              "relation_id": "exc-art14-5-a-already-has-info",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-a"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art14-2-d-withdraw-consent",
+              "relation_id": "exc-art14-5-b-impossible-disproportionate",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-b"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art14-2-d-withdraw-consent",
+              "relation_id": "exc-art14-5-c-laid-down-by-law",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-c"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            },
+            {
+              "duty_id": "obl-art14-2-d-withdraw-consent",
+              "relation_id": "exc-art14-5-d-professional-secrecy",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-d"
+              ],
+              "surfaced": true,
+              "how": "relation_node"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "seg01231",
+      "stratum": "APP-14",
+      "article": 14,
+      "arms": {
+        "text": {
+          "arm": "text",
+          "status": "reached",
+          "relied_units": [
+            "art14-p2-b"
+          ],
+          "relied_duties": [
+            "obl-art14-2-b-legitimate-interests"
+          ],
+          "relied_duties_direct": [],
+          "n_targets": 7,
+          "n_surfaced": 1,
+          "turns": 3,
+          "calls": 2,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": [
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "cond-14-3-b-first-communication",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art14-p3-b"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "cond-14-3-c-first-disclosure",
+              "kind": "appliesIf",
+              "relation_cites": [
+                "art14-p3-c"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "cond-collected-from-data-subject",
+              "kind": "notApplicableIf",
+              "relation_cites": [
+                "art13-p1",
+                "art14-p1"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "exc-art14-5-a-already-has-info",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-a"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "exc-art14-5-b-impossible-disproportionate",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-b"
+              ],
+              "surfaced": true,
+              "how": "provision_text"
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "exc-art14-5-c-laid-down-by-law",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-c"
+              ],
+              "surfaced": false,
+              "how": null
+            },
+            {
+              "duty_id": "obl-art14-2-b-legitimate-interests",
+              "relation_id": "exc-art14-5-d-professional-secrecy",
+              "kind": "hasException",
+              "relation_cites": [
+                "art14-p5-d"
+              ],
+              "surfaced": false,
+              "how": null
+            }
+          ]
+        },
+        "graph": {
+          "arm": "graph",
+          "status": "no_reliance",
+          "relied_units": [],
+          "relied_duties": [],
+          "relied_duties_direct": [],
+          "n_targets": 0,
+          "n_surfaced": 0,
+          "turns": 2,
+          "calls": 1,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": []
+        }
+      }
+    },
+    {
+      "id": "seg05439",
+      "stratum": "APP-46",
+      "article": 46,
+      "arms": {
+        "text": {
+          "arm": "text",
+          "status": "no_targets",
+          "relied_units": [
+            "art46-p1",
+            "art46-p2-e",
+            "art46-p3-a"
+          ],
+          "relied_duties": [
+            "mech-46-2-e",
+            "mech-46-3-a",
+            "perm-46-1-transfer"
+          ],
+          "relied_duties_direct": [],
+          "n_targets": 0,
+          "n_surfaced": 0,
+          "turns": 8,
+          "calls": 7,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": []
+        },
+        "graph": {
+          "arm": "graph",
+          "status": "no_targets",
+          "relied_units": [
+            "art46-p1"
+          ],
+          "relied_duties": [
+            "perm-46-1-transfer"
+          ],
+          "relied_duties_direct": [
+            "perm-46-1-transfer"
+          ],
+          "n_targets": 0,
+          "n_surfaced": 0,
+          "turns": 4,
+          "calls": 3,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": []
+        }
+      }
+    },
+    {
+      "id": "seg07789",
+      "stratum": "NA-46",
+      "article": 46,
+      "arms": {
+        "text": {
+          "arm": "text",
+          "status": "no_targets",
+          "relied_units": [
+            "art46-p1"
+          ],
+          "relied_duties": [
+            "perm-46-1-transfer"
+          ],
+          "relied_duties_direct": [],
+          "n_targets": 0,
+          "n_surfaced": 0,
+          "turns": 4,
+          "calls": 3,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": []
+        },
+        "graph": {
+          "arm": "graph",
+          "status": "no_targets",
+          "relied_units": [
+            "art46-p1"
+          ],
+          "relied_duties": [
+            "perm-46-1-transfer"
+          ],
+          "relied_duties_direct": [
+            "perm-46-1-transfer"
+          ],
+          "n_targets": 0,
+          "n_surfaced": 0,
+          "turns": 4,
+          "calls": 3,
+          "turn_cap_hit": false,
+          "error": null,
+          "pairs": []
+        }
+      }
+    }
+  ]
+}
