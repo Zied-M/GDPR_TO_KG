@@ -18,6 +18,13 @@ temperature 0. Read each `RESULTS-*.md` caveats section before quoting a number.
 | 2, graded | `s6_tools/` | `PREREGISTRATION-GRADED.md` (`1a9a5f41...`) | the same question as a per-item fraction, on 220 fresh items disjoint from Study 1 | `RESULTS-GRADED.md` |
 | 3, full article | `s11_full_article/` | `PREREGISTRATION-FULLARTICLE.md` (`db2dbc99...`) | given the whole article text and a fixed duty, does the model assemble the full encoded qualification set? three conditions: `fulltext`, `graph`, `links` (secondary) | `RESULTS-FULLARTICLE.md` |
 
+Two further folders back statements the paper makes outside the three studies:
+
+| folder | backs | read |
+|---|---|---|
+| `s10_variance/` | the exploratory temperature 0.7 run in the discussion (5 of 100 item-arms stable across ten runs), pre-registered (`f7d08502...`) | `s10_variance/README.md` |
+| `s5_pilot/` | the model screen (tool support, then a chaining gate on 18 pilot items) and the abandoned citation-entailment scorer | `s5_pilot/README.md` |
+
 In Studies 1 and 2 the text condition's store returned the duty's provision, its
 introductory paragraph and its neighbouring points, not the whole article. Study 3 exists
 to remove that explanation: every condition receives the full article.

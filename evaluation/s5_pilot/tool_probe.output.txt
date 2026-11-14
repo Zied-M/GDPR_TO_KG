@@ -1,0 +1,3 @@
+   llama3:latest  ERROR HTTPError: HTTP Error 400: Bad Request
+      mistral:7b  TOOL CALL -> get_provision({"provision_id": "Article 13(1)(c)"})
+      qwen2.5:7b  TOOL CALL -> get_provision({"provision_id": "Article 13(1)(c)"})
