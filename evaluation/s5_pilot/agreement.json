@@ -1,0 +1,54 @@
+{
+  "metric_field": "entailment",
+  "annotator": "GPT ASTRA Verdict",
+  "annotator_is_an_llm": true,
+  "caveat": "an LLM annotator is a second automatic judgement; agreement would not establish correctness and this does not complete the Part C validation",
+  "n": 100,
+  "raw_agreement_enriched_subset": 61.0,
+  "weighted_back_to_pilot": 66.0,
+  "cohens_kappa": 0.018,
+  "kappa_scale": "landis1977agreement: <0.00 poor, 0.00-0.20 slight, 0.21-0.40 fair",
+  "per_class_metric_vs_annotator": {
+    "entailed": {
+      "n": 12,
+      "agreed": 3,
+      "pct": 25.0
+    },
+    "neutral": {
+      "n": 82,
+      "agreed": 58,
+      "pct": 70.7
+    },
+    "contradicted": {
+      "n": 6,
+      "agreed": 0,
+      "pct": 0.0
+    }
+  },
+  "confusion_metric_rows_annotator_cols": {
+    "entailed": {
+      "entailed": 3,
+      "neutral": 9,
+      "contradicted": 0
+    },
+    "neutral": {
+      "entailed": 24,
+      "neutral": 58,
+      "contradicted": 0
+    },
+    "contradicted": {
+      "entailed": 4,
+      "neutral": 2,
+      "contradicted": 0
+    }
+  },
+  "annotator_label_use": {
+    "neutral": 69,
+    "entailed": 31
+  },
+  "metric_label_use": {
+    "entailed": 12,
+    "neutral": 82,
+    "contradicted": 6
+  }
+}

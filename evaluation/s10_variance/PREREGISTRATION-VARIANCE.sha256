@@ -1,0 +1,11 @@
+sha256   f7d0850283c565ae38f52cdd16d78a4ca5aca1238a25b04106d5eb3b94752489
+file     PREREGISTRATION-VARIANCE.md
+bytes    19904
+frozen   2026-09-17 (S10), before any generation on the study items
+
+Verify this digest before reading any result of the variance study. An edited
+PREREGISTRATION-VARIANCE.md is a failed pre-registration, not a revised one.
+PREREGISTRATION.md, PREREGISTRATION-STABILITY.md and PREREGISTRATION-GRADED.md are
+frozen in s6_tools/ and are not edited by this file.
+
+    .venv/Scripts/python.exe -c "import hashlib,sys;print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" paper_draft/s10_variance/PREREGISTRATION-VARIANCE.md

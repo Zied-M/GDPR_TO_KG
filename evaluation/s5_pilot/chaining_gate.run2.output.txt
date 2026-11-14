@@ -1,0 +1,22 @@
+mistral:7b art12 calls=3 chained=False
+mistral:7b art12 calls=3 chained=False
+mistral:7b art13 calls=6 chained=False
+mistral:7b art13 calls=3 chained=False
+mistral:7b art13 calls=4 chained=False
+mistral:7b art14 calls=6 chained=False
+mistral:7b art14 calls=6 chained=False
+mistral:7b art14 calls=2 chained=False
+mistral:7b art46 calls=0 chained=False
+mistral:7b art46 calls=3 chained=False
+== mistral:7b: chained 0/10, mean calls 3.6
+qwen2.5:7b art12 calls=4 chained=True
+qwen2.5:7b art12 calls=4 chained=True
+qwen2.5:7b art13 calls=6 chained=True
+qwen2.5:7b art13 calls=4 chained=True
+qwen2.5:7b art13 calls=6 chained=True
+qwen2.5:7b art14 calls=3 chained=True
+qwen2.5:7b art14 calls=2 chained=True
+qwen2.5:7b art14 calls=5 chained=True
+qwen2.5:7b art46 calls=2 chained=True
+qwen2.5:7b art46 calls=2 chained=True
+== qwen2.5:7b: chained 10/10, mean calls 3.8
